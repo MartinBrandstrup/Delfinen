@@ -10,7 +10,7 @@ import java.time.Period;
 
 /**
  *
- * @author Kasper Jeppesen & Martin L.B.
+ * @author Kasper Jeppesen & Martin L.B & Chris
  */
 public class Member
 {
