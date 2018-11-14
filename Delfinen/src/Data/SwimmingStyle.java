@@ -7,9 +7,9 @@ package Data;
 
 /**
  *
- * @author Martin L.B.
+ * @author Freiden
  */
-public class TournamentEvent
+public enum SwimmingStyle
 {
-    
+    BREASTSTROKE, CRAWL, BACKCRAWL, BUTTERFLY
 }

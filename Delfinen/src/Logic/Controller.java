@@ -7,6 +7,8 @@ package Logic;
 
 import Data.DataAccessor;
 import Data.Member;
+import Data.TournamentEvent;
+import Data.Team;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -22,6 +24,8 @@ public class Controller
     private MembershipPrice calculator;
     //private MemberList memberlist;
     private ArrayList<Member> memberList;
+    private ArrayList<Team> teamList;
+    private ArrayList<TournamentEvent> tournamentList;
     private int MIDcounter = 1;
 
     //MemberID og dateOfJoining bliver automatisk genereret.

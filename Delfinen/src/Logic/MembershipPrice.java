@@ -9,7 +9,7 @@ package Logic;
  *
  * @author Martin L.B.
  */
-class MembershipPrice
+public class MembershipPrice
 {
 
     //Calculates yearly membership cost for a given member. Return is in 'øre'
