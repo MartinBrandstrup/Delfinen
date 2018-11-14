@@ -17,9 +17,9 @@ public class Team
     private String teamName;
     private String trainer;
     private SwimmingStyle swimmingStyle;
-    private ArrayList<Member> teamMembers;
+    private ArrayList<CompetitiveSwimmer> teamMembers;
     
-    public void addMember(Member member)
+    public void addMember(CompetitiveSwimmer member)
     {
         teamMembers.add(member);
     }
@@ -65,7 +65,7 @@ public class Team
         this.swimmingStyle = swimmingStyle;
     }
 
-    public ArrayList<Member> getTeamMembers()
+    public ArrayList<CompetitiveSwimmer> getTeamMembers()
     {
         return teamMembers;
     }
