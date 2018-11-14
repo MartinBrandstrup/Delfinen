@@ -7,7 +7,7 @@ package Logic;
 
 /**
  *
- * @author Freiden
+ * @author Martin L.B.
  */
 class MembershipPrice
 {
@@ -34,10 +34,10 @@ class MembershipPrice
         else
         {
             yearlyCost = 160000;
-            if(age >= 65)
-            {
-                yearlyCost = yearlyCost / 100 * 75;
-            }
+        }
+        if(age >= 65)
+        {
+            yearlyCost = yearlyCost / 100 * 75;
         }
 
         return yearlyCost;
