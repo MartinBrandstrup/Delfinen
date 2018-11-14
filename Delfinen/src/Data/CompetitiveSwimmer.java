@@ -41,7 +41,7 @@ public class CompetitiveSwimmer extends Member
         teamMemberships.add(team);
     }
 
-    public void registerSwimmerInTournament(Tournament tournament)
+    public void registerSwimmerInTournament(TournamentEvent tournament)
     {
         tournamentParticipations.add(tournament);
     }
@@ -55,7 +55,7 @@ public class CompetitiveSwimmer extends Member
         tournamentEligibility = true;
     }
 
-    public void setTournamentEligibility()
+    public void setTournamentEligibility(boolean tournamentEligibility)
     {
         this.tournamentEligibility = tournamentEligibility;
     }

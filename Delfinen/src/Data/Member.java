@@ -72,6 +72,11 @@ public class Member
         paidCurrentYear = true;
     }
 
+    public void setPaidCurrentYear(boolean paidCurrentYear)
+    {
+        this.paidCurrentYear = paidCurrentYear;
+    }
+
     //If member is currently active, sets to passive and vice versa
     public void switchActivityStatus()
     {
@@ -81,8 +86,7 @@ public class Member
         }
         activityStatus = true;
     }
-    
-    
+
     
     public boolean hasPaidCurrentYear()
     {
@@ -109,6 +113,11 @@ public class Member
         this.zipCode = zipCode;
     }
 
+    public void setMemberID(int memberID)
+    {
+        this.memberID = memberID;
+    }
+    
     public void setPhoneNumber(long phoneNumber)
     {
         this.phoneNumber = phoneNumber;
@@ -154,11 +163,6 @@ public class Member
         this.dateOfJoining = dateOfJoining;
     }
 
-    public void setPaidCurrentYear(boolean paidCurrentYear)
-    {
-        this.paidCurrentYear = paidCurrentYear;
-    }
-    
     
     public int getZipCode()
     {
