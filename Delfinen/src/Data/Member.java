@@ -102,7 +102,62 @@ public class Member
         }
         return "Passive";
     }
+
     
+    public void setZipCode(int zipCode)
+    {
+        this.zipCode = zipCode;
+    }
+
+    public void setPhoneNumber(long phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setArrearsBalance(long arrearsBalance)
+    {
+        this.arrearsBalance = arrearsBalance;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
+
+    public void setEmailAddress(String emailAddress)
+    {
+        this.emailAddress = emailAddress;
+    }
+
+    public void setMemberType(String memberType)
+    {
+        this.memberType = memberType;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth)
+    {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setDateOfJoining(LocalDate dateOfJoining)
+    {
+        this.dateOfJoining = dateOfJoining;
+    }
+
+    public void setPaidCurrentYear(boolean paidCurrentYear)
+    {
+        this.paidCurrentYear = paidCurrentYear;
+    }
     
     
     public int getZipCode()
