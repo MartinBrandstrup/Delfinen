@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Data.CompetitiveSwimmer;
 import Data.DataAccessor;
 import Data.Member;
 import Data.TournamentEvent;
@@ -30,25 +31,26 @@ public class Controller
 
     //MemberID og dateOfJoining bliver automatisk genereret.
     //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
-    //Controller for at ændre counteren
+    //Controller for at ændre counteren. paidCurrentYear og activityStatus
+    //er sat til true som default
     public void registerNewMember(int zipCode, long phoneNumber,
             String name, String address, String city,
             String email, LocalDate dateOfBirth)
     {
-        memberList.add(new Member(true, true, zipCode,
-                MIDcounter, phoneNumber, 0, 0, name, address,
-                city, email, "Recreational Swimmer", dateOfBirth, LocalDate.now()));
+        memberList.add(new Member(true, true, zipCode, MIDcounter, phoneNumber,
+                0, 0, name, address, city, email, "Recreational Swimmer",
+                dateOfBirth, LocalDate.now()));
 
         getLastAddedMember().setMembershipPrice(getMembershipPrice(getLastAddedMember()));
-        
+
         ++MIDcounter;
     }
 
     public Member getLastAddedMember()
     {
-        return memberList.get(memberList.size()-1);
+        return memberList.get(memberList.size() - 1);
     }
-    
+
     public ArrayList<Member> getMemberlist()
     {
         return memberList;
@@ -69,11 +71,17 @@ public class Controller
         this.MIDcounter = MIDcounter;
     }
 
-    private long getMembershipPrice(Member member)
+    public long getMembershipPrice(Member member)
     {
         int age = member.getAge();
         boolean activityStatus = member.getActivityStatus();
-        
+
         return calculator.calculateMembershipPrice(age, activityStatus);
+    }
+
+    public void registerMemberToTeam(CompetitiveSwimmer member, Team team)
+    {
+        member.registerSwimmerOnTeam(team);
+        team.addMember(member);
     }
 }
