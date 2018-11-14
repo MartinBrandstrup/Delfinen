@@ -60,6 +60,7 @@ public class Member
         return LocalDate.of(currentYear, monthOfJoining, dayOfJoining);
     }
 
+    //Checks if the payment is overdue, and adds to the Member's arrears if true
     public void checkPaymentOverdue()
     {
         Period untilNextPayment = Period.between(getNextPaymentDate(), LocalDate.now());
