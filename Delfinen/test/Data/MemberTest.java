@@ -21,9 +21,9 @@ public class MemberTest
 
     public MemberTest()
     {
-        johanne = new Member(false, false, 2800, 010, 14548645, 50000, "Johanne Jaeger",
-                "Fiktiv Vej 23", "Kongens Lyngby", "Johanne.j@test.dk",
-                "Competitive", LocalDate.of(1993, 04, 12),
+        johanne = new Member(false, false, 2800, 010, 14548645, 50000, 50000, 
+                "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
+                "Johanne.j@test.dk", "Competitive", LocalDate.of(1993, 04, 12),
                 LocalDate.of(2009, 12, 10));
     }
 

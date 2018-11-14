@@ -31,8 +31,8 @@ public class Controller
             String email, LocalDate dateOfBirth)
     {
         memberlist.add(new Member(true, true, zipCode,
-                MIDcounter, phoneNumber, 0, name, address, city, email,
-                "Recreational Swimmer", dateOfBirth, LocalDate.now()));
+                MIDcounter, phoneNumber, 0, getMembershipPrice, name, address,
+                city, email, "Recreational Swimmer", dateOfBirth, LocalDate.now()));
         ++MIDcounter;
     }
 

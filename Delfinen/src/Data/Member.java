@@ -18,14 +18,14 @@ public class Member
     //Arrears is noted in 'øre', ex 500.00 kr. = 50000
     private boolean paidCurrentYear, activityStatus;
     private int zipCode, memberID;
-    private long phoneNumber, arrearsBalance;
+    private long phoneNumber, arrearsBalance, membershipPrice;
 
     private String name, address, city, emailAddress, memberType;
     private LocalDate dateOfBirth, dateOfJoining;
 
     public Member(boolean paidCurrentYear, boolean activityStatus, int zipCode,
             int memberID, long phoneNumber, long arrearsBalance,
-            String name, String address, String city,
+            long membershipPrice, String name, String address, String city,
             String emailAddress, String memberType, LocalDate dateOfBirth,
             LocalDate dateOfJoining)
     {
@@ -60,6 +60,18 @@ public class Member
         return LocalDate.of(currentYear, monthOfJoining, dayOfJoining);
     }
 
+    public void checkPaymentOverdue()
+    {
+        Period untilNextPayment = Period.between(getNextPaymentDate(), LocalDate.now());
+
+        if(paidCurrentYear == false
+                && untilNextPayment.getDays() > 0
+                && untilNextPayment.getMonths() >= 0)
+        {
+            arrearsBalance += membershipPrice;
+        }
+    }
+
     //Resets the arrearBalance, so that the debt is removed
     public void payArrears()
     {
@@ -87,7 +99,6 @@ public class Member
         activityStatus = true;
     }
 
-    
     public boolean hasPaidCurrentYear()
     {
         return paidCurrentYear;
@@ -107,7 +118,6 @@ public class Member
         return "Passive";
     }
 
-    
     public void setZipCode(int zipCode)
     {
         this.zipCode = zipCode;
@@ -117,7 +127,7 @@ public class Member
     {
         this.memberID = memberID;
     }
-    
+
     public void setPhoneNumber(long phoneNumber)
     {
         this.phoneNumber = phoneNumber;
@@ -163,7 +173,6 @@ public class Member
         this.dateOfJoining = dateOfJoining;
     }
 
-    
     public int getZipCode()
     {
         return zipCode;
