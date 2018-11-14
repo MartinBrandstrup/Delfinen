@@ -48,6 +48,11 @@
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="RegisterNewMember" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -63,7 +68,9 @@
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Component id="RegisterNewMember" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,6 +103,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Economy"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="RegisterNewMember">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Register New Member"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegisterNewMemberActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

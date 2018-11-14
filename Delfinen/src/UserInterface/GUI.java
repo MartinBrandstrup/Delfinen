@@ -37,6 +37,7 @@ public class GUI extends javax.swing.JFrame
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        RegisterNewMember = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,6 +57,15 @@ public class GUI extends javax.swing.JFrame
         jButton3.setText("View tournament Participants");
 
         jButton4.setText("Manage Economy");
+
+        RegisterNewMember.setText("Register New Member");
+        RegisterNewMember.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RegisterNewMemberActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +89,10 @@ public class GUI extends javax.swing.JFrame
                         .addGap(153, 153, 153)
                         .addComponent(jButton4)))
                 .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(RegisterNewMember)
+                .addGap(143, 143, 143))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +107,9 @@ public class GUI extends javax.swing.JFrame
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(RegisterNewMember)
+                .addGap(26, 26, 26))
         );
 
         pack();
@@ -113,6 +129,20 @@ public class GUI extends javax.swing.JFrame
         g.setVisible(true); //upen up a new window
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RegisterNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegisterNewMemberActionPerformed
+    {//GEN-HEADEREND:event_RegisterNewMemberActionPerformed
+        this.dispose(); //Close the current window showing
+        NewMember m = new NewMember(); // instance on jpanel "ManageMebers"
+        
+        GUI g = new GUI(); // instance of jpanel "ManageMembers"
+        
+        g.repaint(); //Makes sure that the frame swaps to next panel
+        g.revalidate(); //Makes sure that the frame swaps to next panel
+        
+        g.setContentPane(m); //set the jpanel you 
+        g.setVisible(true); //upen up a new window
+    }//GEN-LAST:event_RegisterNewMemberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,6 +194,7 @@ public class GUI extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton RegisterNewMember;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
