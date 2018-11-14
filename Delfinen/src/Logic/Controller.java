@@ -38,6 +38,11 @@ public class Controller
         ++MIDcounter;
     }
 
+    public int getMIDcounter()
+    {
+        return MIDcounter;
+    }
+
     public void setMIDcounter(int MIDcounter)
     {
         this.MIDcounter = MIDcounter;
