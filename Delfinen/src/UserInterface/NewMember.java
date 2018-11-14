@@ -276,10 +276,12 @@ public class NewMember extends javax.swing.JPanel
        
         Controller c = new Controller();
         
+        boolean paidCurrentYear = true; //hvorfor tager constructoren denne?????
+        
         //Activity Status fås fra metoden activeOrPassive
         int memberId = Integer.parseInt(this.MemberIDTF.getText());
         String memberType = this.MemberTypeTF.getText();
-        LocalDate dateOfJoining = LocalDate.parse(this.DateOfJoiningTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
+        //LocalDate dateOfJoining = LocalDate.parse(this.DateOfJoiningTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
         
         String name = this.NameTF.getText();
         String emailAddress = this.EmailAddressTF.getText();
@@ -292,6 +294,8 @@ public class NewMember extends javax.swing.JPanel
         long arrearsBalance = Long.parseLong(this.ArrearsBalanceTF.getText());
         //mangler Next Payment Date, da den ikke er en del af constructoren for member
         //mangler membership price, da den ikke er en del af constructoren for member
+        
+        c.registerNewMember(paidCurrentYear, activityStatus, zipCode, phoneNumber, arrearsBalance, name, address, city, emailAddress, memberType, dateOfBirth);
     }//GEN-LAST:event_ConfirmChangesActionPerformed
     public void activeOrPassive()
     {
