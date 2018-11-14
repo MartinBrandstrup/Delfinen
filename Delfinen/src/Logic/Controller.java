@@ -7,7 +7,6 @@ package Logic;
 
 import Data.DataAccessor;
 import Data.Member;
-import Data.MemberList;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -25,16 +24,15 @@ public class Controller
     private int MIDcounter = 1;
 
     //MemberID og dateOfJoining bliver automatisk genereret.
-    //Hvis der sker en fejl kan man kalde .set på medlemmet og .setMID på
-    //controlleren for at ændre counteren
-    public void registerNewMember(boolean paidCurrentYear,
-            boolean activityStatus, int zipCode, long phoneNumber,
-            long arrearsBalance, String name, String address, String city,
-            String email, String memberType, LocalDate dateOfBirth)
+    //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
+    //Controller for at ændre counteren
+    public void registerNewMember(int zipCode, long phoneNumber,
+            String name, String address, String city,
+            String email, LocalDate dateOfBirth)
     {
-        memberlist.add(new Member(paidCurrentYear, activityStatus, zipCode,
-                MIDcounter, phoneNumber, arrearsBalance, name, address, city, email,
-                memberType, dateOfBirth, LocalDate.now()));
+        memberlist.add(new Member(true, true, zipCode,
+                MIDcounter, phoneNumber, 0, name, address, city, email,
+                "Recreational Swimmer", dateOfBirth, LocalDate.now()));
         ++MIDcounter;
     }
 

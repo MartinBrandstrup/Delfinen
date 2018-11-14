@@ -283,19 +283,19 @@ public class NewMember extends javax.swing.JPanel
         String memberType = this.MemberTypeTF.getText();
         //LocalDate dateOfJoining = LocalDate.parse(this.DateOfJoiningTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
         
+        int zipCode = Integer.parseInt(this.CityTF.getText());
+        long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         String name = this.NameTF.getText();
-        String emailAddress = this.EmailAddressTF.getText();
         String address = this.AddressTF.getText();
         String city = this.CityTF.getText();
-        int zipCode = Integer.parseInt(this.CityTF.getText());
+        String email = this.EmailAddressTF.getText();
         LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
-        long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         
         long arrearsBalance = Long.parseLong(this.ArrearsBalanceTF.getText());
         //mangler Next Payment Date, da den ikke er en del af constructoren for member
         //mangler membership price, da den ikke er en del af constructoren for member
         
-        c.registerNewMember(paidCurrentYear, activityStatus, zipCode, phoneNumber, arrearsBalance, name, address, city, emailAddress, memberType, dateOfBirth);
+        c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
     }//GEN-LAST:event_ConfirmChangesActionPerformed
     public void activeOrPassive()
     {
