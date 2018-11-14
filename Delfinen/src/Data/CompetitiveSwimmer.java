@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author 69lem
+ * @author Martin L.B.
  */
 public class CompetitiveSwimmer extends Member
 {
@@ -35,7 +35,32 @@ public class CompetitiveSwimmer extends Member
         this.teamMemberships = teamMemberships;
         this.tournamentParticipations = tournamentParticipations;
     }
-    
-    
 
+    public void registerSwimmerOnTeam(Team team)
+    {
+        teamMemberships.add(team);
+    }
+
+    public void registerSwimmerInTournament(Tournament tournament)
+    {
+        tournamentParticipations.add(tournament);
+    }
+
+    public void switchTournamentEligibility()
+    {
+        if(tournamentEligibility == true)
+        {
+            tournamentEligibility = false;
+        }
+        tournamentEligibility = true;
+    }
+
+    public void setTournamentEligibility()
+    {
+        this.tournamentEligibility = tournamentEligibility;
+    }
+    
+    
+    
+    
 }
