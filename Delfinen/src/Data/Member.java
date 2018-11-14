@@ -110,7 +110,7 @@ public class Member
         return activityStatus;
     }
 
-    public String getActivityStatus()
+    public String getActivityStatusString()
     {
         if(activityStatus == true)
         {
@@ -137,6 +137,11 @@ public class Member
     public void setArrearsBalance(long arrearsBalance)
     {
         this.arrearsBalance = arrearsBalance;
+    }
+
+    public void setMembershipPrice(long membershipPrice)
+    {
+        this.membershipPrice = membershipPrice;
     }
 
     public void setName(String name)
@@ -172,6 +177,11 @@ public class Member
     public void setDateOfJoining(LocalDate dateOfJoining)
     {
         this.dateOfJoining = dateOfJoining;
+    }
+
+    public boolean getActivityStatus()
+    {
+        return activityStatus;
     }
 
     public int getZipCode()

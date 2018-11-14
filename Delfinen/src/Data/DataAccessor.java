@@ -5,11 +5,24 @@
  */
 package Data;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Martin L.B.
  */
 public interface DataAccessor
 {
+
+    public ArrayList<Member> getMemberList();
     
+    public ArrayList<Team> getTeamList();
+
+    public ArrayList<TournamentEvent> getTournamentList();
+
+    public void saveMemberList(ArrayList<Member> memberList);
+
+    public void saveTeamList(ArrayList<Team> teamList);
+
+    public void saveTournamentList(ArrayList<TournamentEvent> tournamentList);
 }

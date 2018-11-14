@@ -19,8 +19,9 @@ public class Controller
 {
 
     private DataAccessor data;
+    private MembershipPrice calculator;
     //private MemberList memberlist;
-    private ArrayList<Member> memberlist;
+    private ArrayList<Member> memberList;
     private int MIDcounter = 1;
 
     //MemberID og dateOfJoining bliver automatisk genereret.
@@ -30,20 +31,28 @@ public class Controller
             String name, String address, String city,
             String email, LocalDate dateOfBirth)
     {
-        memberlist.add(new Member(true, true, zipCode,
-                MIDcounter, phoneNumber, 0, getMembershipPrice(), name, address,
+        memberList.add(new Member(true, true, zipCode,
+                MIDcounter, phoneNumber, 0, 0, name, address,
                 city, email, "Recreational Swimmer", dateOfBirth, LocalDate.now()));
+
+        getLastAddedMember().setMembershipPrice(getMembershipPrice(getLastAddedMember()));
+        
         ++MIDcounter;
     }
 
+    public Member getLastAddedMember()
+    {
+        return memberList.get(memberList.size()-1);
+    }
+    
     public ArrayList<Member> getMemberlist()
     {
-        return memberlist;
+        return memberList;
     }
 
     public void getMemberListFromFile(ArrayList members)
     {
-        this.memberlist = data.getMemberList();
+        this.memberList = data.getMemberList();
     }
 
     public int getMIDcounter()
@@ -54,5 +63,13 @@ public class Controller
     public void setMIDcounter(int MIDcounter)
     {
         this.MIDcounter = MIDcounter;
+    }
+
+    private long getMembershipPrice(Member member)
+    {
+        int age = member.getAge();
+        boolean activityStatus = member.getActivityStatus();
+        
+        return calculator.calculateMembershipPrice(age, activityStatus);
     }
 }
