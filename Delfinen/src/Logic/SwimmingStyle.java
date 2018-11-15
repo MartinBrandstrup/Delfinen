@@ -7,9 +7,9 @@ package Logic;
 
 /**
  *
- * @author Martin L.B.
+ * @author Freiden
  */
-public class MembershipPrice
+public enum SwimmingStyle
 {
-
+    BREASTSTROKE, CRAWL, BACKCRAWL, BUTTERFLY
 }

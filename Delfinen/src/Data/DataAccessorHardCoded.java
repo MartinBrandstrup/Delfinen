@@ -5,6 +5,9 @@
  */
 package Data;
 
+import Logic.Team;
+import Logic.TournamentEvent;
+import Logic.Member;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

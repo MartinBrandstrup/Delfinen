@@ -5,12 +5,7 @@
  */
 package Logic;
 
-import Data.CompetitiveSwimmer;
-import Data.DataAccessor;
 import Data.DataAccessorHardCoded;
-import Data.Member;
-import Data.TournamentEvent;
-import Data.Team;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -23,6 +18,7 @@ public class Controller
 {
 
     private DataAccessorHardCoded data;
+    //private DataAccessorHardFile data;
     private ArrayList<Member> memberList;
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
