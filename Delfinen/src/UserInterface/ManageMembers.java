@@ -5,7 +5,7 @@
  */
 package UserInterface;
 
-/**
+/**Chris giver moralsk opbakning
  *
  * @author Kasper Jeppesen
  */
