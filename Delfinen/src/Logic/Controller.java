@@ -7,6 +7,7 @@ package Logic;
 
 import Data.CompetitiveSwimmer;
 import Data.DataAccessor;
+import Data.DataAccessorHardCoded;
 import Data.Member;
 import Data.TournamentEvent;
 import Data.Team;
@@ -21,9 +22,8 @@ public class Controller
 
 {
 
-    private DataAccessor data;
+    private DataAccessorHardCoded data;
     private MembershipPrice calculator;
-    //private MemberList memberlist;
     private ArrayList<Member> memberList;
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
@@ -56,9 +56,14 @@ public class Controller
         return memberList;
     }
 
-    public void getMemberListFromFile(ArrayList members)
+    public void updateMemberList(ArrayList members)
     {
         this.memberList = data.getMemberList();
+    }
+
+    public ArrayList<Member> getMemberList()
+    {
+        return memberList;
     }
 
     public int getMIDcounter()

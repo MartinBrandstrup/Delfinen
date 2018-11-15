@@ -16,7 +16,7 @@ public class MembershipPrice
     //so that 500 kr. = 50000
     public long calculateMembershipPrice(int age, boolean activityStatus) throws IllegalArgumentException
     {
-        if(age <= 0 || age < 150)
+        if(age <= 0 || age > 150)
         {
             throw new IllegalArgumentException();
         }

@@ -23,7 +23,7 @@ public class MemberTest
     {
         johanne = new Member(false, false, 2800, 010, 14548645, 50000, 50000, 
                 "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
-                "Johanne.j@test.dk", "Competitive", LocalDate.of(1993, 04, 12),
+                "Johanne.j@test.dk", "Recreational Swimmer", LocalDate.of(1993, 04, 12),
                 LocalDate.of(2009, 12, 10));
     }
 
@@ -35,11 +35,17 @@ public class MemberTest
     }
 
     @Test
-    public void testGetNextPayment()
+    public void testGetNextPaymentDate()
     {
         assertEquals(LocalDate.of(2018, 12, 10), johanne.getNextPaymentDate());
     }
 
+    @Test
+    public void testPaymentOverdue()
+    {
+        
+    }
+    
     @Test
     public void testPayArrears()
     {
@@ -62,5 +68,11 @@ public class MemberTest
         assertFalse(johanne.isActiveMember());
         johanne.switchActivityStatus();
         assertTrue(johanne.isActiveMember());
+    }
+    
+    @Test
+    public void testGetActivityStatusString()
+    {
+        
     }
 }
