@@ -60,6 +60,37 @@ public class Member
         return LocalDate.of(currentYear, monthOfJoining, dayOfJoining);
     }
 
+    //Calculates yearly membership cost for a given member. Return is in 'øre'
+    //so that 500 kr. = 50000
+    public void calculateMembershipPrice() throws IllegalArgumentException
+    {
+        if(getAge() <= 0 || getAge() > 150)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        long yearlyCost = 0;
+
+        if(activityStatus == false)
+        {
+            yearlyCost = 50000;
+        }
+        else if(getAge() <= 18)
+        {
+            yearlyCost = 100000;
+        }
+        else
+        {
+            yearlyCost = 160000;
+        }
+        if(getAge() >= 65)
+        {
+            yearlyCost = yearlyCost / 100 * 75;
+        }
+
+        this.membershipPrice = yearlyCost;
+    }
+
     //Checks if the payment is overdue, and adds to the Member's arrears if true
     public void checkPaymentOverdue()
     {
@@ -119,6 +150,8 @@ public class Member
         return "Passive";
     }
 
+    
+    
     public void setZipCode(int zipCode)
     {
         this.zipCode = zipCode;

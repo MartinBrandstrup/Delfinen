@@ -23,13 +23,13 @@ public class Controller
 {
 
     private DataAccessorHardCoded data;
-    private MembershipPrice calculator;
     private ArrayList<Member> memberList;
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
     private int MIDcounter = 1;
 
-    //MemberID og dateOfJoining bliver automatisk genereret.
+    //MemberID, membershipPrice, paidCurrentYear, membershipStatus og 
+    //dateOfJoining bliver automatisk genereret.
     //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
     //Controller for at ændre counteren. paidCurrentYear og activityStatus
     //er sat til true som default
@@ -41,7 +41,7 @@ public class Controller
                 0, 0, name, address, city, email, "Recreational Swimmer",
                 dateOfBirth, LocalDate.now()));
 
-        getLastAddedMember().setMembershipPrice(getMembershipPrice(getLastAddedMember()));
+        getLastAddedMember().calculateMembershipPrice();
 
         ++MIDcounter;
     }
@@ -74,14 +74,6 @@ public class Controller
     public void setMIDcounter(int MIDcounter)
     {
         this.MIDcounter = MIDcounter;
-    }
-
-    public long getMembershipPrice(Member member)
-    {
-        int age = member.getAge();
-        boolean activityStatus = member.getActivityStatus();
-
-        return calculator.calculateMembershipPrice(age, activityStatus);
     }
 
     public void registerMemberToTeam(CompetitiveSwimmer member, Team team)
