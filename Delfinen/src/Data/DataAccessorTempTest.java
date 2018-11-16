@@ -16,38 +16,39 @@ import java.util.Scanner;
  */
 public class DataAccessorTempTest
 {
+
     public static void main(String[] args)
     {
         DataAccessorFile data = new DataAccessorFile();
         Scanner scanner = new Scanner(System.in);
         ArrayList<Member> memberList = new ArrayList();
-        
-        memberList.add(new Member(false, false, true, 2800, 010, 14548645, 
-                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
-                "Kongens Lyngby", "Johanne.j@test.dk", 
+
+        memberList.add(new Member(false, false, true, 2800, 010, 14548645,
+                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23",
+                "Kongens Lyngby", "Johanne.j@test.dk",
                 LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10)));
         try
         {
-        data.saveMemberList(memberList);
+            data.saveMemberList(memberList);
         }
         catch(Exception ex)
         {
             System.out.println(ex);
         }
-        
+
         scanner.nextLine();
-        
+
         memberList.remove(0);
-        
+
         scanner.nextLine();
-        
+
         try
         {
-            memberList.get(0).toString();
-//            for(Member m : data.getMemberList())
-//            {
-//            System.out.println(m.toString());
-//            }
+            memberList = data.getMemberList();
+            for(Member m : memberList)
+            {
+                System.out.println(m.toString());
+            }
         }
         catch(Exception ex)
         {
