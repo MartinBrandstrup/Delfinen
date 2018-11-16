@@ -213,7 +213,7 @@ public class NewMember extends javax.swing.JPanel
         
         //dateOfBirth should perheps be changed to a jdatechooser
         
-        
+        //Kommentar test
         
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
         
