@@ -5,7 +5,9 @@
  */
 package Data;
 
-import javax.swing.filechooser.FileSystemView;
+import Logic.Member;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,13 +17,18 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Freiden
+ * @author Martin L.B.
  */
 public class DataAccessorFileTest
 {
-    
+    private ArrayList<Member> memberList;
+
     public DataAccessorFileTest()
     {
+        memberList.add(new Member(false, false, 2800, 010, 14548645, 50000, 50000, 
+                "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
+                "Johanne.j@test.dk", "Recreational Swimmer", LocalDate.of(1993, 04, 12),
+                LocalDate.of(2009, 12, 10)));
     }
     
     @BeforeClass
@@ -45,8 +52,15 @@ public class DataAccessorFileTest
     }
 
     @Test
-    public void testDirPath()
+    public void testSaveMemberList()
     {
-        assertEquals("", FileSystemView.getFileSystemView().getDefaultDirectory().getPath());
+        //assertEquals("", )
     }
+    
+    
+//    @Test
+//    public void testDirPath()
+//    {
+//        assertEquals("", FileSystemView.getFileSystemView().getDefaultDirectory().getPath());
+//    }
 }

@@ -5,13 +5,14 @@
  */
 package Logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Martin L.B.
  */
-public class Team
+public class Team implements Serializable
 {
 
     private String teamName;

@@ -17,15 +17,15 @@ import java.util.ArrayList;
 public interface DataAccessor
 {
 
-    public ArrayList<Member> getMemberList();
+    public ArrayList<Member> getMemberList() throws Exception;
     
-    public ArrayList<Team> getTeamList();
+    public ArrayList<Team> getTeamList() throws Exception;
 
-    public ArrayList<TournamentEvent> getTournamentList();
+    public ArrayList<TournamentEvent> getTournamentList() throws Exception;
 
-    public void saveMemberList(ArrayList<Member> memberList);
+    public void saveMemberList(ArrayList<Member> memberList) throws Exception;
 
-    public void saveTeamList(ArrayList<Team> teamList);
+    public void saveTeamList(ArrayList<Team> teamList) throws Exception;
 
-    public void saveTournamentList(ArrayList<TournamentEvent> tournamentList);
+    public void saveTournamentList(ArrayList<TournamentEvent> tournamentList) throws Exception;
 }

@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -12,7 +13,7 @@ import java.time.Period;
  *
  * @author Kasper Jeppesen & Martin L.B.
  */
-public class Member
+public class Member implements Serializable
 {
 
     //Arrears is noted in 'øre', ex 500.00 kr. = 50000
@@ -266,5 +267,24 @@ public class Member
     {
         return dateOfJoining;
     }
-
+    
+    @Override
+    public String toString()
+    {
+        //return new StringBuffer(" ")
+    }
+//        this.paidCurrentYear = paidCurrentYear;
+//        this.activityStatus = activityStatus;
+//        this.zipCode = zipCode;
+//        this.memberID = memberID;
+//        this.phoneNumber = phoneNumber;
+//        this.arrearsBalance = arrearsBalance;
+//        this.name = name;
+//        this.address = address;
+//        this.city = city;
+//        this.emailAddress = emailAddress;
+//        this.memberType = memberType;
+//        this.dateOfBirth = dateOfBirth;
+//        this.dateOfJoining = dateOfJoining;
+    
 }

@@ -5,7 +5,6 @@
  */
 package Logic;
 
-import Logic.Member;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

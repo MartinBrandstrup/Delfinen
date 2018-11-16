@@ -5,11 +5,13 @@
  */
 package Logic;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Martin L.B.
  */
-public class TournamentEvent
+public class TournamentEvent implements Serializable
 {
     
 }
