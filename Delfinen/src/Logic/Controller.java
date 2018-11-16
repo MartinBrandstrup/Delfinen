@@ -5,7 +5,7 @@
  */
 package Logic;
 
-import Data.DataAccessorHardCoded;
+import Data.DataAccessor;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -17,12 +17,17 @@ public class Controller
 
 {
 
-    private DataAccessorHardCoded data;
-    //private DataAccessorHardFile data;
+    //private DataAccessorHardCoded data;
+    private DataAccessor data;
     private ArrayList<Member> memberList = new ArrayList();
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
     private int MIDcounter = 1;
+
+    public Controller(DataAccessor data)
+    {
+        this.data = data;
+    }
 
     //MemberID, membershipPrice, paidCurrentYear, membershipStatus og 
     //dateOfJoining bliver automatisk genereret.
@@ -67,7 +72,7 @@ public class Controller
 
     //Skal helst kaldes før getMemberList() første gang man indlæser programmet
     //for at sikre at det er den nyeste liste man får fat i
-    public void updateMemberList(ArrayList members)
+    public void updateMemberList(ArrayList members) throws Exception
     {
         this.memberList = data.getMemberList();
     }
@@ -77,6 +82,11 @@ public class Controller
         return memberList;
     }
 
+    public void saveMemberList() throws Exception
+    {
+        data.saveMemberList(memberList);
+    }
+    
     public int getMIDcounter()
     {
         return MIDcounter;

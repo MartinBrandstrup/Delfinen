@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import Data.DataAccessorFile;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import org.junit.After;
@@ -50,7 +51,8 @@ public class ControllerTest
     @Test
     public void testRegisterNewMember()
     {
-        Controller ctrl = new Controller();
+        DataAccessorFile data = new DataAccessorFile();
+        Controller ctrl = new Controller(data);
         ArrayList<Member> memberList = new ArrayList();
         
         memberList.add(new Member(true, true, false, 2800, 1, 14548645, 
