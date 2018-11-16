@@ -25,7 +25,8 @@ public class DataAccessorFile implements DataAccessor
 
     //Returnerer "C:\Users\*username*\Documents" - burde fungere på både 
     //engelsk og dansk styresystem, men måske ikke på MAC maskiner
-    String filepath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
+    String filepath = FileSystemView.getFileSystemView().getDefaultDirectory()
+            .getPath() + "\\Test.txt";
 
     @Override
     public ArrayList<Member> getMemberList() throws Exception
