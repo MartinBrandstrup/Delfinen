@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Martin L.B. prøver at løse problemmet
+ * @author Martin L.B. prøver at løse problemmet v2..
  */
 public interface DataAccessor
 {
