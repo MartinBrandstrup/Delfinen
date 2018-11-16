@@ -24,10 +24,10 @@ public class Member implements Serializable
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
 
-    public Member(boolean paidCurrentYear, boolean activityStatus, 
-            boolean isCompetitiveSwimmer, int zipCode, int memberID, 
-            long phoneNumber, long arrearsBalance, long membershipPrice, 
-            String name, String address, String city, String emailAddress, 
+    public Member(boolean paidCurrentYear, boolean activityStatus,
+            boolean isCompetitiveSwimmer, int zipCode, int memberID,
+            long phoneNumber, long arrearsBalance, long membershipPrice,
+            String name, String address, String city, String emailAddress,
             LocalDate dateOfBirth, LocalDate dateOfJoining)
     {
         this.paidCurrentYear = paidCurrentYear;
@@ -150,12 +150,12 @@ public class Member implements Serializable
         }
         return "Passive";
     }
-    
+
     public boolean isCompetitiveSwimmer()
     {
         return isCompetitiveSwimmer();
     }
-    
+
     public String getCompetitiveSwimmerString()
     {
         if(isCompetitiveSwimmer == true)
@@ -165,8 +165,6 @@ public class Member implements Serializable
         return "Recreational Swimmer";
     }
 
-    
-    
     public void setZipCode(int zipCode)
     {
         this.zipCode = zipCode;
@@ -271,24 +269,24 @@ public class Member implements Serializable
     {
         return dateOfJoining;
     }
-    
+
     @Override
     public String toString()
     {
-        return new StringBuffer("  "    .toString());
+        return new StringBuffer("Is membership price paid for the current year : ").append(this.paidCurrentYear)
+                .append(", Is member active : ").append(this.activityStatus)
+                .append(", Is member a competitive swimmer : ").append(this.isCompetitiveSwimmer)
+                .append(", Zip Code : ").append(this.zipCode)
+                .append(", MemberID : ").append(this.memberID)
+                .append(", Phone Number : ").append(this.phoneNumber)
+                .append(", Member's arrears balance : ").append(this.arrearsBalance)
+                .append(", Name : ").append(this.name)
+                .append(", Address : ").append(this.address)
+                .append(", City : ").append(this.city)
+                .append(", Email Address : ").append(this.emailAddress)
+                .append(", Birthdate : ").append(this.dateOfBirth)
+                .append(", Joining date : ").append(this.dateOfJoining)
+                .toString();
     }
-//        this.paidCurrentYear = paidCurrentYear;
-//        this.activityStatus = activityStatus;
-//        this.zipCode = zipCode;
-//        this.memberID = memberID;
-//        this.phoneNumber = phoneNumber;
-//        this.arrearsBalance = arrearsBalance;
-//        this.name = name;
-//        this.address = address;
-//        this.city = city;
-//        this.emailAddress = emailAddress;
-//        this.memberType = memberType;
-//        this.dateOfBirth = dateOfBirth;
-//        this.dateOfJoining = dateOfJoining;
-    
+
 }

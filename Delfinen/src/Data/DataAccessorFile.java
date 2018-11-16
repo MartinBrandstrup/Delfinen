@@ -8,8 +8,10 @@ package Data;
 import Logic.Team;
 import Logic.TournamentEvent;
 import Logic.Member;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.filechooser.FileSystemView;
@@ -28,7 +30,29 @@ public class DataAccessorFile implements DataAccessor
     @Override
     public ArrayList<Member> getMemberList() throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Member> memberList = null;
+        
+        try
+        {
+            FileInputStream fileIn = new FileInputStream(filepath);
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+            
+            Object obj = objectIn.readObject();
+
+            
+            
+            
+            objectIn.close();
+            System.out.println("The Objects have been read from the file");
+
+            return memberList;
+        }
+        catch(IOException ex)
+        {
+            System.out.println("Something went wrong");
+            return null;
+        }
     }
 
     @Override
@@ -51,9 +75,9 @@ public class DataAccessorFile implements DataAccessor
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 
-            for(int i = 0; i < memberList.size(); i++)
+            for(Member o : memberList)
             {
-                objectOut.writeObject(memberList.get(i));
+                objectOut.writeObject(o);
             }
 
             objectOut.close();
