@@ -47,7 +47,7 @@ public class Controller
         return memberList.get(memberList.size() - 1);
     }
     
-    public Member getMemberByID(int memberID)
+    public Member getMemberByID(int memberID) throws NullPointerException
     {
         for(int i = 0; i < memberList.size(); i++)
         {
@@ -56,6 +56,7 @@ public class Controller
                 return memberList.get(i);
             }
         }
+        throw new NullPointerException("No member with given ID!");
     }
 
     public ArrayList<Member> getMemberlist()
