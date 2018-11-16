@@ -214,6 +214,7 @@ public class NewMember extends javax.swing.JPanel
         //dateOfBirth should perheps be changed to a jdatechooser
         
         //Kommentar test
+        validation();
         
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
         
@@ -226,37 +227,37 @@ public class NewMember extends javax.swing.JPanel
     }//GEN-LAST:event_ResetActionPerformed
     
     
-//    public void validation()
-//    {
-//        if(this.ZipCodeTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field zip code can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.PhoneNumberTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field phone number can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.NameTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field name can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.AddressTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.CityTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field city can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.EmailAddressTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field email address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(this.DateOfBirthTF.getText().equals(""))
-//        {
-//            JOptionPane.showMessageDialog(null, "The field date of birth can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
+    public void validation()
+    {
+        if(this.ZipCodeTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field zip code can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.PhoneNumberTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field phone number can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.NameTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field name can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.AddressTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.CityTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field city can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.EmailAddressTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field email address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.DateOfBirthTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field date of birth can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     public void reset()
     {
         this.ZipCodeTF.setText("");
