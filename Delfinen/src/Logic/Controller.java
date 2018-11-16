@@ -49,11 +49,11 @@ public class Controller
     
     public Member getMemberByID(int memberID) throws NullPointerException
     {
-        for(int i = 0; i < memberList.size(); i++)
+        for(Member m : memberList)
         {
-            if(memberList.get(i).getMemberID() == memberID)
+            if(m.getMemberID() == memberID)
             {
-                return memberList.get(i);
+                return m;
             }
         }
         throw new NullPointerException("No member with given ID!");
