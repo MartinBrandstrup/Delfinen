@@ -46,12 +46,25 @@ public class Controller
     {
         return memberList.get(memberList.size() - 1);
     }
+    
+    public Member getMemberByID(int memberID)
+    {
+        for(int i = 0; i < memberList.size(); i++)
+        {
+            if(memberList.get(i).getMemberID() == memberID)
+            {
+                return memberList.get(i);
+            }
+        }
+    }
 
     public ArrayList<Member> getMemberlist()
     {
         return memberList;
     }
 
+    //Skal helst kaldes før getMemberList() første gang man indlæser programmet
+    //for at sikre at det er den nyeste liste man får fat i
     public void updateMemberList(ArrayList members)
     {
         this.memberList = data.getMemberList();
