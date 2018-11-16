@@ -37,11 +37,18 @@ public class DataAccessorFile implements DataAccessor
             FileInputStream fileIn = new FileInputStream(filepath);
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
-            
-            Object obj = objectIn.readObject();
-
-            
-            
+            boolean objectExist = true;
+            while(objectExist)
+            {
+                Member m = null;
+                m = (Member) objectIn.readObject();
+                
+                if(m != null)
+                {
+                    memberList.add(m);
+                }
+                objectExist = false;
+            }
             
             objectIn.close();
             System.out.println("The Objects have been read from the file");
