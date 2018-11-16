@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Kasper Jeppesen
+ * @author Kasper Jeppesen test test
  */
 public class NewMember extends javax.swing.JPanel
 {

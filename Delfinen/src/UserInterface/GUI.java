@@ -196,6 +196,8 @@ public class GUI extends javax.swing.JFrame
         
         setContentPane(m); //set the jpanel you 
         setVisible(true);
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
