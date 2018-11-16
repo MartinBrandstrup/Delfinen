@@ -20,10 +20,10 @@ public class MemberTest
 
     public MemberTest()
     {
-        johanne = new Member(false, false, 2800, 010, 14548645, 50000, 50000, 
-                "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
-                "Johanne.j@test.dk", "Recreational Swimmer", LocalDate.of(1993, 04, 12),
-                LocalDate.of(2009, 12, 10));
+        johanne = new Member(false, false, true, 2800, 010, 14548645, 
+                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
+                "Kongens Lyngby", "Johanne.j@test.dk", 
+                LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10));
     }
 
     //Mangler flere tests

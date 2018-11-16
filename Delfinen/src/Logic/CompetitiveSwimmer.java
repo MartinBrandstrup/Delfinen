@@ -23,7 +23,7 @@ public class CompetitiveSwimmer extends Member
             boolean isCompetitiveSwimmer, int zipCode, int memberID, 
             long phoneNumber, long arrearsBalance, long membershipPrice, 
             String name, String address, String city, String emailAddress, 
-            String memberType, LocalDate dateOfBirth, LocalDate dateOfJoining,
+            LocalDate dateOfBirth, LocalDate dateOfJoining,
             boolean tournamentEligibility,
             ArrayList<Team> teamMemberships,
             ArrayList<TournamentEvent> tournamentParticipations)
