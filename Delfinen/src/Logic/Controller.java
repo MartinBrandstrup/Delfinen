@@ -19,7 +19,7 @@ public class Controller
 
     private DataAccessorHardCoded data;
     //private DataAccessorHardFile data;
-    private ArrayList<Member> memberList;
+    private ArrayList<Member> memberList; // = new ArrayList();
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
     private int MIDcounter = 1;
@@ -33,6 +33,7 @@ public class Controller
             String name, String address, String city,
             String email, LocalDate dateOfBirth)
     {
+        System.out.print("member" + memberList.size());
         memberList.add(new Member(true, true, false, zipCode, MIDcounter, 
                 phoneNumber, 0, 0, name, address, city, email, dateOfBirth, 
                 LocalDate.now()));
