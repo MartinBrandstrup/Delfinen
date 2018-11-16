@@ -19,18 +19,18 @@ public class CompetitiveSwimmer extends Member
     ArrayList<Team> teamMemberships;
     ArrayList<TournamentEvent> tournamentParticipations;
 
-    public CompetitiveSwimmer(boolean paidCurrentYear, boolean activityStatus,
-            int zipCode, int memberID, long phoneNumber, long arrearsBalance, 
-            long membershipPrice, String name, String address, String city, 
-            String emailAddress, String memberType, LocalDate dateOfBirth, 
-            LocalDate dateOfJoining,
+    public CompetitiveSwimmer(boolean paidCurrentYear, boolean activityStatus, 
+            boolean isCompetitiveSwimmer, int zipCode, int memberID, 
+            long phoneNumber, long arrearsBalance, long membershipPrice, 
+            String name, String address, String city, String emailAddress, 
+            String memberType, LocalDate dateOfBirth, LocalDate dateOfJoining,
             boolean tournamentEligibility,
             ArrayList<Team> teamMemberships,
             ArrayList<TournamentEvent> tournamentParticipations)
     {
-        super(paidCurrentYear, activityStatus, zipCode, memberID, phoneNumber,
-                arrearsBalance, membershipPrice, name, address, city, emailAddress, memberType,
-                dateOfBirth, dateOfJoining);
+        super(paidCurrentYear, activityStatus, isCompetitiveSwimmer, zipCode, 
+                memberID, phoneNumber, arrearsBalance, membershipPrice, name, 
+                address, city, emailAddress, dateOfBirth, dateOfJoining);
 
         this.tournamentEligibility = tournamentEligibility;
         this.teamMemberships = teamMemberships;

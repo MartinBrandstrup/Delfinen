@@ -33,9 +33,9 @@ public class Controller
             String name, String address, String city,
             String email, LocalDate dateOfBirth)
     {
-        memberList.add(new Member(true, true, zipCode, MIDcounter, phoneNumber,
-                0, 0, name, address, city, email, "Recreational Swimmer",
-                dateOfBirth, LocalDate.now()));
+        memberList.add(new Member(true, true, false, zipCode, MIDcounter, 
+                phoneNumber, 0, 0, name, address, city, email, dateOfBirth, 
+                LocalDate.now()));
 
         getLastAddedMember().calculateMembershipPrice();
 

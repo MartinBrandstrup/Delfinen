@@ -17,21 +17,22 @@ public class Member implements Serializable
 {
 
     //Arrears is noted in 'øre', ex 500.00 kr. = 50000
-    private boolean paidCurrentYear, activityStatus;
+    private boolean paidCurrentYear, activityStatus, isCompetitiveSwimmer;
     private int zipCode, memberID;
     private long phoneNumber, arrearsBalance, membershipPrice;
 
-    private String name, address, city, emailAddress, memberType;
+    private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
 
-    public Member(boolean paidCurrentYear, boolean activityStatus, int zipCode,
-            int memberID, long phoneNumber, long arrearsBalance,
-            long membershipPrice, String name, String address, String city,
-            String emailAddress, String memberType, LocalDate dateOfBirth,
-            LocalDate dateOfJoining)
+    public Member(boolean paidCurrentYear, boolean activityStatus, 
+            boolean isCompetitiveSwimmer, int zipCode, int memberID, 
+            long phoneNumber, long arrearsBalance, long membershipPrice, 
+            String name, String address, String city, String emailAddress, 
+            LocalDate dateOfBirth, LocalDate dateOfJoining)
     {
         this.paidCurrentYear = paidCurrentYear;
         this.activityStatus = activityStatus;
+        this.isCompetitiveSwimmer = isCompetitiveSwimmer;
         this.zipCode = zipCode;
         this.memberID = memberID;
         this.phoneNumber = phoneNumber;
@@ -40,7 +41,6 @@ public class Member implements Serializable
         this.address = address;
         this.city = city;
         this.emailAddress = emailAddress;
-        this.memberType = memberType;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
     }
@@ -198,11 +198,6 @@ public class Member implements Serializable
         this.emailAddress = emailAddress;
     }
 
-    public void setMemberType(String memberType)
-    {
-        this.memberType = memberType;
-    }
-
     public void setDateOfBirth(LocalDate dateOfBirth)
     {
         this.dateOfBirth = dateOfBirth;
@@ -258,11 +253,6 @@ public class Member implements Serializable
         return emailAddress;
     }
 
-    public String getMemberType()
-    {
-        return memberType;
-    }
-
     public LocalDate getDateOfJoining()
     {
         return dateOfJoining;
@@ -271,7 +261,7 @@ public class Member implements Serializable
     @Override
     public String toString()
     {
-        //return new StringBuffer(" ")
+        return new StringBuffer("  "    .toString());
     }
 //        this.paidCurrentYear = paidCurrentYear;
 //        this.activityStatus = activityStatus;
