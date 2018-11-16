@@ -19,7 +19,7 @@ public class Controller
 
     private DataAccessorHardCoded data;
     //private DataAccessorHardFile data;
-    private ArrayList<Member> memberList; // = new ArrayList();
+    private ArrayList<Member> memberList = new ArrayList();
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
     private int MIDcounter = 1;
