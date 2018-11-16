@@ -5,12 +5,16 @@
  */
 package UserInterface;
 
+import java.awt.Container;
+
 /**
  *
  * @author Kasper Jeppesen
  */
 public class GUI extends javax.swing.JFrame
 {
+
+    private Container m;
 
     /**
      * Creates new form GUI
@@ -117,31 +121,22 @@ public class GUI extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
-        this.dispose(); //Close the current window showing
-        ManageMembers m = new ManageMembers(); // instance on jpanel "ManageMebers"
+        m = new ManageMembers(); // instance on jpanel "ManageMebers"
         
-        GUI g = new GUI(); // instance of jpanel "ManageMembers"
+        this.ChangePanel();
         
-        g.repaint(); //Makes sure that the frame swaps to next panel
-        g.revalidate(); //Makes sure that the frame swaps to next panel
-        
-        g.setContentPane(m); //set the jpanel you 
-        g.setVisible(true); //upen up a new window
+      
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void RegisterNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegisterNewMemberActionPerformed
     {//GEN-HEADEREND:event_RegisterNewMemberActionPerformed
-        this.dispose(); //Close the current window showing
-        NewMember m = new NewMember(); // instance on jpanel "ManageMebers"
         
-        GUI g = new GUI(); // instance of jpanel "ManageMembers"
+         m = new NewMember(); // instance on jpanel "ManageMebers"
         
-        g.repaint(); //Makes sure that the frame swaps to next panel
-        g.revalidate(); //Makes sure that the frame swaps to next panel
+       
         
-        g.setContentPane(m); //set the jpanel you 
-        g.setVisible(true); //upen up a new window
+        this.ChangePanel();
     }//GEN-LAST:event_RegisterNewMemberActionPerformed
 
     /**
@@ -191,6 +186,16 @@ public class GUI extends javax.swing.JFrame
                 new GUI().setVisible(true);
             }
         });
+    }
+    
+        public void ChangePanel()
+    {
+        this.dispose(); //Close the current window showing
+        repaint(); //Makes sure that the frame swaps to next panel
+        revalidate(); //Makes sure that the frame swaps to next panel
+        
+        setContentPane(m); //set the jpanel you 
+        setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
