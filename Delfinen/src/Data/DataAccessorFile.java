@@ -9,6 +9,7 @@ import Logic.Team;
 import Logic.TournamentEvent;
 import Logic.Member;
 import java.util.ArrayList;
+import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -16,7 +17,10 @@ import java.util.ArrayList;
  */
 public class DataAccessorFile implements DataAccessor
 {
-
+    //Returnerer "C:\Users\*username*\Documents" - burde fungere på både 
+    //engelsk og dansk styresystem, men måske ikke på MAC maskiner
+    String input = FileSystemView.getFileSystemView().getDefaultDirectory().getPath();
+    
     @Override
     public ArrayList<Member> getMemberList()
     {
