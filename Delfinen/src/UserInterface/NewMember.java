@@ -5,8 +5,12 @@
  */
 package UserInterface;
 
+import Data.DataAccessor;
+import Data.DataAccessorFile;
 import Logic.Controller;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class NewMember extends javax.swing.JPanel
 {
-    
+    DataAccessorFile data = new DataAccessorFile();
 
     /**
      * Creates new form NewMember
@@ -206,7 +210,7 @@ public class NewMember extends javax.swing.JPanel
     private void ConfirmChangesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmChangesActionPerformed
     {//GEN-HEADEREND:event_ConfirmChangesActionPerformed
        
-        Controller c = new Controller();
+        Controller c = new Controller(data);
        
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
@@ -222,6 +226,14 @@ public class NewMember extends javax.swing.JPanel
         validation();
         
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
+        try
+        {
+            c.saveMemberList();
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(NewMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         reset();
     }//GEN-LAST:event_ConfirmChangesActionPerformed
