@@ -150,6 +150,20 @@ public class Member implements Serializable
         }
         return "Passive";
     }
+    
+    public boolean isCompetitiveSwimmer()
+    {
+        return isCompetitiveSwimmer();
+    }
+    
+    public String getCompetitiveSwimmerString()
+    {
+        if(isCompetitiveSwimmer == true)
+        {
+            return "Competitive Swimmer";
+        }
+        return "Recreational Swimmer";
+    }
 
     
     
