@@ -32,25 +32,26 @@ public class DataAccessorTempTest
         }
         catch(Exception ex)
         {
-            System.out.println("Boom!");
+            System.out.println(ex);
         }
         
         scanner.nextLine();
         
-        memberList = null;
+        memberList.remove(0);
         
         scanner.nextLine();
         
         try
         {
-            for(Member m : data.getMemberList())
-            {
-            System.out.println(m.toString());
-            }
+            memberList.get(0).toString();
+//            for(Member m : data.getMemberList())
+//            {
+//            System.out.println(m.toString());
+//            }
         }
         catch(Exception ex)
         {
-            System.out.println("Boom!");
+            System.out.println(ex);
         }
     }
 }

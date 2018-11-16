@@ -45,16 +45,18 @@ public class ControllerTest
     {
     }
     
+    
+    //Mangler en override @Override Equals på member, men ellers dur den
     @Test
     public void testRegisterNewMember()
     {
         Controller ctrl = new Controller();
-        ArrayList<Member> memberList = null;
+        ArrayList<Member> memberList = new ArrayList();
         
-        memberList.add(new Member(false, false, true, 2800, 1, 14548645, 
-                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
+        memberList.add(new Member(true, true, false, 2800, 1, 14548645, 
+                0, 0, "Johanne Jaeger", "Fiktiv Vej 23", 
                 "Kongens Lyngby", "Johanne.j@test.dk", 
-                LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10)));
+                LocalDate.of(1993, 04, 12), LocalDate.now()));
         
         ctrl.registerNewMember(2800, 14548645, 
                 "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
