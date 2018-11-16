@@ -7,6 +7,7 @@ package UserInterface;
 
 import Logic.Controller;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.time.LocalDate;
  */
 public class NewMember extends javax.swing.JPanel
 {
-    private boolean activityStatus = false;
+    
 
     /**
      * Creates new form NewMember
@@ -34,13 +35,6 @@ public class NewMember extends javax.swing.JPanel
     private void initComponents()
     {
 
-        ActivityStatus = new javax.swing.JLabel();
-        MemberID = new javax.swing.JLabel();
-        MemberType = new javax.swing.JLabel();
-        DateOfJoining = new javax.swing.JLabel();
-        ArrearsBalance = new javax.swing.JLabel();
-        NextPaymentDate = new javax.swing.JLabel();
-        MembershipPrice = new javax.swing.JLabel();
         Name = new javax.swing.JLabel();
         EmailAddress = new javax.swing.JLabel();
         Address = new javax.swing.JLabel();
@@ -48,12 +42,6 @@ public class NewMember extends javax.swing.JPanel
         ZipCode = new javax.swing.JLabel();
         DateOfBirth = new javax.swing.JLabel();
         PhoneNumber = new javax.swing.JLabel();
-        MemberIDTF = new javax.swing.JTextField();
-        MemberTypeTF = new javax.swing.JTextField();
-        DateOfJoiningTF = new javax.swing.JTextField();
-        ArrearsBalanceTF = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        MembershipPriceTF = new javax.swing.JTextField();
         NameTF = new javax.swing.JTextField();
         EmailAddressTF = new javax.swing.JTextField();
         AddressTF = new javax.swing.JTextField();
@@ -62,35 +50,8 @@ public class NewMember extends javax.swing.JPanel
         DateOfBirthTF = new javax.swing.JTextField();
         PhoneNumberTF = new javax.swing.JTextField();
         ConfirmChanges = new javax.swing.JButton();
-        ActivityStatusCB = new javax.swing.JCheckBox();
-
-        ActivityStatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ActivityStatus.setText("Activity Status:");
-        ActivityStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        MemberID.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        MemberID.setText("Member ID:");
-        MemberID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        MemberType.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        MemberType.setText("Member Type:");
-        MemberType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        DateOfJoining.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        DateOfJoining.setText("Date of Joining:");
-        DateOfJoining.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        ArrearsBalance.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        ArrearsBalance.setText("Arrears Balance:");
-        ArrearsBalance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        NextPaymentDate.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        NextPaymentDate.setText("Next Payment Date:");
-        NextPaymentDate.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
-
-        MembershipPrice.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        MembershipPrice.setText("Membership Price:");
-        MembershipPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        Reset = new javax.swing.JButton();
+        MainMenu = new javax.swing.JButton();
 
         Name.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         Name.setText("Name");
@@ -120,14 +81,6 @@ public class NewMember extends javax.swing.JPanel
         PhoneNumber.setText("Phone Number:");
         PhoneNumber.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
 
-        MemberIDTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        ArrearsBalanceTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        MembershipPriceTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         NameTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         EmailAddressTF.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -151,123 +104,97 @@ public class NewMember extends javax.swing.JPanel
             }
         });
 
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ResetActionPerformed(evt);
+            }
+        });
+
+        MainMenu.setText("Main menu");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MemberID)
-                            .addComponent(MemberType)
-                            .addComponent(DateOfJoining)
-                            .addComponent(ActivityStatus))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(DateOfJoiningTF, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                                .addComponent(MemberTypeTF)
-                                .addComponent(MemberIDTF))
-                            .addComponent(ActivityStatusCB))
-                        .addGap(33, 33, 33)
+                .addGap(68, 68, 68)
+                .addComponent(MainMenu)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(City)
+                    .addComponent(ZipCode)
+                    .addComponent(DateOfBirth)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Name)
+                            .addGap(66, 66, 66)
+                            .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(EmailAddress)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(City)
-                            .addComponent(ZipCode)
-                            .addComponent(DateOfBirth)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(Name)
-                                    .addGap(66, 66, 66)
-                                    .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(EmailAddress)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(AddressTF, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                    .addComponent(CityTF)
-                                    .addComponent(ZipCodeTF))
-                                .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Address)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(PhoneNumber)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PhoneNumberTF)))
-                        .addContainerGap(22, Short.MAX_VALUE))
+                            .addComponent(AddressTF, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                            .addComponent(CityTF)
+                            .addComponent(ZipCodeTF))
+                        .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Address)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(NextPaymentDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(MembershipPrice)
-                            .addComponent(ArrearsBalance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PhoneNumber)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ArrearsBalanceTF, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(jTextField2)
-                            .addComponent(MembershipPriceTF))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ConfirmChanges)
-                        .addGap(53, 53, 53))))
+                        .addComponent(PhoneNumberTF)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Reset)
+                .addGap(54, 54, 54)
+                .addComponent(ConfirmChanges)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ActivityStatusCB)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ActivityStatus)
-                        .addComponent(Name)
-                        .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(MemberID)
-                        .addComponent(MemberIDTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(EmailAddress)
-                        .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name)
+                    .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EmailAddress)
+                    .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Address)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(MemberType)
-                        .addComponent(MemberTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(City)
-                    .addComponent(DateOfJoining)
-                    .addComponent(DateOfJoiningTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ZipCode)
-                    .addComponent(ZipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DateOfBirth)
-                    .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ZipCode)
+                            .addComponent(ZipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DateOfBirth)
+                            .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(MainMenu)
+                        .addGap(14, 14, 14)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PhoneNumber)
                     .addComponent(PhoneNumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ArrearsBalance, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ArrearsBalanceTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NextPaymentDate)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConfirmChanges))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MembershipPrice)
-                    .addComponent(MembershipPriceTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(ConfirmChanges)
+                    .addComponent(Reset))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -275,15 +202,8 @@ public class NewMember extends javax.swing.JPanel
     {//GEN-HEADEREND:event_ConfirmChangesActionPerformed
        
         Controller c = new Controller();
-        
-        boolean paidCurrentYear = true; //hvorfor tager constructoren denne?????
-        
-        //Activity Status fås fra metoden activeOrPassive
-        int memberId = Integer.parseInt(this.MemberIDTF.getText());
-        String memberType = this.MemberTypeTF.getText();
-        //LocalDate dateOfJoining = LocalDate.parse(this.DateOfJoiningTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
-        
-        int zipCode = Integer.parseInt(this.CityTF.getText());
+       
+        int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         String name = this.NameTF.getText();
         String address = this.AddressTF.getText();
@@ -291,49 +211,80 @@ public class NewMember extends javax.swing.JPanel
         String email = this.EmailAddressTF.getText();
         LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
         
-        long arrearsBalance = Long.parseLong(this.ArrearsBalanceTF.getText());
-        //mangler Next Payment Date, da den ikke er en del af constructoren for member
-        //mangler membership price, da den ikke er en del af constructoren for member
+        //dateOfBirth should perheps be changed to a jdatechooser
+        
+        //validation();
         
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
+        
+        reset();
     }//GEN-LAST:event_ConfirmChangesActionPerformed
-    public void activeOrPassive()
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ResetActionPerformed
+    {//GEN-HEADEREND:event_ResetActionPerformed
+        reset();
+    }//GEN-LAST:event_ResetActionPerformed
+    
+    
+//    public void validation()
+//    {
+//        if(this.ZipCodeTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field zip code can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.PhoneNumberTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field phone number can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.NameTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field name can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.AddressTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.CityTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field city can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.EmailAddressTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field email address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(this.DateOfBirthTF.getText().equals(""))
+//        {
+//            JOptionPane.showMessageDialog(null, "The field date of birth can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
+    public void reset()
     {
-        if(ActivityStatusCB.isSelected())
-        {
-            activityStatus = true;
-        }
+        this.ZipCodeTF.setText("");
+        this.PhoneNumberTF.setText("");
+        this.NameTF.setText("");
+        this.AddressTF.setText("");
+        this.CityTF.setText("");
+        this.EmailAddressTF.setText("");
+        this.DateOfBirthTF.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ActivityStatus;
-    private javax.swing.JCheckBox ActivityStatusCB;
     private javax.swing.JLabel Address;
     private javax.swing.JTextField AddressTF;
-    private javax.swing.JLabel ArrearsBalance;
-    private javax.swing.JTextField ArrearsBalanceTF;
     private javax.swing.JLabel City;
     private javax.swing.JTextField CityTF;
     private javax.swing.JButton ConfirmChanges;
     private javax.swing.JLabel DateOfBirth;
     private javax.swing.JTextField DateOfBirthTF;
-    private javax.swing.JLabel DateOfJoining;
-    private javax.swing.JTextField DateOfJoiningTF;
     private javax.swing.JLabel EmailAddress;
     private javax.swing.JTextField EmailAddressTF;
-    private javax.swing.JLabel MemberID;
-    private javax.swing.JTextField MemberIDTF;
-    private javax.swing.JLabel MemberType;
-    private javax.swing.JTextField MemberTypeTF;
-    private javax.swing.JLabel MembershipPrice;
-    private javax.swing.JTextField MembershipPriceTF;
+    private javax.swing.JButton MainMenu;
     private javax.swing.JLabel Name;
     private javax.swing.JTextField NameTF;
-    private javax.swing.JLabel NextPaymentDate;
     private javax.swing.JLabel PhoneNumber;
     private javax.swing.JTextField PhoneNumberTF;
+    private javax.swing.JButton Reset;
     private javax.swing.JLabel ZipCode;
     private javax.swing.JTextField ZipCodeTF;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
