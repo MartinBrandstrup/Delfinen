@@ -5,6 +5,12 @@
  */
 package UserInterface;
 
+import Data.DataAccessorFile;
+import Logic.Controller;
+import Logic.Member;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**Chris giver moralsk opbakning
  *
  * @author Kasper Jeppesen
@@ -13,13 +19,16 @@ public class ManageMembers extends javax.swing.JPanel
 {
     
   GUI g = new GUI();
+    DataAccessorFile data = new DataAccessorFile();
+    Controller c = new Controller(data);
 
     /**
      * Creates new form ManageMembers
      */
-    public ManageMembers()
+    public ManageMembers() throws Exception
     {
         initComponents();
+        addRowToTable();
     }
 
     /**
@@ -34,16 +43,12 @@ public class ManageMembers extends javax.swing.JPanel
 
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        MembersTable = new javax.swing.JTable();
 
         jButton4.setText("jButton4");
 
@@ -51,18 +56,6 @@ public class ManageMembers extends javax.swing.JPanel
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Manage Members");
-
-        jLabel2.setText("Name");
-
-        jLabel3.setText("MID");
-
-        jLabel4.setText("Status");
-
-        jLabel5.setText("Name");
-
-        jLabel6.setText("MID");
-
-        jLabel7.setText("Status");
 
         jButton7.setText("Main Menu");
 
@@ -79,55 +72,51 @@ public class ManageMembers extends javax.swing.JPanel
 
         jButton10.setText("Cancel Membership");
 
+        MembersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String []
+            {
+                "Name", "MID", "Status"
+            }
+        ));
+        jScrollPane1.setViewportView(MembersTable);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(32, 32, 32)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel4)
-                                .addGap(92, 92, 92)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel7)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton10))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(41, 41, 41)
+                .addComponent(jButton7))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButton7))
+                    .addComponent(jButton7)
+                    .addComponent(jButton8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton8)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9)
                     .addComponent(jButton10)))
@@ -141,19 +130,33 @@ public class ManageMembers extends javax.swing.JPanel
         this.g.ChangePanel();// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    public void addRowToTable() throws Exception
+    {
+        c.updateMemberList(data.getMemberList());
+        
+        System.out.print("Vi ankom her til");
+        DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
+        System.out.print(c.getMemberList().size());
+        ArrayList<Member> list = c.getMemberlist();
+        Object rowData[] = new Object[3];
+        for(int i = 0; i < list.size(); ++i)
+        {
+            rowData[0] = list.get(i).getName();
+            rowData[1] = list.get(i).getMemberID();
+            rowData[2] = list.get(i).getActivityStatusString();
+            model.addRow(rowData);
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable MembersTable;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
