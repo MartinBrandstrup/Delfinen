@@ -134,7 +134,7 @@ public class ManageMembers extends javax.swing.JPanel
     {
         c.updateMemberList(data.getMemberList());
         
-        System.out.print("Vi ankom her til");
+        
         DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
         System.out.print(c.getMemberList().size());
         ArrayList<Member> list = c.getMemberlist();
