@@ -76,13 +76,85 @@ public class DataAccessorFile implements DataAccessor
     @Override
     public ArrayList<Team> getTeamList() throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Team> teamList = new ArrayList();
+
+        try
+        {
+            FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Teams.dat");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+            boolean objectExist = true;
+            while(objectExist)
+            {
+                Team t = (Team) objectIn.readObject();
+
+                if(t != null)
+                {
+                    teamList.add(t);
+                }
+                else
+                {
+                    objectExist = false;
+                }
+            }
+
+            objectIn.close();
+            System.out.println("The Objects have been read from the file");
+
+            return teamList;
+        }
+        catch(EOFException e)
+        {
+            System.out.println("End of file (exception)");
+            return teamList;
+        }
+        catch(IOException ex)
+        {
+            System.out.println(ex);
+            return null;
+        }
     }
 
     @Override
     public ArrayList<TournamentEvent> getTournamentList() throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<TournamentEvent> tournamentList = new ArrayList();
+
+        try
+        {
+            FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Events.dat");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+
+            boolean objectExist = true;
+            while(objectExist)
+            {
+                TournamentEvent e = (TournamentEvent) objectIn.readObject();
+
+                if(e != null)
+                {
+                    tournamentList.add(e);
+                }
+                else
+                {
+                    objectExist = false;
+                }
+            }
+
+            objectIn.close();
+            System.out.println("The Objects have been read from the file");
+
+            return tournamentList;
+        }
+        catch(EOFException e)
+        {
+            System.out.println("End of file (exception)");
+            return tournamentList;
+        }
+        catch(IOException ex)
+        {
+            System.out.println(ex);
+            return null;
+        }
     }
 
     @Override
@@ -111,13 +183,47 @@ public class DataAccessorFile implements DataAccessor
     @Override
     public void saveTeamList(ArrayList<Team> teamList) throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            FileOutputStream fileOut = new FileOutputStream(filepath + "\\Delfinen\\Teams.dat");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+
+            for(Team t : teamList)
+            {
+                objectOut.writeObject(t);
+            }
+
+            objectOut.close();
+            System.out.println("The Objects were succesfully written to a file");
+        }
+        catch(IOException ex)
+        {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void saveTournamentList(ArrayList<TournamentEvent> tournamentList) throws Exception
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try
+        {
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            FileOutputStream fileOut = new FileOutputStream(filepath + "\\Delfinen\\Events.dat");
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+
+            for(TournamentEvent e : tournamentList)
+            {
+                objectOut.writeObject(e);
+            }
+
+            objectOut.close();
+            System.out.println("The Objects were succesfully written to a file");
+        }
+        catch(IOException ex)
+        {
+            System.out.println(ex);
+        }
     }
 
 }
