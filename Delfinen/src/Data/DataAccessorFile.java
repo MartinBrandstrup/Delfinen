@@ -8,11 +8,14 @@ package Data;
 import Logic.Team;
 import Logic.TournamentEvent;
 import Logic.Member;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javax.swing.filechooser.FileSystemView;
 
@@ -26,39 +29,46 @@ public class DataAccessorFile implements DataAccessor
     //Returnerer "C:\Users\*username*\Documents" - burde fungere på både 
     //engelsk og dansk styresystem, men måske ikke på MAC maskiner
     String filepath = FileSystemView.getFileSystemView().getDefaultDirectory()
-            .getPath() + "\\Test.dat";
+            .getPath();
 
     @Override
     public ArrayList<Member> getMemberList() throws Exception
     {
         ArrayList<Member> memberList = new ArrayList();
-        
+
         try
         {
-            FileInputStream fileIn = new FileInputStream(filepath);
+            FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Members.dat");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
             boolean objectExist = true;
             while(objectExist)
             {
-                Member m = null;
-                m = (Member) objectIn.readObject();
-                
+                Member m = (Member) objectIn.readObject();
+
                 if(m != null)
                 {
                     memberList.add(m);
                 }
-                objectExist = false;
+                else
+                {
+                    objectExist = false;
+                }
             }
-            
+
             objectIn.close();
             System.out.println("The Objects have been read from the file");
 
             return memberList;
         }
+        catch(EOFException e)
+        {
+            System.out.println("End of file (exception)");
+            return memberList;
+        }
         catch(IOException ex)
         {
-            System.out.println("Something went wrong");
+            System.out.println(ex);
             return null;
         }
     }
@@ -80,7 +90,8 @@ public class DataAccessorFile implements DataAccessor
     {
         try
         {
-            FileOutputStream fileOut = new FileOutputStream(filepath);
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            FileOutputStream fileOut = new FileOutputStream(filepath + "\\Delfinen\\Members.dat");
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
 
             for(Member o : memberList)
@@ -93,7 +104,7 @@ public class DataAccessorFile implements DataAccessor
         }
         catch(IOException ex)
         {
-            System.out.println("Something went wrong");
+            System.out.println(ex);
         }
     }
 
