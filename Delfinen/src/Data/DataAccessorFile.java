@@ -32,7 +32,7 @@ public class DataAccessorFile implements DataAccessor
             .getPath();
 
     @Override
-    public ArrayList<Member> getMemberList() throws Exception
+    public ArrayList<Member> getMemberList() throws ClassNotFoundException
     {
         ArrayList<Member> memberList = new ArrayList();
 
@@ -74,7 +74,7 @@ public class DataAccessorFile implements DataAccessor
     }
 
     @Override
-    public ArrayList<Team> getTeamList() throws Exception
+    public ArrayList<Team> getTeamList() throws ClassNotFoundException
     {
         ArrayList<Team> teamList = new ArrayList();
 
@@ -116,7 +116,7 @@ public class DataAccessorFile implements DataAccessor
     }
 
     @Override
-    public ArrayList<TournamentEvent> getTournamentList() throws Exception
+    public ArrayList<TournamentEvent> getTournamentList() throws ClassNotFoundException
     {
         ArrayList<TournamentEvent> tournamentList = new ArrayList();
 
@@ -158,7 +158,7 @@ public class DataAccessorFile implements DataAccessor
     }
 
     @Override
-    public void saveMemberList(ArrayList<Member> memberList) throws Exception
+    public void saveMemberList(ArrayList<Member> memberList) throws IOException
     {
         try
         {
@@ -177,11 +177,12 @@ public class DataAccessorFile implements DataAccessor
         catch(IOException ex)
         {
             System.out.println(ex);
+            throw new IOException();
         }
     }
 
     @Override
-    public void saveTeamList(ArrayList<Team> teamList) throws Exception
+    public void saveTeamList(ArrayList<Team> teamList) throws IOException
     {
         try
         {
@@ -200,11 +201,12 @@ public class DataAccessorFile implements DataAccessor
         catch(IOException ex)
         {
             System.out.println(ex);
+            throw new IOException();
         }
     }
 
     @Override
-    public void saveTournamentList(ArrayList<TournamentEvent> tournamentList) throws Exception
+    public void saveTournamentList(ArrayList<TournamentEvent> tournamentList) throws IOException
     {
         try
         {
@@ -223,6 +225,7 @@ public class DataAccessorFile implements DataAccessor
         catch(IOException ex)
         {
             System.out.println(ex);
+            throw new IOException();
         }
     }
 

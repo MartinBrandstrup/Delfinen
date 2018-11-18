@@ -36,11 +36,11 @@ public class Controller
     //er sat til true som default
     public void registerNewMember(int zipCode, long phoneNumber,
             String name, String address, String city,
-            String email, LocalDate dateOfBirth)
+            String email, LocalDate dateOfBirth) throws IllegalArgumentException
     {
         System.out.print("member" + memberList.size());
-        memberList.add(new Member(true, true, false, zipCode, MIDcounter, 
-                phoneNumber, 0, 0, name, address, city, email, dateOfBirth, 
+        memberList.add(new Member(true, true, false, zipCode, MIDcounter,
+                phoneNumber, 0, 0, name, address, city, email, dateOfBirth,
                 LocalDate.now()));
 
         getLastAddedMember().calculateMembershipPrice();
@@ -52,7 +52,7 @@ public class Controller
     {
         return memberList.get(memberList.size() - 1);
     }
-    
+
     public Member getMemberByID(int memberID) throws NullPointerException
     {
         for(Member m : memberList)
@@ -70,9 +70,14 @@ public class Controller
         return memberList;
     }
 
-    //Skal helst kaldes før getMemberList() første gang man indlæser programmet
-    //for at sikre at det er den nyeste liste man får fat i
-    public void updateMemberList(ArrayList members) throws Exception
+    /**
+     * Retrieves the list of members (object) from the source and updates the
+     * currently in use member list in the Controller class. Should be called
+     * when launching the program to make sure you have the most recently update
+     *
+     * @throws Exception
+     */
+    public void updateMemberList() throws Exception
     {
         this.memberList = data.getMemberList();
     }
@@ -82,11 +87,19 @@ public class Controller
         return memberList;
     }
 
+    /**
+     * Saves the currently in use list of members (object) from the Controller
+     * class and saves them to the source.
+     * Should be called when closing the program to make sure any newly added
+     * data is not lost. A save button might also implement this method.
+     *
+     * @throws Exception
+     */
     public void saveMemberList() throws Exception
     {
         data.saveMemberList(memberList);
     }
-    
+
     public int getMIDcounter()
     {
         return MIDcounter;

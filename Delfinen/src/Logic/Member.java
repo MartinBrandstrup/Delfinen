@@ -8,6 +8,9 @@ package Logic;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeParseException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -28,8 +31,18 @@ public class Member implements Serializable
             boolean isCompetitiveSwimmer, int zipCode, int memberID,
             long phoneNumber, long arrearsBalance, long membershipPrice,
             String name, String address, String city, String emailAddress,
-            LocalDate dateOfBirth, LocalDate dateOfJoining)
+            LocalDate dateOfBirth, LocalDate dateOfJoining) throws IllegalArgumentException
     {
+        if(zipCode != 4 || memberID < 1 || phoneNumber != 8
+                || arrearsBalance < 0 || membershipPrice <= 0
+                || name == null || name.isEmpty() == true
+                || address == null || address.isEmpty() == true
+                || city == null || city.isEmpty() == true
+                || validEmail() == false 
+                || )
+        {
+            throw new IllegalArgumentException();
+        }
         this.paidCurrentYear = paidCurrentYear;
         this.activityStatus = activityStatus;
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
@@ -43,6 +56,20 @@ public class Member implements Serializable
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
+    }
+
+    //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
+    public boolean validEmail()
+    {
+        Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
+        if(matcher.find())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     //Calculates the member's age based on the current date
