@@ -136,7 +136,7 @@ public class ManageMembers extends javax.swing.JPanel
         
         
         DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
-        System.out.print(c.getMemberList().size());
+        System.out.print("MemberList size is: " + c.getMemberList().size());
         ArrayList<Member> list = c.getMemberlist();
         Object rowData[] = new Object[3];
         for(int i = 0; i < list.size(); ++i)

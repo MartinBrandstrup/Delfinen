@@ -19,13 +19,15 @@ import javax.swing.JOptionPane;
  */
 public class NewMember extends javax.swing.JPanel
 {
-    DataAccessorFile data = new DataAccessorFile();
+    private DataAccessorFile data = new DataAccessorFile();
+    private Controller c = new Controller(data);
 
     /**
      * Creates new form NewMember
      */
     public NewMember()
     {
+        
         initComponents();
     }
 
@@ -210,8 +212,7 @@ public class NewMember extends javax.swing.JPanel
     private void ConfirmChangesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmChangesActionPerformed
     {//GEN-HEADEREND:event_ConfirmChangesActionPerformed
        
-        Controller c = new Controller(data);
-       
+        
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         String name = this.NameTF.getText();
