@@ -220,10 +220,18 @@ public class NewMember extends javax.swing.JPanel
         String city = this.CityTF.getText();
         String email = this.EmailAddressTF.getText();
         LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
+        try
+        {
+            //dateOfBirth should perheps be changed to a jdatechooser
+            //kommentar tester
+            //Kommentar test
+            c.updateMemberList(data.getMemberList());
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(NewMember.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        //dateOfBirth should perheps be changed to a jdatechooser
-        //kommentar tester
-        //Kommentar test
         validation();
         System.out.print("MemberList size: " + c.getMemberList().size());
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
