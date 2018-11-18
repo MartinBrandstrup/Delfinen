@@ -9,6 +9,7 @@ import Logic.Team;
 import Logic.TournamentEvent;
 import Logic.Member;
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,6 +39,14 @@ public class DataAccessorFile implements DataAccessor
 
         try
         {
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            File tempFile = new File(filepath + "\\Delfinen\\Members.dat");
+            if(tempFile.exists() == false && tempFile.isFile() == false)
+            {
+                System.out.println("File \"Members.dat\" does not exist");
+                return null;
+            }
+
             FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Members.dat");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
@@ -61,9 +70,10 @@ public class DataAccessorFile implements DataAccessor
 
             return memberList;
         }
-        catch(EOFException e)
+        catch(EOFException eofe)
         {
-            System.out.println("End of file (exception)");
+            System.out.println(eofe);
+            System.out.println("The file has been read");
             return memberList;
         }
         catch(IOException ex)
@@ -80,6 +90,13 @@ public class DataAccessorFile implements DataAccessor
 
         try
         {
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            File tempFile = new File(filepath + "\\Delfinen\\Teams.dat");
+            if(tempFile.exists() == false && tempFile.isFile() == false)
+            {
+                System.out.println("File \"Teams.dat\" does not exist");
+                return null;
+            }
             FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Teams.dat");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
@@ -103,9 +120,10 @@ public class DataAccessorFile implements DataAccessor
 
             return teamList;
         }
-        catch(EOFException e)
+        catch(EOFException eofe)
         {
-            System.out.println("End of file (exception)");
+            System.out.println(eofe);
+            System.out.println("The file has been read");
             return teamList;
         }
         catch(IOException ex)
@@ -122,6 +140,14 @@ public class DataAccessorFile implements DataAccessor
 
         try
         {
+            Files.createDirectories(Paths.get(filepath + "\\Delfinen"));
+            File tempFile = new File(filepath + "\\Delfinen\\Events.dat");
+            if(tempFile.exists() == false && tempFile.isFile() == false)
+            {
+                System.out.println("File \"Events.dat\" does not exist");
+                return null;
+            }
+
             FileInputStream fileIn = new FileInputStream(filepath + "\\Delfinen\\Events.dat");
             ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
@@ -145,9 +171,10 @@ public class DataAccessorFile implements DataAccessor
 
             return tournamentList;
         }
-        catch(EOFException e)
+        catch(EOFException eofe)
         {
-            System.out.println("End of file (exception)");
+            System.out.println(eofe);
+            System.out.println("The file has been read");
             return tournamentList;
         }
         catch(IOException ex)

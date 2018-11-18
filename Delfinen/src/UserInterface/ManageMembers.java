@@ -27,9 +27,23 @@ public class ManageMembers extends javax.swing.JPanel
     /**
      * Creates new form ManageMembers
      */
-    public ManageMembers() throws Exception
+    public ManageMembers()
     {
         initComponents();
+        try
+        {
+            c.updateMemberList();
+        }
+        catch(NullPointerException npe)
+        {
+            System.out.println(npe);
+            System.out.println("File \"Members.dat\" is empty");
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
         addRowToTable();
     }
 
@@ -185,10 +199,8 @@ public class ManageMembers extends javax.swing.JPanel
         //n.setVisible(true);
     }//GEN-LAST:event_RegNewMemberActionPerformed
 
-    public void addRowToTable() throws Exception
+    public void addRowToTable()
     {
-        c.updateMemberList();
-        
         
         DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
         System.out.print("MemberList size is: " + c.getMemberList().size());

@@ -6,8 +6,6 @@
 package UserInterface;
 
 import java.awt.Container;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -112,14 +110,15 @@ public class GUI extends javax.swing.JFrame
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
     {//GEN-HEADEREND:event_jButton2ActionPerformed
-        try
-        {
+//        try
+//        {
             m = new ManageMembers(); // instance on jpanel "ManageMebers"
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        }
+//        catch (Exception ex)
+//        {
+//            System.out.println(ex);
+////            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         this.ChangePanel();
         
