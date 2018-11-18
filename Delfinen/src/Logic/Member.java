@@ -33,12 +33,14 @@ public class Member implements Serializable
             String name, String address, String city, String emailAddress,
             LocalDate dateOfBirth, LocalDate dateOfJoining) throws IllegalArgumentException
     {
-        if(zipCode != 4 || memberID < 1 || phoneNumber != 8
-                || arrearsBalance < 0 || membershipPrice <= 0
+        if(zipCode < 1000 || zipCode > 9999 || memberID < 1 
+                || phoneNumber < 10000000 || phoneNumber > 99999999
+                || arrearsBalance < 0 || membershipPrice < 0
                 || name == null || name.isEmpty() == true
                 || address == null || address.isEmpty() == true
-                || city == null || city.isEmpty() == true
-                || validEmail() == false 
+                || city == null || city.isEmpty() == true 
+                
+                
                 )
         {
             throw new IllegalArgumentException();

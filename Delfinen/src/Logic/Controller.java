@@ -79,7 +79,7 @@ public class Controller
      */
     public void updateMemberList() throws Exception
     {
-        this.memberList = data.getMemberList();
+        this.memberList = this.data.getMemberList();
     }
 
     public ArrayList<Member> getMemberList()
