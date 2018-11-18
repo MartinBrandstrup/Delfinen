@@ -21,6 +21,8 @@ public class ManageMembers extends javax.swing.JPanel
   GUI g = new GUI();
     DataAccessorFile data = new DataAccessorFile();
     Controller c = new Controller(data);
+    
+    NewMember n = new NewMember();
 
     /**
      * Creates new form ManageMembers
@@ -67,6 +69,13 @@ public class ManageMembers extends javax.swing.JPanel
         jPopupMenu1.add(ViewMemberInfo);
 
         RegNewMember.setText("Register new member");
+        RegNewMember.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RegNewMemberActionPerformed(evt);
+            }
+        });
         jPopupMenu1.add(RegNewMember);
 
         CancelMembership.setText("Cancel membership");
@@ -165,10 +174,16 @@ public class ManageMembers extends javax.swing.JPanel
 
     private void ViewMemberInfoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewMemberInfoActionPerformed
     {//GEN-HEADEREND:event_ViewMemberInfoActionPerformed
-        rowSelected();
+        //rowSelected();
         
-        //this.dispose();
+        
     }//GEN-LAST:event_ViewMemberInfoActionPerformed
+
+    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
+    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
+        //this.setVisible(false);
+        //n.setVisible(true);
+    }//GEN-LAST:event_RegNewMemberActionPerformed
 
     public void addRowToTable() throws Exception
     {
