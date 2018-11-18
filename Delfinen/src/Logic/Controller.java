@@ -79,7 +79,10 @@ public class Controller
      */
     public void updateMemberList() throws Exception
     {
-        this.memberList = this.data.getMemberList();
+        if(this.data.getMemberList() != null)
+        {
+            this.memberList = this.data.getMemberList();
+        }
     }
 
     public ArrayList<Member> getMemberList()
@@ -89,9 +92,9 @@ public class Controller
 
     /**
      * Saves the currently in use list of members (object) from the Controller
-     * class and saves them to the source.
-     * Should be called when closing the program to make sure any newly added
-     * data is not lost. A save button might also implement this method.
+     * class and saves them to the source. Should be called when closing the
+     * program to make sure any newly added data is not lost. A save button
+     * might also implement this method.
      *
      * @throws Exception
      */
