@@ -55,7 +55,7 @@ public class ControllerTest
         Controller ctrl = new Controller(data);
         ArrayList<Member> memberList = new ArrayList();
         
-        memberList.add(new Member(true, true, false, 2800, 1, 14548645, 
+        memberList.add(new Member(true, true, false, 2800, 81, 14548645, 
                 0, 0, "Johanne Jaeger", "Fiktiv Vej 23", 
                 "Kongens Lyngby", "Johanne.j@test.dk", 
                 LocalDate.of(1993, 04, 12), LocalDate.now()));

@@ -23,11 +23,11 @@ public class DataAccessorTempTest
         Scanner scanner = new Scanner(System.in);
         ArrayList<Member> memberList = new ArrayList();
 
-        memberList.add(new Member(false, false, true, 2800, 001, 14548645,
+        memberList.add(new Member(false, false, true, 2800, 81, 14548645,
                 50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23",
                 "Kongens Lyngby", "Johanne.j@test.dk",
                 LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10)));
-        memberList.add(new Member(false, true, false, 2800, 002, 23657845,
+        memberList.add(new Member(false, true, false, 2800, 82, 23657845,
                 0, 100000, "Alice Lauritzen", "Fiktiv Vej 25",
                 "Kongens Lyngby", "Alice.l@test.dk",
                 LocalDate.of(2004, 06, 14), LocalDate.of(2014, 03, 07)));
