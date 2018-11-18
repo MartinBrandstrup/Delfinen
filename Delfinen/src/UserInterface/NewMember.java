@@ -225,8 +225,9 @@ public class NewMember extends javax.swing.JPanel
         //kommentar tester
         //Kommentar test
         validation();
-        
+        System.out.print("MemberList size: " + c.getMemberList().size());
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
+        System.out.print(" MemberList sixe: " + c.getMemberList().size());
         try
         {
             c.saveMemberList();
