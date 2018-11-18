@@ -39,7 +39,7 @@ public class Member implements Serializable
                 || address == null || address.isEmpty() == true
                 || city == null || city.isEmpty() == true
                 || validEmail() == false 
-                || )
+                )
         {
             throw new IllegalArgumentException();
         }

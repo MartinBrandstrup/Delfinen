@@ -42,6 +42,10 @@ public class ManageMembers extends javax.swing.JPanel
     {
 
         jButton4 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        ViewMemberInfo = new javax.swing.JMenuItem();
+        RegNewMember = new javax.swing.JMenuItem();
+        CancelMembership = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -51,6 +55,22 @@ public class ManageMembers extends javax.swing.JPanel
         MembersTable = new javax.swing.JTable();
 
         jButton4.setText("jButton4");
+
+        ViewMemberInfo.setText("View / change selected member info");
+        ViewMemberInfo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ViewMemberInfoActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(ViewMemberInfo);
+
+        RegNewMember.setText("Register new member");
+        jPopupMenu1.add(RegNewMember);
+
+        CancelMembership.setText("Cancel membership");
+        jPopupMenu1.add(CancelMembership);
 
         setPreferredSize(new java.awt.Dimension(400, 300));
 
@@ -75,16 +95,20 @@ public class ManageMembers extends javax.swing.JPanel
         MembersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String []
             {
                 "Name", "MID", "Status"
             }
         ));
+        MembersTable.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+                MembersTableMouseReleased(evt);
+            }
+        });
         jScrollPane1.setViewportView(MembersTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -130,9 +154,25 @@ public class ManageMembers extends javax.swing.JPanel
         this.g.ChangePanel();// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
+    private void MembersTableMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_MembersTableMouseReleased
+    {//GEN-HEADEREND:event_MembersTableMouseReleased
+        //Mouse Released is apperantly equal to mouse right click???? 
+        if(evt.isPopupTrigger()) //If this event is triggrede (java.awt.event.Mouse event evt) - the parameter for this method
+        {
+            jPopupMenu1.show(this, evt.getX(), evt.getY()); //show the popup at memberstable at this event x,y cordinates
+        }
+    }//GEN-LAST:event_MembersTableMouseReleased
+
+    private void ViewMemberInfoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewMemberInfoActionPerformed
+    {//GEN-HEADEREND:event_ViewMemberInfoActionPerformed
+        rowSelected();
+        
+        //this.dispose();
+    }//GEN-LAST:event_ViewMemberInfoActionPerformed
+
     public void addRowToTable() throws Exception
     {
-        c.updateMemberList(data.getMemberList());
+        c.updateMemberList();
         
         
         DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
@@ -145,18 +185,33 @@ public class ManageMembers extends javax.swing.JPanel
             rowData[1] = list.get(i).getMemberID();
             rowData[2] = list.get(i).getActivityStatusString();
             model.addRow(rowData);
+        }  
+    }
+    public int rowSelected() //returns the index of the row selected
+    {
+        int index;
+        
+        if(MembersTable.getSelectionModel().isSelectionEmpty())
+        {
+            System.out.print("No rows selected");
         }
         
+        index = MembersTable.getSelectedRow();
+        return index;    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem CancelMembership;
     private javax.swing.JTable MembersTable;
+    private javax.swing.JMenuItem RegNewMember;
+    private javax.swing.JMenuItem ViewMemberInfo;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

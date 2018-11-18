@@ -225,7 +225,7 @@ public class NewMember extends javax.swing.JPanel
             //dateOfBirth should perheps be changed to a jdatechooser
             //kommentar tester
             //Kommentar test
-            c.updateMemberList(data.getMemberList());
+            c.updateMemberList();
         }
         catch (Exception ex)
         {
