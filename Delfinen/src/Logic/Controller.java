@@ -33,20 +33,23 @@ public class Controller
     }
 
     /**
-     * Retrieves the list of members (object) from the source and updates the
-     * currently in use member list in the Controller class. Should be called
-     * when launching the program to make sure you have the most recently update
+     * The remaining parameters of the Member class (memberID, membershipPrice,
+     * paidCurrentYear, membershipSatus and dateOfJoining) will automatically
+     * be generated.
      *
      * @param zipCode an integer of exactly 4 digits
      * @param phoneNumber a long of exactly 8 digits
-     * @param name
-     * @throws Exception
+     * @param name String containing full name
+     * @param address String containing physical address
+     * @param city String containing city
+     * @param email String containing a valid email address
+     * @param dateOfBirth a LocalDate representing birthday
+     * 
+     * @throws IllegalArgumentException
      */
-    //MemberID, membershipPrice, paidCurrentYear, membershipStatus og 
-    //dateOfJoining bliver automatisk genereret.
+    
     //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
-    //Controller for at ændre counteren. paidCurrentYear og activityStatus
-    //er sat til true som default
+    //Controller for at ændre counteren
     public void registerNewMember(int zipCode, long phoneNumber,
             String name, String address, String city,
             String email, LocalDate dateOfBirth) throws IllegalArgumentException
@@ -61,11 +64,23 @@ public class Controller
         ++MIDcounter;
     }
 
+     /**
+     * Retrieves the last member (object) added to the ArrayList
+     *
+     * @return A Member object
+     */
     public Member getLastAddedMember()
     {
         return memberList.get(memberList.size() - 1);
     }
 
+        /**
+     * Retrieves member (object) with the given member ID
+     *
+     * @param memberID
+     * 
+     * @return A Member object
+     */
     public Member getMemberByID(int memberID) throws NullPointerException
     {
         for(Member m : memberList)
@@ -75,12 +90,7 @@ public class Controller
                 return m;
             }
         }
-        throw new NullPointerException("No member with given ID!");
-    }
-
-    public ArrayList<Member> getMemberlist()
-    {
-        return memberList;
+        throw new NullPointerException("No member with given ID");
     }
 
     /**

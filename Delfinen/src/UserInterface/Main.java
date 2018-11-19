@@ -711,12 +711,12 @@ public class Main extends javax.swing.JFrame
         
         Object rowData[] = new Object[3];
         
-        for(int i = 0; i < c.getMemberlist().size(); ++i)
+        for(int i = 0; i < c.getMemberList().size(); ++i)
         {
             
-            rowData[0] = c.getMemberlist().get(i).getName();
-            rowData[1] = c.getMemberlist().get(i).getMemberID();
-            rowData[2] = c.getMemberlist().get(i).getActivityStatusString();
+            rowData[0] = c.getMemberList().get(i).getName();
+            rowData[1] = c.getMemberList().get(i).getMemberID();
+            rowData[2] = c.getMemberList().get(i).getActivityStatusString();
             model.addRow(rowData);
             
         }  
