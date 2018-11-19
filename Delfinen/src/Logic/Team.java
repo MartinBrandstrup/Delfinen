@@ -15,8 +15,7 @@ import java.util.ArrayList;
 public class Team implements Serializable
 {
 
-    private String teamName;
-    private String trainer;
+    private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
     private ArrayList<CompetitiveSwimmer> teamMembers;
     

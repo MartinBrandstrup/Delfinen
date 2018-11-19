@@ -34,8 +34,8 @@ public class Controller
 
     /**
      * The remaining parameters of the Member class (memberID, membershipPrice,
-     * paidCurrentYear, membershipSatus and dateOfJoining) will automatically
-     * be generated.
+     * paidCurrentYear, membershipSatus and dateOfJoining) will automatically be
+     * generated.
      *
      * @param zipCode an integer of exactly 4 digits
      * @param phoneNumber a long of exactly 8 digits
@@ -44,10 +44,9 @@ public class Controller
      * @param city String containing city
      * @param email String containing a valid email address
      * @param dateOfBirth a LocalDate representing birthday
-     * 
+     *
      * @throws IllegalArgumentException
      */
-    
     //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
     //Controller for at ændre counteren
     public void registerNewMember(int zipCode, long phoneNumber,
@@ -64,7 +63,7 @@ public class Controller
         ++MIDcounter;
     }
 
-     /**
+    /**
      * Retrieves the last member (object) added to the ArrayList
      *
      * @return A Member object
@@ -74,11 +73,11 @@ public class Controller
         return memberList.get(memberList.size() - 1);
     }
 
-        /**
+    /**
      * Retrieves member (object) with the given member ID
      *
      * @param memberID
-     * 
+     *
      * @return A Member object
      */
     public Member getMemberByID(int memberID) throws NullPointerException
@@ -108,11 +107,6 @@ public class Controller
         }
     }
 
-    public ArrayList<Member> getMemberList()
-    {
-        return memberList;
-    }
-
     /**
      * Saves the currently in use list of members (object) from the Controller
      * class and saves them to the source. Should be called when closing the
@@ -124,6 +118,11 @@ public class Controller
     public void saveMemberList() throws Exception
     {
         data.saveMemberList(memberList);
+    }
+
+    public ArrayList<Member> getMemberList()
+    {
+        return memberList;
     }
 
     public int getMIDcounter()
