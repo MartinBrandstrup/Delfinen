@@ -30,6 +30,7 @@ public class MemberTest
     @Test
     public void testGetAge()
     {
+        //Skal rettes til afhængig af dags dato
         assertEquals(25, johanne.getAge());
     }
 

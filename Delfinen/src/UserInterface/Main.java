@@ -659,7 +659,7 @@ public class Main extends javax.swing.JFrame
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
-        long phoneNumber = Long.parseLong(this.ZipCodeTF.getText());
+        long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         
         if(zipCode < 1000 || zipCode > 9999)
         {
@@ -681,14 +681,16 @@ public class Main extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
-        if(this.EmailAddressTF.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null, "This email is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
-        }
-        if(this.DateOfBirthTF.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null, "The field date of birth can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
-        }
+        
+        //Af en eller anden årsag kan den ikke se mine static metoder her. Kigger på det senere
+//        if(validateEmail(this.EmailAddressTF.getText()) == false)
+//        {
+//            JOptionPane.showMessageDialog(null, "This email address is not a valid email address", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
+//        if(validateDate(this.DateOfBirthTF.getText()) == false)
+//        {
+//            JOptionPane.showMessageDialog(null, "This date is not a valid date", "Inane error", JOptionPane.ERROR_MESSAGE);
+//        }
     }
     
     public void reset()

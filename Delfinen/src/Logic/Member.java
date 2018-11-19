@@ -5,14 +5,11 @@
  */
 package Logic;
 
+import static Logic.Controller.validateDate;
+import static Logic.Controller.validateEmail;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -59,53 +56,15 @@ public class Member implements Serializable
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
 
-        if(validEmail() == false || validDate(dateOfBirth) == false 
-                || validDate(dateOfJoining) == false)
+        if(validateEmail(emailAddress) == false 
+                || validateDate(dateOfBirth.toString()) == false 
+                || validateDate(dateOfJoining.toString()) == false)
         {
             throw new IllegalArgumentException();
         }
     }
 
-    //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
-    private boolean validEmail()
-    {
-        Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
-        if(matcher.find())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 
-    private boolean validDate(LocalDate dateToValidate)
-    {
-        String dateString;
-        //DateTimeFormatter dateFormat = new DateTimeFormatter.ofPattern(name);
-
-        try
-        {
-            dateString = dateToValidate.toString();
-        }
-        catch(NullPointerException npe)
-        {
-            System.out.println("Date is null");
-            return false;
-        }
-
-        try
-        {
-            LocalDate.parse(dateString);
-        }
-        catch(DateTimeParseException dtpe)
-        {
-            return false;
-        }
-
-        return true;
-    }
 
     /**
      * Calculates the member's age based on the current date

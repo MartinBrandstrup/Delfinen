@@ -7,7 +7,10 @@ package Logic;
 
 import Data.DataAccessor;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -29,6 +32,16 @@ public class Controller
         this.data = data;
     }
 
+    /**
+     * Retrieves the list of members (object) from the source and updates the
+     * currently in use member list in the Controller class. Should be called
+     * when launching the program to make sure you have the most recently update
+     *
+     * @param zipCode an integer of exactly 4 digits
+     * @param phoneNumber a long of exactly 8 digits
+     * @param name
+     * @throws Exception
+     */
     //MemberID, membershipPrice, paidCurrentYear, membershipStatus og 
     //dateOfJoining bliver automatisk genereret.
     //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
@@ -117,5 +130,33 @@ public class Controller
     {
         member.registerSwimmerOnTeam(team);
         team.addMember(member);
+    }
+
+    //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
+    static boolean validateEmail(String emailAddress)
+    {
+        Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
+        if(matcher.find())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    static boolean validateDate(String dateToValidate)
+    {
+        try
+        {
+            LocalDate.parse(dateToValidate);
+        }
+        catch(DateTimeParseException dtpe)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
