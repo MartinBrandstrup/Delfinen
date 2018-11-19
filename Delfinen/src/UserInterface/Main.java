@@ -10,6 +10,7 @@ import Logic.Controller;
 import Logic.Member;
 import java.awt.CardLayout;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Main extends javax.swing.JFrame
 {
     private CardLayout card;
     
+    private DefaultTableModel model; 
     private DataAccessorFile data = new DataAccessorFile();
     private Controller c = new Controller(data);
 
@@ -48,6 +50,7 @@ public class Main extends javax.swing.JFrame
         {
             System.out.println(ex);
         }
+        populateTable();
     }
 
     /**
@@ -571,7 +574,7 @@ public class Main extends javax.swing.JFrame
 
     private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
     {//GEN-HEADEREND:event_ManageMembersActionPerformed
-        addRowToTable();
+        //addRowToTable();
         card.show(mainPanel, "MembersManage");
     }//GEN-LAST:event_ManageMembersActionPerformed
 
@@ -593,7 +596,12 @@ public class Main extends javax.swing.JFrame
         String address = this.AddressTF.getText();
         String city = this.CityTF.getText();
         String email = this.EmailAddressTF.getText();
-        LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
+        //LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
+        
+        String dateOfBirthString = this.DateOfBirthTF.getText();
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        
+        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString, dateFormat);
         
         validation();
         
@@ -610,6 +618,12 @@ public class Main extends javax.swing.JFrame
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        Object rowData[] = new Object[3];
+                    
+        rowData[0] = c.getLastAddedMember().getName();
+        rowData[1] = c.getLastAddedMember().getMemberID();
+        rowData[2] = c.getLastAddedMember().getActivityStatusString();
+        model.addRow(rowData);
         reset();
     }//GEN-LAST:event_ConfirmChangesActionPerformed
 
@@ -644,29 +658,32 @@ public class Main extends javax.swing.JFrame
 
     public void validation()
     {
-         if(this.ZipCodeTF.getText().equals(""))
+        int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
+        long phoneNumber = Long.parseLong(this.ZipCodeTF.getText());
+        
+        if(zipCode < 1000 || zipCode > 9999)
         {
-            JOptionPane.showMessageDialog(null, "The field zip code can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The field zip must contains excalty 4 digits", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
-        if(this.PhoneNumberTF.getText().equals(""))
+        if(phoneNumber < 10000000 || phoneNumber > 99999999)
         {
-            JOptionPane.showMessageDialog(null, "The field phone number can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The field phone number must contains excalty 8 digits", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         if(this.NameTF.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "The field name can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The field name cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         if(this.AddressTF.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "The field address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The field address cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         if(this.CityTF.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "The field city can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         if(this.EmailAddressTF.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null, "The field email address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "This email is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         if(this.DateOfBirthTF.getText().equals(""))
         {
@@ -685,18 +702,21 @@ public class Main extends javax.swing.JFrame
         this.DateOfBirthTF.setText("");
     }
     
-    public void addRowToTable()
+    public void populateTable()
     {
-        DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
+        model = (DefaultTableModel) MembersTable.getModel();
         System.out.print("MemberList size is: " + c.getMemberList().size());
-        ArrayList<Member> list = c.getMemberlist();
+        
         Object rowData[] = new Object[3];
-        for(int i = 0; i < list.size(); ++i)
+        
+        for(int i = 0; i < c.getMemberlist().size(); ++i)
         {
-            rowData[0] = list.get(i).getName();
-            rowData[1] = list.get(i).getMemberID();
-            rowData[2] = list.get(i).getActivityStatusString();
+            
+            rowData[0] = c.getMemberlist().get(i).getName();
+            rowData[1] = c.getMemberlist().get(i).getMemberID();
+            rowData[2] = c.getMemberlist().get(i).getActivityStatusString();
             model.addRow(rowData);
+            
         }  
     }
     
