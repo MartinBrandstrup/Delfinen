@@ -99,9 +99,23 @@ public class Main extends javax.swing.JFrame
         RegisterNewMember1 = new javax.swing.JButton();
         CancelMembership = new javax.swing.JButton();
         MemberInfo = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        MemberInformation = new javax.swing.JPanel();
+        ChosenMemberName = new javax.swing.JLabel();
+        MainMenu3 = new javax.swing.JButton();
+        ActivityStatus = new javax.swing.JLabel();
+        MemberID = new javax.swing.JLabel();
+        DateOfJoing = new javax.swing.JLabel();
+        MemberType = new javax.swing.JLabel();
+        ActivityStatusTFMI = new javax.swing.JTextField();
+        MemberIDTFMI = new javax.swing.JTextField();
+        MemberTypeMI = new javax.swing.JTextField();
+        DateOfJoiningTFMI = new javax.swing.JTextField();
+        DateOfJoing2 = new javax.swing.JLabel();
+        ArrearsBalance = new javax.swing.JLabel();
+        DateOfJoing4 = new javax.swing.JLabel();
+        DateOfJoiningTFMI2 = new javax.swing.JTextField();
+        DateOfJoiningTFMI3 = new javax.swing.JTextField();
+        ArrearsBalanceTFMI = new javax.swing.JTextField();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -221,6 +235,13 @@ public class Main extends javax.swing.JFrame
 
         MainMenu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MainMenu1.setText("Main menu");
+        MainMenu1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu1ActionPerformed(evt);
+            }
+        });
 
         SaveMembers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SaveMembers.setText("Save members");
@@ -316,6 +337,13 @@ public class Main extends javax.swing.JFrame
 
         MainMenu2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MainMenu2.setText("Main Menu");
+        MainMenu2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu2ActionPerformed(evt);
+            }
+        });
 
         MembersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -338,6 +366,13 @@ public class Main extends javax.swing.JFrame
 
         RegisterNewMember1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RegisterNewMember1.setText("Register new member");
+        RegisterNewMember1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RegisterNewMember1ActionPerformed(evt);
+            }
+        });
 
         CancelMembership.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         CancelMembership.setText("Cancel membership");
@@ -384,59 +419,149 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(ManageMember, "MembersManage");
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        ChosenMemberName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ChosenMemberName.setText("-----------------");
 
-        jButton2.setText("jButton2");
+        MainMenu3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu3.setText("Main menu");
 
-        jButton3.setText("jButton3");
+        ActivityStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ActivityStatus.setText("Activity status:");
+
+        MemberID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        MemberID.setText("Member ID:");
+
+        DateOfJoing.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DateOfJoing.setText("Date of joining:");
+
+        MemberType.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        MemberType.setText("Member type:");
+
+        ActivityStatusTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        ActivityStatusTFMI.setText("jTextField1");
+
+        MemberIDTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MemberIDTFMI.setText("jTextField1");
+
+        MemberTypeMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        MemberTypeMI.setText("jTextField1");
+
+        DateOfJoiningTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        DateOfJoiningTFMI.setText("jTextField1");
+
+        DateOfJoing2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DateOfJoing2.setText("Date of joining:");
+
+        ArrearsBalance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ArrearsBalance.setText("Arrears balance:");
+
+        DateOfJoing4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DateOfJoing4.setText("Date of joining:");
+
+        DateOfJoiningTFMI2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        DateOfJoiningTFMI2.setText("jTextField1");
+
+        DateOfJoiningTFMI3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        DateOfJoiningTFMI3.setText("jTextField1");
+
+        ArrearsBalanceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        ArrearsBalanceTFMI.setText("jTextField1");
+
+        javax.swing.GroupLayout MemberInformationLayout = new javax.swing.GroupLayout(MemberInformation);
+        MemberInformation.setLayout(MemberInformationLayout);
+        MemberInformationLayout.setHorizontalGroup(
+            MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemberInformationLayout.createSequentialGroup()
+                .addComponent(ChosenMemberName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addComponent(MainMenu3))
+            .addGroup(MemberInformationLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MemberInformationLayout.createSequentialGroup()
+                            .addComponent(DateOfJoing)
+                            .addGap(18, 18, 18)
+                            .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MemberInformationLayout.createSequentialGroup()
+                            .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ActivityStatus)
+                                .addComponent(MemberType))
+                            .addGap(18, 18, 18)
+                            .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(MemberInformationLayout.createSequentialGroup()
+                                    .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DateOfJoing4))
+                                .addGroup(MemberInformationLayout.createSequentialGroup()
+                                    .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DateOfJoing2))
+                                .addGroup(MemberInformationLayout.createSequentialGroup()
+                                    .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(43, 43, 43)
+                                    .addComponent(ArrearsBalance)))))
+                    .addComponent(MemberID))
+                .addGap(18, 18, 18)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DateOfJoiningTFMI2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateOfJoiningTFMI3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MemberInformationLayout.setVerticalGroup(
+            MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemberInformationLayout.createSequentialGroup()
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(MainMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ChosenMemberName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActivityStatus)
+                    .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ArrearsBalance)
+                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MemberID)
+                    .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateOfJoing2)
+                    .addComponent(DateOfJoiningTFMI3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(MemberType)
+                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DateOfJoiningTFMI2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DateOfJoing4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DateOfJoing)
+                    .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 257, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(MemberInformation, "card5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
-    {//GEN-HEADEREND:event_jButton1ActionPerformed
-//        CardLayout card = (CardLayout) mainPanel.getLayout();
-//        card.show(mainPanel, "card3");
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
     {//GEN-HEADEREND:event_RegNewMemberActionPerformed
@@ -501,6 +626,21 @@ public class Main extends javax.swing.JFrame
             jPopupMenu1.show(this, evt.getX(), evt.getY()); //show the popup at memberstable at this event x,y cordinates
         }
     }//GEN-LAST:event_MembersTableMouseReleased
+
+    private void MainMenu1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu1ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu1ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu1ActionPerformed
+
+    private void MainMenu2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu2ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu2ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu2ActionPerformed
+
+    private void RegisterNewMember1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegisterNewMember1ActionPerformed
+    {//GEN-HEADEREND:event_RegisterNewMember1ActionPerformed
+        card.show(mainPanel, "RegiNewMember");
+    }//GEN-LAST:event_RegisterNewMember1ActionPerformed
 
     public void validation()
     {
@@ -573,6 +713,11 @@ public class Main extends javax.swing.JFrame
         return index;    
     }
     
+    public void mainMenu()
+    {
+        card.first(mainPanel);
+    }
+    
     
     
     /**
@@ -625,21 +770,38 @@ public class Main extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ActivityStatus;
+    private javax.swing.JTextField ActivityStatusTFMI;
     private javax.swing.JTextField AddressTF;
+    private javax.swing.JLabel ArrearsBalance;
+    private javax.swing.JTextField ArrearsBalanceTFMI;
     private javax.swing.JButton CancelMembership;
+    private javax.swing.JLabel ChosenMemberName;
     private javax.swing.JTextField CityTF;
     private javax.swing.JButton ConfirmChanges;
     private javax.swing.JTextField DateOfBirthTF;
+    private javax.swing.JLabel DateOfJoing;
+    private javax.swing.JLabel DateOfJoing2;
+    private javax.swing.JLabel DateOfJoing4;
+    private javax.swing.JTextField DateOfJoiningTFMI;
+    private javax.swing.JTextField DateOfJoiningTFMI2;
+    private javax.swing.JTextField DateOfJoiningTFMI3;
     private javax.swing.JTextField EmailAddressTF;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JButton MainMenu1;
     private javax.swing.JButton MainMenu2;
+    private javax.swing.JButton MainMenu3;
     private javax.swing.JLabel ManMembers;
     private javax.swing.JButton ManageEconomy;
     private javax.swing.JPanel ManageMember;
     private javax.swing.JButton ManageMembers;
     private javax.swing.JButton ManageTeams;
+    private javax.swing.JLabel MemberID;
+    private javax.swing.JTextField MemberIDTFMI;
     private javax.swing.JButton MemberInfo;
+    private javax.swing.JPanel MemberInformation;
+    private javax.swing.JLabel MemberType;
+    private javax.swing.JTextField MemberTypeMI;
     private javax.swing.JTable MembersTable;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel Name1;
@@ -657,9 +819,6 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton SaveMembers;
     private javax.swing.JButton ViewTourParticipants;
     private javax.swing.JTextField ZipCodeTF;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
