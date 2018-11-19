@@ -5,6 +5,7 @@
  */
 package UserInterface;
 
+import java.awt.CardLayout;
 import java.awt.Container;
 
 /**
@@ -15,6 +16,7 @@ public class GUI extends javax.swing.JFrame
 {
 
     private Container m;
+    
 
     /**
      * Creates new form GUI
@@ -59,6 +61,13 @@ public class GUI extends javax.swing.JFrame
         jButton3.setText("View tournament Participants");
 
         jButton4.setText("Manage Economy");
+        jButton4.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         RegisterNewMember.setText("Register New Member");
         RegisterNewMember.addActionListener(new java.awt.event.ActionListener()
@@ -77,15 +86,15 @@ public class GUI extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 92, Short.MAX_VALUE)
+                .addGap(0, 208, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RegisterNewMember)
                     .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton2)
                     .addComponent(jButton1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegisterNewMember))
-                .addGap(107, 107, 107))
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +109,7 @@ public class GUI extends javax.swing.JFrame
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(RegisterNewMember)
                 .addGap(26, 26, 26))
         );
@@ -135,6 +144,11 @@ public class GUI extends javax.swing.JFrame
         
         this.ChangePanel();
     }//GEN-LAST:event_RegisterNewMemberActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
+    {//GEN-HEADEREND:event_jButton4ActionPerformed
+       
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

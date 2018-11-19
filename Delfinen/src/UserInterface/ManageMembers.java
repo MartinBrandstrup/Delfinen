@@ -173,8 +173,8 @@ public class ManageMembers extends javax.swing.JPanel
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton9ActionPerformed
     {//GEN-HEADEREND:event_jButton9ActionPerformed
       
-        NewMember m =  new NewMember();
-        this.g.ChangePanel();// TODO add your handling code here:
+        //NewMember m =  new NewMember();
+        //this.g.ChangePanel();// TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void MembersTableMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_MembersTableMouseReleased
@@ -197,6 +197,11 @@ public class ManageMembers extends javax.swing.JPanel
     {//GEN-HEADEREND:event_RegNewMemberActionPerformed
         //this.setVisible(false);
         //n.setVisible(true);
+        
+//        NewMember m = new NewMember();
+//        this.setVisible(false);
+//        g.setContentPane(m);
+//        this.setVisible(true);
     }//GEN-LAST:event_RegNewMemberActionPerformed
 
     public void addRowToTable()
