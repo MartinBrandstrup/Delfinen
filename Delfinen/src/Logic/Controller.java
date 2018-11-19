@@ -15,6 +15,12 @@ import java.util.ArrayList;
  */
 public class Controller
 
+        
+//        String dateOfBirthString = this.DateOfBirthTF.getText();
+//        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
+//        
+//        LocalDate dateofBirth = LocalDate.parse(dateOfBirthString, dateFormat);
+        
 {
 
     //private DataAccessorHardCoded data;

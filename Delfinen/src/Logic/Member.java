@@ -7,10 +7,10 @@ package Logic;
 
 import java.io.Serializable;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,8 +58,8 @@ public class Member implements Serializable
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
 
-        if(validEmail() == false )
-                //|| validDate(dateOfBirth) == false || validDate(dateOfJoining))
+        if(validEmail() == false || validDate(dateOfBirth) == false 
+                || validDate(dateOfJoining) == false)
         {
             throw new IllegalArgumentException();
         }
@@ -83,8 +83,7 @@ public class Member implements Serializable
     private boolean validDate(LocalDate dateToValidate)
     {
         String dateString;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
-        dateFormat.setLenient(false);
+        //DateTimeFormatter dateFormat = new DateTimeFormatter.ofPattern(name);
 
         try
         {
@@ -98,9 +97,10 @@ public class Member implements Serializable
 
         try
         {
-            Date date = dateFormat.parse(dateString);
+            LocalDate.parse(dateString);
+            System.out.println(dateString);
         }
-        catch(ParseException pe)
+        catch(DateTimeParseException dtpe)
         {
             return false;
         }

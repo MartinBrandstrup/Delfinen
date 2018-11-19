@@ -58,11 +58,11 @@ public class ControllerTest
         memberList.add(new Member(true, true, false, 2800, 81, 14548645, 
                 0, 0, "Johanne Jaeger", "Fiktiv Vej 23", 
                 "Kongens Lyngby", "Johanne.j@gmail.dk", 
-                LocalDate.of(1993, 04, 12), LocalDate.now()));
+                LocalDate.of(1993, 4, 12), LocalDate.now()));
         
         ctrl.registerNewMember(2800, 14548645, 
                 "Johanne Jaeger", "Fiktiv Vej 23", "Kongens Lyngby", 
-                "Johanne.j@test.dk", LocalDate.of(1993, 04, 12));
+                "Johanne.j@test.dk", LocalDate.of(1993, 4, 12));
         
         assertEquals(memberList.get(0), (ctrl.getMemberList()));
     }

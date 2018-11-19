@@ -23,7 +23,7 @@ public class MemberTest
         johanne = new Member(false, false, true, 2800, 81, 14548645, 
                 50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
                 "Kongens Lyngby", "Johanne.j@gmail.dk", 
-                LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10));
+                LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10));
     }
 
     //Mangler flere tests
