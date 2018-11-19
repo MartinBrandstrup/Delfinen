@@ -6,9 +6,11 @@
 package Logic;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
-import java.time.format.DateTimeParseException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,14 +35,12 @@ public class Member implements Serializable
             String name, String address, String city, String emailAddress,
             LocalDate dateOfBirth, LocalDate dateOfJoining) throws IllegalArgumentException
     {
-        if(zipCode < 1000 || zipCode > 9999 || memberID < 1 
+        if(zipCode < 1000 || zipCode > 9999 || memberID < 1
                 || phoneNumber < 10000000 || phoneNumber > 99999999
                 || arrearsBalance < 0 || membershipPrice < 0
                 || name == null || name.isEmpty() == true
                 || address == null || address.isEmpty() == true
-                || city == null || city.isEmpty() == true 
-                
-                )
+                || city == null || city.isEmpty() == true)
         {
             throw new IllegalArgumentException();
         }
@@ -57,10 +57,17 @@ public class Member implements Serializable
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
+
+        if(validEmail() == false )
+                //|| validDate(dateOfBirth) == false || validDate(dateOfJoining))
+        {
+            throw new IllegalArgumentException();
+        }
+        dateOfBirth.toString();
     }
 
     //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
-    public boolean validEmail()
+    private boolean validEmail()
     {
         Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
         if(matcher.find())
@@ -73,13 +80,49 @@ public class Member implements Serializable
         }
     }
 
-    //Calculates the member's age based on the current date
+    private boolean validDate(LocalDate dateToValidate)
+    {
+        String dateString;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
+        dateFormat.setLenient(false);
+
+        try
+        {
+            dateString = dateToValidate.toString();
+        }
+        catch(NullPointerException npe)
+        {
+            System.out.println("Date is null");
+            return false;
+        }
+
+        try
+        {
+            Date date = dateFormat.parse(dateString);
+        }
+        catch(ParseException pe)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Calculates the member's age based on the current date
+     *
+     * @return An integer representing age
+     */
     public int getAge()
     {
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 
-    //Returns the date payment is due for the current year
+    /**
+     * Calculates the date member's next payment is due for the current year
+     *
+     * @return A LocalDate for next payment
+     */
     public LocalDate getNextPaymentDate()
     {
         int monthOfJoining = dateOfJoining.getMonthValue();

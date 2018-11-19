@@ -57,7 +57,7 @@ public class ControllerTest
         
         memberList.add(new Member(true, true, false, 2800, 81, 14548645, 
                 0, 0, "Johanne Jaeger", "Fiktiv Vej 23", 
-                "Kongens Lyngby", "Johanne.j@test.dk", 
+                "Kongens Lyngby", "Johanne.j@gmail.dk", 
                 LocalDate.of(1993, 04, 12), LocalDate.now()));
         
         ctrl.registerNewMember(2800, 14548645, 
