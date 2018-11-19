@@ -5,7 +5,16 @@
  */
 package UserInterface;
 
+import Data.DataAccessorFile;
+import Logic.Controller;
+import Logic.Member;
 import java.awt.CardLayout;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,6 +22,10 @@ import java.awt.CardLayout;
  */
 public class Main extends javax.swing.JFrame
 {
+    private CardLayout card;
+    
+    private DataAccessorFile data = new DataAccessorFile();
+    private Controller c = new Controller(data);
 
     /**
      * Creates new form Main
@@ -20,6 +33,21 @@ public class Main extends javax.swing.JFrame
     public Main()
     {
         initComponents();
+        card = (CardLayout) mainPanel.getLayout();
+        
+        try
+        {
+            c.updateMemberList();
+        }
+        catch(NullPointerException npe)
+        {
+            System.out.println(npe);
+            System.out.println("File \"Members.dat\" is empty");
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
     }
 
     /**
@@ -32,76 +60,329 @@ public class Main extends javax.swing.JFrame
     private void initComponents()
     {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mainPanel = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        MainMenu = new javax.swing.JPanel();
+        RegNewMember = new javax.swing.JButton();
+        ManageMembers = new javax.swing.JButton();
+        ManageTeams = new javax.swing.JButton();
+        ViewTourParticipants = new javax.swing.JButton();
+        ManageEconomy = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        RegisterNewMember = new javax.swing.JPanel();
+        Name = new javax.swing.JLabel();
+        NameTF = new javax.swing.JTextField();
+        Name1 = new javax.swing.JLabel();
+        EmailAddressTF = new javax.swing.JTextField();
+        Name2 = new javax.swing.JLabel();
+        Name3 = new javax.swing.JLabel();
+        Name4 = new javax.swing.JLabel();
+        Name5 = new javax.swing.JLabel();
+        Name6 = new javax.swing.JLabel();
+        AddressTF = new javax.swing.JTextField();
+        ZipCodeTF = new javax.swing.JTextField();
+        PhoneNumberTF = new javax.swing.JTextField();
+        DateOfBirthTF = new javax.swing.JTextField();
+        CityTF = new javax.swing.JTextField();
+        ConfirmChanges = new javax.swing.JButton();
+        Reset = new javax.swing.JButton();
+        MainMenu1 = new javax.swing.JButton();
+        SaveMembers = new javax.swing.JButton();
+        ManageMember = new javax.swing.JPanel();
+        ManMembers = new javax.swing.JLabel();
+        MainMenu2 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        MembersTable = new javax.swing.JTable();
+        RegisterNewMember1 = new javax.swing.JButton();
+        CancelMembership = new javax.swing.JButton();
+        MemberInfo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+
+        jMenuItem1.setText("View / change selected member info");
+        jPopupMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Cancel membership");
+        jPopupMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Register membership");
+        jPopupMenu1.add(jMenuItem3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         mainPanel.setLayout(new java.awt.CardLayout());
 
-        jLabel2.setText("panel 2");
-
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener()
+        RegNewMember.setText("Register new member");
+        RegNewMember.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                jButton4ActionPerformed(evt);
+                RegNewMemberActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        ManageMembers.setText("Manage members");
+        ManageMembers.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ManageMembersActionPerformed(evt);
+            }
+        });
+
+        ManageTeams.setText("Manage Teams");
+
+        ViewTourParticipants.setText("View tournament participants");
+
+        ManageEconomy.setText("Manage economy");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("Delfinen Svømmeklub");
+
+        javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
+        MainMenu.setLayout(MainMenuLayout);
+        MainMenuLayout.setHorizontalGroup(
+            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainMenuLayout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageTeams, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageEconomy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+        MainMenuLayout.setVerticalGroup(
+            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(RegNewMember)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ManageMembers)
+                .addGap(30, 30, 30)
+                .addComponent(ManageTeams)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ViewTourParticipants)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(ManageEconomy)
+                .addGap(82, 82, 82))
+        );
+
+        mainPanel.add(MainMenu, "card2");
+
+        Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name.setText("Name:");
+
+        Name1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name1.setText("Email address: ");
+
+        Name2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name2.setText("Address:");
+
+        Name3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name3.setText("City:");
+
+        Name4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name4.setText("Phone number:");
+
+        Name5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name5.setText("Date of birth:");
+
+        Name6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name6.setText("Zip code:");
+
+        ConfirmChanges.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ConfirmChanges.setText("Confirm changes");
+        ConfirmChanges.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ConfirmChangesActionPerformed(evt);
+            }
+        });
+
+        Reset.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Reset.setText("Reset");
+        Reset.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ResetActionPerformed(evt);
+            }
+        });
+
+        MainMenu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu1.setText("Main menu");
+
+        SaveMembers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SaveMembers.setText("Save members");
+
+        javax.swing.GroupLayout RegisterNewMemberLayout = new javax.swing.GroupLayout(RegisterNewMember);
+        RegisterNewMember.setLayout(RegisterNewMemberLayout);
+        RegisterNewMemberLayout.setHorizontalGroup(
+            RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(SaveMembers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ConfirmChanges, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Reset)
+                        .addContainerGap(213, Short.MAX_VALUE))
+                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Name3)
+                                    .addComponent(Name6)
+                                    .addComponent(Name5)
+                                    .addComponent(Name4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CityTF, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                                    .addComponent(ZipCodeTF)
+                                    .addComponent(DateOfBirthTF)
+                                    .addComponent(PhoneNumberTF)))
+                            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Name1)
+                                    .addComponent(Name)
+                                    .addComponent(Name2))
+                                .addGap(9, 9, 9)
+                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                                    .addComponent(EmailAddressTF)
+                                    .addComponent(AddressTF))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(MainMenu1))))
+        );
+        RegisterNewMemberLayout.setVerticalGroup(
+            RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Name)
+                            .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(MainMenu1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name1)
+                    .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name2)
+                    .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Name3)
+                    .addComponent(CityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Name6)
+                    .addComponent(ZipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Name5)
+                    .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Name4)
+                    .addComponent(PhoneNumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConfirmChanges)
+                    .addComponent(Reset))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(SaveMembers)
+                .addGap(25, 25, 25))
+        );
+
+        mainPanel.add(RegisterNewMember, "RegiNewMember");
+
+        ManMembers.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ManMembers.setText("Manage members");
+
+        MainMenu2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu2.setText("Main Menu");
+
+        MembersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+
+            },
+            new String []
+            {
+                "Name", "MID", "Status"
+            }
+        ));
+        MembersTable.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseReleased(java.awt.event.MouseEvent evt)
+            {
+                MembersTableMouseReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(MembersTable);
+
+        RegisterNewMember1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        RegisterNewMember1.setText("Register new member");
+
+        CancelMembership.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        CancelMembership.setText("Cancel membership");
+
+        MemberInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MemberInfo.setText("View / chance member info");
+
+        javax.swing.GroupLayout ManageMemberLayout = new javax.swing.GroupLayout(ManageMember);
+        ManageMember.setLayout(ManageMemberLayout);
+        ManageMemberLayout.setHorizontalGroup(
+            ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageMemberLayout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(ManMembers)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(MainMenu2))
+            .addGroup(ManageMemberLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(ManageMemberLayout.createSequentialGroup()
+                        .addComponent(RegisterNewMember1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CancelMembership))
+                    .addComponent(MemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton4)
-                .addContainerGap(59, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel2)
-                .addContainerGap())
-        );
-
-        mainPanel.add(jPanel2, "card2");
-
-        jLabel1.setText("panel 3");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31))
+        ManageMemberLayout.setVerticalGroup(
+            ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ManageMemberLayout.createSequentialGroup()
+                .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ManMembers)
+                    .addComponent(MainMenu2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegisterNewMember1)
+                    .addComponent(CancelMembership))
+                .addGap(27, 27, 27)
+                .addComponent(MemberInfo)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        mainPanel.add(jPanel3, "card3");
+        mainPanel.add(ManageMember, "MembersManage");
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener()
@@ -139,7 +420,7 @@ public class Main extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 249, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -152,16 +433,148 @@ public class Main extends javax.swing.JFrame
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
     {//GEN-HEADEREND:event_jButton1ActionPerformed
-        CardLayout card = (CardLayout) mainPanel.getLayout();
-        card.show(mainPanel, "card3");
+//        CardLayout card = (CardLayout) mainPanel.getLayout();
+//        card.show(mainPanel, "card3");
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
-    {//GEN-HEADEREND:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
+    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
+        //card = (CardLayout) mainPanel.getLayout();
+        card.show(mainPanel, "RegiNewMember");
+    }//GEN-LAST:event_RegNewMemberActionPerformed
 
+    private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
+    {//GEN-HEADEREND:event_ManageMembersActionPerformed
+        addRowToTable();
+        card.show(mainPanel, "MembersManage");
+    }//GEN-LAST:event_ManageMembersActionPerformed
+
+    private void ConfirmChangesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmChangesActionPerformed
+    {//GEN-HEADEREND:event_ConfirmChangesActionPerformed
+        try
+        {
+            // should be removed from this method at some point in time
+            c.updateMemberList();
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
+        long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
+        String name = this.NameTF.getText();
+        String address = this.AddressTF.getText();
+        String city = this.CityTF.getText();
+        String email = this.EmailAddressTF.getText();
+        LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
+        
+        validation();
+        
+        c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
+        System.out.print("MemberList size: " + c.getMemberList().size());
+        
+        try
+        {
+            // should be removed from this methid at some point in time
+            c.saveMemberList();
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        reset();
+    }//GEN-LAST:event_ConfirmChangesActionPerformed
+
+    private void ResetActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ResetActionPerformed
+    {//GEN-HEADEREND:event_ResetActionPerformed
+        reset();
+    }//GEN-LAST:event_ResetActionPerformed
+
+    private void MembersTableMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_MembersTableMouseReleased
+    {//GEN-HEADEREND:event_MembersTableMouseReleased
+         //Mouse Released is apperantly equal to mouse right click???? 
+        if(evt.isPopupTrigger()) //If this event is triggrede (java.awt.event.Mouse event evt) - the parameter for this method
+        {
+            jPopupMenu1.show(this, evt.getX(), evt.getY()); //show the popup at memberstable at this event x,y cordinates
+        }
+    }//GEN-LAST:event_MembersTableMouseReleased
+
+    public void validation()
+    {
+         if(this.ZipCodeTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field zip code can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.PhoneNumberTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field phone number can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.NameTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field name can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.AddressTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.CityTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field city can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.EmailAddressTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field email address can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(this.DateOfBirthTF.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "The field date of birth can not be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void reset()
+    {
+        this.ZipCodeTF.setText("");
+        this.PhoneNumberTF.setText("");
+        this.NameTF.setText("");
+        this.AddressTF.setText("");
+        this.CityTF.setText("");
+        this.EmailAddressTF.setText("");
+        this.DateOfBirthTF.setText("");
+    }
+    
+    public void addRowToTable()
+    {
+        DefaultTableModel model = (DefaultTableModel) MembersTable.getModel();
+        System.out.print("MemberList size is: " + c.getMemberList().size());
+        ArrayList<Member> list = c.getMemberlist();
+        Object rowData[] = new Object[3];
+        for(int i = 0; i < list.size(); ++i)
+        {
+            rowData[0] = list.get(i).getName();
+            rowData[1] = list.get(i).getMemberID();
+            rowData[2] = list.get(i).getActivityStatusString();
+            model.addRow(rowData);
+        }  
+    }
+    
+    public int rowSelected()
+    {
+        int index;
+        
+        if(MembersTable.getSelectionModel().isSelectionEmpty())
+        {
+            System.out.print("No rows selected");
+        }
+        
+        index = MembersTable.getSelectedRow();
+        return index;    
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -212,14 +625,47 @@ public class Main extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AddressTF;
+    private javax.swing.JButton CancelMembership;
+    private javax.swing.JTextField CityTF;
+    private javax.swing.JButton ConfirmChanges;
+    private javax.swing.JTextField DateOfBirthTF;
+    private javax.swing.JTextField EmailAddressTF;
+    private javax.swing.JPanel MainMenu;
+    private javax.swing.JButton MainMenu1;
+    private javax.swing.JButton MainMenu2;
+    private javax.swing.JLabel ManMembers;
+    private javax.swing.JButton ManageEconomy;
+    private javax.swing.JPanel ManageMember;
+    private javax.swing.JButton ManageMembers;
+    private javax.swing.JButton ManageTeams;
+    private javax.swing.JButton MemberInfo;
+    private javax.swing.JTable MembersTable;
+    private javax.swing.JLabel Name;
+    private javax.swing.JLabel Name1;
+    private javax.swing.JLabel Name2;
+    private javax.swing.JLabel Name3;
+    private javax.swing.JLabel Name4;
+    private javax.swing.JLabel Name5;
+    private javax.swing.JLabel Name6;
+    private javax.swing.JTextField NameTF;
+    private javax.swing.JTextField PhoneNumberTF;
+    private javax.swing.JButton RegNewMember;
+    private javax.swing.JPanel RegisterNewMember;
+    private javax.swing.JButton RegisterNewMember1;
+    private javax.swing.JButton Reset;
+    private javax.swing.JButton SaveMembers;
+    private javax.swing.JButton ViewTourParticipants;
+    private javax.swing.JTextField ZipCodeTF;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
