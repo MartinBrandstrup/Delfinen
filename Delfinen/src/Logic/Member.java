@@ -44,6 +44,7 @@ public class Member implements Serializable
         {
             throw new IllegalArgumentException();
         }
+        
         this.paidCurrentYear = paidCurrentYear;
         this.activityStatus = activityStatus;
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
@@ -63,7 +64,6 @@ public class Member implements Serializable
         {
             throw new IllegalArgumentException();
         }
-        dateOfBirth.toString();
     }
 
     //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
@@ -98,7 +98,6 @@ public class Member implements Serializable
         try
         {
             LocalDate.parse(dateString);
-            System.out.println(dateString);
         }
         catch(DateTimeParseException dtpe)
         {
