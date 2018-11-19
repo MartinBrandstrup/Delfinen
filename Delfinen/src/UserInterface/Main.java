@@ -659,7 +659,7 @@ public class Main extends javax.swing.JFrame
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
-        long phoneNumber = Long.parseLong(this.ZipCodeTF.getText());
+        long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         
         if(zipCode < 1000 || zipCode > 9999)
         {
