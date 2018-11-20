@@ -88,8 +88,6 @@ public class Member implements Serializable
         return LocalDate.of(currentYear, monthOfJoining, dayOfJoining);
     }
 
-    //Calculates yearly membership cost for a given member. Return is in 'øre'
-    //so that 500 kr. = 50000
     /**
      * Calculates the member's current membership price based on year and
      * activity status, then proceeds to update this information for the given
@@ -136,6 +134,22 @@ public class Member implements Serializable
         {
             arrearsBalance += membershipPrice;
         }
+    }
+    
+     /**
+     * Parses the current membership price to a string representing kr..
+     * 
+     * @return String in format 'kr,øre'
+     */
+    public String getMembershipPriceString()
+    {
+        long price = getMembershipPrice();
+        String priceString = Long.toString(price);
+        String result = "";
+        
+        
+        
+        return result;
     }
 
     //Resets the arrearBalance, so that the debt is removed
@@ -278,6 +292,11 @@ public class Member implements Serializable
         return arrearsBalance;
     }
 
+    public long getMembershipPrice()
+    {
+        return membershipPrice;
+    }
+    
     public String getName()
     {
         return name;

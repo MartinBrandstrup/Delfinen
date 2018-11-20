@@ -152,8 +152,8 @@ public class Controller
      */
     public void updateEverythingFromSource() throws Exception
     {
-        updateMIDCounter();
         updateMemberList();
+        updateMIDCounter();
     }
 
     /**
@@ -179,7 +179,7 @@ public class Controller
      *
      * @throws IllegalArgumentException
      */
-    public void updateMemberToCompetitive(Member member) throws IllegalArgumentException
+    public void upgrateMemberToCompetitive(Member member) throws IllegalArgumentException
     {
         if(member == null || !memberList.contains(member))
         {
