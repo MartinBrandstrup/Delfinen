@@ -27,7 +27,8 @@ public class CompetitiveSwimmer extends Member
             LocalDate dateOfBirth, LocalDate dateOfJoining,
             boolean tournamentEligibility,
             ArrayList<Team> teamMemberships,
-            ArrayList<TournamentEvent> tournamentParticipations)
+            ArrayList<TournamentEvent> tournamentParticipations,
+            ArrayList<Result> swimmingResults)
     {
         super(paidCurrentYear, activityStatus, isCompetitiveSwimmer, zipCode, 
                 memberID, phoneNumber, arrearsBalance, membershipPrice, name, 
@@ -36,6 +37,7 @@ public class CompetitiveSwimmer extends Member
         this.tournamentEligibility = tournamentEligibility;
         this.teamMemberships = teamMemberships;
         this.tournamentParticipations = tournamentParticipations;
+        this.swimmingResults = swimmingResults;
     }
 
     public void registerSwimmerOnTeam(Team team)

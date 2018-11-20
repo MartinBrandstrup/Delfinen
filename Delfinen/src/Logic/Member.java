@@ -41,7 +41,7 @@ public class Member implements Serializable
         {
             throw new IllegalArgumentException();
         }
-        
+
         this.paidCurrentYear = paidCurrentYear;
         this.activityStatus = activityStatus;
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
@@ -56,15 +56,13 @@ public class Member implements Serializable
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
 
-        if(isValidEmail(emailAddress) == false 
-                || isValidDate(dateOfBirth.toString()) == false 
+        if(isValidEmail(emailAddress) == false
+                || isValidDate(dateOfBirth.toString()) == false
                 || isValidDate(dateOfJoining.toString()) == false)
         {
             throw new IllegalArgumentException();
         }
     }
-
-
 
     /**
      * Calculates the member's age based on the current date
@@ -92,7 +90,13 @@ public class Member implements Serializable
 
     //Calculates yearly membership cost for a given member. Return is in 'øre'
     //so that 500 kr. = 50000
-    public void calculateMembershipPrice() throws IllegalArgumentException
+    /**
+     * Calculates the member's current membership price based on year and
+     * activity status, then proceeds to update this information for the given
+     * member (object). The price is set as a long value representing the
+     * smallest currency value available and will need to be formatted in a UI.
+     */
+    public void calculateMembershipPrice()
     {
         if(getAge() <= 0 || getAge() > 150)
         {
@@ -292,6 +296,11 @@ public class Member implements Serializable
     public String getEmailAddress()
     {
         return emailAddress;
+    }
+
+    public LocalDate getDateOfBirth()
+    {
+        return dateOfBirth;
     }
 
     public LocalDate getDateOfJoining()
