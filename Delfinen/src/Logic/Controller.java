@@ -179,7 +179,7 @@ public class Controller
      *
      * @throws IllegalArgumentException
      */
-    public void upgrateMemberToCompetitive(Member member) throws IllegalArgumentException
+    public void upgradeMemberToCompetitive(Member member) throws IllegalArgumentException
     {
         if(member == null || !memberList.contains(member))
         {
