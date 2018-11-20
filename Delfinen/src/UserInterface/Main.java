@@ -1491,7 +1491,7 @@ public class Main extends javax.swing.JFrame
         
         if(MembersTable.getSelectionModel().isSelectionEmpty())
         {
-            System.out.print("No rows selected");
+            return -1;
         }
         
         index = MembersTable.getSelectedRow();
@@ -1506,6 +1506,11 @@ public class Main extends javax.swing.JFrame
     public void memberInfo()
     {
         int i = rowSelected();
+        
+        if(i < 0)
+        {
+            System.out.print("No rows selected");
+        }
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         

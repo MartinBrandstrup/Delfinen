@@ -19,6 +19,13 @@ public class Team implements Serializable
     private SwimmingStyle swimmingStyle;
     private ArrayList<CompetitiveSwimmer> teamMembers;
     
+    public Team(String teamName, String trainer, SwimmingStyle swimmingStyle)
+    {
+        this.teamName = teamName;
+        this.trainer = trainer;
+        this.swimmingStyle = swimmingStyle;
+    }
+    
     public void addMember(CompetitiveSwimmer member)
     {
         teamMembers.add(member);

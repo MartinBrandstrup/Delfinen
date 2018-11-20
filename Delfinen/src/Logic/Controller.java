@@ -213,5 +213,12 @@ public class Controller
         member.registerSwimmerOnTeam(team);
         team.addMember(member);
     }
+    
+    public void createATeam(String teamName, String trainer, SwimmingStyle swimmingStyle)
+    {
+        Team t = new Team(teamName,trainer,swimmingStyle);
+        teamList.add(t);
+    }
+            
 
 }
