@@ -7,11 +7,6 @@ package Logic;
 
 import Data.DataAccessorFile;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -31,17 +26,17 @@ public class ControllerTest
 
     public ControllerTest()
     {
-        
+
         jens = new Member(true, true, false, 2800, 1, 14548645,
                 0, 0, "Jens", "Fiktiv Vej 21",
                 "Kongens Lyngby", "Jens@gmail.com",
                 LocalDate.of(1993, 6, 12), LocalDate.now());
-        
+
         johanne = new Member(false, false, true, 2800, 81, 14548645,
                 50000, 0, "Johanne Jaeger", "Fiktiv Vej 23",
                 "Kongens Lyngby", "Johanne.j@gmail.dk",
                 LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10));
-        
+
         alice = new Member(false, true, false, 2800, 82, 23657845,
                 0, 0, "Alice Lauritzen", "Fiktiv Vej 25",
                 "Kongens Lyngby", "Alice.l@gmail.com",
@@ -57,27 +52,6 @@ public class ControllerTest
         }
     }
 
-    @BeforeClass
-    public static void setUpClass()
-    {
-    }
-
-    @AfterClass
-    public static void tearDownClass()
-    {
-    }
-
-    @Before
-    public void setUp()
-    {
-    }
-
-    @After
-    public void tearDown()
-    {
-    }
-
-    //Mangler en override @Override Equals på member, men ellers dur den
     @Test
     public void testRegisterNewMember()
     {
@@ -96,6 +70,14 @@ public class ControllerTest
     {
         assertTrue(johanne.isCompetitiveSwimmer());
         assertFalse(alice.isCompetitiveSwimmer());
+        assertTrue(ctrl.getMemberList().get(2).equals(alice));
+        assertTrue(ctrl.getMemberList().get(1).equals(johanne));
+
+        ctrl.upgradeMemberToCompetitive(ctrl.getMemberList().get(2));
+
+        assertTrue(ctrl.getMemberList().get(2).getName().equals("Alice Lauritzen"));
+        assertEquals(82, ctrl.getMemberList().get(2).getMemberID());
+        assertTrue(ctrl.getMemberList().get(1).equals(johanne));
 
     }
 

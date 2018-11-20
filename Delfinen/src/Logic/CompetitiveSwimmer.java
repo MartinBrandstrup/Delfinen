@@ -59,7 +59,7 @@ public class CompetitiveSwimmer extends Member
         tournamentEligibility = true;
     }
 
-    public boolean isTournamentEligibility()
+    public boolean isTournamentEligible()
     {
         return tournamentEligibility;
     }
