@@ -144,21 +144,21 @@ public class Main extends javax.swing.JFrame
         TournamentEligibilityCB = new javax.swing.JCheckBox();
         Teams = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        BreaststrokeSeniorTable = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        CrawlSeniorTable = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        ButterflySeniorTable = new javax.swing.JTable();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        BackCrawlSeniorTable = new javax.swing.JTable();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        CrawlJuniorTable = new javax.swing.JTable();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        ButterflyJuniorTable = new javax.swing.JTable();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        BackCrawlJuniorTable = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTable10 = new javax.swing.JTable();
+        BreaststrokeJuniorTable = new javax.swing.JTable();
         JuniorTeams = new javax.swing.JLabel();
         SeniorTeams = new javax.swing.JLabel();
         Breaststroke = new javax.swing.JLabel();
@@ -170,6 +170,31 @@ public class Main extends javax.swing.JFrame
         Butterfly = new javax.swing.JLabel();
         Butterfly1 = new javax.swing.JLabel();
         MainMenu4 = new javax.swing.JButton();
+        CreateTeam = new javax.swing.JButton();
+        SpecificTeam = new javax.swing.JPanel();
+        SpecificTeamTable = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        SpecificTeamName = new javax.swing.JLabel();
+        TeamTrainer = new javax.swing.JLabel();
+        TeamTrainerName = new javax.swing.JLabel();
+        MainMenu5 = new javax.swing.JButton();
+        AddNewTeamMember = new javax.swing.JButton();
+        RemoveFromTeam = new javax.swing.JButton();
+        CreateANewTeam = new javax.swing.JPanel();
+        BreaststrokeCB = new javax.swing.JCheckBox();
+        CrawlCB = new javax.swing.JCheckBox();
+        BackCrawlCB = new javax.swing.JCheckBox();
+        ButterflyCB = new javax.swing.JCheckBox();
+        ChooseSwimmingstyle = new javax.swing.JLabel();
+        ChooseJorS = new javax.swing.JLabel();
+        JuniorCB = new javax.swing.JCheckBox();
+        SeniorCB = new javax.swing.JCheckBox();
+        TeamName = new javax.swing.JLabel();
+        TeamNameTF = new javax.swing.JTextField();
+        TrainerName = new javax.swing.JLabel();
+        TrainerNameTF = new javax.swing.JTextField();
+        ConfirmAndCreateTeam = new javax.swing.JButton();
+        MainMenu6 = new javax.swing.JButton();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -789,7 +814,7 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(MemberInformation, "MemberInformation");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        BreaststrokeSeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -799,9 +824,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane5.setViewportView(jTable3);
+        jScrollPane5.setViewportView(BreaststrokeSeniorTable);
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        CrawlSeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -811,9 +836,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane6.setViewportView(jTable4);
+        jScrollPane6.setViewportView(CrawlSeniorTable);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        ButterflySeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -823,9 +848,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane7.setViewportView(jTable5);
+        jScrollPane7.setViewportView(ButterflySeniorTable);
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        BackCrawlSeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -835,9 +860,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane8.setViewportView(jTable6);
+        jScrollPane8.setViewportView(BackCrawlSeniorTable);
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        CrawlJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -847,9 +872,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane9.setViewportView(jTable7);
+        jScrollPane9.setViewportView(CrawlJuniorTable);
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        ButterflyJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -859,9 +884,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane10.setViewportView(jTable8);
+        jScrollPane10.setViewportView(ButterflyJuniorTable);
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        BackCrawlJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -871,9 +896,9 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane11.setViewportView(jTable9);
+        jScrollPane11.setViewportView(BackCrawlJuniorTable);
 
-        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+        BreaststrokeJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -883,7 +908,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane12.setViewportView(jTable10);
+        jScrollPane12.setViewportView(BreaststrokeJuniorTable);
 
         JuniorTeams.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JuniorTeams.setText("Junior teams:");
@@ -922,6 +947,16 @@ public class Main extends javax.swing.JFrame
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
                 MainMenu4ActionPerformed(evt);
+            }
+        });
+
+        CreateTeam.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        CreateTeam.setText("Create a new Team");
+        CreateTeam.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                CreateTeamActionPerformed(evt);
             }
         });
 
@@ -984,6 +1019,10 @@ public class Main extends javax.swing.JFrame
                 .addComponent(JuniorTeams)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(MainMenu4))
+            .addGroup(TeamsLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(CreateTeam)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         TeamsLayout.setVerticalGroup(
             TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1023,10 +1062,196 @@ public class Main extends javax.swing.JFrame
                     .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(CreateTeam))
         );
 
         mainPanel.add(Teams, "Teams");
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+
+            },
+            new String []
+            {
+                "Name", "MID", "Best time", "Date of best score"
+            }
+        ));
+        SpecificTeamTable.setViewportView(jTable3);
+
+        SpecificTeamName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        SpecificTeamName.setText("----------------------------");
+
+        TeamTrainer.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TeamTrainer.setText("Team trainer:");
+
+        TeamTrainerName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TeamTrainerName.setText("--------------------------");
+
+        MainMenu5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu5.setText("Main menu");
+        MainMenu5.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu5ActionPerformed(evt);
+            }
+        });
+
+        AddNewTeamMember.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        AddNewTeamMember.setText("Add new team member");
+
+        RemoveFromTeam.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        RemoveFromTeam.setText("Remove from team");
+
+        javax.swing.GroupLayout SpecificTeamLayout = new javax.swing.GroupLayout(SpecificTeam);
+        SpecificTeam.setLayout(SpecificTeamLayout);
+        SpecificTeamLayout.setHorizontalGroup(
+            SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(SpecificTeamTable)
+            .addGroup(SpecificTeamLayout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(SpecificTeamName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(MainMenu5))
+            .addGroup(SpecificTeamLayout.createSequentialGroup()
+                .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SpecificTeamLayout.createSequentialGroup()
+                        .addComponent(TeamTrainer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TeamTrainerName))
+                    .addGroup(SpecificTeamLayout.createSequentialGroup()
+                        .addComponent(AddNewTeamMember)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RemoveFromTeam)))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        SpecificTeamLayout.setVerticalGroup(
+            SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SpecificTeamLayout.createSequentialGroup()
+                .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SpecificTeamName)
+                    .addComponent(MainMenu5))
+                .addGap(29, 29, 29)
+                .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TeamTrainer)
+                    .addComponent(TeamTrainerName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SpecificTeamTable, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddNewTeamMember)
+                    .addComponent(RemoveFromTeam)))
+        );
+
+        mainPanel.add(SpecificTeam, "SpecificTeam");
+
+        BreaststrokeCB.setText("Breaststroke");
+
+        CrawlCB.setText("Crawl");
+
+        BackCrawlCB.setText("Back Crawl");
+
+        ButterflyCB.setText("Buttlerfly");
+
+        ChooseSwimmingstyle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ChooseSwimmingstyle.setText("Choose a swimming style:");
+
+        ChooseJorS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ChooseJorS.setText("Choose junior or senior:");
+
+        JuniorCB.setText("Junior");
+
+        SeniorCB.setText("Senior");
+
+        TeamName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TeamName.setText("Team name:");
+
+        TrainerName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        TrainerName.setText("Trainer name:");
+
+        ConfirmAndCreateTeam.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        ConfirmAndCreateTeam.setText("Comfirn and create team");
+
+        MainMenu6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu6.setText("Main menu");
+        MainMenu6.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu6ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CreateANewTeamLayout = new javax.swing.GroupLayout(CreateANewTeam);
+        CreateANewTeam.setLayout(CreateANewTeamLayout);
+        CreateANewTeamLayout.setHorizontalGroup(
+            CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ConfirmAndCreateTeam)
+                    .addComponent(ButterflyCB)
+                    .addComponent(BackCrawlCB)
+                    .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ChooseSwimmingstyle)
+                            .addComponent(BreaststrokeCB)
+                            .addComponent(CrawlCB))
+                        .addGap(49, 49, 49)
+                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SeniorCB)
+                            .addComponent(JuniorCB)
+                            .addComponent(ChooseJorS)))
+                    .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                            .addComponent(TrainerName)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(TrainerNameTF))
+                        .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                            .addComponent(TeamName)
+                            .addGap(18, 18, 18)
+                            .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(73, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreateANewTeamLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MainMenu6))
+        );
+        CreateANewTeamLayout.setVerticalGroup(
+            CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                .addComponent(MainMenu6)
+                .addGap(41, 41, 41)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChooseSwimmingstyle)
+                    .addComponent(ChooseJorS))
+                .addGap(26, 26, 26)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BreaststrokeCB)
+                    .addComponent(JuniorCB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CrawlCB)
+                    .addComponent(SeniorCB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BackCrawlCB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ButterflyCB)
+                .addGap(51, 51, 51)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TeamName)
+                    .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TrainerName)
+                    .addComponent(TrainerNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(ConfirmAndCreateTeam)
+                .addGap(54, 54, 54))
+        );
+
+        mainPanel.add(CreateANewTeam, "CreateATeam");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1163,6 +1388,21 @@ public class Main extends javax.swing.JFrame
         card.show(mainPanel, "Teams");
     }//GEN-LAST:event_ManageTeamsActionPerformed
 
+    private void MainMenu5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu5ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu5ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu5ActionPerformed
+
+    private void CreateTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_CreateTeamActionPerformed
+    {//GEN-HEADEREND:event_CreateTeamActionPerformed
+        card.show(mainPanel, "CreateATeam");
+    }//GEN-LAST:event_CreateTeamActionPerformed
+
+    private void MainMenu6ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu6ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu6ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu6ActionPerformed
+
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
@@ -1226,6 +1466,23 @@ public class Main extends javax.swing.JFrame
             model.addRow(rowData);
             
         }  
+    }
+    
+    public void populateSpecificTeamTable()
+    {
+//        model = (DefaultTableModel) MembersTable.getModel();
+//        //System.out.print("MemberList size is: " + c.//getTeamMemberList().size());
+//        
+//        Object rowData[] = new Object[4];
+//        
+//        //for(int i = 0; i < c.//getTeamMemberList.size(); ++i)
+//        {
+//            rowData[0] = c.//getTeamMemberList().get(i).getName(); 
+//            rowData[1] = c.//getTeamMemberList().get(i).getMID();
+//            rowData[2] = c.//getTeamMemberList().get(i).getDateOfJoining();
+//            rowData[3] = c.//getTeamMemberList().get(i).getBestDateOfScore();
+//            model.addRow(rowData);
+//        }
     }
     
     public int rowSelected()
@@ -1325,6 +1582,7 @@ public class Main extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActivityStatus;
     private javax.swing.JTextField ActivityStatusTFMI;
+    private javax.swing.JButton AddNewTeamMember;
     private javax.swing.JLabel Address;
     private javax.swing.JLabel Address1;
     private javax.swing.JTextField AddressTF;
@@ -1333,19 +1591,36 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField ArrearsBalanceTFMI;
     private javax.swing.JLabel BackCrawl;
     private javax.swing.JLabel BackCrawl1;
+    private javax.swing.JCheckBox BackCrawlCB;
+    private javax.swing.JTable BackCrawlJuniorTable;
+    private javax.swing.JTable BackCrawlSeniorTable;
     private javax.swing.JLabel Breaststroke;
     private javax.swing.JLabel Breaststroke1;
+    private javax.swing.JCheckBox BreaststrokeCB;
+    private javax.swing.JTable BreaststrokeJuniorTable;
+    private javax.swing.JTable BreaststrokeSeniorTable;
     private javax.swing.JLabel Butterfly;
     private javax.swing.JLabel Butterfly1;
+    private javax.swing.JCheckBox ButterflyCB;
+    private javax.swing.JTable ButterflyJuniorTable;
+    private javax.swing.JTable ButterflySeniorTable;
     private javax.swing.JButton CancelMembership;
+    private javax.swing.JLabel ChooseJorS;
+    private javax.swing.JLabel ChooseSwimmingstyle;
     private javax.swing.JLabel ChosenMemberName;
     private javax.swing.JLabel City;
     private javax.swing.JLabel City1;
     private javax.swing.JTextField CityTF;
     private javax.swing.JTextField CityTFMI;
+    private javax.swing.JButton ConfirmAndCreateTeam;
     private javax.swing.JButton ConfirmChanges;
     private javax.swing.JLabel Crawl;
     private javax.swing.JLabel Crawl1;
+    private javax.swing.JCheckBox CrawlCB;
+    private javax.swing.JTable CrawlJuniorTable;
+    private javax.swing.JTable CrawlSeniorTable;
+    private javax.swing.JPanel CreateANewTeam;
+    private javax.swing.JButton CreateTeam;
     private javax.swing.JLabel DateOfBirth;
     private javax.swing.JLabel DateOfBirth1;
     private javax.swing.JTextField DateOfBirthTF;
@@ -1356,12 +1631,15 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
     private javax.swing.JTextField EmailAddressTFMI;
+    private javax.swing.JCheckBox JuniorCB;
     private javax.swing.JLabel JuniorTeams;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JButton MainMenu1;
     private javax.swing.JButton MainMenu2;
     private javax.swing.JButton MainMenu3;
     private javax.swing.JButton MainMenu4;
+    private javax.swing.JButton MainMenu5;
+    private javax.swing.JButton MainMenu6;
     private javax.swing.JLabel ManMembers;
     private javax.swing.JButton ManageEconomy;
     private javax.swing.JPanel ManageMember;
@@ -1389,14 +1667,25 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton RegNewMember;
     private javax.swing.JPanel RegisterNewMember;
     private javax.swing.JButton RegisterNewMember1;
+    private javax.swing.JButton RemoveFromTeam;
     private javax.swing.JButton Reset;
     private javax.swing.JButton SaveMembers;
+    private javax.swing.JCheckBox SeniorCB;
     private javax.swing.JLabel SeniorTeams;
+    private javax.swing.JPanel SpecificTeam;
+    private javax.swing.JLabel SpecificTeamName;
+    private javax.swing.JScrollPane SpecificTeamTable;
     private javax.swing.JLabel TeamMembership;
+    private javax.swing.JLabel TeamName;
+    private javax.swing.JTextField TeamNameTF;
+    private javax.swing.JLabel TeamTrainer;
+    private javax.swing.JLabel TeamTrainerName;
     private javax.swing.JPanel Teams;
     private javax.swing.JCheckBox TournamentEligibilityCB;
     private javax.swing.JLabel TournamentParticipants;
     private javax.swing.JTable TournamentsParticipantsTable;
+    private javax.swing.JLabel TrainerName;
+    private javax.swing.JTextField TrainerNameTF;
     private javax.swing.JButton ViewTourParticipants;
     private javax.swing.JLabel ZipCode;
     private javax.swing.JLabel ZipCode1;
@@ -1420,15 +1709,8 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable10;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
