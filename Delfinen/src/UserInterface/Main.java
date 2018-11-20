@@ -67,6 +67,8 @@ public class Main extends javax.swing.JFrame
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         mainPanel = new javax.swing.JPanel();
         MainMenu = new javax.swing.JPanel();
         RegNewMember = new javax.swing.JButton();
@@ -78,13 +80,13 @@ public class Main extends javax.swing.JFrame
         RegisterNewMember = new javax.swing.JPanel();
         Name = new javax.swing.JLabel();
         NameTF = new javax.swing.JTextField();
-        Name1 = new javax.swing.JLabel();
+        EmailAddress = new javax.swing.JLabel();
         EmailAddressTF = new javax.swing.JTextField();
-        Name2 = new javax.swing.JLabel();
-        Name3 = new javax.swing.JLabel();
-        Name4 = new javax.swing.JLabel();
-        Name5 = new javax.swing.JLabel();
-        Name6 = new javax.swing.JLabel();
+        Address = new javax.swing.JLabel();
+        City = new javax.swing.JLabel();
+        Phonenumber = new javax.swing.JLabel();
+        DateOfBirth = new javax.swing.JLabel();
+        ZipCode = new javax.swing.JLabel();
         AddressTF = new javax.swing.JTextField();
         ZipCodeTF = new javax.swing.JTextField();
         PhoneNumberTF = new javax.swing.JTextField();
@@ -113,12 +115,33 @@ public class Main extends javax.swing.JFrame
         MemberIDTFMI = new javax.swing.JTextField();
         MemberTypeMI = new javax.swing.JTextField();
         DateOfJoiningTFMI = new javax.swing.JTextField();
-        DateOfJoing2 = new javax.swing.JLabel();
+        NextPaymentDate = new javax.swing.JLabel();
         ArrearsBalance = new javax.swing.JLabel();
-        DateOfJoing4 = new javax.swing.JLabel();
-        DateOfJoiningTFMI2 = new javax.swing.JTextField();
-        DateOfJoiningTFMI3 = new javax.swing.JTextField();
+        MembershipPrice = new javax.swing.JLabel();
+        MembershipPriceTFMI = new javax.swing.JTextField();
+        NextPaymentDateTFMI = new javax.swing.JTextField();
         ArrearsBalanceTFMI = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        TournamentsParticipantsTable = new javax.swing.JTable();
+        TournamentParticipants = new javax.swing.JLabel();
+        TeamMembership = new javax.swing.JLabel();
+        PhoneNumber1 = new javax.swing.JLabel();
+        DateOfBirth1 = new javax.swing.JLabel();
+        ZipCode1 = new javax.swing.JLabel();
+        City1 = new javax.swing.JLabel();
+        Address1 = new javax.swing.JLabel();
+        EmailAddress1 = new javax.swing.JLabel();
+        Name1 = new javax.swing.JLabel();
+        PhoneNumberTFMI = new javax.swing.JTextField();
+        DateOfBirthTFMI = new javax.swing.JTextField();
+        ZipCodeTFMI = new javax.swing.JTextField();
+        AddressTFMI = new javax.swing.JTextField();
+        CityTFMI = new javax.swing.JTextField();
+        NameTFMI = new javax.swing.JTextField();
+        EmailAddressTFMI = new javax.swing.JTextField();
+        TournamentEligibilityCB = new javax.swing.JCheckBox();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -128,6 +151,21 @@ public class Main extends javax.swing.JFrame
 
         jMenuItem3.setText("Register membership");
         jPopupMenu1.add(jMenuItem3);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String []
+            {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +192,13 @@ public class Main extends javax.swing.JFrame
         ManageTeams.setText("Manage Teams");
 
         ViewTourParticipants.setText("View tournament participants");
+        ViewTourParticipants.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ViewTourParticipantsActionPerformed(evt);
+            }
+        });
 
         ManageEconomy.setText("Manage economy");
 
@@ -173,22 +218,22 @@ public class Main extends javax.swing.JFrame
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ManageEconomy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(RegNewMember)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManageMembers)
-                .addGap(30, 30, 30)
+                .addGap(78, 78, 78)
                 .addComponent(ManageTeams)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ViewTourParticipants)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(ManageEconomy)
                 .addGap(82, 82, 82))
         );
@@ -198,23 +243,23 @@ public class Main extends javax.swing.JFrame
         Name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Name.setText("Name:");
 
-        Name1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name1.setText("Email address: ");
+        EmailAddress.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EmailAddress.setText("Email address: ");
 
-        Name2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name2.setText("Address:");
+        Address.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Address.setText("Address:");
 
-        Name3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name3.setText("City:");
+        City.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        City.setText("City:");
 
-        Name4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name4.setText("Phone number:");
+        Phonenumber.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Phonenumber.setText("Phone number:");
 
-        Name5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name5.setText("Date of birth:");
+        DateOfBirth.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DateOfBirth.setText("Date of birth:");
 
-        Name6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Name6.setText("Zip code:");
+        ZipCode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ZipCode.setText("Zip code:");
 
         ConfirmChanges.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ConfirmChanges.setText("Confirm changes");
@@ -257,78 +302,90 @@ public class Main extends javax.swing.JFrame
                 .addContainerGap()
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegisterNewMemberLayout.createSequentialGroup()
-                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(SaveMembers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ConfirmChanges, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Reset)
-                        .addContainerGap(213, Short.MAX_VALUE))
-                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
-                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
                                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Name3)
-                                    .addComponent(Name6)
-                                    .addComponent(Name5)
-                                    .addComponent(Name4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CityTF, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                                    .addComponent(DateOfBirth)
+                                                    .addGap(27, 27, 27))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
+                                                    .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(Reset)
+                                                        .addComponent(Phonenumber))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                                .addComponent(ZipCode)
+                                                .addGap(56, 56, 56)))
+                                        .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                            .addComponent(City)
+                                            .addGap(87, 87, 87)))
+                                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
+                                        .addComponent(Address)
+                                        .addGap(58, 58, 58)))
+                                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(AddressTF, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                                    .addComponent(CityTF)
                                     .addComponent(ZipCodeTF)
                                     .addComponent(DateOfBirthTF)
-                                    .addComponent(PhoneNumberTF)))
+                                    .addComponent(PhoneNumberTF)
+                                    .addComponent(ConfirmChanges)))
                             .addGroup(RegisterNewMemberLayout.createSequentialGroup()
                                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Name1)
-                                    .addComponent(Name)
-                                    .addComponent(Name2))
-                                .addGap(9, 9, 9)
+                                    .addComponent(EmailAddress)
+                                    .addComponent(Name))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(NameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                                    .addComponent(EmailAddressTF)
-                                    .addComponent(AddressTF))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(MainMenu1))))
+                                    .addComponent(NameTF, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                                    .addComponent(EmailAddressTF))))
+                        .addGap(0, 203, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(MainMenu1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
+                                .addComponent(SaveMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31))))))
         );
         RegisterNewMemberLayout.setVerticalGroup(
             RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
-                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegisterNewMemberLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Name)
-                            .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(MainMenu1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MainMenu1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name1)
+                    .addComponent(Name)
+                    .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EmailAddress)
                     .addComponent(EmailAddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name2)
+                    .addComponent(Address)
                     .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name3)
+                    .addComponent(City)
                     .addComponent(CityTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Name6)
+                .addGap(18, 18, 18)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ZipCode)
                     .addComponent(ZipCodeTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Name5)
-                    .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Name4)
-                    .addComponent(PhoneNumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                    .addComponent(DateOfBirthTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateOfBirth))
+                .addGap(18, 18, 18)
+                .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PhoneNumberTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Phonenumber))
+                .addGap(61, 61, 61)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmChanges)
                     .addComponent(Reset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(SaveMembers)
                 .addGap(25, 25, 25))
         );
@@ -382,6 +439,13 @@ public class Main extends javax.swing.JFrame
 
         MemberInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MemberInfo.setText("View / chance member info");
+        MemberInfo.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MemberInfoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ManageMemberLayout = new javax.swing.GroupLayout(ManageMember);
         ManageMember.setLayout(ManageMemberLayout);
@@ -390,17 +454,17 @@ public class Main extends javax.swing.JFrame
             .addGroup(ManageMemberLayout.createSequentialGroup()
                 .addGap(134, 134, 134)
                 .addComponent(ManMembers)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                 .addComponent(MainMenu2))
             .addGroup(ManageMemberLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(ManageMemberLayout.createSequentialGroup()
+                    .addComponent(MemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageMemberLayout.createSequentialGroup()
                         .addComponent(RegisterNewMember1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CancelMembership))
-                    .addComponent(MemberInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(CancelMembership)))
                 .addContainerGap())
         );
         ManageMemberLayout.setVerticalGroup(
@@ -410,14 +474,17 @@ public class Main extends javax.swing.JFrame
                     .addComponent(ManMembers)
                     .addComponent(MainMenu2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegisterNewMember1)
-                    .addComponent(CancelMembership))
-                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageMemberLayout.createSequentialGroup()
+                        .addComponent(CancelMembership)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageMemberLayout.createSequentialGroup()
+                        .addComponent(RegisterNewMember1)
+                        .addGap(9, 9, 9)))
                 .addComponent(MemberInfo)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addGap(26, 26, 26))
         );
 
         mainPanel.add(ManageMember, "MembersManage");
@@ -441,34 +508,99 @@ public class Main extends javax.swing.JFrame
         MemberType.setText("Member type:");
 
         ActivityStatusTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        ActivityStatusTFMI.setText("jTextField1");
 
         MemberIDTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MemberIDTFMI.setText("jTextField1");
 
         MemberTypeMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        MemberTypeMI.setText("jTextField1");
 
         DateOfJoiningTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        DateOfJoiningTFMI.setText("jTextField1");
 
-        DateOfJoing2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        DateOfJoing2.setText("Date of joining:");
+        NextPaymentDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        NextPaymentDate.setText("Next payment date:");
 
         ArrearsBalance.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ArrearsBalance.setText("Arrears balance:");
 
-        DateOfJoing4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        DateOfJoing4.setText("Date of joining:");
+        MembershipPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        MembershipPrice.setText("Membership price:");
 
-        DateOfJoiningTFMI2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        DateOfJoiningTFMI2.setText("jTextField1");
+        MembershipPriceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        DateOfJoiningTFMI3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        DateOfJoiningTFMI3.setText("jTextField1");
+        NextPaymentDateTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         ArrearsBalanceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        ArrearsBalanceTFMI.setText("jTextField1");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String []
+            {
+                "Team name", "Swimming style", "Date of joining", "Date of leaving"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        TournamentsParticipantsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String []
+            {
+                "Eent name", "Event date", "Ranking", "Swimming style", "Time"
+            }
+        ));
+        jScrollPane4.setViewportView(TournamentsParticipantsTable);
+
+        TournamentParticipants.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TournamentParticipants.setText("Tournaments participants");
+
+        TeamMembership.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TeamMembership.setText("Team membership");
+
+        PhoneNumber1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        PhoneNumber1.setText("Phone number:");
+
+        DateOfBirth1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DateOfBirth1.setText("Date of birth:");
+
+        ZipCode1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        ZipCode1.setText("Zip code:");
+
+        City1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        City1.setText("City::");
+
+        Address1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Address1.setText("Address:");
+
+        EmailAddress1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        EmailAddress1.setText("Email Address:");
+
+        Name1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Name1.setText("Name:");
+
+        PhoneNumberTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        DateOfBirthTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        ZipCodeTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        AddressTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        CityTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        NameTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        EmailAddressTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        TournamentEligibilityCB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        TournamentEligibilityCB.setText("Tournament eligibility");
 
         javax.swing.GroupLayout MemberInformationLayout = new javax.swing.GroupLayout(MemberInformation);
         MemberInformation.setLayout(MemberInformationLayout);
@@ -476,75 +608,144 @@ public class Main extends javax.swing.JFrame
             MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemberInformationLayout.createSequentialGroup()
                 .addComponent(ChosenMemberName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(MainMenu3))
-            .addGroup(MemberInformationLayout.createSequentialGroup()
+            .addComponent(jScrollPane3)
+            .addComponent(jScrollPane4)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberInformationLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(TournamentEligibilityCB))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MemberInformationLayout.createSequentialGroup()
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NextPaymentDate)
+                                    .addComponent(ArrearsBalance))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NextPaymentDateTFMI, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                                    .addComponent(ArrearsBalanceTFMI))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(DateOfBirth1)
+                                    .addComponent(PhoneNumber1)))
+                            .addGroup(MemberInformationLayout.createSequentialGroup()
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                                        .addComponent(DateOfJoing)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                                        .addGap(124, 124, 124)
+                                        .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(5, 5, 5)
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ZipCode1)
+                                    .addComponent(Address1)
+                                    .addComponent(EmailAddress1)
+                                    .addComponent(City1)))
+                            .addGroup(MemberInformationLayout.createSequentialGroup()
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ActivityStatus)
+                                    .addComponent(MemberID)
+                                    .addComponent(MemberType))
+                                .addGap(21, 21, 21)
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Name1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(DateOfBirthTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ZipCodeTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CityTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(AddressTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(EmailAddressTFMI)
+                            .addComponent(NameTFMI, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(41, 41, 41))
+            .addGroup(MemberInformationLayout.createSequentialGroup()
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MemberInformationLayout.createSequentialGroup()
-                            .addComponent(DateOfJoing)
-                            .addGap(18, 18, 18)
-                            .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MemberInformationLayout.createSequentialGroup()
-                            .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ActivityStatus)
-                                .addComponent(MemberType))
-                            .addGap(18, 18, 18)
-                            .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(MemberInformationLayout.createSequentialGroup()
-                                    .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(DateOfJoing4))
-                                .addGroup(MemberInformationLayout.createSequentialGroup()
-                                    .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(DateOfJoing2))
-                                .addGroup(MemberInformationLayout.createSequentialGroup()
-                                    .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(43, 43, 43)
-                                    .addComponent(ArrearsBalance)))))
-                    .addComponent(MemberID))
-                .addGap(18, 18, 18)
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DateOfJoiningTFMI2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DateOfJoiningTFMI3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(MembershipPrice)
+                        .addGap(18, 18, 18)
+                        .addComponent(MembershipPriceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(TeamMembership))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(TournamentParticipants)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MemberInformationLayout.setVerticalGroup(
             MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemberInformationLayout.createSequentialGroup()
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(MainMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ChosenMemberName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ChosenMemberName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MainMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActivityStatus)
                     .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ArrearsBalance)
-                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Name1)
+                    .addComponent(NameTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MemberID)
                     .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DateOfJoing2)
-                    .addComponent(DateOfJoiningTFMI3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(EmailAddress1)
+                    .addComponent(EmailAddressTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MemberType)
-                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(DateOfJoiningTFMI2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(DateOfJoing4)))
+                    .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Address1)
+                    .addComponent(AddressTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DateOfJoing)
-                    .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 257, Short.MAX_VALUE))
+                    .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(City1)
+                    .addComponent(CityTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ZipCode1)
+                    .addComponent(ZipCodeTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ArrearsBalance)
+                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DateOfBirth1)
+                    .addComponent(DateOfBirthTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NextPaymentDate)
+                    .addComponent(NextPaymentDateTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PhoneNumber1)
+                    .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MembershipPrice)
+                    .addComponent(MembershipPriceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TournamentEligibilityCB)
+                .addGap(5, 5, 5)
+                .addComponent(TeamMembership)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TournamentParticipants)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        mainPanel.add(MemberInformation, "card5");
+        mainPanel.add(MemberInformation, "MemberInformation");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -565,12 +766,6 @@ public class Main extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
-    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
-        //card = (CardLayout) mainPanel.getLayout();
-        card.show(mainPanel, "RegiNewMember");
-    }//GEN-LAST:event_RegNewMemberActionPerformed
 
     private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
     {//GEN-HEADEREND:event_ManageMembersActionPerformed
@@ -656,6 +851,22 @@ public class Main extends javax.swing.JFrame
         card.show(mainPanel, "RegiNewMember");
     }//GEN-LAST:event_RegisterNewMember1ActionPerformed
 
+    private void ViewTourParticipantsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTourParticipantsActionPerformed
+    {//GEN-HEADEREND:event_ViewTourParticipantsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ViewTourParticipantsActionPerformed
+
+    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
+    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
+        card.show(mainPanel, "RegiNewMember");
+    }//GEN-LAST:event_RegNewMemberActionPerformed
+
+    private void MemberInfoActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MemberInfoActionPerformed
+    {//GEN-HEADEREND:event_MemberInfoActionPerformed
+        memberInfo();
+        card.show(mainPanel, "MemberInformation");
+    }//GEN-LAST:event_MemberInfoActionPerformed
+
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
@@ -739,6 +950,31 @@ public class Main extends javax.swing.JFrame
         card.first(mainPanel);
     }
     
+    public void memberInfo()
+    {
+        int i = rowSelected();
+        
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        
+        this.NameTFMI.setText(c.getMemberList().get(i).getName());
+        this.EmailAddressTFMI.setText(c.getMemberList().get(i).getEmailAddress());
+        this.AddressTFMI.setText(c.getMemberList().get(i).getAddress());
+        this.CityTFMI.setText(c.getMemberList().get(i).getCity());
+        this.ZipCodeTFMI.setText(Integer.toString(c.getMemberList().get(i).getZipCode()));
+        this.DateOfBirthTFMI.setText(c.getMemberList().get(i).getDateOfBirth().format(formatter));
+        this.PhoneNumberTFMI.setText(Long.toString(c.getMemberList().get(i).getPhoneNumber()));
+        
+        this.ActivityStatusTFMI.setText(c.getMemberList().get(i).getActivityStatusString());
+        this.MemberIDTFMI.setText(Integer.toString(c.getMemberList().get(i).getMemberID()));
+        this.MemberTypeMI.setText(c.getMemberList().get(i).getCompetitiveSwimmerString());
+        this.DateOfJoiningTFMI.setText(c.getMemberList().get(i).getDateOfJoining().format(formatter));
+        
+        this.ArrearsBalanceTFMI.setText(Long.toString(c.getMemberList().get(i).getArrearsBalance()));
+        this.NextPaymentDateTFMI.setText(c.getMemberList().get(i).getNextPaymentDate().format(formatter));
+        //this.MembershipPriceTFMI.setText(c.getMemberList().get(i).//getMembershipPrice);
+        
+    }
+    
     
     
     /**
@@ -793,21 +1029,29 @@ public class Main extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActivityStatus;
     private javax.swing.JTextField ActivityStatusTFMI;
+    private javax.swing.JLabel Address;
+    private javax.swing.JLabel Address1;
     private javax.swing.JTextField AddressTF;
+    private javax.swing.JTextField AddressTFMI;
     private javax.swing.JLabel ArrearsBalance;
     private javax.swing.JTextField ArrearsBalanceTFMI;
     private javax.swing.JButton CancelMembership;
     private javax.swing.JLabel ChosenMemberName;
+    private javax.swing.JLabel City;
+    private javax.swing.JLabel City1;
     private javax.swing.JTextField CityTF;
+    private javax.swing.JTextField CityTFMI;
     private javax.swing.JButton ConfirmChanges;
+    private javax.swing.JLabel DateOfBirth;
+    private javax.swing.JLabel DateOfBirth1;
     private javax.swing.JTextField DateOfBirthTF;
+    private javax.swing.JTextField DateOfBirthTFMI;
     private javax.swing.JLabel DateOfJoing;
-    private javax.swing.JLabel DateOfJoing2;
-    private javax.swing.JLabel DateOfJoing4;
     private javax.swing.JTextField DateOfJoiningTFMI;
-    private javax.swing.JTextField DateOfJoiningTFMI2;
-    private javax.swing.JTextField DateOfJoiningTFMI3;
+    private javax.swing.JLabel EmailAddress;
+    private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
+    private javax.swing.JTextField EmailAddressTFMI;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JButton MainMenu1;
     private javax.swing.JButton MainMenu2;
@@ -824,28 +1068,43 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel MemberType;
     private javax.swing.JTextField MemberTypeMI;
     private javax.swing.JTable MembersTable;
+    private javax.swing.JLabel MembershipPrice;
+    private javax.swing.JTextField MembershipPriceTFMI;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel Name1;
-    private javax.swing.JLabel Name2;
-    private javax.swing.JLabel Name3;
-    private javax.swing.JLabel Name4;
-    private javax.swing.JLabel Name5;
-    private javax.swing.JLabel Name6;
     private javax.swing.JTextField NameTF;
+    private javax.swing.JTextField NameTFMI;
+    private javax.swing.JLabel NextPaymentDate;
+    private javax.swing.JTextField NextPaymentDateTFMI;
+    private javax.swing.JLabel PhoneNumber1;
     private javax.swing.JTextField PhoneNumberTF;
+    private javax.swing.JTextField PhoneNumberTFMI;
+    private javax.swing.JLabel Phonenumber;
     private javax.swing.JButton RegNewMember;
     private javax.swing.JPanel RegisterNewMember;
     private javax.swing.JButton RegisterNewMember1;
     private javax.swing.JButton Reset;
     private javax.swing.JButton SaveMembers;
+    private javax.swing.JLabel TeamMembership;
+    private javax.swing.JCheckBox TournamentEligibilityCB;
+    private javax.swing.JLabel TournamentParticipants;
+    private javax.swing.JTable TournamentsParticipantsTable;
     private javax.swing.JButton ViewTourParticipants;
+    private javax.swing.JLabel ZipCode;
+    private javax.swing.JLabel ZipCode1;
     private javax.swing.JTextField ZipCodeTF;
+    private javax.swing.JTextField ZipCodeTFMI;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }

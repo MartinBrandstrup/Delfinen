@@ -25,6 +25,27 @@
         </MenuItem>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -90,7 +111,7 @@
                           <Component id="ViewTourParticipants" alignment="0" max="32767" attributes="0"/>
                           <Component id="ManageEconomy" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="112" max="32767" attributes="0"/>
+                      <EmptySpace pref="212" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -99,15 +120,15 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="RegNewMember" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ManageMembers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="ManageTeams" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ViewTourParticipants" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="49" max="32767" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                       <Component id="ManageEconomy" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   </Group>
@@ -140,6 +161,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="View tournament participants"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewTourParticipantsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ManageEconomy">
               <Properties>
@@ -170,47 +194,71 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="SaveMembers" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="ConfirmChanges" alignment="0" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="Reset" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="213" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Name3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Name6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Name5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Name4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="DateOfBirth" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Group type="103" groupAlignment="1" attributes="0">
+                                                              <Component id="Reset" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="Phonenumber" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="ZipCode" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="City" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="Address" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CityTF" pref="224" max="32767" attributes="0"/>
-                                          <Component id="ZipCodeTF" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="DateOfBirthTF" max="32767" attributes="0"/>
-                                          <Component id="PhoneNumberTF" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="Name1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Name" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="Name2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="NameTF" alignment="0" pref="224" max="32767" attributes="0"/>
-                                          <Component id="EmailAddressTF" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="AddressTF" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="AddressTF" pref="266" max="32767" attributes="0"/>
+                                          <Component id="CityTF" max="32767" attributes="0"/>
+                                          <Component id="ZipCodeTF" max="32767" attributes="0"/>
+                                          <Component id="DateOfBirthTF" max="32767" attributes="0"/>
+                                          <Component id="PhoneNumberTF" max="32767" attributes="0"/>
+                                          <Component id="ConfirmChanges" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="EmailAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Name" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="NameTF" pref="270" max="32767" attributes="0"/>
+                                          <Component id="EmailAddressTF" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="MainMenu1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="203" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="MainMenu1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="SaveMembers" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -219,52 +267,48 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="Name" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="NameTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="MainMenu1" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="MainMenu1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Name" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NameTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="EmailAddress" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="EmailAddressTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Name2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Address" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="AddressTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="Name3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="City" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="CityTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Name6" min="-2" max="-2" attributes="0"/>
-                          <Component id="ZipCodeTF" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ZipCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ZipCodeTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Name5" min="-2" max="-2" attributes="0"/>
                           <Component id="DateOfBirthTF" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateOfBirth" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Name4" min="-2" max="-2" attributes="0"/>
-                          <Component id="PhoneNumberTF" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="PhoneNumberTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Phonenumber" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ConfirmChanges" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="Reset" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="SaveMembers" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
@@ -282,7 +326,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="NameTF">
             </Component>
-            <Component class="javax.swing.JLabel" name="Name1">
+            <Component class="javax.swing.JLabel" name="EmailAddress">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -292,7 +336,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="EmailAddressTF">
             </Component>
-            <Component class="javax.swing.JLabel" name="Name2">
+            <Component class="javax.swing.JLabel" name="Address">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -300,7 +344,7 @@
                 <Property name="text" type="java.lang.String" value="Address:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Name3">
+            <Component class="javax.swing.JLabel" name="City">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -308,7 +352,7 @@
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Name4">
+            <Component class="javax.swing.JLabel" name="Phonenumber">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -316,7 +360,7 @@
                 <Property name="text" type="java.lang.String" value="Phone number:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Name5">
+            <Component class="javax.swing.JLabel" name="DateOfBirth">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -324,7 +368,7 @@
                 <Property name="text" type="java.lang.String" value="Date of birth:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="Name6">
+            <Component class="javax.swing.JLabel" name="ZipCode">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
@@ -398,19 +442,19 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       <Component id="ManMembers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <EmptySpace pref="122" max="32767" attributes="0"/>
                       <Component id="MainMenu2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Component id="MemberInfo" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
                               <Component id="RegisterNewMember1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="CancelMembership" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="MemberInfo" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -424,15 +468,20 @@
                           <Component id="MainMenu2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="211" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegisterNewMember1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CancelMembership" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="343" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="CancelMembership" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="RegisterNewMember1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="MemberInfo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -528,13 +577,16 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="View / chance member info"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MemberInfoActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="MemberInformation">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card5"/>
+              <CardConstraints cardName="MemberInformation"/>
             </Constraint>
           </Constraints>
 
@@ -543,48 +595,101 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="ChosenMemberName" min="-2" pref="315" max="-2" attributes="0"/>
-                      <EmptySpace pref="76" max="32767" attributes="0"/>
+                      <EmptySpace pref="152" max="32767" attributes="0"/>
                       <Component id="MainMenu3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Component id="jScrollPane3" max="32767" attributes="0"/>
+                  <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="DateOfJoing" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="TournamentEligibilityCB" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="NextPaymentDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ArrearsBalance" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="NextPaymentDateTFMI" pref="112" max="32767" attributes="0"/>
+                                          <Component id="ArrearsBalanceTFMI" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="DateOfBirth1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="PhoneNumber1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="DateOfJoing" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="DateOfJoiningTFMI" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                              <Component id="MemberIDTFMI" min="-2" pref="130" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ZipCode1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Address1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="EmailAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="City1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ActivityStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MemberID" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="MemberType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ActivityStatusTFMI" min="-2" pref="130" max="-2" attributes="0"/>
+                                          <Component id="MemberTypeMI" min="-2" pref="130" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="Name1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="PhoneNumberTFMI" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="DateOfBirthTFMI" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="ZipCodeTFMI" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="CityTFMI" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="AddressTFMI" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="EmailAddressTFMI" max="32767" attributes="0"/>
+                                  <Component id="NameTFMI" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="MembershipPrice" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="DateOfJoiningTFMI" min="-2" max="-2" attributes="0"/>
+                              <Component id="MembershipPriceTFMI" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ActivityStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="MemberType" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="MemberTypeMI" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="DateOfJoing4" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="MemberIDTFMI" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="DateOfJoing2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="ActivityStatusTFMI" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="ArrearsBalance" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                              <Component id="TeamMembership" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="MemberID" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="DateOfJoiningTFMI2" min="-2" max="-2" attributes="0"/>
-                          <Component id="ArrearsBalanceTFMI" min="-2" max="-2" attributes="0"/>
-                          <Component id="DateOfJoiningTFMI3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="TournamentParticipants" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -593,39 +698,72 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="MainMenu3" max="32767" attributes="0"/>
-                          <Component id="ChosenMemberName" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ChosenMemberName" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="MainMenu3" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ActivityStatus" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ActivityStatusTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ArrearsBalance" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ArrearsBalanceTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Name1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NameTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="MemberID" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MemberIDTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DateOfJoing2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DateOfJoiningTFMI3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EmailAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EmailAddressTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="MemberType" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="DateOfJoiningTFMI2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="MemberTypeMI" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="DateOfJoing4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="MemberType" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MemberTypeMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Address1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AddressTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="DateOfJoing" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="DateOfJoiningTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="City1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CityTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" pref="257" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ZipCode1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ZipCodeTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ArrearsBalance" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ArrearsBalanceTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateOfBirth1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DateOfBirthTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="NextPaymentDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NextPaymentDateTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PhoneNumber1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="PhoneNumberTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="MembershipPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MembershipPriceTFMI" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="TournamentEligibilityCB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <Component id="TeamMembership" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="79" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="TournamentParticipants" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane4" min="-2" pref="76" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -684,7 +822,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="MemberIDTFMI">
@@ -692,7 +829,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="MemberTypeMI">
@@ -700,7 +836,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="DateOfJoiningTFMI">
@@ -708,15 +843,14 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="DateOfJoing2">
+            <Component class="javax.swing.JLabel" name="NextPaymentDate">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date of joining:"/>
+                <Property name="text" type="java.lang.String" value="Next payment date:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="ArrearsBalance">
@@ -727,28 +861,26 @@
                 <Property name="text" type="java.lang.String" value="Arrears balance:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="DateOfJoing4">
+            <Component class="javax.swing.JLabel" name="MembershipPrice">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Date of joining:"/>
+                <Property name="text" type="java.lang.String" value="Membership price:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="DateOfJoiningTFMI2">
+            <Component class="javax.swing.JTextField" name="MembershipPriceTFMI">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="DateOfJoiningTFMI3">
+            <Component class="javax.swing.JTextField" name="NextPaymentDateTFMI">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ArrearsBalanceTFMI">
@@ -756,7 +888,237 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable2">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="3">
+                        <Column editable="true" title="Team name" type="java.lang.Object"/>
+                        <Column editable="true" title="Swimming style" type="java.lang.Object"/>
+                        <Column editable="true" title="Date of joining" type="java.lang.Object"/>
+                        <Column editable="true" title="Date of leaving" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="TournamentsParticipantsTable">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="5" rowCount="3">
+                        <Column editable="true" title="Eent name" type="java.lang.Object"/>
+                        <Column editable="true" title="Event date" type="java.lang.Object"/>
+                        <Column editable="true" title="Ranking" type="java.lang.Object"/>
+                        <Column editable="true" title="Swimming style" type="java.lang.Object"/>
+                        <Column editable="true" title="Time" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="TournamentParticipants">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tournaments participants"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="TeamMembership">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Team membership"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="PhoneNumber1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Phone number:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="DateOfBirth1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Date of birth:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ZipCode1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Zip code:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="City1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="City::"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Address1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Address:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="EmailAddress1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Email Address:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Name1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Name:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="PhoneNumberTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="DateOfBirthTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ZipCodeTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="AddressTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="CityTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="NameTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="EmailAddressTFMI">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="TournamentEligibilityCB">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Tahoma" size="14" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tournament eligibility"/>
               </Properties>
             </Component>
           </SubComponents>
