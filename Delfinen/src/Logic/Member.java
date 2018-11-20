@@ -137,17 +137,21 @@ public class Member implements Serializable
     }
     
      /**
-     * Parses the current membership price to a string representing kr..
+     * Parses the given long to a string representing kr. and øre.
+     * 
+     * @param price The given price that needs formatting
      * 
      * @return String in format 'kr,øre'
      */
-    public String getMembershipPriceString()
+    public String formatLongToString(long price)
     {
-        long price = getMembershipPrice();
         String priceString = Long.toString(price);
-        String result = "";
+        String result;
         
+        String kr = priceString.substring(0, priceString.length()-2);
+        String øre = priceString.substring(priceString.length()-2, priceString.length());
         
+        result = kr + "," + øre + " kr.";
         
         return result;
     }

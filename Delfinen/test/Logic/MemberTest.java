@@ -20,9 +20,9 @@ public class MemberTest
 
     public MemberTest()
     {
-        johanne = new Member(false, false, true, 2800, 81, 14548645, 
-                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
-                "Kongens Lyngby", "Johanne.j@gmail.dk", 
+        johanne = new Member(false, false, true, 2800, 81, 14548645,
+                50000, 0, "Johanne Jaeger", "Fiktiv Vej 23",
+                "Kongens Lyngby", "Johanne.j@gmail.dk",
                 LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10));
     }
 
@@ -43,15 +43,26 @@ public class MemberTest
     @Test
     public void testCalculateMembershipPrice()
     {
-        
+        johanne.calculateMembershipPrice();
+        assertEquals(50000, johanne.getMembershipPrice());
+        johanne.setMembershipPrice(0);
     }
-    
+
     @Test
     public void testCheckPaymentOverdue()
     {
-        
+
     }
-    
+
+    @Test
+    public void testFormatLongToString()
+    {
+        johanne.calculateMembershipPrice();
+        long membershipPrice = johanne.getMembershipPrice();
+        assertEquals("500,00 kr.", johanne.formatLongToString(membershipPrice));
+        johanne.setMembershipPrice(0);
+    }
+
     @Test
     public void testPayArrears()
     {
@@ -75,10 +86,10 @@ public class MemberTest
         johanne.switchActivityStatus();
         assertTrue(johanne.isActiveMember());
     }
-    
+
     @Test
     public void testGetActivityStatusString()
     {
-        
+
     }
 }

@@ -1513,24 +1513,25 @@ public class Main extends javax.swing.JFrame
             System.out.print("No rows selected");
         }
         
+        Member member = c.getMemberList().get(i);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         
-        this.NameTFMI.setText(c.getMemberList().get(i).getName());
-        this.EmailAddressTFMI.setText(c.getMemberList().get(i).getEmailAddress());
-        this.AddressTFMI.setText(c.getMemberList().get(i).getAddress());
-        this.CityTFMI.setText(c.getMemberList().get(i).getCity());
-        this.ZipCodeTFMI.setText(Integer.toString(c.getMemberList().get(i).getZipCode()));
-        this.DateOfBirthTFMI.setText(c.getMemberList().get(i).getDateOfBirth().format(formatter));
-        this.PhoneNumberTFMI.setText(Long.toString(c.getMemberList().get(i).getPhoneNumber()));
+        this.NameTFMI.setText(member.getName());
+        this.EmailAddressTFMI.setText(member.getEmailAddress());
+        this.AddressTFMI.setText(member.getAddress());
+        this.CityTFMI.setText(member.getCity());
+        this.ZipCodeTFMI.setText(Integer.toString(member.getZipCode()));
+        this.DateOfBirthTFMI.setText(member.getDateOfBirth().format(formatter));
+        this.PhoneNumberTFMI.setText(Long.toString(member.getPhoneNumber()));
         
-        this.ActivityStatusTFMI.setText(c.getMemberList().get(i).getActivityStatusString());
-        this.MemberIDTFMI.setText(Integer.toString(c.getMemberList().get(i).getMemberID()));
-        this.MemberTypeMI.setText(c.getMemberList().get(i).getCompetitiveSwimmerString());
-        this.DateOfJoiningTFMI.setText(c.getMemberList().get(i).getDateOfJoining().format(formatter));
+        this.ActivityStatusTFMI.setText(member.getActivityStatusString());
+        this.MemberIDTFMI.setText(Integer.toString(member.getMemberID()));
+        this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
+        this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
         
-        this.ArrearsBalanceTFMI.setText(Long.toString(c.getMemberList().get(i).getArrearsBalance()));
-        this.NextPaymentDateTFMI.setText(c.getMemberList().get(i).getNextPaymentDate().format(formatter));
-        this.MembershipPriceTFMI.setText(c.getMemberList().get(i).getMembershipPriceString());
+        this.ArrearsBalanceTFMI.setText(member.formatLongToString(member.getArrearsBalance()));
+        this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
+        this.MembershipPriceTFMI.setText(member.formatLongToString(member.getMembershipPrice()));
         
     }
     
