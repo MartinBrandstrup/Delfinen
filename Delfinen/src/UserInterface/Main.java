@@ -8,6 +8,7 @@ package UserInterface;
 import Data.DataAccessorFile;
 import Logic.Controller;
 import Logic.Member;
+import Logic.SwimmingStyle;
 import java.awt.CardLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -24,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class Main extends javax.swing.JFrame
 {
     private CardLayout card;
+    
     
     private DefaultTableModel model; 
     private DataAccessorFile data = new DataAccessorFile();
@@ -69,6 +71,8 @@ public class Main extends javax.swing.JFrame
         jMenuItem3 = new javax.swing.JMenuItem();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        SeniorOrJuniorGroup = new javax.swing.ButtonGroup();
+        SwimmingStyleGroup = new javax.swing.ButtonGroup();
         mainPanel = new javax.swing.JPanel();
         MainMenu = new javax.swing.JPanel();
         RegNewMember = new javax.swing.JButton();
@@ -181,20 +185,20 @@ public class Main extends javax.swing.JFrame
         AddNewTeamMember = new javax.swing.JButton();
         RemoveFromTeam = new javax.swing.JButton();
         CreateANewTeam = new javax.swing.JPanel();
-        BreaststrokeCB = new javax.swing.JCheckBox();
-        CrawlCB = new javax.swing.JCheckBox();
-        BackCrawlCB = new javax.swing.JCheckBox();
-        ButterflyCB = new javax.swing.JCheckBox();
         ChooseSwimmingstyle = new javax.swing.JLabel();
         ChooseJorS = new javax.swing.JLabel();
-        JuniorCB = new javax.swing.JCheckBox();
-        SeniorCB = new javax.swing.JCheckBox();
         TeamName = new javax.swing.JLabel();
         TeamNameTF = new javax.swing.JTextField();
         TrainerName = new javax.swing.JLabel();
         TrainerNameTF = new javax.swing.JTextField();
         ConfirmAndCreateTeam = new javax.swing.JButton();
         MainMenu6 = new javax.swing.JButton();
+        JuniorRB = new javax.swing.JRadioButton();
+        Senior = new javax.swing.JRadioButton();
+        BreastStrokeRB = new javax.swing.JRadioButton();
+        CrawlRB = new javax.swing.JRadioButton();
+        BackCrawlRB = new javax.swing.JRadioButton();
+        ButterflyRB = new javax.swing.JRadioButton();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -472,7 +476,7 @@ public class Main extends javax.swing.JFrame
             },
             new String []
             {
-                "Name", "MID", "Status"
+                "Name", "MID", "Status", "Member type"
             }
         ));
         MembersTable.addMouseListener(new java.awt.event.MouseAdapter()
@@ -1147,23 +1151,11 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(SpecificTeam, "SpecificTeam");
 
-        BreaststrokeCB.setText("Breaststroke");
-
-        CrawlCB.setText("Crawl");
-
-        BackCrawlCB.setText("Back Crawl");
-
-        ButterflyCB.setText("Buttlerfly");
-
         ChooseSwimmingstyle.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ChooseSwimmingstyle.setText("Choose a swimming style:");
 
         ChooseJorS.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         ChooseJorS.setText("Choose junior or senior:");
-
-        JuniorCB.setText("Junior");
-
-        SeniorCB.setText("Senior");
 
         TeamName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         TeamName.setText("Team name:");
@@ -1173,6 +1165,13 @@ public class Main extends javax.swing.JFrame
 
         ConfirmAndCreateTeam.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         ConfirmAndCreateTeam.setText("Comfirn and create team");
+        ConfirmAndCreateTeam.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ConfirmAndCreateTeamActionPerformed(evt);
+            }
+        });
 
         MainMenu6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MainMenu6.setText("Main menu");
@@ -1184,26 +1183,47 @@ public class Main extends javax.swing.JFrame
             }
         });
 
+        SeniorOrJuniorGroup.add(JuniorRB);
+        JuniorRB.setText("Junior");
+
+        SeniorOrJuniorGroup.add(Senior);
+        Senior.setText("Senior");
+
+        SwimmingStyleGroup.add(BreastStrokeRB);
+        BreastStrokeRB.setText("Breaststroke");
+
+        SwimmingStyleGroup.add(CrawlRB);
+        CrawlRB.setText("Crawl");
+
+        SwimmingStyleGroup.add(BackCrawlRB);
+        BackCrawlRB.setText("Back crawl");
+
+        SwimmingStyleGroup.add(ButterflyRB);
+        ButterflyRB.setText("Butterfly");
+
         javax.swing.GroupLayout CreateANewTeamLayout = new javax.swing.GroupLayout(CreateANewTeam);
         CreateANewTeam.setLayout(CreateANewTeamLayout);
         CreateANewTeamLayout.setHorizontalGroup(
             CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreateANewTeamLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MainMenu6))
             .addGroup(CreateANewTeamLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ButterflyRB)
+                    .addComponent(BackCrawlRB)
                     .addComponent(ConfirmAndCreateTeam)
-                    .addComponent(ButterflyCB)
-                    .addComponent(BackCrawlCB)
                     .addGroup(CreateANewTeamLayout.createSequentialGroup()
                         .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ChooseSwimmingstyle)
-                            .addComponent(BreaststrokeCB)
-                            .addComponent(CrawlCB))
+                            .addComponent(BreastStrokeRB)
+                            .addComponent(CrawlRB))
                         .addGap(49, 49, 49)
                         .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SeniorCB)
-                            .addComponent(JuniorCB)
-                            .addComponent(ChooseJorS)))
+                            .addComponent(ChooseJorS)
+                            .addComponent(JuniorRB)
+                            .addComponent(Senior)))
                     .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(CreateANewTeamLayout.createSequentialGroup()
                             .addComponent(TrainerName)
@@ -1213,10 +1233,7 @@ public class Main extends javax.swing.JFrame
                             .addComponent(TeamName)
                             .addGap(18, 18, 18)
                             .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(73, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreateANewTeamLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(MainMenu6))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         CreateANewTeamLayout.setVerticalGroup(
             CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1228,17 +1245,17 @@ public class Main extends javax.swing.JFrame
                     .addComponent(ChooseJorS))
                 .addGap(26, 26, 26)
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BreaststrokeCB)
-                    .addComponent(JuniorCB))
+                    .addComponent(JuniorRB)
+                    .addComponent(BreastStrokeRB))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CrawlCB)
-                    .addComponent(SeniorCB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BackCrawlCB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ButterflyCB)
-                .addGap(51, 51, 51)
+                    .addComponent(Senior)
+                    .addComponent(CrawlRB))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BackCrawlRB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButterflyRB)
+                .addGap(61, 61, 61)
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TeamName)
                     .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1319,11 +1336,12 @@ public class Main extends javax.swing.JFrame
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        Object rowData[] = new Object[3];
+        Object rowData[] = new Object[4];
                     
         rowData[0] = c.getLastAddedMember().getName();
         rowData[1] = c.getLastAddedMember().getMemberID();
         rowData[2] = c.getLastAddedMember().getActivityStatusString();
+        rowData[3] = c.getLastAddedMember().getCompetitiveSwimmerString();
         model.addRow(rowData);
         reset();
     }//GEN-LAST:event_ConfirmChangesActionPerformed
@@ -1403,6 +1421,55 @@ public class Main extends javax.swing.JFrame
         mainMenu();
     }//GEN-LAST:event_MainMenu6ActionPerformed
 
+    private void ConfirmAndCreateTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmAndCreateTeamActionPerformed
+    {//GEN-HEADEREND:event_ConfirmAndCreateTeamActionPerformed
+        boolean isJunior = false; // kan man initialize den på en anden måde??
+        SwimmingStyle swimmingStyle = SwimmingStyle.BREASTSTROKE; //Kan man initalize den på en anden måde??
+        
+        String teamName = this.TeamNameTF.getText();
+        String trainer = this.TrainerNameTF.getText();
+        
+        if(BreastStrokeRB.isSelected())
+        {
+            swimmingStyle = SwimmingStyle.BREASTSTROKE;
+        }
+        if(CrawlRB.isSelected())
+        {
+            swimmingStyle = SwimmingStyle.CRAWL;
+        }
+        if(BackCrawlRB.isSelected())
+        {
+            swimmingStyle = SwimmingStyle.BACKCRAWL;
+        }
+        if(ButterflyRB.isSelected())
+        {
+            swimmingStyle = SwimmingStyle.BUTTERFLY;
+        }
+        
+        if(JuniorRB.isSelected())
+        {
+            isJunior = true;
+        }
+        if(Senior.isSelected())
+        {
+            isJunior = false;
+        }
+        
+        if(SeniorOrJuniorGroup.getSelection() != null && SwimmingStyleGroup != null)
+        {
+            c.createATeam(isJunior, teamName, trainer, swimmingStyle);
+            System.out.print("Team got created");
+        }
+        
+        System.out.print("You need to pick atleast one swimming style and either junior or senior");
+        
+        
+      
+            
+        
+        
+    }//GEN-LAST:event_ConfirmAndCreateTeamActionPerformed
+
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
@@ -1455,7 +1522,7 @@ public class Main extends javax.swing.JFrame
         model = (DefaultTableModel) MembersTable.getModel();
         System.out.print("MemberList size is: " + c.getMemberList().size());
         
-        Object rowData[] = new Object[3];
+        Object rowData[] = new Object[4];
         
         for(int i = 0; i < c.getMemberList().size(); ++i)
         {
@@ -1463,6 +1530,7 @@ public class Main extends javax.swing.JFrame
             rowData[0] = c.getMemberList().get(i).getName();
             rowData[1] = c.getMemberList().get(i).getMemberID();
             rowData[2] = c.getMemberList().get(i).getActivityStatusString();
+            rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
             model.addRow(rowData);
             
         }  
@@ -1503,6 +1571,7 @@ public class Main extends javax.swing.JFrame
     {
         card.first(mainPanel);
     }
+    
     
     public void memberInfo()
     {
@@ -1598,18 +1667,18 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField ArrearsBalanceTFMI;
     private javax.swing.JLabel BackCrawl;
     private javax.swing.JLabel BackCrawl1;
-    private javax.swing.JCheckBox BackCrawlCB;
     private javax.swing.JTable BackCrawlJuniorTable;
+    private javax.swing.JRadioButton BackCrawlRB;
     private javax.swing.JTable BackCrawlSeniorTable;
+    private javax.swing.JRadioButton BreastStrokeRB;
     private javax.swing.JLabel Breaststroke;
     private javax.swing.JLabel Breaststroke1;
-    private javax.swing.JCheckBox BreaststrokeCB;
     private javax.swing.JTable BreaststrokeJuniorTable;
     private javax.swing.JTable BreaststrokeSeniorTable;
     private javax.swing.JLabel Butterfly;
     private javax.swing.JLabel Butterfly1;
-    private javax.swing.JCheckBox ButterflyCB;
     private javax.swing.JTable ButterflyJuniorTable;
+    private javax.swing.JRadioButton ButterflyRB;
     private javax.swing.JTable ButterflySeniorTable;
     private javax.swing.JButton CancelMembership;
     private javax.swing.JLabel ChooseJorS;
@@ -1623,8 +1692,8 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton ConfirmChanges;
     private javax.swing.JLabel Crawl;
     private javax.swing.JLabel Crawl1;
-    private javax.swing.JCheckBox CrawlCB;
     private javax.swing.JTable CrawlJuniorTable;
+    private javax.swing.JRadioButton CrawlRB;
     private javax.swing.JTable CrawlSeniorTable;
     private javax.swing.JPanel CreateANewTeam;
     private javax.swing.JButton CreateTeam;
@@ -1638,7 +1707,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
     private javax.swing.JTextField EmailAddressTFMI;
-    private javax.swing.JCheckBox JuniorCB;
+    private javax.swing.JRadioButton JuniorRB;
     private javax.swing.JLabel JuniorTeams;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JButton MainMenu1;
@@ -1677,11 +1746,13 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton RemoveFromTeam;
     private javax.swing.JButton Reset;
     private javax.swing.JButton SaveMembers;
-    private javax.swing.JCheckBox SeniorCB;
+    private javax.swing.JRadioButton Senior;
+    private javax.swing.ButtonGroup SeniorOrJuniorGroup;
     private javax.swing.JLabel SeniorTeams;
     private javax.swing.JPanel SpecificTeam;
     private javax.swing.JLabel SpecificTeamName;
     private javax.swing.JScrollPane SpecificTeamTable;
+    private javax.swing.ButtonGroup SwimmingStyleGroup;
     private javax.swing.JLabel TeamMembership;
     private javax.swing.JLabel TeamName;
     private javax.swing.JTextField TeamNameTF;

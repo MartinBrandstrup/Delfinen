@@ -46,6 +46,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="SeniorOrJuniorGroup">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="SwimmingStyleGroup">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -519,14 +523,20 @@
                 <Component class="javax.swing.JTable" name="MembersTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="3" rowCount="0">
+                      <Table columnCount="4" rowCount="0">
                         <Column editable="true" title="Name" type="java.lang.Object"/>
                         <Column editable="true" title="MID" type="java.lang.Object"/>
                         <Column editable="true" title="Status" type="java.lang.Object"/>
+                        <Column editable="true" title="Member type" type="java.lang.Object"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -1784,23 +1794,27 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="MainMenu6" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ButterflyRB" min="-2" max="-2" attributes="0"/>
+                          <Component id="BackCrawlRB" min="-2" max="-2" attributes="0"/>
                           <Component id="ConfirmAndCreateTeam" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButterflyCB" min="-2" max="-2" attributes="0"/>
-                          <Component id="BackCrawlCB" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ChooseSwimmingstyle" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="BreaststrokeCB" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CrawlCB" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ChooseSwimmingstyle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="BreastStrokeRB" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CrawlRB" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="SeniorCB" min="-2" max="-2" attributes="0"/>
-                                  <Component id="JuniorCB" min="-2" max="-2" attributes="0"/>
                                   <Component id="ChooseJorS" min="-2" max="-2" attributes="0"/>
+                                  <Component id="JuniorRB" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Senior" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
@@ -1816,11 +1830,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="MainMenu6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="76" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1835,19 +1845,19 @@
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="BreaststrokeCB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="JuniorCB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JuniorRB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="BreastStrokeRB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CrawlCB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="SeniorCB" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Senior" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CrawlRB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="BackCrawlCB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="ButterflyCB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="BackCrawlRB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ButterflyRB" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="TeamName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="TeamNameTF" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1865,26 +1875,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JCheckBox" name="BreaststrokeCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Breaststroke"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="CrawlCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Crawl"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="BackCrawlCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Back Crawl"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="ButterflyCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buttlerfly"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="ChooseSwimmingstyle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1899,16 +1889,6 @@
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Choose junior or senior:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="JuniorCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Junior"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="SeniorCB">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Senior"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="TeamName">
@@ -1938,6 +1918,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Comfirn and create team"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConfirmAndCreateTeamActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="MainMenu6">
               <Properties>
@@ -1949,6 +1932,54 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MainMenu6ActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="JuniorRB">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SeniorOrJuniorGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Junior"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="Senior">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SeniorOrJuniorGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Senior"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="BreastStrokeRB">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SwimmingStyleGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Breaststroke"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="CrawlRB">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SwimmingStyleGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Crawl"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="BackCrawlRB">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SwimmingStyleGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back crawl"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="ButterflyRB">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="SwimmingStyleGroup"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Butterfly"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
