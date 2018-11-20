@@ -1524,7 +1524,7 @@ public class Main extends javax.swing.JFrame
         
         this.ArrearsBalanceTFMI.setText(Long.toString(c.getMemberList().get(i).getArrearsBalance()));
         this.NextPaymentDateTFMI.setText(c.getMemberList().get(i).getNextPaymentDate().format(formatter));
-        //this.MembershipPriceTFMI.setText(c.getMemberList().get(i).getMembershipPriceString);
+        this.MembershipPriceTFMI.setText(c.getMemberList().get(i).getMembershipPriceString());
         
     }
     
