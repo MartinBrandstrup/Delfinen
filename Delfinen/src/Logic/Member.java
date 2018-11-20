@@ -22,7 +22,6 @@ public class Member implements Serializable
     private boolean paidCurrentYear, activityStatus, isCompetitiveSwimmer;
     private int zipCode, memberID;
     private long phoneNumber, arrearsBalance, membershipPrice;
-
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
 

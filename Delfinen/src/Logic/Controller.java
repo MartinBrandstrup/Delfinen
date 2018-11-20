@@ -20,8 +20,8 @@ public class Controller
     //private DataAccessorHardCoded data;
     private DataAccessor data;
     private ArrayList<Member> memberList = new ArrayList();
-    private ArrayList<Team> teamList;
-    private ArrayList<TournamentEvent> tournamentList;
+    private ArrayList<Team> teamList = new ArrayList();
+    private ArrayList<TournamentEvent> tournamentList = new ArrayList();
     private int MIDCounter = 1;
 
     public Controller(DataAccessor data)
@@ -194,9 +194,12 @@ public class Controller
             {
                 memberListIndex = i;
             }
+        }
+        if(memberListIndex < 0)
+        {
             return;
         }
-
+        
         memberList.add(memberListIndex, new CompetitiveSwimmer(
                 member.hasPaidCurrentYear(), member.getActivityStatus(), true,
                 member.getZipCode(), member.getMemberID(),
@@ -214,10 +217,10 @@ public class Controller
         team.addMember(member);
     }
     
-    public void createATeam(boolean isJuniorTeam, String teamName, String trainer, SwimmingStyle swimmingStyle)
+    public void createTeam(boolean isJuniorTeam, String teamName, 
+            String trainer, SwimmingStyle swimmingStyle)
     {
-        Team t = new Team(isJuniorTeam, teamName,trainer,swimmingStyle);
-        teamList.add(t);
+        teamList.add(new Team(isJuniorTeam, teamName, trainer, swimmingStyle, null));
     }
             
 

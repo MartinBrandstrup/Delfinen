@@ -53,27 +53,21 @@ public class DataAccessorFile implements DataAccessor
             boolean objectExist = true;
             while(objectExist)
             {
-                Member m = (Member) objectIn.readObject();
-
-                if(m != null)
+                try
                 {
+                    Member m = (Member) objectIn.readObject();
                     memberList.add(m);
                 }
-                else
+                catch(EOFException eofe)
                 {
+                    System.out.println(eofe);
                     objectExist = false;
                 }
             }
 
             objectIn.close();
-            System.out.println("The Objects have been read from the file");
+            System.out.println("The file \"Members.dat\" has been read");
 
-            return memberList;
-        }
-        catch(EOFException eofe)
-        {
-            System.out.println(eofe);
-            System.out.println("The file has been read");
             return memberList;
         }
         catch(IOException ex)
@@ -103,27 +97,21 @@ public class DataAccessorFile implements DataAccessor
             boolean objectExist = true;
             while(objectExist)
             {
-                Team t = (Team) objectIn.readObject();
-
-                if(t != null)
+                try
                 {
+                    Team t = (Team) objectIn.readObject();
                     teamList.add(t);
                 }
-                else
+                catch(EOFException eofe)
                 {
+                    System.out.println(eofe);
                     objectExist = false;
                 }
             }
 
             objectIn.close();
-            System.out.println("The Objects have been read from the file");
+            System.out.println("The file \"Teams.dat\" has been read");
 
-            return teamList;
-        }
-        catch(EOFException eofe)
-        {
-            System.out.println(eofe);
-            System.out.println("The file has been read");
             return teamList;
         }
         catch(IOException ex)
@@ -154,27 +142,21 @@ public class DataAccessorFile implements DataAccessor
             boolean objectExist = true;
             while(objectExist)
             {
-                TournamentEvent e = (TournamentEvent) objectIn.readObject();
-
-                if(e != null)
+                try
                 {
+                    TournamentEvent e = (TournamentEvent) objectIn.readObject();
                     tournamentList.add(e);
                 }
-                else
+                catch(EOFException eofe)
                 {
+                    System.out.println(eofe);
                     objectExist = false;
                 }
             }
 
             objectIn.close();
-            System.out.println("The Objects have been read from the file");
+            System.out.println("The file \"Events.dat\" has been read");
 
-            return tournamentList;
-        }
-        catch(EOFException eofe)
-        {
-            System.out.println(eofe);
-            System.out.println("The file has been read");
             return tournamentList;
         }
         catch(IOException ex)
@@ -183,7 +165,7 @@ public class DataAccessorFile implements DataAccessor
             return null;
         }
     }
-    
+
     @Override
     public int getMIDCounter(Member member) throws Exception
     {
@@ -191,12 +173,12 @@ public class DataAccessorFile implements DataAccessor
         {
             if(m.getMemberID() == member.getMemberID())
             {
-                return m.getMemberID()+1;
+                return m.getMemberID() + 1;
             }
         }
         throw new IllegalArgumentException("The provided Member did not contain a valid memberID integer");
     }
-    
+
     @Override
     public void saveMemberList(ArrayList<Member> memberList) throws IOException
     {

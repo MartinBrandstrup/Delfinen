@@ -12,7 +12,6 @@ import Logic.SwimmingStyle;
 import java.awt.CardLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -24,10 +23,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Main extends javax.swing.JFrame
 {
+
     private CardLayout card;
-    
-    
-    private DefaultTableModel model; 
+
+    private DefaultTableModel model;
     private DataAccessorFile data = new DataAccessorFile();
     private Controller c = new Controller(data);
 
@@ -38,7 +37,7 @@ public class Main extends javax.swing.JFrame
     {
         initComponents();
         card = (CardLayout) mainPanel.getLayout();
-        
+
         try
         {
             c.updateEverythingFromSource();
@@ -1298,16 +1297,7 @@ public class Main extends javax.swing.JFrame
 
     private void ConfirmChangesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmChangesActionPerformed
     {//GEN-HEADEREND:event_ConfirmChangesActionPerformed
-        try
-        {
-            // should be removed from this method at some point in time
-            c.updateMemberList();
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
         String name = this.NameTF.getText();
@@ -1315,29 +1305,29 @@ public class Main extends javax.swing.JFrame
         String city = this.CityTF.getText();
         String email = this.EmailAddressTF.getText();
         //LocalDate dateOfBirth = LocalDate.parse(this.DateOfBirthTF.getText()); //works if string is formatted like localdate (ex 2016-08-16)
-        
+
         String dateOfBirthString = this.DateOfBirthTF.getText();
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        
+
         LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString, dateFormat);
-        
+
         validation();
-        
+
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
         System.out.print("MemberList size: " + c.getMemberList().size());
-        
+
         try
         {
             // should be removed from this methid at some point in time
             c.saveMemberList();
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         Object rowData[] = new Object[4];
-                    
+
         rowData[0] = c.getLastAddedMember().getName();
         rowData[1] = c.getLastAddedMember().getMemberID();
         rowData[2] = c.getLastAddedMember().getActivityStatusString();
@@ -1353,7 +1343,7 @@ public class Main extends javax.swing.JFrame
 
     private void MembersTableMouseReleased(java.awt.event.MouseEvent evt)//GEN-FIRST:event_MembersTableMouseReleased
     {//GEN-HEADEREND:event_MembersTableMouseReleased
-         //Mouse Released is apperantly equal to mouse right click???? 
+        //Mouse Released is apperantly equal to mouse right click???? 
         if(evt.isPopupTrigger()) //If this event is triggrede (java.awt.event.Mouse event evt) - the parameter for this method
         {
             jPopupMenu1.show(this, evt.getX(), evt.getY()); //show the popup at memberstable at this event x,y cordinates
@@ -1423,12 +1413,12 @@ public class Main extends javax.swing.JFrame
 
     private void ConfirmAndCreateTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ConfirmAndCreateTeamActionPerformed
     {//GEN-HEADEREND:event_ConfirmAndCreateTeamActionPerformed
-        boolean isJunior = false; // kan man initialize den på en anden måde??
-        SwimmingStyle swimmingStyle = SwimmingStyle.BREASTSTROKE; //Kan man initalize den på en anden måde??
-        
+        boolean isJunior = false; // kan man initialize den på en anden måde?? MLB: booleans er false som default
+        SwimmingStyle swimmingStyle = null;
+
         String teamName = this.TeamNameTF.getText();
         String trainer = this.TrainerNameTF.getText();
-        
+
         if(BreastStrokeRB.isSelected())
         {
             swimmingStyle = SwimmingStyle.BREASTSTROKE;
@@ -1445,7 +1435,7 @@ public class Main extends javax.swing.JFrame
         {
             swimmingStyle = SwimmingStyle.BUTTERFLY;
         }
-        
+
         if(JuniorRB.isSelected())
         {
             isJunior = true;
@@ -1454,27 +1444,22 @@ public class Main extends javax.swing.JFrame
         {
             isJunior = false;
         }
-        
+
         if(SeniorOrJuniorGroup.getSelection() != null && SwimmingStyleGroup != null)
         {
-            c.createATeam(isJunior, teamName, trainer, swimmingStyle);
-            System.out.print("Team got created");
+            c.createTeam(isJunior, teamName, trainer, swimmingStyle);
+            System.out.print("Team has been created");
         }
-        
+
         System.out.print("You need to pick atleast one swimming style and either junior or senior");
-        
-        
-      
-            
-        
-        
+
     }//GEN-LAST:event_ConfirmAndCreateTeamActionPerformed
 
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
-        
+
         if(zipCode < 1000 || zipCode > 9999)
         {
             JOptionPane.showMessageDialog(null, "The field zip must contains excalty 4 digits", "Inane error", JOptionPane.ERROR_MESSAGE);
@@ -1495,17 +1480,17 @@ public class Main extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
-        
+
 //        if(validateEmail(this.EmailAddressTF.getText()) == false)
 //        {
-//            JOptionPane.showMessageDialog(null, "This email address is not a valid email address", "Inane error", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
 //        }
 //        if(validateDate(this.DateOfBirthTF.getText()) == false)
 //        {
-//            JOptionPane.showMessageDialog(null, "This date is not a valid date", "Inane error", JOptionPane.ERROR_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
 //        }
     }
-    
+
     public void reset()
     {
         this.ZipCodeTF.setText("");
@@ -1516,26 +1501,26 @@ public class Main extends javax.swing.JFrame
         this.EmailAddressTF.setText("");
         this.DateOfBirthTF.setText("");
     }
-    
+
     public void populateTable()
     {
         model = (DefaultTableModel) MembersTable.getModel();
         System.out.print("MemberList size is: " + c.getMemberList().size());
-        
+
         Object rowData[] = new Object[4];
-        
+
         for(int i = 0; i < c.getMemberList().size(); ++i)
         {
-            
+
             rowData[0] = c.getMemberList().get(i).getName();
             rowData[1] = c.getMemberList().get(i).getMemberID();
             rowData[2] = c.getMemberList().get(i).getActivityStatusString();
             rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
             model.addRow(rowData);
-            
-        }  
+
+        }
     }
-    
+
     public void populateSpecificTeamTable()
     {
 //        model = (DefaultTableModel) MembersTable.getModel();
@@ -1552,39 +1537,38 @@ public class Main extends javax.swing.JFrame
 //            model.addRow(rowData);
 //        }
     }
-    
+
     public int rowSelected()
     {
         int index;
-        
+
         if(MembersTable.getSelectionModel().isSelectionEmpty())
         {
             //test
             return -1;
         }
-        
+
         index = MembersTable.getSelectedRow();
-        return index;    
+        return index;
     }
-    
+
     public void mainMenu()
     {
         card.first(mainPanel);
     }
-    
-    
+
     public void memberInfo()
     {
         int i = rowSelected();
-        
+
         if(i < 0)
         {
             System.out.print("No rows selected");
         }
-        
+
         Member member = c.getMemberList().get(i);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
-        
+
         this.NameTFMI.setText(member.getName());
         this.EmailAddressTFMI.setText(member.getEmailAddress());
         this.AddressTFMI.setText(member.getAddress());
@@ -1592,20 +1576,18 @@ public class Main extends javax.swing.JFrame
         this.ZipCodeTFMI.setText(Integer.toString(member.getZipCode()));
         this.DateOfBirthTFMI.setText(member.getDateOfBirth().format(formatter));
         this.PhoneNumberTFMI.setText(Long.toString(member.getPhoneNumber()));
-        
+
         this.ActivityStatusTFMI.setText(member.getActivityStatusString());
         this.MemberIDTFMI.setText(Integer.toString(member.getMemberID()));
         this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
         this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
-        
+
         this.ArrearsBalanceTFMI.setText(member.formatLongToString(member.getArrearsBalance()));
         this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
         this.MembershipPriceTFMI.setText(member.formatLongToString(member.getMembershipPrice()));
-        
+
     }
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1618,7 +1600,7 @@ public class Main extends javax.swing.JFrame
          */
         try
         {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
             {
                 if("Nimbus".equals(info.getName()))
                 {
@@ -1627,19 +1609,19 @@ public class Main extends javax.swing.JFrame
                 }
             }
         }
-        catch (ClassNotFoundException ex)
+        catch(ClassNotFoundException ex)
         {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (InstantiationException ex)
+        catch(InstantiationException ex)
         {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (IllegalAccessException ex)
+        catch(IllegalAccessException ex)
         {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch (javax.swing.UnsupportedLookAndFeelException ex)
+        catch(javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }

@@ -19,14 +19,23 @@ public class Team implements Serializable
     private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
     private ArrayList<CompetitiveSwimmer> teamMembers;
-    
-    public Team(boolean isJuniorTeam, String teamName, String trainer, SwimmingStyle swimmingStyle)
+
+    public Team(boolean isJuniorTeam, String teamName, String trainer, 
+            SwimmingStyle swimmingStyle, ArrayList<CompetitiveSwimmer> teamMembers) 
+            throws IllegalArgumentException
     {
+        if(teamName.isEmpty() || trainer.isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
         this.isJuniorTeam = isJuniorTeam;
         this.teamName = teamName;
         this.trainer = trainer;
         this.swimmingStyle = swimmingStyle;
+        this.teamMembers = teamMembers;
     }
+    
+    
     
     public void addMember(CompetitiveSwimmer member)
     {
