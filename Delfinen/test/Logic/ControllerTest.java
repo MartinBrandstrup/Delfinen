@@ -65,19 +65,42 @@ public class ControllerTest
         ctrl.setMIDCounter(1);
     }
 
+    //Er godt klar over at den her test er grim... men bedre end ingenting vel?
     @Test
     public void testUpgradeMemberToCompetitiveSwimmer()
     {
+        //Initial test for proper setup
+        assertEquals(3, ctrl.getMemberList().size());
+        assertTrue(ctrl.getMemberList().get(1).equals(johanne));
+        assertTrue(ctrl.getMemberList().get(2).equals(alice));
         assertTrue(johanne.isCompetitiveSwimmer());
         assertFalse(alice.isCompetitiveSwimmer());
-        assertTrue(ctrl.getMemberList().get(2).equals(alice));
-        assertTrue(ctrl.getMemberList().get(1).equals(johanne));
 
+        
+        //Actual test
         ctrl.upgradeMemberToCompetitive(ctrl.getMemberList().get(2));
 
+        assertEquals(3, ctrl.getMemberList().size());
         assertTrue(ctrl.getMemberList().get(2).getName().equals("Alice Lauritzen"));
         assertEquals(82, ctrl.getMemberList().get(2).getMemberID());
+        assertTrue(ctrl.getMemberList().get(2) instanceof CompetitiveSwimmer);
         assertTrue(ctrl.getMemberList().get(1).equals(johanne));
+
+        
+        //Cleanup
+        ctrl.getMemberList().remove(2);
+
+        alice = new Member(false, true, false, 2800, 82, 23657845,
+                0, 0, "Alice Lauritzen", "Fiktiv Vej 25",
+                "Kongens Lyngby", "Alice.l@gmail.com",
+                LocalDate.of(2004, 6, 14), LocalDate.of(2014, 3, 7));
+
+        ctrl.getMemberList().add(2, alice);
+
+        assertEquals(3, ctrl.getMemberList().size());
+        assertTrue(ctrl.getMemberList().get(1).equals(johanne));
+        assertTrue(ctrl.getMemberList().get(2).equals(alice));
+        assertFalse(ctrl.getMemberList().get(2) instanceof CompetitiveSwimmer);
 
     }
 
