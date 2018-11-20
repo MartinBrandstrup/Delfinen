@@ -39,7 +39,7 @@ public class Main extends javax.swing.JFrame
         
         try
         {
-            c.updateMemberList();
+            c.updateEverythingFromSource();
         }
         catch(NullPointerException npe)
         {
@@ -682,7 +682,6 @@ public class Main extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         
-        //Af en eller anden årsag kan den ikke se mine static metoder her. Kigger på det senere. De her checks duede alligevel ikke
 //        if(validateEmail(this.EmailAddressTF.getText()) == false)
 //        {
 //            JOptionPane.showMessageDialog(null, "This email address is not a valid email address", "Inane error", JOptionPane.ERROR_MESSAGE);

@@ -18,6 +18,7 @@ public class CompetitiveSwimmer extends Member
     boolean tournamentEligibility;
     ArrayList<Team> teamMemberships;
     ArrayList<TournamentEvent> tournamentParticipations;
+    ArrayList<Result> swimmingResults;
 
     public CompetitiveSwimmer(boolean paidCurrentYear, boolean activityStatus, 
             boolean isCompetitiveSwimmer, int zipCode, int memberID, 

@@ -19,15 +19,15 @@ public class DataAccessorHardCoded implements DataAccessor
 {
 
     private ArrayList<Member> memberList;
-    
+
     @Override
     public ArrayList<Member> getMemberList()
     {
-        memberList.add(new Member(false, false, true, 2800, 010, 14548645, 
-                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
-                "Kongens Lyngby", "Johanne.j@test.dk", 
+        memberList.add(new Member(false, false, true, 2800, 010, 14548645,
+                50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23",
+                "Kongens Lyngby", "Johanne.j@test.dk",
                 LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10)));
-        
+
         return memberList;
     }
 
@@ -39,6 +39,12 @@ public class DataAccessorHardCoded implements DataAccessor
 
     @Override
     public ArrayList<TournamentEvent> getTournamentList()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getMIDCounter(Member member) throws Exception
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -60,5 +66,5 @@ public class DataAccessorHardCoded implements DataAccessor
     {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

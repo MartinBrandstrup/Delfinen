@@ -25,7 +25,7 @@ public class Controller
     private ArrayList<Member> memberList = new ArrayList();
     private ArrayList<Team> teamList;
     private ArrayList<TournamentEvent> tournamentList;
-    private int MIDcounter = 1;
+    private int MIDCounter = 1;
 
     public Controller(DataAccessor data)
     {
@@ -54,13 +54,13 @@ public class Controller
             String email, LocalDate dateOfBirth) throws IllegalArgumentException
     {
         System.out.print("member" + memberList.size());
-        memberList.add(new Member(true, true, false, zipCode, MIDcounter,
+        memberList.add(new Member(true, true, false, zipCode, MIDCounter,
                 phoneNumber, 0, 0, name, address, city, email, dateOfBirth,
                 LocalDate.now()));
 
         getLastAddedMember().calculateMembershipPrice();
 
-        ++MIDcounter;
+        ++MIDCounter;
     }
 
     /**
@@ -125,15 +125,54 @@ public class Controller
         return memberList;
     }
 
-    public int getMIDcounter()
+    public int getMIDCounter()
     {
-        return MIDcounter;
+        return MIDCounter;
     }
 
-    public void setMIDcounter(int MIDcounter)
+    /**
+     * Retrieves the member ID integer from the last added member from the
+     * source to make sure you are using the correct implementation of the MID
+     * counter in the Controller Class.
+     *
+     * @throws Exception
+     */
+    public void updateMIDCounter() throws Exception
     {
-        this.MIDcounter = MIDcounter;
+        this.MIDCounter = data.getMIDCounter(getLastAddedMember());
     }
+
+    public void setMIDCounter(int MIDcounter)
+    {
+        this.MIDCounter = MIDcounter;
+    }
+
+    /**
+     * Retrieves all information from the source (files, database etc.) and
+     * updates the local instances of this information in the Controller Class.
+     *
+     * @throws Exception
+     */
+    public void updateEverythingFromSource() throws Exception
+    {
+        updateMIDCounter();
+        updateMemberList();
+    }
+
+    /**
+     * Saves all local instances of information from the Controller Class to the
+     * source (files, database etc.).
+     *
+     * @throws Exception
+     */
+    public void saveEverythingToSource() throws Exception
+    {
+        saveMemberList();
+    }
+//    public CompetitiveSwimmer updateMemberToCompetitive(Member member)
+//    {
+//        member = CompetitiveSwimmer;
+//    }
 
     public void registerMemberToTeam(CompetitiveSwimmer member, Team team)
     {
@@ -141,31 +180,4 @@ public class Controller
         team.addMember(member);
     }
 
-    //Source: https://www.oodlestechnologies.com/blogs/Email-Validation-In-Java
-    static boolean validateEmail(String emailAddress)
-    {
-        Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
-        if(matcher.find())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    static boolean validateDate(String dateToValidate)
-    {
-        try
-        {
-            LocalDate.parse(dateToValidate);
-        }
-        catch(DateTimeParseException dtpe)
-        {
-            return false;
-        }
-
-        return true;
-    }
 }

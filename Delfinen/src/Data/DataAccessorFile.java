@@ -183,7 +183,20 @@ public class DataAccessorFile implements DataAccessor
             return null;
         }
     }
-
+    
+    @Override
+    public int getMIDCounter(Member member) throws Exception
+    {
+        for(Member m : getMemberList())
+        {
+            if(m.getMemberID() == member.getMemberID())
+            {
+                return m.getMemberID()+1;
+            }
+        }
+        throw new IllegalArgumentException("The provided Member did not contain a valid memberID integer");
+    }
+    
     @Override
     public void saveMemberList(ArrayList<Member> memberList) throws IOException
     {

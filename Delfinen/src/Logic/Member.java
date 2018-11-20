@@ -5,11 +5,11 @@
  */
 package Logic;
 
-import static Logic.Controller.validateDate;
-import static Logic.Controller.validateEmail;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import static Logic.Validator.isValidDate;
+import static Logic.Validator.isValidEmail;
 
 /**
  *
@@ -56,9 +56,9 @@ public class Member implements Serializable
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
 
-        if(validateEmail(emailAddress) == false 
-                || validateDate(dateOfBirth.toString()) == false 
-                || validateDate(dateOfJoining.toString()) == false)
+        if(isValidEmail(emailAddress) == false 
+                || isValidDate(dateOfBirth.toString()) == false 
+                || isValidDate(dateOfJoining.toString()) == false)
         {
             throw new IllegalArgumentException();
         }
@@ -302,19 +302,19 @@ public class Member implements Serializable
     @Override
     public String toString()
     {
-        return new StringBuffer("Is membership price paid for the current year : ").append(this.paidCurrentYear)
-                .append("\n, Is member active : ").append(this.activityStatus)
-                .append("\n, Is member a competitive swimmer : ").append(this.isCompetitiveSwimmer)
-                .append("\n, Zip Code : ").append(this.zipCode)
-                .append("\n, MemberID : ").append(this.memberID)
-                .append("\n, Phone Number : ").append(this.phoneNumber)
-                .append("\n, Member's arrears balance : ").append(this.arrearsBalance)
-                .append("\n, Name : ").append(this.name)
-                .append("\n, Address : ").append(this.address)
-                .append("\n, City : ").append(this.city)
-                .append("\n, Email Address : ").append(this.emailAddress)
-                .append("\n, Birthdate : ").append(this.dateOfBirth)
-                .append("\n, Joining date : ").append(this.dateOfJoining)
+        return new StringBuffer("\nName: ").append(this.name)
+                .append(", Is membership price paid for the current year: ").append(this.paidCurrentYear)
+                .append(", Is member active: ").append(this.activityStatus)
+                .append(", Is member a competitive swimmer: ").append(this.isCompetitiveSwimmer)
+                .append(", Zip Code: ").append(this.zipCode)
+                .append(", MemberID: ").append(this.memberID)
+                .append(", Phone Number: ").append(this.phoneNumber)
+                .append(", Member's arrears balance: ").append(this.arrearsBalance)
+                .append(", Address: ").append(this.address)
+                .append(", City: ").append(this.city)
+                .append(", Email Address: ").append(this.emailAddress)
+                .append(", Birthdate: ").append(this.dateOfBirth)
+                .append(", Joining date: ").append(this.dateOfJoining)
                 .toString();
     }
 
