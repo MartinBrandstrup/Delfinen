@@ -146,7 +146,12 @@ public class Member implements Serializable
     public String formatLongToString(long price)
     {
         String priceString = Long.toString(price);
-        String result;
+        String result = "";
+        
+        if(result.length() < 2)
+        {
+            return result += "0 kr.";
+        }
         
         String kr = priceString.substring(0, priceString.length()-2);
         String øre = priceString.substring(priceString.length()-2, priceString.length());

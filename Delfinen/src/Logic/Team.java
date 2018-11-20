@@ -15,12 +15,14 @@ import java.util.ArrayList;
 public class Team implements Serializable
 {
 
+    private boolean isJuniorTeam;
     private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
     private ArrayList<CompetitiveSwimmer> teamMembers;
     
-    public Team(String teamName, String trainer, SwimmingStyle swimmingStyle)
+    public Team(boolean isJuniorTeam, String teamName, String trainer, SwimmingStyle swimmingStyle)
     {
+        this.isJuniorTeam = isJuniorTeam;
         this.teamName = teamName;
         this.trainer = trainer;
         this.swimmingStyle = swimmingStyle;

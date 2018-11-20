@@ -214,9 +214,9 @@ public class Controller
         team.addMember(member);
     }
     
-    public void createATeam(String teamName, String trainer, SwimmingStyle swimmingStyle)
+    public void createATeam(boolean isJuniorTeam, String teamName, String trainer, SwimmingStyle swimmingStyle)
     {
-        Team t = new Team(teamName,trainer,swimmingStyle);
+        Team t = new Team(isJuniorTeam, teamName,trainer,swimmingStyle);
         teamList.add(t);
     }
             
