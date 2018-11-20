@@ -6,6 +6,7 @@
 package UserInterface;
 
 import Data.DataAccessorFile;
+import Logic.CompetitiveSwimmer;
 import Logic.Controller;
 import Logic.Member;
 import Logic.SwimmingStyle;
@@ -501,7 +502,8 @@ public class Main extends javax.swing.JFrame
         CancelMembership.setText("Cancel membership");
 
         MemberInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        MemberInfo.setText("View / chance member info");
+        MemberInfo.setText("View/change member info");
+        MemberInfo.setActionCommand("View/change member info");
         MemberInfo.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1567,6 +1569,11 @@ public class Main extends javax.swing.JFrame
         }
 
         Member member = c.getMemberList().get(i);
+        if(CompetitiveSwimmer.class.isInstance(member))
+        {
+            CompetitiveSwimmer swimmer;
+            swimmer = (CompetitiveSwimmer) member;
+        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         this.NameTFMI.setText(member.getName());

@@ -92,7 +92,7 @@ public class Controller
     /**
      * Retrieves the list of members (object) from the source and updates the
      * currently in use member list in the Controller class. Should be called
-     * when launching the program to make sure you have the most recently update
+     * when launching the program to make sure you have the most recent update.
      *
      * @throws Exception
      */
@@ -153,6 +153,7 @@ public class Controller
     public void updateEverythingFromSource() throws Exception
     {
         updateMemberList();
+        updateTeamList();
         updateMIDCounter();
     }
 
@@ -165,6 +166,7 @@ public class Controller
     public void saveEverythingToSource() throws Exception
     {
         saveMemberList();
+        saveTeamList();
     }
 
     /**
@@ -199,7 +201,7 @@ public class Controller
         {
             return;
         }
-        
+
         memberList.add(memberListIndex, new CompetitiveSwimmer(
                 member.hasPaidCurrentYear(), member.getActivityStatus(), true,
                 member.getZipCode(), member.getMemberID(),
@@ -211,17 +213,96 @@ public class Controller
         memberList.remove(memberListIndex + 1);
     }
 
-    public void registerMemberToTeam(CompetitiveSwimmer member, Team team)
+    public void registerMemberToTeam(Member member, Team team)
     {
-        member.registerSwimmerOnTeam(team);
-        team.addMember(member);
+        if(CompetitiveSwimmer.class.isInstance(member))
+        {
+            CompetitiveSwimmer swimmer;
+            swimmer = (CompetitiveSwimmer) member;
+
+            swimmer.registerSwimmerOnTeam(team);
+            team.addMember(swimmer);
+        }
+        else
+        {
+            System.out.println("The provided Member is not a CompetitiveSwimmer");
+        }
     }
-    
-    public void createTeam(boolean isJuniorTeam, String teamName, 
+
+    public void createTeam(boolean isJuniorTeam, String teamName,
             String trainer, SwimmingStyle swimmingStyle)
     {
         teamList.add(new Team(isJuniorTeam, teamName, trainer, swimmingStyle, null));
     }
-            
 
+    /**
+     * Retrieves the list of teams (object) from the source and updates the
+     * currently in use team list in the Controller class. Should be called when
+     * launching the program to make sure you have the most recent update.
+     *
+     * @throws Exception
+     */
+    public void updateTeamList() throws Exception
+    {
+        if(this.data.getTeamList() != null)
+        {
+            this.teamList = this.data.getTeamList();
+        }
+    }
+
+    /**
+     * Saves the currently in use list of teams (object) from the Controller
+     * class and saves them to the source. Should be called when closing the
+     * program to make sure any newly added data is not lost. A save button
+     * might also implement this method.
+     *
+     * @throws Exception
+     */
+    public void saveTeamList() throws Exception
+    {
+        data.saveTeamList(teamList);
+    }
+
+    public ArrayList<Team> getTeamList()
+    {
+        return teamList;
+    }
+
+//    public void createTournamentEvent()
+//    {
+//        tournamentList.add(new  * * *);
+//    }
+    /**
+     * Retrieves the list of tournament events (object) from the source and
+     * updates the currently in use team list in the Controller class. Should be
+     * called when launching the program to make sure you have the most recent
+     * update.
+     *
+     * @throws Exception
+     */
+    public void updateTournamentEvent() throws Exception
+    {
+        if(this.data.getTournamentList() != null)
+        {
+            this.tournamentList = this.data.getTournamentList();
+        }
+    }
+
+    /**
+     * Saves the currently in use list of tournament events (object) from the
+     * Controller class and saves them to the source. Should be called when
+     * closing the program to make sure any newly added data is not lost. A save
+     * button might also implement this method.
+     *
+     * @throws Exception
+     */
+    public void saveTournamentEvent() throws Exception
+    {
+        data.saveTournamentList(tournamentList);
+    }
+
+    public ArrayList<TournamentEvent> getTournamentEvent()
+    {
+        return tournamentList;
+    }
 }

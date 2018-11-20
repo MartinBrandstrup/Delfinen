@@ -86,7 +86,6 @@ public class ControllerTest
         assertTrue(ctrl.getMemberList().get(2) instanceof CompetitiveSwimmer);
         assertTrue(ctrl.getMemberList().get(1).equals(johanne));
 
-        
         //Cleanup
         ctrl.getMemberList().remove(2);
 

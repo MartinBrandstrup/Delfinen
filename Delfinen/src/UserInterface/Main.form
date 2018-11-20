@@ -588,7 +588,8 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="View / chance member info"/>
+                <Property name="text" type="java.lang.String" value="View/change member info"/>
+                <Property name="actionCommand" type="java.lang.String" value="View/change member info"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MemberInfoActionPerformed"/>
