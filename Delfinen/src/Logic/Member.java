@@ -62,6 +62,8 @@ public class Member implements Serializable
         {
             throw new IllegalArgumentException();
         }
+        
+        calculateMembershipPrice();
     }
 
     /**
@@ -119,7 +121,6 @@ public class Member implements Serializable
         {
             yearlyCost = yearlyCost / 100 * 75;
         }
-
         this.membershipPrice = yearlyCost;
     }
 
@@ -148,7 +149,7 @@ public class Member implements Serializable
         String priceString = Long.toString(price);
         String result = "";
         
-        if(result.length() < 2)
+        if(priceString.length() < 2)
         {
             return result += "0 kr.";
         }
