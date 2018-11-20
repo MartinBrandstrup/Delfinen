@@ -1491,6 +1491,7 @@ public class Main extends javax.swing.JFrame
         
         if(MembersTable.getSelectionModel().isSelectionEmpty())
         {
+            //test
             return -1;
         }
         
