@@ -6,6 +6,7 @@
 package Logic;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,14 +17,34 @@ import static org.junit.Assert.*;
 public class MemberTest
 {
 
+    private Member jens;
     private Member johanne;
+    private Member alice;
+    ArrayList<Member> memberList = new ArrayList();
 
     public MemberTest()
     {
+        jens = new Member(true, true, false, 2800, 1, 14548645,
+                0, 0, "Jens", "Fiktiv Vej 21",
+                "Kongens Lyngby", "Jens@gmail.com",
+                LocalDate.of(1993, 6, 12), LocalDate.now());
         johanne = new Member(false, false, true, 2800, 81, 14548645,
                 50000, 0, "Johanne Jaeger", "Fiktiv Vej 23",
                 "Kongens Lyngby", "Johanne.j@gmail.dk",
                 LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10));
+        alice = new Member(false, true, false, 2800, 82, 23657845,
+                0, 0, "Alice Lauritzen", "Fiktiv Vej 25",
+                "Kongens Lyngby", "Alice.l@test.dk",
+                LocalDate.of(2004, 6, 14), LocalDate.of(2014, 3, 7));
+
+        memberList.add(jens);
+        memberList.add(johanne);
+        memberList.add(alice);
+
+        for(Member m : memberList)
+        {
+            m.calculateMembershipPrice();
+        }
     }
 
     //Mangler flere tests

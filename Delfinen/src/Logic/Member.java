@@ -18,7 +18,6 @@ import static Logic.Validator.isValidEmail;
 public class Member implements Serializable
 {
 
-    //Arrears is noted in 'øre', ex 500.00 kr. = 50000
     private boolean paidCurrentYear, activityStatus, isCompetitiveSwimmer;
     private int zipCode, memberID;
     private long phoneNumber, arrearsBalance, membershipPrice;
@@ -61,7 +60,7 @@ public class Member implements Serializable
         {
             throw new IllegalArgumentException();
         }
-        
+
         calculateMembershipPrice();
     }
 
@@ -135,29 +134,29 @@ public class Member implements Serializable
             arrearsBalance += membershipPrice;
         }
     }
-    
-     /**
+
+    /**
      * Parses the given long to a string representing kr. and øre.
-     * 
+     *
      * @param price The given price that needs formatting
-     * 
+     *
      * @return String in format 'kr,øre'
      */
     public String formatLongToString(long price)
     {
         String priceString = Long.toString(price);
         String result = "";
-        
+
         if(priceString.length() < 2)
         {
             return result += "0 kr.";
         }
-        
-        String kr = priceString.substring(0, priceString.length()-2);
-        String øre = priceString.substring(priceString.length()-2, priceString.length());
-        
+
+        String kr = priceString.substring(0, priceString.length() - 2);
+        String øre = priceString.substring(priceString.length() - 2, priceString.length());
+
         result = kr + "," + øre + " kr.";
-        
+
         return result;
     }
 
@@ -209,7 +208,7 @@ public class Member implements Serializable
 
     public boolean isCompetitiveSwimmer()
     {
-        return isCompetitiveSwimmer();
+        return isCompetitiveSwimmer;
     }
 
     public String getCompetitiveSwimmerString()
@@ -305,7 +304,7 @@ public class Member implements Serializable
     {
         return membershipPrice;
     }
-    
+
     public String getName()
     {
         return name;
@@ -353,6 +352,19 @@ public class Member implements Serializable
                 .append(", Birthdate: ").append(this.dateOfBirth)
                 .append(", Joining date: ").append(this.dateOfJoining)
                 .toString();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!(obj instanceof Member))
+        {
+            return false;
+        }
+
+        Member m = (Member) obj;
+
+        return (m.name.equals(this.name) && m.memberID == (this.memberID));
     }
 
 }
