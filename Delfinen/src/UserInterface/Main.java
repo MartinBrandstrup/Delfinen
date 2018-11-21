@@ -38,6 +38,7 @@ public class Main extends javax.swing.JFrame
         initComponents();
         card = (CardLayout) mainPanel.getLayout();
         ManageEconomyTable.getColumnModel().getColumn(1).setPreferredWidth(20);
+        ManageEconomyTable.getColumnModel().getColumn(2).setPreferredWidth(20);
 
         try
         {
@@ -54,6 +55,7 @@ public class Main extends javax.swing.JFrame
         }
         populateTable();
         populateTeamsTable();
+        populateEconomyTable();
     }
 
     /**
@@ -1288,11 +1290,7 @@ public class Main extends javax.swing.JFrame
         ManageEconomyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String []
             {
@@ -1715,17 +1713,19 @@ public class Main extends javax.swing.JFrame
     
     public void populateEconomyTable()
     {
-        model = (DefaultTableModel) MembersTable.getModel();
+        model = (DefaultTableModel) ManageEconomyTable.getModel();
 
         Object rowData[] = new Object[7];
 
         for(int i = 0; i < c.getMemberList().size(); ++i)
         {
-
             rowData[0] = c.getMemberList().get(i).getName();
             rowData[1] = c.getMemberList().get(i).getMemberID();
-            rowData[2] = c.getMemberList().get(i).getActivityStatusString();
-            rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
+            rowData[2] = c.getMemberList().get(i).getAge();
+            rowData[3] = c.getMemberList().get(i).getArrearsBalance();
+            rowData[4] = c.getMemberList().get(i).getNextPaymentDate();
+            rowData[5] = c.getMemberList().get(i).getMembershipPrice();
+            rowData[6] = c.getMemberList().get(i).getCity(); //Skal være payment this year
             model.addRow(rowData);
         }
     }
@@ -1779,10 +1779,12 @@ public class Main extends javax.swing.JFrame
 //            ButterflySeniorTable.setEnabled(false);
 //        }
 //    }
+    
 
     public int rowSelected()
     {
         int index;
+        
 
         if(MembersTable.getSelectionModel().isSelectionEmpty())
         {
