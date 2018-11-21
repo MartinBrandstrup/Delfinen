@@ -38,6 +38,7 @@ public class Main extends javax.swing.JFrame
     {
         initComponents();
         card = (CardLayout) mainPanel.getLayout();
+        ManageEconomyTable.getColumnModel().getColumn(1).setPreferredWidth(20);
 
         try
         {
@@ -200,6 +201,13 @@ public class Main extends javax.swing.JFrame
         CrawlRB = new javax.swing.JRadioButton();
         BackCrawlRB = new javax.swing.JRadioButton();
         ButterflyRB = new javax.swing.JRadioButton();
+        EconomyManage = new javax.swing.JPanel();
+        EconomyScrollPane = new javax.swing.JScrollPane();
+        ManageEconomyTable = new javax.swing.JTable();
+        Economy = new javax.swing.JLabel();
+        MainMenu7 = new javax.swing.JButton();
+        RegisterThisYearPayment = new javax.swing.JButton();
+        RegisterArrearAsPaid = new javax.swing.JButton();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -266,6 +274,13 @@ public class Main extends javax.swing.JFrame
         });
 
         ManageEconomy.setText("Manage economy");
+        ManageEconomy.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ManageEconomyActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Delfinen Svømmeklub");
@@ -1271,6 +1286,73 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(CreateANewTeam, "CreateATeam");
 
+        ManageEconomyTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String []
+            {
+                "Name", "MID", "Age", "Arrear", "Payment date", "Membership price", "Paid current year"
+            }
+        ));
+        EconomyScrollPane.setViewportView(ManageEconomyTable);
+
+        Economy.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        Economy.setText("Economy");
+
+        MainMenu7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu7.setText("Main menu");
+        MainMenu7.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu7ActionPerformed(evt);
+            }
+        });
+
+        RegisterThisYearPayment.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        RegisterThisYearPayment.setText("Register payment for this year");
+
+        RegisterArrearAsPaid.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        RegisterArrearAsPaid.setText("Register arrear as paid");
+
+        javax.swing.GroupLayout EconomyManageLayout = new javax.swing.GroupLayout(EconomyManage);
+        EconomyManage.setLayout(EconomyManageLayout);
+        EconomyManageLayout.setHorizontalGroup(
+            EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(EconomyScrollPane)
+            .addGroup(EconomyManageLayout.createSequentialGroup()
+                .addGap(206, 206, 206)
+                .addComponent(Economy)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainMenu7))
+            .addGroup(EconomyManageLayout.createSequentialGroup()
+                .addComponent(RegisterThisYearPayment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(RegisterArrearAsPaid))
+        );
+        EconomyManageLayout.setVerticalGroup(
+            EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EconomyManageLayout.createSequentialGroup()
+                .addGroup(EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Economy)
+                    .addComponent(MainMenu7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EconomyScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegisterThisYearPayment)
+                    .addComponent(RegisterArrearAsPaid))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(EconomyManage, "ManageEconomy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1402,7 +1484,7 @@ public class Main extends javax.swing.JFrame
 
     private void MainMenu5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu5ActionPerformed
     {//GEN-HEADEREND:event_MainMenu5ActionPerformed
-        mainMenu();
+        mainMenu(); 
     }//GEN-LAST:event_MainMenu5ActionPerformed
 
     private void CreateTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_CreateTeamActionPerformed
@@ -1476,6 +1558,16 @@ public class Main extends javax.swing.JFrame
         model.addRow(rowData);
     }//GEN-LAST:event_ConfirmAndCreateTeamActionPerformed
 
+    private void ManageEconomyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageEconomyActionPerformed
+    {//GEN-HEADEREND:event_ManageEconomyActionPerformed
+        card.show(mainPanel, "ManageEconomy");
+    }//GEN-LAST:event_ManageEconomyActionPerformed
+
+    private void MainMenu7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu7ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu7ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu7ActionPerformed
+
     public void validation()
     {
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
@@ -1538,7 +1630,6 @@ public class Main extends javax.swing.JFrame
             rowData[2] = c.getMemberList().get(i).getActivityStatusString();
             rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
             model.addRow(rowData);
-
         }
     }
     
@@ -1621,6 +1712,25 @@ public class Main extends javax.swing.JFrame
 //            model.addRow(rowData);
 //        }
     }
+    
+    public void populateEconomyTable()
+    {
+        model = (DefaultTableModel) MembersTable.getModel();
+
+        Object rowData[] = new Object[7];
+
+        for(int i = 0; i < c.getMemberList().size(); ++i)
+        {
+
+            rowData[0] = c.getMemberList().get(i).getName();
+            rowData[1] = c.getMemberList().get(i).getMemberID();
+            rowData[2] = c.getMemberList().get(i).getActivityStatusString();
+            rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
+            model.addRow(rowData);
+        }
+    }
+    
+    
     public void lastTeamAddedTable()
     {
         if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BREASTSTROKE && c.getLastAddedTeam().getIsJuniorTeam() == true)
@@ -1653,10 +1763,22 @@ public class Main extends javax.swing.JFrame
         }
         if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BUTTERFLY && c.getLastAddedTeam().getIsJuniorTeam() == false)
         {
-            model = (DefaultTableModel) ButterflySeniorTable.getModel();
-        }
-        
+            model = (DefaultTableModel) ButterflySeniorTable.getModel();    
+        }  
     }
+//    public void disableTeamsTable() //only one table can be selected at a time
+//    {
+//        if(!BreaststrokeJuniorTable.getSelectionModel().isSelectionEmpty()) //If this table selection is not empty
+//        {
+//            BreaststrokeSeniorTable.setEnabled(false);
+//            CrawlJuniorTable.setEnabled(false);
+//            CrawlSeniorTable.setEnabled(false);
+//            BackCrawlJuniorTable.setEnabled(false);
+//            BackCrawlSeniorTable.setEnabled(false);
+//            ButterflyJuniorTable.setEnabled(false);
+//            ButterflySeniorTable.setEnabled(false);
+//        }
+//    }
 
     public int rowSelected()
     {
@@ -1810,6 +1932,9 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField DateOfBirthTFMI;
     private javax.swing.JLabel DateOfJoing;
     private javax.swing.JTextField DateOfJoiningTFMI;
+    private javax.swing.JLabel Economy;
+    private javax.swing.JPanel EconomyManage;
+    private javax.swing.JScrollPane EconomyScrollPane;
     private javax.swing.JLabel EmailAddress;
     private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
@@ -1827,8 +1952,10 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton MainMenu4;
     private javax.swing.JButton MainMenu5;
     private javax.swing.JButton MainMenu6;
+    private javax.swing.JButton MainMenu7;
     private javax.swing.JLabel ManMembers;
     private javax.swing.JButton ManageEconomy;
+    private javax.swing.JTable ManageEconomyTable;
     private javax.swing.JPanel ManageMember;
     private javax.swing.JButton ManageMembers;
     private javax.swing.JButton ManageTeams;
@@ -1852,8 +1979,10 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField PhoneNumberTFMI;
     private javax.swing.JLabel Phonenumber;
     private javax.swing.JButton RegNewMember;
+    private javax.swing.JButton RegisterArrearAsPaid;
     private javax.swing.JPanel RegisterNewMember;
     private javax.swing.JButton RegisterNewMember1;
+    private javax.swing.JButton RegisterThisYearPayment;
     private javax.swing.JButton RemoveFromTeam;
     private javax.swing.JButton Reset;
     private javax.swing.JButton SaveMembers;
