@@ -8,8 +8,8 @@ package Logic;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
-import static Logic.Validator.isValidDate;
-import static Logic.Validator.isValidEmail;
+import static Logic.ValidatorAndFormatter.isValidDate;
+import static Logic.ValidatorAndFormatter.isValidEmail;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -26,9 +26,9 @@ public class Member implements Serializable
     private long phoneNumber, arrearsBalance, membershipPrice;
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
-    ArrayList<Team> teamMemberships;
-    ArrayList<TournamentEvent> tournamentParticipations;
-    ArrayList<Result> swimmingResults;
+    private ArrayList<Team> teamMemberships;
+    private ArrayList<TournamentEvent> tournamentParticipations;
+    private ArrayList<Result> swimmingResults;
 
     public Member(boolean paidCurrentYear, boolean activityStatus,
             boolean isCompetitiveSwimmer, boolean tournamentEligibility,
@@ -153,30 +153,7 @@ public class Member implements Serializable
         }
     }
 
-    /**
-     * Parses the given long to a string representing kr. and øre.
-     *
-     * @param price - the given price that needs formatting
-     *
-     * @return String in format "kr,øre"
-     */
-    public String formatLongToString(long price)
-    {
-        String priceString = Long.toString(price);
-        String result = "";
 
-        if(priceString.length() < 2)
-        {
-            return result += "0 kr.";
-        }
-
-        String kr = priceString.substring(0, priceString.length() - 2);
-        String øre = priceString.substring(priceString.length() - 2, priceString.length());
-
-        result = kr + "," + øre + " kr.";
-
-        return result;
-    }
 
     /**
      * Resets the member's (object) arrears so that any remaining debt is paid.
@@ -220,11 +197,6 @@ public class Member implements Serializable
             return "Active";
         }
         return "Passive";
-    }
-
-    public boolean isCompetitiveSwimmer()
-    {
-        return isCompetitiveSwimmer;
     }
 
     /**
@@ -331,6 +303,7 @@ public class Member implements Serializable
                 .append(", MemberID: ").append(this.memberID)
                 .append(", Phone Number: ").append(this.phoneNumber)
                 .append(", Member's arrears balance: ").append(this.arrearsBalance)
+                .append(", Yearly cost of membership: ").append(this.membershipPrice)
                 .append(", Address: ").append(this.address)
                 .append(", City: ").append(this.city)
                 .append(", Email Address: ").append(this.emailAddress)
@@ -358,6 +331,16 @@ public class Member implements Serializable
     public void setPaidCurrentYear(boolean paidCurrentYear)
     {
         this.paidCurrentYear = paidCurrentYear;
+    }
+
+    public void setActivityStatus(boolean activityStatus)
+    {
+        this.activityStatus = activityStatus;
+    }
+
+    public void setIsCompetitiveSwimmer(boolean isCompetitiveSwimmer)
+    {
+        this.isCompetitiveSwimmer = isCompetitiveSwimmer;
     }
 
     public void setTournamentEligibility(boolean tournamentEligibility)
@@ -420,36 +403,26 @@ public class Member implements Serializable
         this.dateOfJoining = dateOfJoining;
     }
 
-    public boolean isTournamentEligible()
-    {
-        return tournamentEligibility;
-    }
-
-    public ArrayList<Team> getTeamMemberships()
-    {
-        return teamMemberships;
-    }
-
-    public ArrayList<TournamentEvent> getTournamentParticipations()
-    {
-        return tournamentParticipations;
-    }
-
-    public ArrayList<Result> getSwimmingResults()
-    {
-        return swimmingResults;
-    }
-
     public boolean hasPaidCurrentYear()
     {
         return paidCurrentYear;
     }
 
-    public boolean getActivityStatus()
+    public boolean isActiveMember()
     {
         return activityStatus;
     }
 
+    public boolean isCompetitiveSwimmer()
+    {
+        return isCompetitiveSwimmer;
+    }
+    
+    public boolean isTournamentEligible()
+    {
+        return tournamentEligibility;
+    }
+    
     public int getZipCode()
     {
         return zipCode;
@@ -503,5 +476,20 @@ public class Member implements Serializable
     public LocalDate getDateOfJoining()
     {
         return dateOfJoining;
+    }
+    
+    public ArrayList<Team> getTeamMemberships()
+    {
+        return teamMemberships;
+    }
+
+    public ArrayList<TournamentEvent> getTournamentParticipations()
+    {
+        return tournamentParticipations;
+    }
+
+    public ArrayList<Result> getSwimmingResults()
+    {
+        return swimmingResults;
     }
 }
