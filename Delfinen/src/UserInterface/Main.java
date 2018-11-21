@@ -209,6 +209,7 @@ public class Main extends javax.swing.JFrame
         MainMenu7 = new javax.swing.JButton();
         RegisterThisYearPayment = new javax.swing.JButton();
         RegisterArrearAsPaid = new javax.swing.JButton();
+        MemberInfo1 = new javax.swing.JButton();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -1318,6 +1319,16 @@ public class Main extends javax.swing.JFrame
         RegisterArrearAsPaid.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RegisterArrearAsPaid.setText("Register arrear as paid");
 
+        MemberInfo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MemberInfo1.setText("View / change selected member information");
+        MemberInfo1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MemberInfo1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EconomyManageLayout = new javax.swing.GroupLayout(EconomyManage);
         EconomyManage.setLayout(EconomyManageLayout);
         EconomyManageLayout.setHorizontalGroup(
@@ -1332,6 +1343,9 @@ public class Main extends javax.swing.JFrame
                 .addComponent(RegisterThisYearPayment)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(RegisterArrearAsPaid))
+            .addGroup(EconomyManageLayout.createSequentialGroup()
+                .addComponent(MemberInfo1)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         EconomyManageLayout.setVerticalGroup(
             EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1341,11 +1355,12 @@ public class Main extends javax.swing.JFrame
                     .addComponent(MainMenu7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EconomyScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(EconomyManageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterThisYearPayment)
                     .addComponent(RegisterArrearAsPaid))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(MemberInfo1))
         );
 
         mainPanel.add(EconomyManage, "ManageEconomy");
@@ -1564,6 +1579,11 @@ public class Main extends javax.swing.JFrame
     {//GEN-HEADEREND:event_MainMenu7ActionPerformed
         mainMenu();
     }//GEN-LAST:event_MainMenu7ActionPerformed
+
+    private void MemberInfo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MemberInfo1ActionPerformed
+    {//GEN-HEADEREND:event_MemberInfo1ActionPerformed
+        card.show(mainPanel, "MemberInformation");
+    }//GEN-LAST:event_MemberInfo1ActionPerformed
 
     public void validation()
     {
@@ -1959,6 +1979,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel MemberID;
     private javax.swing.JTextField MemberIDTFMI;
     private javax.swing.JButton MemberInfo;
+    private javax.swing.JButton MemberInfo1;
     private javax.swing.JPanel MemberInformation;
     private javax.swing.JLabel MemberType;
     private javax.swing.JTextField MemberTypeMI;
