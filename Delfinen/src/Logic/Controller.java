@@ -34,24 +34,22 @@ public class Controller
      * paidCurrentYear, membershipSatus and dateOfJoining) will automatically be
      * generated.
      *
-     * @param zipCode an integer of exactly 4 digits
-     * @param phoneNumber a long of exactly 8 digits
-     * @param name String containing full name
-     * @param address String containing physical address
-     * @param city String containing city
-     * @param email String containing a valid email address
-     * @param dateOfBirth a LocalDate representing birthday
+     * @param zipCode - an integer of exactly 4 digits
+     * @param phoneNumber - a long of exactly 8 digits
+     * @param name - a String containing full name
+     * @param address - a String containing physical address
+     * @param city - a String containing city
+     * @param email - a String containing a valid email address
+     * @param dateOfBirth - a LocalDate representing birthday
      *
      * @throws IllegalArgumentException
      */
-    //Hvis der sker en fejl kan man kalde .set på Member og .setMID på
-    //Controller for at ændre counteren
     public void registerNewMember(int zipCode, long phoneNumber,
             String name, String address, String city,
             String email, LocalDate dateOfBirth) throws IllegalArgumentException
     {
         System.out.print("Member" + memberList.size());
-        
+
         memberList.add(new Member(true, true, false, false, zipCode, MIDCounter,
                 phoneNumber, 0, 0, name, address, city, email, dateOfBirth,
                 LocalDate.now(), null, null, null));
@@ -74,7 +72,7 @@ public class Controller
     /**
      * Retrieves member (object) with the given member ID
      *
-     * @param memberID
+     * @param memberID - the integer representing the member's (object) ID
      *
      * @return A Member object
      */
@@ -170,6 +168,9 @@ public class Controller
         saveTeamList();
     }
 
+    /**
+     *
+     */
     public void registerMemberToTeam(Member member, Team team)
     {
         if(member.isCompetitiveSwimmer())
@@ -221,7 +222,7 @@ public class Controller
     {
         return teamList;
     }
-    
+
     public Team getLastAddedTeam()
     {
         return teamList.get(teamList.size() - 1);
@@ -231,7 +232,6 @@ public class Controller
 //    {
 //        tournamentList.add(new  * * *);
 //    }
-    
     /**
      * Retrieves the list of tournament events (object) from the source and
      * updates the currently in use team list in the Controller class. Should be
@@ -274,7 +274,7 @@ public class Controller
 //     * instance of CompetitiveSwimmer in the same ArrayList with the same
 //     * parameters as the original Member object.
 //     *
-//     * @param member Will only recognize members (object) already existing in
+//     * @param member - will only recognize members (object) already existing in
 //     * the ArrayList that are not null
 //     *
 //     * @throws IllegalArgumentException

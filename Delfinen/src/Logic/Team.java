@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Martin L.B.
+ * @author Martin L.B. & Kasper Jeppesen
  */
 public class Team implements Serializable
 {
@@ -20,8 +20,8 @@ public class Team implements Serializable
     private SwimmingStyle swimmingStyle;
     private ArrayList<Member> teamMembers;
 
-    public Team(boolean isJuniorTeam, String teamName, String trainer, 
-            SwimmingStyle swimmingStyle, ArrayList<Member> teamMembers) 
+    public Team(boolean isJuniorTeam, String teamName, String trainer,
+            SwimmingStyle swimmingStyle, ArrayList<Member> teamMembers)
             throws IllegalArgumentException
     {
         if(teamName.isEmpty() || trainer.isEmpty())
@@ -34,12 +34,12 @@ public class Team implements Serializable
         this.swimmingStyle = swimmingStyle;
         this.teamMembers = teamMembers;
     }
-    
+
     public void addMember(Member member)
     {
         teamMembers.add(member);
     }
-    
+
     public void removeMemberByID(Member member, int memberID)
     {
         for(int i = 0; i < teamMembers.size(); i++)
@@ -50,7 +50,7 @@ public class Team implements Serializable
             }
         }
     }
-    
+
     public boolean getIsJuniorTeam()
     {
         return isJuniorTeam;
@@ -90,5 +90,5 @@ public class Team implements Serializable
     {
         return teamMembers;
     }
-    
+
 }

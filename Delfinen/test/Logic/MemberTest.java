@@ -103,9 +103,9 @@ public class MemberTest
     @Test
     public void testSwitchActivityStatus()
     {
-        assertFalse(johanne.isActiveMember());
+        assertFalse(johanne.getActivityStatus());
         johanne.switchActivityStatus();
-        assertTrue(johanne.isActiveMember());
+        assertTrue(johanne.getActivityStatus());
     }
 
     @Test

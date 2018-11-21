@@ -42,11 +42,11 @@ public interface DataAccessor
     public ArrayList<TournamentEvent> getTournamentList() throws Exception;
 
     /**
-     * Retrieves the MIDCounter integer from a given Member object.
-     * Designed for use to update the MID counter in the Controller class.
+     * Retrieves the MIDCounter integer from a given Member object. Designed for
+     * use to update the MID counter in the Controller class.
      *
-     * @param member the last added member to the Controller's ArrayList. Can be
-     * other Member objects as well if required.
+     * @param member - the last added member to the Controller's ArrayList. Can
+     * be other Member objects as well if required.
      * @throws Exception
      */
     public int getMIDCounter(Member member) throws Exception;

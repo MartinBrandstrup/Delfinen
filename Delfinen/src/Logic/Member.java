@@ -10,11 +10,13 @@ import java.time.LocalDate;
 import java.time.Period;
 import static Logic.Validator.isValidDate;
 import static Logic.Validator.isValidEmail;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
 /**
  *
- * @author Kasper Jeppesen & Martin L.B.
+ * @author Martin L.B.
  */
 public class Member implements Serializable
 {
@@ -134,7 +136,11 @@ public class Member implements Serializable
         this.membershipPrice = yearlyCost;
     }
 
-    //Checks if the payment is overdue, and adds to the Member's arrears if true
+    /**
+     * Checks if payment is overdue, and adds the overdue payment to the
+     * member's (object) arrears if true. Use hasPaidCurrentYear() to get the
+     * boolean result for payment.
+     */
     public void checkPaymentOverdue()
     {
         Period untilNextPayment = Period.between(getNextPaymentDate(), LocalDate.now());
@@ -150,9 +156,9 @@ public class Member implements Serializable
     /**
      * Parses the given long to a string representing kr. and øre.
      *
-     * @param price The given price that needs formatting
+     * @param price - the given price that needs formatting
      *
-     * @return String in format 'kr,øre'
+     * @return String in format "kr,øre"
      */
     public String formatLongToString(long price)
     {
@@ -172,24 +178,26 @@ public class Member implements Serializable
         return result;
     }
 
-    //Resets the arrearBalance, so that the debt is removed
+    /**
+     * Resets the member's (object) arrears so that any remaining debt is paid.
+     */
     public void payArrears()
     {
         arrearsBalance = 0;
     }
 
-    //Sets payment as registered for the current year
+    /**
+     * Marks the member's (object) payment as paid for the current year.
+     */
     public void registerPayment()
     {
         paidCurrentYear = true;
     }
 
-    public void setPaidCurrentYear(boolean paidCurrentYear)
-    {
-        this.paidCurrentYear = paidCurrentYear;
-    }
-
-    //If member is currently active, sets to passive and vice versa
+    /**
+     * If a member (object) is currently active, sets the status to passive and
+     * vice versa.
+     */
     public void switchActivityStatus()
     {
         if(activityStatus == true)
@@ -199,16 +207,12 @@ public class Member implements Serializable
         activityStatus = true;
     }
 
-    public boolean hasPaidCurrentYear()
-    {
-        return paidCurrentYear;
-    }
-
-    public boolean isActiveMember()
-    {
-        return activityStatus;
-    }
-
+    /**
+     * Checks the member's (object) activity status and returns a string
+     * corresponding to the boolean result.
+     *
+     * @return String "Active" if true, "Passive" if false
+     */
     public String getActivityStatusString()
     {
         if(activityStatus == true)
@@ -223,6 +227,13 @@ public class Member implements Serializable
         return isCompetitiveSwimmer;
     }
 
+    /**
+     * Checks the member's (object) status as a competitive swimmer and returns
+     * a string corresponding to the boolean result.
+     *
+     * @return String "Competitive Swimmer" if true and "Recreational Swimmer"
+     * if false
+     */
     public String getCompetitiveSwimmerString()
     {
         if(isCompetitiveSwimmer == true)
@@ -230,6 +241,128 @@ public class Member implements Serializable
             return "Competitive Swimmer";
         }
         return "Recreational Swimmer";
+    }
+
+    /**
+     * Registers the member (object) on a given team (object).
+     *
+     * @param team - the Team to populate with this member
+     */
+    public void registerSwimmerOnTeam(Team team)
+    {
+        teamMemberships.add(team);
+    }
+
+    /**
+     * Registers the member (object) on a given tournament event (object).
+     *
+     * @param tournament - the TournamentEvent to populate with this member
+     */
+    public void registerSwimmerInTournament(TournamentEvent tournament)
+    {
+        tournamentParticipations.add(tournament);
+    }
+
+    /**
+     * Registers a new result (object) for a member (object) marked as a
+     * competitive swimmer. The result is saved with a swimming style (enum), a
+     * LocalDate ("d/MM/yyyy") and a double ("ss/ms").
+     *
+     * @param style - a String used to describe one of the existing
+     * SwimmingStyle ENUMs. If the String is in an incorrect format, throws
+     * exception
+     * @param resultDate - a String used to describe the date the result was
+     * made. If the String is in an incorrect format, throws exception
+     * @param result - the time result in seconds and milliseconds
+     *
+     * @throws IllegalArgumentException
+     */
+    public void registerNewSwimmingResult(String style, String resultDate, double result) throws IllegalArgumentException
+    {
+        if(this.isCompetitiveSwimmer == false)
+        {
+            System.out.println("The Member is not a competitive swimmer");
+            return;
+        }
+        if(result < 0 || result > 60)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
+
+        LocalDate resultLocalDate;
+        SwimmingStyle styleEnum = SwimmingStyle.valueOf(style);
+
+        try
+        {
+            resultLocalDate = LocalDate.parse(resultDate, dateFormat);
+        }
+        catch(DateTimeParseException dtpe)
+        {
+            throw new IllegalArgumentException();
+        }
+
+        swimmingResults.add(new Result(styleEnum, resultLocalDate, result));
+    }
+
+    /**
+     * If a member (object) is currently eligible for tournament participation,
+     * sets the status to false and vice versa.
+     */
+    public void switchTournamentEligibility()
+    {
+        if(tournamentEligibility == true)
+        {
+            tournamentEligibility = false;
+        }
+        tournamentEligibility = true;
+    }
+
+    @Override
+    public String toString()
+    {
+        return new StringBuffer("\nName: ").append(this.name)
+                .append(", Is membership price paid for the current year: ").append(this.paidCurrentYear)
+                .append(", Is member active: ").append(this.activityStatus)
+                .append(", Is member a competitive swimmer: ").append(this.isCompetitiveSwimmer)
+                .append(", Is member eligible for tournament participation: ").append(this.tournamentEligibility)
+                .append(", Zip Code: ").append(this.zipCode)
+                .append(", MemberID: ").append(this.memberID)
+                .append(", Phone Number: ").append(this.phoneNumber)
+                .append(", Member's arrears balance: ").append(this.arrearsBalance)
+                .append(", Address: ").append(this.address)
+                .append(", City: ").append(this.city)
+                .append(", Email Address: ").append(this.emailAddress)
+                .append(", Birthdate: ").append(this.dateOfBirth)
+                .append(", Joining date: ").append(this.dateOfJoining)
+                .append(", ArrayList of teams member is a part of: ").append(this.teamMemberships)
+                .append(", ArrayList of member's tournament participations: ").append(this.tournamentParticipations)
+                .append(", ArrayList of member's swimming results: ").append(this.swimmingResults)
+                .toString();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(!(obj instanceof Member))
+        {
+            return false;
+        }
+
+        Member m = (Member) obj;
+
+        return (m.name.equals(this.name) && m.memberID == (this.memberID));
+    }
+
+    public void setPaidCurrentYear(boolean paidCurrentYear)
+    {
+        this.paidCurrentYear = paidCurrentYear;
+    }
+
+    public void setTournamentEligibility(boolean tournamentEligibility)
+    {
+        this.tournamentEligibility = tournamentEligibility;
     }
 
     public void setZipCode(int zipCode)
@@ -285,6 +418,31 @@ public class Member implements Serializable
     public void setDateOfJoining(LocalDate dateOfJoining)
     {
         this.dateOfJoining = dateOfJoining;
+    }
+
+    public boolean isTournamentEligible()
+    {
+        return tournamentEligibility;
+    }
+
+    public ArrayList<Team> getTeamMemberships()
+    {
+        return teamMemberships;
+    }
+
+    public ArrayList<TournamentEvent> getTournamentParticipations()
+    {
+        return tournamentParticipations;
+    }
+
+    public ArrayList<Result> getSwimmingResults()
+    {
+        return swimmingResults;
+    }
+
+    public boolean hasPaidCurrentYear()
+    {
+        return paidCurrentYear;
     }
 
     public boolean getActivityStatus()
@@ -346,81 +504,4 @@ public class Member implements Serializable
     {
         return dateOfJoining;
     }
-
-    public void registerSwimmerOnTeam(Team team)
-    {
-        teamMemberships.add(team);
-    }
-
-    public void registerSwimmerInTournament(TournamentEvent tournament)
-    {
-        tournamentParticipations.add(tournament);
-    }
-
-    public void switchTournamentEligibility()
-    {
-        if(tournamentEligibility == true)
-        {
-            tournamentEligibility = false;
-        }
-        tournamentEligibility = true;
-    }
-
-    public boolean isTournamentEligible()
-    {
-        return tournamentEligibility;
-    }
-
-    public void setTournamentEligibility(boolean tournamentEligibility)
-    {
-        this.tournamentEligibility = tournamentEligibility;
-    }
-
-    public ArrayList<Team> getTeamMemberships()
-    {
-        return teamMemberships;
-    }
-
-    public ArrayList<TournamentEvent> getTournamentParticipations()
-    {
-        return tournamentParticipations;
-    }
-
-    public ArrayList<Result> getSwimmingResults()
-    {
-        return swimmingResults;
-    }
-
-    @Override
-    public String toString()
-    {
-        return new StringBuffer("\nName: ").append(this.name)
-                .append(", Is membership price paid for the current year: ").append(this.paidCurrentYear)
-                .append(", Is member active: ").append(this.activityStatus)
-                .append(", Is member a competitive swimmer: ").append(this.isCompetitiveSwimmer)
-                .append(", Zip Code: ").append(this.zipCode)
-                .append(", MemberID: ").append(this.memberID)
-                .append(", Phone Number: ").append(this.phoneNumber)
-                .append(", Member's arrears balance: ").append(this.arrearsBalance)
-                .append(", Address: ").append(this.address)
-                .append(", City: ").append(this.city)
-                .append(", Email Address: ").append(this.emailAddress)
-                .append(", Birthdate: ").append(this.dateOfBirth)
-                .append(", Joining date: ").append(this.dateOfJoining)
-                .toString();
-    }
-
-    @Override
-    public boolean equals(Object obj)
-    {
-        if(!(obj instanceof Member))
-        {
-            return false;
-        }
-
-        Member m = (Member) obj;
-
-        return (m.name.equals(this.name) && m.memberID == (this.memberID));
-    }
-
 }
