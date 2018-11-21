@@ -40,8 +40,10 @@ public class Main extends javax.swing.JFrame
     {
         initComponents();
         card = (CardLayout) mainPanel.getLayout();
-        ManageEconomyTable.getColumnModel().getColumn(1).setPreferredWidth(20);
-        ManageEconomyTable.getColumnModel().getColumn(2).setPreferredWidth(20);
+        ManageEconomyTable.getColumnModel().getColumn(1).setPreferredWidth(5);
+        ManageEconomyTable.getColumnModel().getColumn(2).setPreferredWidth(5);
+        ManageEconomyTable.getColumnModel().getColumn(3).setPreferredWidth(20);
+        ManageEconomyTable.getColumnModel().getColumn(6).setPreferredWidth(50);
 
         try
         {
@@ -1477,7 +1479,7 @@ public class Main extends javax.swing.JFrame
         }
         catch(IllegalArgumentException iae)
         {
-            System.out.println("One or more data fields returned invalid data");
+            JOptionPane.showMessageDialog(null, "One or more data fields return invalid data", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
         System.out.print("MemberList size: " + c.getMemberList().size());
 
@@ -1830,7 +1832,7 @@ public class Main extends javax.swing.JFrame
             rowData[3] = c.getMemberList().get(i).getArrearsBalance();
             rowData[4] = c.getMemberList().get(i).getNextPaymentDate();
             rowData[5] = c.getMemberList().get(i).getMembershipPrice();
-            rowData[6] = c.getMemberList().get(i).getCity(); //Skal være payment this year
+            rowData[6] = c.getMemberList().get(i).hasPaidCurrentYear();
             model.addRow(rowData);
         }
     }
