@@ -134,7 +134,7 @@ public class Main extends javax.swing.JFrame
         NextPaymentDateTFMI = new javax.swing.JTextField();
         ArrearsBalanceTFMI = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TeamMembershipTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         TournamentsParticipantsTable = new javax.swing.JTable();
         TournamentParticipants = new javax.swing.JLabel();
@@ -183,9 +183,10 @@ public class Main extends javax.swing.JFrame
         Butterfly1 = new javax.swing.JLabel();
         MainMenu4 = new javax.swing.JButton();
         CreateTeam = new javax.swing.JButton();
+        ViewTeam = new javax.swing.JButton();
         SpecificTeam = new javax.swing.JPanel();
-        SpecificTeamTable = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        SpecificTeamTScroll = new javax.swing.JScrollPane();
+        SpecificTeamTable = new javax.swing.JTable();
         SpecificTeamName = new javax.swing.JLabel();
         TeamTrainer = new javax.swing.JLabel();
         TeamTrainerName = new javax.swing.JLabel();
@@ -629,7 +630,7 @@ public class Main extends javax.swing.JFrame
 
         ArrearsBalanceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TeamMembershipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
                 {null, null, null, null},
@@ -641,7 +642,7 @@ public class Main extends javax.swing.JFrame
                 "Team name", "Swimming style", "Date of joining", "Date of leaving"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(TeamMembershipTable);
 
         TournamentsParticipantsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -992,6 +993,15 @@ public class Main extends javax.swing.JFrame
             }
         });
 
+        ViewTeam.setText("View Team");
+        ViewTeam.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ViewTeamActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout TeamsLayout = new javax.swing.GroupLayout(Teams);
         Teams.setLayout(TeamsLayout);
         TeamsLayout.setHorizontalGroup(
@@ -1010,7 +1020,10 @@ public class Main extends javax.swing.JFrame
                         .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TeamsLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TeamsLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(ViewTeam)))
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TeamsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1079,8 +1092,13 @@ public class Main extends javax.swing.JFrame
                         .addComponent(Breaststroke)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addGap(19, 19, 19)
-                .addComponent(SeniorTeams)
+                .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TeamsLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(SeniorTeams))
+                    .addGroup(TeamsLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ViewTeam)))
                 .addGap(3, 3, 3)
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Breaststroke1)
@@ -1100,7 +1118,7 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(Teams, "Teams");
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        SpecificTeamTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
 
@@ -1110,7 +1128,7 @@ public class Main extends javax.swing.JFrame
                 "Name", "MID", "Best time", "Date of best score"
             }
         ));
-        SpecificTeamTable.setViewportView(jTable3);
+        SpecificTeamTScroll.setViewportView(SpecificTeamTable);
 
         SpecificTeamName.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         SpecificTeamName.setText("----------------------------");
@@ -1141,7 +1159,7 @@ public class Main extends javax.swing.JFrame
         SpecificTeam.setLayout(SpecificTeamLayout);
         SpecificTeamLayout.setHorizontalGroup(
             SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SpecificTeamTable)
+            .addComponent(SpecificTeamTScroll)
             .addGroup(SpecificTeamLayout.createSequentialGroup()
                 .addGap(156, 156, 156)
                 .addComponent(SpecificTeamName)
@@ -1170,7 +1188,7 @@ public class Main extends javax.swing.JFrame
                     .addComponent(TeamTrainer)
                     .addComponent(TeamTrainerName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SpecificTeamTable, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                .addComponent(SpecificTeamTScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddNewTeamMember)
@@ -1662,6 +1680,11 @@ public class Main extends javax.swing.JFrame
         mainMenu();
     }//GEN-LAST:event_MainMenu8ActionPerformed
 
+    private void ViewTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTeamActionPerformed
+    {//GEN-HEADEREND:event_ViewTeamActionPerformed
+        card.show(mainPanel, "SpecificTeam");
+    }//GEN-LAST:event_ViewTeamActionPerformed
+
     public boolean memberInfoValidation()
     {
         boolean allOK = true;
@@ -1803,19 +1826,32 @@ public class Main extends javax.swing.JFrame
 
     public void populateSpecificTeamTable()
     {
-//        model = (DefaultTableModel) MembersTable.getModel();
-//        //System.out.print("MemberList size is: " + c.//getTeamMemberList().size());
-//        
-//        Object rowData[] = new Object[4];
-//        
-//        //for(int i = 0; i < c.//getTeamMemberList.size(); ++i)
-//        {
-//            rowData[0] = c.//getTeamMemberList().get(i).getName(); 
-//            rowData[1] = c.//getTeamMemberList().get(i).getMID();
-//            rowData[2] = c.//getTeamMemberList().get(i).getDateOfJoining();
-//            rowData[3] = c.//getTeamMemberList().get(i).getBestDateOfScore();
-//            model.addRow(rowData);
-//        }
+        model = (DefaultTableModel) SpecificTeamTable.getModel();
+        //System.out.print("MemberList size is: " + c.//getTeamMemberList().size());
+        
+        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
+        
+        for(int i = 0; i < c.getTeamList().size(); ++i)
+        {
+            if(BreaststrokeJuniorTable.getModel().getValueAt(rowSelectedIndex, 0) == c.getTeamList().get(i).getTeamName())
+            {
+                for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                {
+                    Object rowData[] = new Object[4];
+                
+                    rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
+                    rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
+                    rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getSwimmingResults().
+                    rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
+                    model.addRow(rowData);
+                }
+                
+                
+            }
+        }
+        
+       
+        
     }
     
     public void populateEconomyTable()
@@ -1886,6 +1922,20 @@ public class Main extends javax.swing.JFrame
 //            ButterflySeniorTable.setEnabled(false);
 //        }
 //    }
+    public int rowSelectedBreaststrokeJunior()
+    {
+        int index;
+        
+
+        if(BreaststrokeJuniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            //test
+            return -1;
+        }
+
+        index = BreaststrokeJuniorTable.getSelectedRow();
+        return index;
+    }
     
     
     public int RowSelectEconomy()
@@ -1957,6 +2007,19 @@ public class Main extends javax.swing.JFrame
         this.ArrearsBalanceTFMI.setText(formatLongToString(member.getArrearsBalance()));
         this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
         this.MembershipPriceTFMI.setText(formatLongToString(member.getMembershipPrice()));
+        
+//        model = (DefaultTableModel) TeamMembershipTable.getModel();
+//
+//        Object rowData[] = new Object[4];
+//        
+//        for(int n = 0; n < member.getTeamMemberships().size(); ++n)
+//        {
+//            rowData[0] = member.getTeamMemberships().get(i).getTeamName();
+//        rowData[1] = member.getTeamMemberships().get(i).getSwimmingStyle();
+//        rowData[2] = member.getTeamMemberships().get(i).//getDateOfJoining;
+//        rowData[3] = member.getTeamMemberships().get(i).//getDateOfLeaving;
+//        }
+        
 
     }
     
@@ -2153,9 +2216,11 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel SeniorTeams;
     private javax.swing.JPanel SpecificTeam;
     private javax.swing.JLabel SpecificTeamName;
-    private javax.swing.JScrollPane SpecificTeamTable;
+    private javax.swing.JScrollPane SpecificTeamTScroll;
+    private javax.swing.JTable SpecificTeamTable;
     private javax.swing.ButtonGroup SwimmingStyleGroup;
     private javax.swing.JLabel TeamMembership;
+    private javax.swing.JTable TeamMembershipTable;
     private javax.swing.JLabel TeamName;
     private javax.swing.JTextField TeamNameTF;
     private javax.swing.JLabel TeamTrainer;
@@ -2168,6 +2233,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTable TournamentsParticipantsTable;
     private javax.swing.JLabel TrainerName;
     private javax.swing.JTextField TrainerNameTF;
+    private javax.swing.JButton ViewTeam;
     private javax.swing.JButton ViewTourParticipants;
     private javax.swing.JLabel ZipCode;
     private javax.swing.JLabel ZipCode1;
@@ -2184,8 +2250,6 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JPanel mainPanel;
     // End of variables declaration//GEN-END:variables
 }
