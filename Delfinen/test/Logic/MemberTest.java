@@ -5,6 +5,7 @@
  */
 package Logic;
 
+import static Logic.ValidatorAndFormatter.formatLongToString;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import org.junit.Test;
@@ -80,7 +81,7 @@ public class MemberTest
     {
         johanne.calculateMembershipPrice();
         long membershipPrice = johanne.getMembershipPrice();
-        assertEquals("500,00 kr.", johanne.formatLongToString(membershipPrice));
+        assertEquals("500,00 kr.", formatLongToString(membershipPrice));
         johanne.setMembershipPrice(0);
     }
 
@@ -103,9 +104,9 @@ public class MemberTest
     @Test
     public void testSwitchActivityStatus()
     {
-        assertFalse(johanne.getActivityStatus());
+        assertFalse(johanne.isActiveMember());
         johanne.switchActivityStatus();
-        assertTrue(johanne.getActivityStatus());
+        assertTrue(johanne.isActiveMember());
     }
 
     @Test

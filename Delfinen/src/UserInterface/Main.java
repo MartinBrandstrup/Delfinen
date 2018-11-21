@@ -9,6 +9,9 @@ import Data.DataAccessorFile;
 import Logic.Controller;
 import Logic.Member;
 import Logic.SwimmingStyle;
+import static Logic.ValidatorAndFormatter.isValidDate;
+import static Logic.ValidatorAndFormatter.isValidEmail;
+import static Logic.ValidatorAndFormatter.formatLongToString;
 import java.awt.CardLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -1673,14 +1676,14 @@ public class Main extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
 
-//        if(validateEmail(this.EmailAddressTF.getText()) == false)
-//        {
-//            JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        if(validateDate(this.DateOfBirthTF.getText()) == false)
-//        {
-//            JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
-//        }
+        if(isValidEmail(this.EmailAddressTF.getText()) == false)
+        {
+            JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(isValidDate(this.DateOfBirthTF.getText()) == false)
+        {
+            JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     public void reset()
@@ -1929,9 +1932,9 @@ public class Main extends javax.swing.JFrame
         this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
         this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
 
-        this.ArrearsBalanceTFMI.setText(member.formatLongToString(member.getArrearsBalance()));
+        this.ArrearsBalanceTFMI.setText(formatLongToString(member.getArrearsBalance()));
         this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
-        this.MembershipPriceTFMI.setText(member.formatLongToString(member.getMembershipPrice()));
+        this.MembershipPriceTFMI.setText(formatLongToString(member.getMembershipPrice()));
 
     }
     
