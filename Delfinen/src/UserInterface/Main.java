@@ -1464,11 +1464,21 @@ public class Main extends javax.swing.JFrame
         String dateOfBirthString = this.DateOfBirthTF.getText();
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
+        if(memberInfoValidation() == false)
+        {
+            return;
+        }
+
         LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString, dateFormat);
-
-        validation();
-
+        
+        try
+        {
         c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
+        }
+        catch(IllegalArgumentException iae)
+        {
+            System.out.println("One or more data fields returned invalid data");
+        }
         System.out.print("MemberList size: " + c.getMemberList().size());
 
         try
@@ -1650,40 +1660,50 @@ public class Main extends javax.swing.JFrame
         mainMenu();
     }//GEN-LAST:event_MainMenu8ActionPerformed
 
-    public void validation()
+    public boolean memberInfoValidation()
     {
+        boolean allOK = true;
         int zipCode = Integer.parseInt(this.ZipCodeTF.getText());
         long phoneNumber = Long.parseLong(this.PhoneNumberTF.getText());
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         if(zipCode < 1000 || zipCode > 9999)
         {
             JOptionPane.showMessageDialog(null, "The field zip must contains excalty 4 digits", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
         if(phoneNumber < 10000000 || phoneNumber > 99999999)
         {
             JOptionPane.showMessageDialog(null, "The field phone number must contains excalty 8 digits", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
         if(this.NameTF.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "The field name cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
         if(this.AddressTF.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "The field address cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
         if(this.CityTF.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null, "The field city cannot be empty", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
 
         if(isValidEmail(this.EmailAddressTF.getText()) == false)
         {
             JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
-        if(isValidDate(this.DateOfBirthTF.getText()) == false)
+        if(isValidDate(this.DateOfBirthTF.getText(), dateFormat) == false)
         {
             JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
+            allOK = false;
         }
+        return allOK;
     }
 
     public void reset()

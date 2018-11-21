@@ -8,7 +8,9 @@ package Logic;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Formatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,6 +21,13 @@ import java.util.regex.Pattern;
 public class ValidatorAndFormatter
 {
 
+    /**
+     * Checks whether the provided String is a valid email address.
+     *
+     * @param emailAddress - the email address to validate
+     *
+     * @return boolean
+     */
     public static boolean isValidEmail(String emailAddress)
     {
         Matcher matcher = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE).matcher(emailAddress);
@@ -32,11 +41,19 @@ public class ValidatorAndFormatter
         }
     }
 
-    public static boolean isValidDate(String dateToValidate)
+    /**
+     * Checks whether the provided String is a valid date, using format
+     * "yyyy-mm-dd".
+     *
+     * @param date - the date to validate
+     *
+     * @return boolean
+     */
+    public static boolean isValidDate(String date)
     {
         try
         {
-            LocalDate.parse(dateToValidate);
+            LocalDate.parse(date);
         }
         catch(DateTimeParseException dtpe)
         {
@@ -46,6 +63,36 @@ public class ValidatorAndFormatter
         return true;
     }
 
+    /**
+     * Checks whether the provided String is a valid date using a custom format.
+     *
+     * @param date - the date to validate
+     * @param formatter - the formatter with the desired format
+     *
+     * @return boolean
+     */
+    public static boolean isValidDate(String date, DateTimeFormatter formatter)
+    {
+        try
+        {
+            LocalDate.parse(date, formatter);
+        }
+        catch(DateTimeParseException dtpe)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Rounds the given double with provided number of decimals.
+     *
+     * @param value - the given double to perform method on
+     * @param places - the amount of digits after the comma
+     *
+     * @return double
+     */
     public static double round(double value, int places)
     {
         if(places < 0)
@@ -63,7 +110,7 @@ public class ValidatorAndFormatter
      *
      * @param price - the given price that needs formatting
      *
-     * @return String in format "kr,øre"
+     * @return String in format "kk,øø + kr."
      */
     public static String formatLongToString(long price)
     {
