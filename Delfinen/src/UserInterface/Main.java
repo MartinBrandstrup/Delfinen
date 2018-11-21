@@ -1664,6 +1664,7 @@ public class Main extends javax.swing.JFrame
                 {
                     model = (DefaultTableModel) CrawlSeniorTable.getModel();
                     model.addRow(rowData); 
+                    //Det er en test
                 }
             }
             if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BACKCRAWL)
