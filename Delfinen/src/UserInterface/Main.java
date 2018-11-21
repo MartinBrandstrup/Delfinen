@@ -1582,6 +1582,7 @@ public class Main extends javax.swing.JFrame
 
     private void MemberInfo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MemberInfo1ActionPerformed
     {//GEN-HEADEREND:event_MemberInfo1ActionPerformed
+        memberInfo();
         card.show(mainPanel, "MemberInformation");
     }//GEN-LAST:event_MemberInfo1ActionPerformed
 
@@ -1800,6 +1801,25 @@ public class Main extends javax.swing.JFrame
 //        }
 //    }
     
+    
+    public int rowSelectEconomy()
+    {
+        int index;
+        
+
+        if(ManageEconomyTable.getSelectionModel().isSelectionEmpty())
+        {
+            //test
+            return -1;
+        }
+
+        index = ManageEconomyTable.getSelectedRow();
+        return index;
+        
+        
+    }
+    
+    
 
     public int rowSelected()
     {
@@ -1820,6 +1840,8 @@ public class Main extends javax.swing.JFrame
     {
         card.first(mainPanel);
     }
+    
+    
 
     public void memberInfo()
     {
