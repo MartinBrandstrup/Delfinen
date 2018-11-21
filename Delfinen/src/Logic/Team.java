@@ -52,6 +52,10 @@ public class Team implements Serializable
             }
         }
     }
+    public boolean getIsJuniorTeam()
+    {
+        return isJuniorTeam;
+    }
 
     public String getTeamName()
     {

@@ -147,21 +147,21 @@ public class Main extends javax.swing.JFrame
         EmailAddressTFMI = new javax.swing.JTextField();
         TournamentEligibilityCB = new javax.swing.JCheckBox();
         Teams = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        SeniorBreaststrokeTable = new javax.swing.JScrollPane();
         BreaststrokeSeniorTable = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
+        SeniorCrawlTable = new javax.swing.JScrollPane();
         CrawlSeniorTable = new javax.swing.JTable();
-        jScrollPane7 = new javax.swing.JScrollPane();
+        SeniorButterflyTable = new javax.swing.JScrollPane();
         ButterflySeniorTable = new javax.swing.JTable();
-        jScrollPane8 = new javax.swing.JScrollPane();
+        SeniorBackCrawlTable = new javax.swing.JScrollPane();
         BackCrawlSeniorTable = new javax.swing.JTable();
-        jScrollPane9 = new javax.swing.JScrollPane();
+        JuniorCrawlTable = new javax.swing.JScrollPane();
         CrawlJuniorTable = new javax.swing.JTable();
-        jScrollPane10 = new javax.swing.JScrollPane();
+        JuniorButterflyTable = new javax.swing.JScrollPane();
         ButterflyJuniorTable = new javax.swing.JTable();
-        jScrollPane11 = new javax.swing.JScrollPane();
+        JuniorBackCrawlTable = new javax.swing.JScrollPane();
         BackCrawlJuniorTable = new javax.swing.JTable();
-        jScrollPane12 = new javax.swing.JScrollPane();
+        JuniorBreaststrokeTable = new javax.swing.JScrollPane();
         BreaststrokeJuniorTable = new javax.swing.JTable();
         JuniorTeams = new javax.swing.JLabel();
         SeniorTeams = new javax.swing.JLabel();
@@ -503,7 +503,6 @@ public class Main extends javax.swing.JFrame
 
         MemberInfo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MemberInfo.setText("View/change member info");
-        MemberInfo.setActionCommand("View/change member info");
         MemberInfo.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -829,7 +828,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane5.setViewportView(BreaststrokeSeniorTable);
+        SeniorBreaststrokeTable.setViewportView(BreaststrokeSeniorTable);
 
         CrawlSeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -841,7 +840,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane6.setViewportView(CrawlSeniorTable);
+        SeniorCrawlTable.setViewportView(CrawlSeniorTable);
 
         ButterflySeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -853,7 +852,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane7.setViewportView(ButterflySeniorTable);
+        SeniorButterflyTable.setViewportView(ButterflySeniorTable);
 
         BackCrawlSeniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -865,7 +864,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane8.setViewportView(BackCrawlSeniorTable);
+        SeniorBackCrawlTable.setViewportView(BackCrawlSeniorTable);
 
         CrawlJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -877,7 +876,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane9.setViewportView(CrawlJuniorTable);
+        JuniorCrawlTable.setViewportView(CrawlJuniorTable);
 
         ButterflyJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -889,7 +888,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane10.setViewportView(ButterflyJuniorTable);
+        JuniorButterflyTable.setViewportView(ButterflyJuniorTable);
 
         BackCrawlJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -901,7 +900,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane11.setViewportView(BackCrawlJuniorTable);
+        JuniorBackCrawlTable.setViewportView(BackCrawlJuniorTable);
 
         BreaststrokeJuniorTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
@@ -913,7 +912,7 @@ public class Main extends javax.swing.JFrame
                 "Teams"
             }
         ));
-        jScrollPane12.setViewportView(BreaststrokeJuniorTable);
+        JuniorBreaststrokeTable.setViewportView(BreaststrokeJuniorTable);
 
         JuniorTeams.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         JuniorTeams.setText("Junior teams:");
@@ -971,7 +970,7 @@ public class Main extends javax.swing.JFrame
             TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TeamsLayout.createSequentialGroup()
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(TeamsLayout.createSequentialGroup()
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(TeamsLayout.createSequentialGroup()
@@ -983,7 +982,7 @@ public class Main extends javax.swing.JFrame
                         .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TeamsLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TeamsLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -996,20 +995,20 @@ public class Main extends javax.swing.JFrame
                                 .addGap(61, 61, 61)
                                 .addComponent(Butterfly1))
                             .addGroup(TeamsLayout.createSequentialGroup()
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JuniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
-                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(JuniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(TeamsLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(SeniorTeams))
                             .addGroup(TeamsLayout.createSequentialGroup()
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SeniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(TeamsLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -1044,14 +1043,14 @@ public class Main extends javax.swing.JFrame
                             .addComponent(Butterfly))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JuniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JuniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(TeamsLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(Breaststroke)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addGap(19, 19, 19)
                 .addComponent(SeniorTeams)
                 .addGap(3, 3, 3)
@@ -1062,11 +1061,11 @@ public class Main extends javax.swing.JFrame
                     .addComponent(Butterfly1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SeniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(CreateTeam))
         );
@@ -1395,6 +1394,7 @@ public class Main extends javax.swing.JFrame
 
     private void ManageTeamsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageTeamsActionPerformed
     {//GEN-HEADEREND:event_ManageTeamsActionPerformed
+        populateTeamsTable();
         card.show(mainPanel, "Teams");
     }//GEN-LAST:event_ManageTeamsActionPerformed
 
@@ -1520,6 +1520,30 @@ public class Main extends javax.swing.JFrame
             rowData[3] = c.getMemberList().get(i).getCompetitiveSwimmerString();
             model.addRow(rowData);
 
+        }
+    }
+    
+    public void populateTeamsTable()
+    {   
+        Object rowData[] = new Object[1];
+        System.out.print("Size of teamList: " + c.getTeamList().size());
+        for(int i = 0; i < c.getTeamList().size(); ++i)
+        {
+            if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BREASTSTROKE)
+            {
+                rowData[0] = c.getTeamList().get(i).getTeamName();
+                
+                if(c.getTeamList().get(i).getIsJuniorTeam())
+                {
+                    model = (DefaultTableModel) BreaststrokeJuniorTable.getModel();
+                    model.addRow(rowData);   
+                }
+                else
+                {
+                    model = (DefaultTableModel) BreaststrokeSeniorTable.getModel();
+                    model.addRow(rowData); 
+                }
+            }
         }
     }
 
@@ -1696,6 +1720,10 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
     private javax.swing.JTextField EmailAddressTFMI;
+    private javax.swing.JScrollPane JuniorBackCrawlTable;
+    private javax.swing.JScrollPane JuniorBreaststrokeTable;
+    private javax.swing.JScrollPane JuniorButterflyTable;
+    private javax.swing.JScrollPane JuniorCrawlTable;
     private javax.swing.JRadioButton JuniorRB;
     private javax.swing.JLabel JuniorTeams;
     private javax.swing.JPanel MainMenu;
@@ -1736,6 +1764,10 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton Reset;
     private javax.swing.JButton SaveMembers;
     private javax.swing.JRadioButton Senior;
+    private javax.swing.JScrollPane SeniorBackCrawlTable;
+    private javax.swing.JScrollPane SeniorBreaststrokeTable;
+    private javax.swing.JScrollPane SeniorButterflyTable;
+    private javax.swing.JScrollPane SeniorCrawlTable;
     private javax.swing.ButtonGroup SeniorOrJuniorGroup;
     private javax.swing.JLabel SeniorTeams;
     private javax.swing.JPanel SpecificTeam;
@@ -1764,17 +1796,9 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
