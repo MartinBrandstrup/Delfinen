@@ -210,6 +210,11 @@ public class Main extends javax.swing.JFrame
         RegisterThisYearPayment = new javax.swing.JButton();
         RegisterArrearAsPaid = new javax.swing.JButton();
         MemberInfo1 = new javax.swing.JButton();
+        TournamentsParticipants = new javax.swing.JPanel();
+        EligTournamentsParticipants = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        TournamentsParticipansTable = new javax.swing.JTable();
+        MainMenu8 = new javax.swing.JButton();
 
         jMenuItem1.setText("View / change selected member info");
         jPopupMenu1.add(jMenuItem1);
@@ -1365,6 +1370,57 @@ public class Main extends javax.swing.JFrame
 
         mainPanel.add(EconomyManage, "ManageEconomy");
 
+        EligTournamentsParticipants.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        EligTournamentsParticipants.setText("Eligible tournaments participants");
+
+        TournamentsParticipansTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][]
+            {
+
+            },
+            new String []
+            {
+                "Name1", "MID", "Team", "Best time", "Date of best score", "Swimming style"
+            }
+        ));
+        jScrollPane5.setViewportView(TournamentsParticipansTable);
+
+        MainMenu8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        MainMenu8.setText("Main menu");
+        MainMenu8.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                MainMenu8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout TournamentsParticipantsLayout = new javax.swing.GroupLayout(TournamentsParticipants);
+        TournamentsParticipants.setLayout(TournamentsParticipantsLayout);
+        TournamentsParticipantsLayout.setHorizontalGroup(
+            TournamentsParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TournamentsParticipantsLayout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(EligTournamentsParticipants)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainMenu8))
+            .addComponent(jScrollPane5)
+        );
+        TournamentsParticipantsLayout.setVerticalGroup(
+            TournamentsParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TournamentsParticipantsLayout.createSequentialGroup()
+                .addGroup(TournamentsParticipantsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(TournamentsParticipantsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(EligTournamentsParticipants))
+                    .addComponent(MainMenu8))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(TournamentsParticipants, "EligTourParticipants");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1465,7 +1521,7 @@ public class Main extends javax.swing.JFrame
 
     private void ViewTourParticipantsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTourParticipantsActionPerformed
     {//GEN-HEADEREND:event_ViewTourParticipantsActionPerformed
-        // TODO add your handling code here:
+        card.show(mainPanel, "EligTourParticipants");
     }//GEN-LAST:event_ViewTourParticipantsActionPerformed
 
     private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
@@ -1584,6 +1640,11 @@ public class Main extends javax.swing.JFrame
     {//GEN-HEADEREND:event_MemberInfo1ActionPerformed
         card.show(mainPanel, "MemberInformation");
     }//GEN-LAST:event_MemberInfo1ActionPerformed
+
+    private void MainMenu8ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu8ActionPerformed
+    {//GEN-HEADEREND:event_MainMenu8ActionPerformed
+        mainMenu();
+    }//GEN-LAST:event_MainMenu8ActionPerformed
 
     public void validation()
     {
@@ -1952,6 +2013,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel Economy;
     private javax.swing.JPanel EconomyManage;
     private javax.swing.JScrollPane EconomyScrollPane;
+    private javax.swing.JLabel EligTournamentsParticipants;
     private javax.swing.JLabel EmailAddress;
     private javax.swing.JLabel EmailAddress1;
     private javax.swing.JTextField EmailAddressTF;
@@ -1970,6 +2032,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton MainMenu5;
     private javax.swing.JButton MainMenu6;
     private javax.swing.JButton MainMenu7;
+    private javax.swing.JButton MainMenu8;
     private javax.swing.JLabel ManMembers;
     private javax.swing.JButton ManageEconomy;
     private javax.swing.JTable ManageEconomyTable;
@@ -2023,6 +2086,8 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JPanel Teams;
     private javax.swing.JCheckBox TournamentEligibilityCB;
     private javax.swing.JLabel TournamentParticipants;
+    private javax.swing.JTable TournamentsParticipansTable;
+    private javax.swing.JPanel TournamentsParticipants;
     private javax.swing.JTable TournamentsParticipantsTable;
     private javax.swing.JLabel TrainerName;
     private javax.swing.JTextField TrainerNameTF;
@@ -2040,6 +2105,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
