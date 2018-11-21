@@ -35,8 +35,6 @@ public class Team implements Serializable
         this.teamMembers = teamMembers;
     }
     
-    
-    
     public void addMember(CompetitiveSwimmer member)
     {
         teamMembers.add(member);
@@ -52,6 +50,7 @@ public class Team implements Serializable
             }
         }
     }
+    
     public boolean getIsJuniorTeam()
     {
         return isJuniorTeam;

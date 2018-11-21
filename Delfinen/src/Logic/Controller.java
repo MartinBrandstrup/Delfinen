@@ -169,50 +169,6 @@ public class Controller
         saveTeamList();
     }
 
-    /**
-     * Upgrades a regular member (object) to a CompetitiveSwimmer (SubClass to
-     * Member Class) by removing the provided Member from the localized instance
-     * of the ArrayList memberList in the Controller Class and creating a new
-     * instance of CompetitiveSwimmer in the same ArrayList with the same
-     * parameters as the original Member object.
-     *
-     * @param member Will only recognize members (object) already existing in
-     * the ArrayList that are not null
-     *
-     * @throws IllegalArgumentException
-     */
-    public void upgradeMemberToCompetitive(Member member) throws IllegalArgumentException
-    {
-        if(member == null || !memberList.contains(member))
-        {
-            throw new IllegalArgumentException();
-        }
-
-        int memberListIndex = -1;
-
-        for(int i = 0; i < memberList.size(); i++)
-        {
-            if(memberList.get(i).getMemberID() == member.getMemberID())
-            {
-                memberListIndex = i;
-            }
-        }
-        if(memberListIndex < 0)
-        {
-            return;
-        }
-
-        memberList.add(memberListIndex, new CompetitiveSwimmer(
-                member.hasPaidCurrentYear(), member.getActivityStatus(), true,
-                member.getZipCode(), member.getMemberID(),
-                member.getPhoneNumber(), member.getArrearsBalance(), 0,
-                member.getName(), member.getAddress(), member.getCity(),
-                member.getEmailAddress(), member.getDateOfBirth(),
-                member.getDateOfJoining(), false, null, null, null));
-        memberList.get(memberListIndex).calculateMembershipPrice();
-        memberList.remove(memberListIndex + 1);
-    }
-
     public void registerMemberToTeam(Member member, Team team)
     {
         if(CompetitiveSwimmer.class.isInstance(member))
@@ -310,3 +266,47 @@ public class Controller
         return tournamentList;
     }
 }
+
+//    /**
+//     * Upgrades a regular member (object) to a CompetitiveSwimmer (SubClass to
+//     * Member Class) by removing the provided Member from the localized instance
+//     * of the ArrayList memberList in the Controller Class and creating a new
+//     * instance of CompetitiveSwimmer in the same ArrayList with the same
+//     * parameters as the original Member object.
+//     *
+//     * @param member Will only recognize members (object) already existing in
+//     * the ArrayList that are not null
+//     *
+//     * @throws IllegalArgumentException
+//     */
+//    public void upgradeMemberToCompetitive(Member member) throws IllegalArgumentException
+//    {
+//        if(member == null || !memberList.contains(member))
+//        {
+//            throw new IllegalArgumentException();
+//        }
+//
+//        int memberListIndex = -1;
+//
+//        for(int i = 0; i < memberList.size(); i++)
+//        {
+//            if(memberList.get(i).getMemberID() == member.getMemberID())
+//            {
+//                memberListIndex = i;
+//            }
+//        }
+//        if(memberListIndex < 0)
+//        {
+//            return;
+//        }
+//
+//        memberList.add(memberListIndex, new CompetitiveSwimmer(
+//                member.hasPaidCurrentYear(), member.getActivityStatus(), true,
+//                member.getZipCode(), member.getMemberID(),
+//                member.getPhoneNumber(), member.getArrearsBalance(), 0,
+//                member.getName(), member.getAddress(), member.getCity(),
+//                member.getEmailAddress(), member.getDateOfBirth(),
+//                member.getDateOfJoining(), false, null, null, null));
+//        memberList.get(memberListIndex).calculateMembershipPrice();
+//        memberList.remove(memberListIndex + 1);
+//    }
