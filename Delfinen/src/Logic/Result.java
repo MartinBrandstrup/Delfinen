@@ -49,7 +49,7 @@ class Result implements Serializable
     {
         return result;
     }
-
+    
     public void setResult(double result)
     {
         this.result = result;

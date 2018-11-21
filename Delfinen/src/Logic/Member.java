@@ -153,8 +153,6 @@ public class Member implements Serializable
         }
     }
 
-
-
     /**
      * Resets the member's (object) arrears so that any remaining debt is paid.
      */
@@ -238,7 +236,10 @@ public class Member implements Serializable
     /**
      * Registers a new result (object) for a member (object) marked as a
      * competitive swimmer. The result is saved with a swimming style (enum), a
-     * LocalDate ("d/MM/yyyy") and a double ("ss/ms").
+     * LocalDate ("d/MM/yyyy") and a double ("ss/ms"). !Warning! Each member
+     * (object) can only contain one result per swimming style (enum). To
+     * enforce this, this method also removes any previous existing instances of
+     * Results in the given style.
      *
      * @param style - a String used to describe one of the existing
      * SwimmingStyle ENUMs. If the String is in an incorrect format, throws
@@ -275,7 +276,47 @@ public class Member implements Serializable
             throw new IllegalArgumentException();
         }
 
+        for(Result r : swimmingResults)
+        {
+            if(r.getSwimmingStyle().equals(styleEnum))
+            {
+                swimmingResults.remove(r);
+            }
+        }
+
         swimmingResults.add(new Result(styleEnum, resultLocalDate, result));
+    }
+
+    /**
+     * Searches the member (object) for any results (object) of a given swimming
+     * style (enum). Returns null if no such style exists.
+     *
+     * @param style - a String used to describe one of the existing
+     * SwimmingStyle ENUMs. If the String is in an incorrect format, throws
+     * exception
+     *
+     * @return The specific Result
+     *
+     * @throws IllegalArgumentException
+     */
+    public Result getResultByStyle(String style) throws IllegalArgumentException
+    {
+        if(this.isCompetitiveSwimmer == false)
+        {
+            System.out.println("The Member is not a competitive swimmer");
+            return null;
+        }
+        SwimmingStyle styleEnum = SwimmingStyle.valueOf(style);
+
+        for(Result r : swimmingResults)
+        {
+            if(r.getSwimmingStyle().equals(styleEnum))
+            {
+                return r;
+            }
+        }
+        System.out.println("This member did not yet have a result recorded in the specified style");
+        return null;
     }
 
     /**
@@ -417,12 +458,12 @@ public class Member implements Serializable
     {
         return isCompetitiveSwimmer;
     }
-    
+
     public boolean isTournamentEligible()
     {
         return tournamentEligibility;
     }
-    
+
     public int getZipCode()
     {
         return zipCode;
@@ -477,7 +518,7 @@ public class Member implements Serializable
     {
         return dateOfJoining;
     }
-    
+
     public ArrayList<Team> getTeamMemberships()
     {
         return teamMemberships;
