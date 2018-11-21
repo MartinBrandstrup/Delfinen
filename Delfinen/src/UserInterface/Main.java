@@ -1682,6 +1682,7 @@ public class Main extends javax.swing.JFrame
 
     private void ViewTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTeamActionPerformed
     {//GEN-HEADEREND:event_ViewTeamActionPerformed
+        populateSpecificTeamTable();
         card.show(mainPanel, "SpecificTeam");
     }//GEN-LAST:event_ViewTeamActionPerformed
 
@@ -1827,31 +1828,31 @@ public class Main extends javax.swing.JFrame
     public void populateSpecificTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
-        //System.out.print("MemberList size is: " + c.//getTeamMemberList().size());
-        
+        System.out.print(c.getTeamList().size());
+        Object rowData[] = new Object[4];
         int rowSelectedIndex = rowSelectedBreaststrokeJunior();
         
         for(int i = 0; i < c.getTeamList().size(); ++i)
         {
-            if(BreaststrokeJuniorTable.getModel().getValueAt(rowSelectedIndex, 0) == c.getTeamList().get(i).getTeamName())
+            if(BreaststrokeJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
             {
-                for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                if(c.getTeamList().get(i).getTeamMembers().isEmpty())
                 {
-                    Object rowData[] = new Object[4];
-                
-                    rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
-                    rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                    rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getSwimmingResults().
-                    rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
-                    model.addRow(rowData);
+                    System.out.print(c.getTeamList().get(i).getTeamMembers().size());
                 }
-                
-                
+                else
+                {
+                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    {
+                        rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
+                        rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
+                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle("BREASTSTROKE").getResult();
+                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle("BREASTSTROKE").getDate();
+                        model.addRow(rowData);
+                    } 
+                }
             }
-        }
-        
-       
-        
+        } 
     }
     
     public void populateEconomyTable()
