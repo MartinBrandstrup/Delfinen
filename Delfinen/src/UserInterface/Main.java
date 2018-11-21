@@ -303,20 +303,20 @@ public class Main extends javax.swing.JFrame
         MainMenuLayout.setHorizontalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(161, 161, 161)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ManageTeams, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ManageEconomy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(215, Short.MAX_VALUE))
+                    .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
+            .addGroup(MainMenuLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addComponent(jLabel2)
                 .addGap(39, 39, 39)
                 .addComponent(RegNewMember)
@@ -326,9 +326,9 @@ public class Main extends javax.swing.JFrame
                 .addComponent(ManageTeams)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ViewTourParticipants)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(ManageEconomy)
-                .addGap(82, 82, 82))
+                .addGap(103, 103, 103))
         );
 
         mainPanel.add(MainMenu, "card2");
@@ -950,27 +950,35 @@ public class Main extends javax.swing.JFrame
         SeniorTeams.setText("Senior teams:");
 
         Breaststroke.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Breaststroke.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Breaststroke.setText("Breasstroke:");
 
         Breaststroke1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Breaststroke1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Breaststroke1.setText("Breasstroke:");
 
         Crawl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Crawl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Crawl.setText("Crawl:");
 
         Crawl1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Crawl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Crawl1.setText("Crawl:");
 
         BackCrawl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        BackCrawl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BackCrawl.setText("Back crawl:");
 
         BackCrawl1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        BackCrawl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BackCrawl1.setText("Back crawl:");
 
         Butterfly.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Butterfly.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Butterfly.setText("Butterfly");
 
         Butterfly1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Butterfly1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Butterfly1.setText("Butterfly");
 
         MainMenu4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -1007,67 +1015,55 @@ public class Main extends javax.swing.JFrame
         TeamsLayout.setHorizontalGroup(
             TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TeamsLayout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(CreateTeam)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamsLayout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(JuniorTeams)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(MainMenu4))
+            .addGroup(TeamsLayout.createSequentialGroup()
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(SeniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(TeamsLayout.createSequentialGroup()
-                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(Breaststroke))
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(Breaststroke1)))
-                        .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TeamsLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TeamsLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(ViewTeam)))
+                        .addComponent(ViewTeam))
+                    .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Breaststroke1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SeniorBreaststrokeTable, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                    .addComponent(Breaststroke, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TeamsLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(SeniorTeams))
+                    .addGroup(TeamsLayout.createSequentialGroup()
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SeniorCrawlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(Crawl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BackCrawl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(Butterfly1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(TeamsLayout.createSequentialGroup()
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JuniorCrawlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                            .addComponent(Crawl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BackCrawl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(Crawl1)
-                                .addGap(70, 70, 70)
-                                .addComponent(BackCrawl1)
-                                .addGap(61, 61, 61)
-                                .addComponent(Butterfly1))
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addComponent(JuniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JuniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(SeniorTeams))
-                            .addGroup(TeamsLayout.createSequentialGroup()
-                                .addComponent(SeniorCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addGroup(TeamsLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Crawl)
-                        .addGap(88, 88, 88)
-                        .addComponent(BackCrawl)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Butterfly)
-                        .addGap(41, 41, 41))))
-            .addGroup(TeamsLayout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(JuniorTeams)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MainMenu4))
-            .addGroup(TeamsLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(CreateTeam)
-                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Butterfly, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JuniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
         TeamsLayout.setVerticalGroup(
             TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1077,11 +1073,15 @@ public class Main extends javax.swing.JFrame
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JuniorTeams)
                             .addComponent(MainMenu4))
-                        .addGap(10, 10, 10)
-                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Crawl)
-                            .addComponent(BackCrawl)
-                            .addComponent(Butterfly))
+                        .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(TeamsLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(BackCrawl)
+                                    .addComponent(Butterfly)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TeamsLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Crawl)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1112,7 +1112,7 @@ public class Main extends javax.swing.JFrame
                     .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(CreateTeam))
         );
 
@@ -1210,7 +1210,7 @@ public class Main extends javax.swing.JFrame
         TrainerName.setText("Trainer name:");
 
         ConfirmAndCreateTeam.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        ConfirmAndCreateTeam.setText("Comfirn and create team");
+        ConfirmAndCreateTeam.setText("Confirm and create team");
         ConfirmAndCreateTeam.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -1257,19 +1257,7 @@ public class Main extends javax.swing.JFrame
             .addGroup(CreateANewTeamLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButterflyRB)
-                    .addComponent(BackCrawlRB)
                     .addComponent(ConfirmAndCreateTeam)
-                    .addGroup(CreateANewTeamLayout.createSequentialGroup()
-                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChooseSwimmingstyle)
-                            .addComponent(BreastStrokeRB)
-                            .addComponent(CrawlRB))
-                        .addGap(49, 49, 49)
-                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ChooseJorS)
-                            .addComponent(JuniorRB)
-                            .addComponent(Senior)))
                     .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(CreateANewTeamLayout.createSequentialGroup()
                             .addComponent(TrainerName)
@@ -1278,8 +1266,20 @@ public class Main extends javax.swing.JFrame
                         .addGroup(CreateANewTeamLayout.createSequentialGroup()
                             .addComponent(TeamName)
                             .addGap(18, 18, 18)
-                            .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                            .addComponent(TeamNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ChooseSwimmingstyle)
+                            .addComponent(BreastStrokeRB)
+                            .addComponent(CrawlRB)
+                            .addComponent(BackCrawlRB))
+                        .addGap(49, 49, 49)
+                        .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ChooseJorS)
+                            .addComponent(Senior)
+                            .addComponent(JuniorRB)))
+                    .addComponent(ButterflyRB))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
         CreateANewTeamLayout.setVerticalGroup(
             CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1289,16 +1289,18 @@ public class Main extends javax.swing.JFrame
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChooseSwimmingstyle)
                     .addComponent(ChooseJorS))
-                .addGap(26, 26, 26)
-                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JuniorRB)
-                    .addComponent(BreastStrokeRB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Senior)
-                    .addComponent(CrawlRB))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BackCrawlRB)
+                .addGap(29, 29, 29)
+                .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                        .addComponent(BreastStrokeRB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CrawlRB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BackCrawlRB))
+                    .addGroup(CreateANewTeamLayout.createSequentialGroup()
+                        .addComponent(JuniorRB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Senior)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ButterflyRB)
                 .addGap(61, 61, 61)
@@ -1309,7 +1311,7 @@ public class Main extends javax.swing.JFrame
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TrainerName)
                     .addComponent(TrainerNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(ConfirmAndCreateTeam)
                 .addGap(54, 54, 54))
         );
@@ -1345,7 +1347,7 @@ public class Main extends javax.swing.JFrame
         RegisterThisYearPayment.setText("Register payment for this year");
 
         RegisterArrearAsPaid.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        RegisterArrearAsPaid.setText("Register arrear as paid");
+        RegisterArrearAsPaid.setText("Register arrears as paid");
 
         MemberInfo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MemberInfo1.setText("View / change selected member information");
