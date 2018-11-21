@@ -6,7 +6,6 @@
 package UserInterface;
 
 import Data.DataAccessorFile;
-import Logic.CompetitiveSwimmer;
 import Logic.Controller;
 import Logic.Member;
 import Logic.SwimmingStyle;
@@ -298,7 +297,7 @@ public class Main extends javax.swing.JFrame
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ManageEconomy, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,13 +306,13 @@ public class Main extends javax.swing.JFrame
                 .addComponent(jLabel2)
                 .addGap(39, 39, 39)
                 .addComponent(RegNewMember)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(ManageMembers)
                 .addGap(78, 78, 78)
                 .addComponent(ManageTeams)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ViewTourParticipants)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addComponent(ManageEconomy)
                 .addGap(82, 82, 82))
         );
@@ -433,7 +432,7 @@ public class Main extends javax.swing.JFrame
             RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
                 .addComponent(MainMenu1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Name)
                     .addComponent(NameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -554,7 +553,7 @@ public class Main extends javax.swing.JFrame
                     .addComponent(ManMembers)
                     .addComponent(MainMenu2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ManageMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ManageMemberLayout.createSequentialGroup()
@@ -1082,7 +1081,7 @@ public class Main extends javax.swing.JFrame
                     .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(CreateTeam))
         );
 
@@ -1158,7 +1157,7 @@ public class Main extends javax.swing.JFrame
                     .addComponent(TeamTrainer)
                     .addComponent(TeamTrainerName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SpecificTeamTable, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addComponent(SpecificTeamTable, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddNewTeamMember)
@@ -1279,7 +1278,7 @@ public class Main extends javax.swing.JFrame
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TrainerName)
                     .addComponent(TrainerNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(ConfirmAndCreateTeam)
                 .addGap(54, 54, 54))
         );
@@ -1809,11 +1808,6 @@ public class Main extends javax.swing.JFrame
         }
 
         Member member = c.getMemberList().get(i);
-        if(CompetitiveSwimmer.class.isInstance(member))
-        {
-            CompetitiveSwimmer swimmer;
-            swimmer = (CompetitiveSwimmer) member;
-        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         this.NameTFMI.setText(member.getName());
