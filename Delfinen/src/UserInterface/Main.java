@@ -1638,7 +1638,7 @@ public class Main extends javax.swing.JFrame
 
     private void MemberInfo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MemberInfo1ActionPerformed
     {//GEN-HEADEREND:event_MemberInfo1ActionPerformed
-        memberInfo();
+        EconMemInfo();
         card.show(mainPanel, "MemberInformation");
     }//GEN-LAST:event_MemberInfo1ActionPerformed
 
@@ -1863,7 +1863,7 @@ public class Main extends javax.swing.JFrame
 //    }
     
     
-    public int rowSelectEconomy()
+    public int RowSelectEconomy()
     {
         int index;
         
@@ -1934,7 +1934,37 @@ public class Main extends javax.swing.JFrame
         this.MembershipPriceTFMI.setText(member.formatLongToString(member.getMembershipPrice()));
 
     }
+    
 
+    public void EconMemInfo()
+    {
+        int i = RowSelectEconomy();
+        
+        if(i < 0)
+        {
+            System.out.print("No rows selected");
+        }
+    Member member = c.getMemberList().get(i);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+
+    this.NameTFMI.setText(member.getName());
+    this.EmailAddressTFMI.setText(member.getEmailAddress());
+    this.AddressTFMI.setText(member.getAddress());
+    this.CityTFMI.setText(member.getCity());
+    this.ZipCodeTFMI.setText(Integer.toString(member.getZipCode()));
+    this.DateOfBirthTFMI.setText(member.getDateOfBirth().format(formatter));
+    this.PhoneNumberTFMI.setText(Long.toString(member.getPhoneNumber()));
+
+    this.ActivityStatusTFMI.setText(member.getActivityStatusString());
+    this.MemberIDTFMI.setText(Integer.toString(member.getMemberID()));
+    this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
+    this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
+
+    this.ArrearsBalanceTFMI.setText(member.formatLongToString(member.getArrearsBalance()));
+    this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
+    this.MembershipPriceTFMI.setText(member.formatLongToString(member.getMembershipPrice()));
+     
+    }
     /**
      * @param args the command line arguments
      */
