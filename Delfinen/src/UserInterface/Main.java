@@ -1724,6 +1724,7 @@ public class Main extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
             allOK = false;
         }
+        
         if(isValidDate(this.DateOfBirthTF.getText(), dateFormat) == false)
         {
             JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
@@ -1952,12 +1953,8 @@ public class Main extends javax.swing.JFrame
 
         index = ManageEconomyTable.getSelectedRow();
         return index;
-        
-        
     }
     
-    
-
     public int rowSelected()
     {
         int index;
@@ -1977,8 +1974,6 @@ public class Main extends javax.swing.JFrame
     {
         card.first(mainPanel);
     }
-    
-    
 
     public void memberInfo()
     {
