@@ -18,10 +18,10 @@ public class Team implements Serializable
     private boolean isJuniorTeam;
     private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
-    private ArrayList<CompetitiveSwimmer> teamMembers;
+    private ArrayList<Member> teamMembers;
 
     public Team(boolean isJuniorTeam, String teamName, String trainer, 
-            SwimmingStyle swimmingStyle, ArrayList<CompetitiveSwimmer> teamMembers) 
+            SwimmingStyle swimmingStyle, ArrayList<Member> teamMembers) 
             throws IllegalArgumentException
     {
         if(teamName.isEmpty() || trainer.isEmpty())
@@ -35,7 +35,7 @@ public class Team implements Serializable
         this.teamMembers = teamMembers;
     }
     
-    public void addMember(CompetitiveSwimmer member)
+    public void addMember(Member member)
     {
         teamMembers.add(member);
     }
@@ -86,7 +86,7 @@ public class Team implements Serializable
         this.swimmingStyle = swimmingStyle;
     }
 
-    public ArrayList<CompetitiveSwimmer> getTeamMembers()
+    public ArrayList<Member> getTeamMembers()
     {
         return teamMembers;
     }

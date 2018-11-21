@@ -25,10 +25,10 @@ public class DataAccessorFileTest
 
     public DataAccessorFileTest()
     {
-        memberList.add(new Member(false, false, true, 2800, 010, 14548645, 
+        memberList.add(new Member(false, false, true, false, 2800, 010, 14548645, 
                 50000, 50000, "Johanne Jaeger", "Fiktiv Vej 23", 
                 "Kongens Lyngby", "Johanne.j@test.dk", 
-                LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10)));
+                LocalDate.of(1993, 04, 12), LocalDate.of(2009, 12, 10), null, null, null));
     }
     
     @BeforeClass

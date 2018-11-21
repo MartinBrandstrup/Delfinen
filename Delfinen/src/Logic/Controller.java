@@ -50,10 +50,11 @@ public class Controller
             String name, String address, String city,
             String email, LocalDate dateOfBirth) throws IllegalArgumentException
     {
-        System.out.print("member" + memberList.size());
-        memberList.add(new Member(true, true, false, zipCode, MIDCounter,
+        System.out.print("Member" + memberList.size());
+        
+        memberList.add(new Member(true, true, false, false, zipCode, MIDCounter,
                 phoneNumber, 0, 0, name, address, city, email, dateOfBirth,
-                LocalDate.now()));
+                LocalDate.now(), null, null, null));
 
         getLastAddedMember().calculateMembershipPrice();
 
@@ -171,13 +172,10 @@ public class Controller
 
     public void registerMemberToTeam(Member member, Team team)
     {
-        if(CompetitiveSwimmer.class.isInstance(member))
+        if(member.isCompetitiveSwimmer())
         {
-            CompetitiveSwimmer swimmer;
-            swimmer = (CompetitiveSwimmer) member;
-
-            swimmer.registerSwimmerOnTeam(team);
-            team.addMember(swimmer);
+            member.registerSwimmerOnTeam(team);
+            team.addMember(member);
         }
         else
         {
@@ -223,6 +221,7 @@ public class Controller
     {
         return teamList;
     }
+    
     public Team getLastAddedTeam()
     {
         return teamList.get(teamList.size() - 1);
@@ -232,6 +231,7 @@ public class Controller
 //    {
 //        tournamentList.add(new  * * *);
 //    }
+    
     /**
      * Retrieves the list of tournament events (object) from the source and
      * updates the currently in use team list in the Controller class. Should be

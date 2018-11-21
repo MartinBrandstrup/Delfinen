@@ -6,7 +6,6 @@
 package UserInterface;
 
 import Data.DataAccessorFile;
-import Logic.CompetitiveSwimmer;
 import Logic.Controller;
 import Logic.Member;
 import Logic.SwimmingStyle;
@@ -1687,11 +1686,6 @@ public class Main extends javax.swing.JFrame
         }
 
         Member member = c.getMemberList().get(i);
-        if(CompetitiveSwimmer.class.isInstance(member))
-        {
-            CompetitiveSwimmer swimmer;
-            swimmer = (CompetitiveSwimmer) member;
-        }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
 
         this.NameTFMI.setText(member.getName());

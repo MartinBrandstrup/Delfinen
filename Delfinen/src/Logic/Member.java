@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import static Logic.Validator.isValidDate;
 import static Logic.Validator.isValidEmail;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,17 +19,23 @@ import static Logic.Validator.isValidEmail;
 public class Member implements Serializable
 {
 
-    private boolean paidCurrentYear, activityStatus, isCompetitiveSwimmer;
+    private boolean paidCurrentYear, activityStatus, isCompetitiveSwimmer, tournamentEligibility;
     private int zipCode, memberID;
     private long phoneNumber, arrearsBalance, membershipPrice;
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
+    ArrayList<Team> teamMemberships;
+    ArrayList<TournamentEvent> tournamentParticipations;
+    ArrayList<Result> swimmingResults;
 
     public Member(boolean paidCurrentYear, boolean activityStatus,
-            boolean isCompetitiveSwimmer, int zipCode, int memberID,
-            long phoneNumber, long arrearsBalance, long membershipPrice,
-            String name, String address, String city, String emailAddress,
-            LocalDate dateOfBirth, LocalDate dateOfJoining) throws IllegalArgumentException
+            boolean isCompetitiveSwimmer, boolean tournamentEligibility,
+            int zipCode, int memberID, long phoneNumber, long arrearsBalance,
+            long membershipPrice, String name, String address, String city,
+            String emailAddress, LocalDate dateOfBirth, LocalDate dateOfJoining,
+            ArrayList<Team> teamMemberships,
+            ArrayList<TournamentEvent> tournamentParticipations,
+            ArrayList<Result> swimmingResults) throws IllegalArgumentException
     {
         if(zipCode < 1000 || zipCode > 9999 || memberID < 1
                 || phoneNumber < 10000000 || phoneNumber > 99999999
@@ -43,16 +50,21 @@ public class Member implements Serializable
         this.paidCurrentYear = paidCurrentYear;
         this.activityStatus = activityStatus;
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
+        this.tournamentEligibility = tournamentEligibility;
         this.zipCode = zipCode;
         this.memberID = memberID;
         this.phoneNumber = phoneNumber;
         this.arrearsBalance = arrearsBalance;
+        this.membershipPrice = membershipPrice;
         this.name = name;
         this.address = address;
         this.city = city;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
+        this.teamMemberships = teamMemberships;
+        this.tournamentParticipations = tournamentParticipations;
+        this.swimmingResults = swimmingResults;
 
         if(isValidEmail(emailAddress) == false
                 || isValidDate(dateOfBirth.toString()) == false
@@ -333,6 +345,50 @@ public class Member implements Serializable
     public LocalDate getDateOfJoining()
     {
         return dateOfJoining;
+    }
+
+    public void registerSwimmerOnTeam(Team team)
+    {
+        teamMemberships.add(team);
+    }
+
+    public void registerSwimmerInTournament(TournamentEvent tournament)
+    {
+        tournamentParticipations.add(tournament);
+    }
+
+    public void switchTournamentEligibility()
+    {
+        if(tournamentEligibility == true)
+        {
+            tournamentEligibility = false;
+        }
+        tournamentEligibility = true;
+    }
+
+    public boolean isTournamentEligible()
+    {
+        return tournamentEligibility;
+    }
+
+    public void setTournamentEligibility(boolean tournamentEligibility)
+    {
+        this.tournamentEligibility = tournamentEligibility;
+    }
+
+    public ArrayList<Team> getTeamMemberships()
+    {
+        return teamMemberships;
+    }
+
+    public ArrayList<TournamentEvent> getTournamentParticipations()
+    {
+        return tournamentParticipations;
+    }
+
+    public ArrayList<Result> getSwimmingResults()
+    {
+        return swimmingResults;
     }
 
     @Override
