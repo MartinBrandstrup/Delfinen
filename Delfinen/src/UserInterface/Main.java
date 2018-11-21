@@ -1454,9 +1454,26 @@ public class Main extends javax.swing.JFrame
             c.createTeam(isJunior, teamName, trainer, swimmingStyle);
             System.out.print("Team has been created");
         }
+        else
+        {
+            System.out.print("You need to pick atleast one swimming style and either junior or senior");
+        }
+        
+        try
+        {
+            c.saveTeamList();
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        System.out.print("You need to pick atleast one swimming style and either junior or senior");
+        whichTeamTable();
+        
+        Object rowData[] = new Object[1];
 
+        rowData[0] = c.getLastAddedTeam().getTeamName();
+        model.addRow(rowData);
     }//GEN-LAST:event_ConfirmAndCreateTeamActionPerformed
 
     public void validation()
@@ -1531,10 +1548,10 @@ public class Main extends javax.swing.JFrame
         System.out.print("Size of teamList: " + c.getTeamList().size());
         for(int i = 0; i < c.getTeamList().size(); ++i)
         {
+            rowData[0] = c.getTeamList().get(i).getTeamName();
+            
             if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BREASTSTROKE)
             {
-                rowData[0] = c.getTeamList().get(i).getTeamName();
-                
                 if(c.getTeamList().get(i).getIsJuniorTeam())
                 {
                     model = (DefaultTableModel) BreaststrokeJuniorTable.getModel();
@@ -1543,6 +1560,45 @@ public class Main extends javax.swing.JFrame
                 else
                 {
                     model = (DefaultTableModel) BreaststrokeSeniorTable.getModel();
+                    model.addRow(rowData); 
+                }
+            }
+            if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.CRAWL)
+            {
+                if(c.getTeamList().get(i).getIsJuniorTeam())
+                {
+                    model = (DefaultTableModel) CrawlJuniorTable.getModel();
+                    model.addRow(rowData);   
+                }
+                else
+                {
+                    model = (DefaultTableModel) CrawlSeniorTable.getModel();
+                    model.addRow(rowData); 
+                }
+            }
+            if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BACKCRAWL)
+            {
+                if(c.getTeamList().get(i).getIsJuniorTeam())
+                {
+                    model = (DefaultTableModel) BackCrawlJuniorTable.getModel();
+                    model.addRow(rowData);   
+                }
+                else
+                {
+                    model = (DefaultTableModel) BackCrawlSeniorTable.getModel();
+                    model.addRow(rowData); 
+                }
+            }
+            if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BUTTERFLY)
+            {
+                if(c.getTeamList().get(i).getIsJuniorTeam())
+                {
+                    model = (DefaultTableModel) ButterflyJuniorTable.getModel();
+                    model.addRow(rowData);   
+                }
+                else
+                {
+                    model = (DefaultTableModel) ButterflySeniorTable.getModel();
                     model.addRow(rowData); 
                 }
             }
@@ -1564,6 +1620,42 @@ public class Main extends javax.swing.JFrame
 //            rowData[3] = c.//getTeamMemberList().get(i).getBestDateOfScore();
 //            model.addRow(rowData);
 //        }
+    }
+    public void whichTeamTable()
+    {
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BREASTSTROKE && c.getLastAddedTeam().getIsJuniorTeam() == true)
+        {
+            model = (DefaultTableModel) BreaststrokeJuniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BREASTSTROKE && c.getLastAddedTeam().getIsJuniorTeam() == false)
+        {
+            model = (DefaultTableModel) BreaststrokeSeniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.CRAWL && c.getLastAddedTeam().getIsJuniorTeam() == true)
+        {
+            model = (DefaultTableModel) CrawlJuniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.CRAWL && c.getLastAddedTeam().getIsJuniorTeam() == false)
+        {
+            model = (DefaultTableModel) CrawlSeniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BACKCRAWL && c.getLastAddedTeam().getIsJuniorTeam() == true)
+        {
+            model = (DefaultTableModel) BackCrawlJuniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BACKCRAWL && c.getLastAddedTeam().getIsJuniorTeam() == false)
+        {
+            model = (DefaultTableModel) BackCrawlSeniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BUTTERFLY && c.getLastAddedTeam().getIsJuniorTeam() == true)
+        {
+            model = (DefaultTableModel) ButterflyJuniorTable.getModel();
+        }
+        if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BUTTERFLY && c.getLastAddedTeam().getIsJuniorTeam() == false)
+        {
+            model = (DefaultTableModel) ButterflySeniorTable.getModel();
+        }
+        
     }
 
     public int rowSelected()
