@@ -1468,7 +1468,7 @@ public class Main extends javax.swing.JFrame
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        whichTeamTable();
+        lastTeamAddedTable(); //is choosing which table the field model appear as
         
         Object rowData[] = new Object[1];
 
@@ -1621,7 +1621,7 @@ public class Main extends javax.swing.JFrame
 //            model.addRow(rowData);
 //        }
     }
-    public void whichTeamTable()
+    public void lastTeamAddedTable()
     {
         if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BREASTSTROKE && c.getLastAddedTeam().getIsJuniorTeam() == true)
         {
