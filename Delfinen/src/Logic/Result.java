@@ -12,7 +12,7 @@ import java.time.LocalDate;
  *
  * @author Martin L.B.
  */
-class Result implements Serializable
+public class Result implements Serializable
 {
     private SwimmingStyle swimmingStyle;
     private LocalDate date;
