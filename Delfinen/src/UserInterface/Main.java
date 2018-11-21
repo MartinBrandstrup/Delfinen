@@ -53,6 +53,7 @@ public class Main extends javax.swing.JFrame
             System.out.println(ex);
         }
         populateTable();
+        populateTeamsTable();
     }
 
     /**
@@ -1326,6 +1327,8 @@ public class Main extends javax.swing.JFrame
         {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        model = (DefaultTableModel) MembersTable.getModel(); //Hver lige opmærksom på om denne her ødelægger det
 
         Object rowData[] = new Object[4];
 
@@ -1394,7 +1397,6 @@ public class Main extends javax.swing.JFrame
 
     private void ManageTeamsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageTeamsActionPerformed
     {//GEN-HEADEREND:event_ManageTeamsActionPerformed
-        populateTeamsTable();
         card.show(mainPanel, "Teams");
     }//GEN-LAST:event_ManageTeamsActionPerformed
 

@@ -267,6 +267,10 @@ public class Controller
     {
         return teamList;
     }
+    public Team getLastAddedTeam()
+    {
+        return teamList.get(teamList.size() - 1);
+    }
 
 //    public void createTournamentEvent()
 //    {
