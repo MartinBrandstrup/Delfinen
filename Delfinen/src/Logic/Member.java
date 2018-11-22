@@ -26,18 +26,16 @@ public class Member implements Serializable
     private long phoneNumber, arrearsBalance, membershipPrice;
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
-    private ArrayList<Team> teamMemberships = new ArrayList();
-    private ArrayList<TournamentEvent> tournamentParticipations = new ArrayList();
-    private ArrayList<Result> swimmingResults = new ArrayList();
+    private ArrayList<Team> teamMemberships;
+    private ArrayList<TournamentEvent> tournamentParticipations;
+    private ArrayList<Result> swimmingResults;
 
     public Member(boolean paidCurrentYear, boolean activityStatus,
             boolean isCompetitiveSwimmer, boolean tournamentEligibility,
             int zipCode, int memberID, long phoneNumber, long arrearsBalance,
             long membershipPrice, String name, String address, String city,
-            String emailAddress, LocalDate dateOfBirth, LocalDate dateOfJoining,
-            ArrayList<Team> teamMemberships,
-            ArrayList<TournamentEvent> tournamentParticipations,
-            ArrayList<Result> swimmingResults) throws IllegalArgumentException
+            String emailAddress, LocalDate dateOfBirth, LocalDate dateOfJoining) 
+            throws IllegalArgumentException
     {
         if(zipCode < 1000 || zipCode > 9999 || memberID < 1
                 || phoneNumber < 10000000 || phoneNumber > 99999999
@@ -64,9 +62,9 @@ public class Member implements Serializable
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
         this.dateOfJoining = dateOfJoining;
-        this.teamMemberships = teamMemberships;
-        this.tournamentParticipations = tournamentParticipations;
-        this.swimmingResults = swimmingResults;
+        this.teamMemberships = new ArrayList();
+        this.tournamentParticipations = new ArrayList();
+        this.swimmingResults = new ArrayList();
 
         if(isValidEmail(emailAddress) == false
                 || isValidDate(dateOfBirth.toString()) == false

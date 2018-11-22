@@ -17,16 +17,18 @@ public class Controller
 
 {
 
-    //private DataAccessorHardCoded data;
     private DataAccessor data;
-    private ArrayList<Member> memberList = new ArrayList();
-    private ArrayList<Team> teamList = new ArrayList();
-    private ArrayList<TournamentEvent> tournamentList = new ArrayList();
+    private ArrayList<Member> memberList;
+    private ArrayList<Team> teamList;
+    private ArrayList<TournamentEvent> tournamentList;
     private int MIDCounter = 1;
 
     public Controller(DataAccessor data)
     {
         this.data = data;
+        this.memberList = new ArrayList();
+        this.teamList = new ArrayList();
+        this.tournamentList = new ArrayList();
     }
 
     /**
@@ -52,7 +54,7 @@ public class Controller
 
         memberList.add(new Member(true, true, false, false, zipCode, MIDCounter,
                 phoneNumber, 0, 0, name, address, city, email, dateOfBirth,
-                LocalDate.now(), null, null, null));
+                LocalDate.now()));
 
         getLastAddedMember().calculateMembershipPrice();
 
@@ -187,7 +189,7 @@ public class Controller
     public void createTeam(boolean isJuniorTeam, String teamName,
             String trainer, SwimmingStyle swimmingStyle)
     {
-        teamList.add(new Team(isJuniorTeam, teamName, trainer, swimmingStyle, null));
+        teamList.add(new Team(isJuniorTeam, teamName, trainer, swimmingStyle));
     }
 
     /**

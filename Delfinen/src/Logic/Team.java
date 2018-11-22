@@ -18,21 +18,22 @@ public class Team implements Serializable
     private boolean isJuniorTeam;
     private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
-    private ArrayList<Member> teamMembers = new ArrayList();
+    private ArrayList<Member> teamMembers;
 
     public Team(boolean isJuniorTeam, String teamName, String trainer,
-            SwimmingStyle swimmingStyle, ArrayList<Member> teamMembers)
+            SwimmingStyle swimmingStyle)
             throws IllegalArgumentException
     {
         if(teamName.isEmpty() || trainer.isEmpty())
         {
             throw new IllegalArgumentException();
         }
+
         this.isJuniorTeam = isJuniorTeam;
         this.teamName = teamName;
         this.trainer = trainer;
         this.swimmingStyle = swimmingStyle;
-        this.teamMembers = teamMembers;
+        this.teamMembers = new ArrayList();
     }
 
     public void addMember(Member member)
@@ -42,7 +43,7 @@ public class Team implements Serializable
 
     public void removeMemberByID(Member member, int memberID)
     {
-        for(int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < teamMembers.size(); i++)
         {
             if(member.getMemberID() == memberID)
             {

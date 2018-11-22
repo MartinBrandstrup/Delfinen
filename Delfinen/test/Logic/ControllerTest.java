@@ -30,17 +30,17 @@ public class ControllerTest
         jens = new Member(true, true, false, false, 2800, 1, 14548645,
                 0, 0, "Jens", "Fiktiv Vej 21",
                 "Kongens Lyngby", "Jens@gmail.com",
-                LocalDate.of(1993, 6, 12), LocalDate.now(), null, null, null);
+                LocalDate.of(1993, 6, 12), LocalDate.now());
 
         johanne = new Member(false, false, true, true, 2800, 81, 14548645,
                 50000, 0, "Johanne Jaeger", "Fiktiv Vej 23",
                 "Kongens Lyngby", "Johanne.j@gmail.dk",
-                LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10), null, null, null);
+                LocalDate.of(1993, 4, 12), LocalDate.of(2009, 12, 10));
 
         alice = new Member(false, true, false, false, 2800, 82, 23657845,
                 0, 0, "Alice Lauritzen", "Fiktiv Vej 25",
                 "Kongens Lyngby", "Alice.l@gmail.com",
-                LocalDate.of(2004, 6, 14), LocalDate.of(2014, 3, 7), null, null, null);
+                LocalDate.of(2004, 6, 14), LocalDate.of(2014, 3, 7));
 
         ctrl.getMemberList().add(jens);
         ctrl.getMemberList().add(johanne);
