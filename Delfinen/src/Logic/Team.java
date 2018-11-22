@@ -5,8 +5,10 @@
  */
 package Logic;
 
+import Comparators.CompareByResult;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -36,9 +38,9 @@ public class Team implements Serializable
         this.teamMembers = new ArrayList();
     }
 
-    public void sortMemberListByResult()
+    public void sortMemberListByResult(SwimmingStyle style)
     {
-        
+        teamMembers.sort(new CompareByResult(style));
     }
     
     public void addMember(Member member)

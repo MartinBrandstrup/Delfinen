@@ -24,25 +24,39 @@ public class CompareByResult implements Comparator<Member>
     }
 
     @Override
-    public int compare(Member o1, Member o2)
+    public int compare(Member o1, Member o2) throws IllegalArgumentException
     {
-        for (int i1 = 0; i1 < o1.getResultList().size(); i1++)
+        if(o1.getResultList().isEmpty() || o2.getResultList().isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
+        int i1;
+        int i2;
+        
+        for (i1 = 0; i1 < o1.getResultList().size(); i1++)
         {
             if(o1.getResultList().get(i1).getSwimmingStyle().equals(style))
             {
-
+                break;
             }
         }
-        if(((Member) o2).getResultList().get > ((Member) o1).getMemberID())
+        for (i2 = 0; i2 < 10; i2++)
+        {
+            if(o2.getResultList().get(i2).getSwimmingStyle().equals(style))
+            {
+                break;
+            }
+            
+        }
+        
+        if(o2.getResultList().get(i2).getResult() > o1.getResultList().get(i1).getResult())
         {
             return -1;
         }
-        if(((Member) o2).getMemberID() < ((Member) o1).getMemberID())
+        if(o2.getResultList().get(i2).getResult() > o1.getResultList().get(i1).getResult())
         {
             return 1;
         }
         return 0;
     }
-}
-
 }

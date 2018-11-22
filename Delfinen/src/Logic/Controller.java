@@ -6,6 +6,7 @@
 package Logic;
 
 import Comparators.CompareByID;
+import Comparators.CompareByResult;
 import Data.DataAccessor;
 import java.time.LocalDate;
 import java.util.ArrayList;
