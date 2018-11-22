@@ -40,7 +40,6 @@ public class DataAccessorTempTest
         }
 
         System.out.println("Memberlist size is: " + memberList.size());
-        scanner.nextLine();
 
         try
         {

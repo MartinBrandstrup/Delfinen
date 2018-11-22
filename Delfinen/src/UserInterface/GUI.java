@@ -31,7 +31,7 @@ public class GUI extends javax.swing.JFrame
 {
 
     private Team t;
-    
+
     private CardLayout card;
 
     private DefaultTableModel model;
@@ -54,18 +54,18 @@ public class GUI extends javax.swing.JFrame
         {
             c.updateEverythingFromSource();
         }
-        catch(NullPointerException npe)
+        catch (NullPointerException npe)
         {
             System.out.println(npe);
             System.out.println("File \"Members.dat\" is empty");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             System.out.println(ex);
         }
         //populateMemberTable();
         populateTeamsTable();
-        populateEconomyTable();
+        //populateEconomyTable();
     }
 
     /**
@@ -95,7 +95,6 @@ public class GUI extends javax.swing.JFrame
         ManageEconomy = new javax.swing.JButton();
         DelfinenSvømmeklub = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         RegisterNewMember = new javax.swing.JPanel();
         Name = new javax.swing.JLabel();
         NameTF = new javax.swing.JTextField();
@@ -114,7 +113,6 @@ public class GUI extends javax.swing.JFrame
         ConfirmChanges = new javax.swing.JButton();
         Reset = new javax.swing.JButton();
         MainMenu1 = new javax.swing.JButton();
-        SaveMembers = new javax.swing.JButton();
         Teams = new javax.swing.JPanel();
         SeniorBreaststrokeTable = new javax.swing.JScrollPane();
         BreaststrokeSeniorTable = new javax.swing.JTable();
@@ -326,9 +324,13 @@ public class GUI extends javax.swing.JFrame
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Save to File");
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("Load from File");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
         MainMenu.setLayout(MainMenuLayout);
@@ -337,17 +339,13 @@ public class GUI extends javax.swing.JFrame
             .addGroup(MainMenuLayout.createSequentialGroup()
                 .addGap(106, 106, 106)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ManageTeams, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(DelfinenSvømmeklub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1)
+                    .addComponent(ViewTourParticipants, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageTeams, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DelfinenSvømmeklub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
@@ -365,10 +363,8 @@ public class GUI extends javax.swing.JFrame
                 .addComponent(ViewTourParticipants)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManageEconomy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(jButton1)
                 .addGap(58, 58, 58))
         );
 
@@ -427,9 +423,6 @@ public class GUI extends javax.swing.JFrame
             }
         });
 
-        SaveMembers.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        SaveMembers.setText("Save Member");
-
         javax.swing.GroupLayout RegisterNewMemberLayout = new javax.swing.GroupLayout(RegisterNewMember);
         RegisterNewMember.setLayout(RegisterNewMemberLayout);
         RegisterNewMemberLayout.setHorizontalGroup(
@@ -468,10 +461,7 @@ public class GUI extends javax.swing.JFrame
                                 .addComponent(Address)
                                 .addGap(58, 58, 58)))
                         .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RegisterNewMemberLayout.createSequentialGroup()
-                                .addComponent(ConfirmChanges)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
-                                .addComponent(SaveMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ConfirmChanges)
                             .addGroup(RegisterNewMemberLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
                                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -479,9 +469,8 @@ public class GUI extends javax.swing.JFrame
                                     .addComponent(DateOfBirthTF, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(ZipCodeTF, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(CityTF, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                    .addComponent(AddressTF, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(213, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegisterNewMemberLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(MainMenu1))
@@ -523,9 +512,8 @@ public class GUI extends javax.swing.JFrame
                 .addGap(61, 61, 61)
                 .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConfirmChanges)
-                    .addComponent(Reset)
-                    .addComponent(SaveMembers))
-                .addContainerGap(202, Short.MAX_VALUE))
+                    .addComponent(Reset))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         mainPanel.add(RegisterNewMember, "RegiNewMember");
@@ -864,11 +852,12 @@ public class GUI extends javax.swing.JFrame
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JuniorBreaststrokeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ViewTeamMembersBJ)
-                    .addComponent(ViewTeamMembersCJ)
-                    .addComponent(ViewTeamMembersBCJ)
-                    .addComponent(ViewTeamMembersBUTJ))
+                .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ViewTeamMembersBUTJ)
+                    .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ViewTeamMembersBJ)
+                        .addComponent(ViewTeamMembersCJ)
+                        .addComponent(ViewTeamMembersBCJ)))
                 .addGap(12, 12, 12)
                 .addComponent(SeniorTeams)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1210,7 +1199,7 @@ public class GUI extends javax.swing.JFrame
                                     .addComponent(Name1))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                            .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                             .addComponent(DateOfBirthTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ZipCodeTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(CityTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1347,6 +1336,13 @@ public class GUI extends javax.swing.JFrame
 
         RemoveFromTeam.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RemoveFromTeam.setText("Remove from team");
+        RemoveFromTeam.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RemoveFromTeamActionPerformed(evt);
+            }
+        });
 
         MainMenu5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MainMenu5.setText("Main Menu");
@@ -1566,9 +1562,23 @@ public class GUI extends javax.swing.JFrame
 
         RegisterThisYearPayment.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RegisterThisYearPayment.setText("Register payment for this year");
+        RegisterThisYearPayment.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RegisterThisYearPaymentActionPerformed(evt);
+            }
+        });
 
         RegisterArrearAsPaid.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         RegisterArrearAsPaid.setText("Register arrears as paid");
+        RegisterArrearAsPaid.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                RegisterArrearAsPaidActionPerformed(evt);
+            }
+        });
 
         MemberInfo1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MemberInfo1.setText("View/change member info");
@@ -1592,7 +1602,7 @@ public class GUI extends javax.swing.JFrame
                 .addComponent(MainMenu7))
             .addGroup(EconomyManageLayout.createSequentialGroup()
                 .addComponent(RegisterThisYearPayment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(RegisterArrearAsPaid))
             .addComponent(MemberInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1818,7 +1828,7 @@ public class GUI extends javax.swing.JFrame
 
     private void MainMenu5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu5ActionPerformed
     {//GEN-HEADEREND:event_MainMenu5ActionPerformed
-        mainMenu(); 
+        mainMenu();
     }//GEN-LAST:event_MainMenu5ActionPerformed
 
     private void MainMenu7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu7ActionPerformed
@@ -1888,7 +1898,7 @@ public class GUI extends javax.swing.JFrame
         {
             c.registerNewMember(zipCode, phoneNumber, name, address, city, email, dateOfBirth);
         }
-        catch(IllegalArgumentException iae)
+        catch (IllegalArgumentException iae)
         {
             JOptionPane.showMessageDialog(null, "One or more data fields return invalid data", "Inane error", JOptionPane.ERROR_MESSAGE);
         }
@@ -1898,8 +1908,9 @@ public class GUI extends javax.swing.JFrame
         {
             // should be removed from this methid at some point in time
             c.saveMemberList();
+            JOptionPane.showMessageDialog(null, "The member got registed");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1958,7 +1969,7 @@ public class GUI extends javax.swing.JFrame
         if(SeniorOrJuniorGroup.getSelection() != null && SwimmingStyleGroup != null)
         {
             c.createTeam(isJunior, teamName, trainer, swimmingStyle);
-            System.out.print("Team has been created");
+            JOptionPane.showMessageDialog(null, "The team has been created");
         }
         else
         {
@@ -1984,6 +1995,7 @@ public class GUI extends javax.swing.JFrame
 
     private void ManageEconomyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageEconomyActionPerformed
     {//GEN-HEADEREND:event_ManageEconomyActionPerformed
+        populateEconomyTable();
         card.show(mainPanel, "ManageEconomy");
     }//GEN-LAST:event_ManageEconomyActionPerformed
 
@@ -2011,28 +2023,28 @@ public class GUI extends javax.swing.JFrame
     private void ComfirmChangesMIActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ComfirmChangesMIActionPerformed
     {//GEN-HEADEREND:event_ComfirmChangesMIActionPerformed
         int i = rowSelected();
-        
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         Member member = c.getMemberList().get(i);
-        
+
         String name = this.NameTFMI.getText();
         String email = this.EmailAddressTFMI.getText();
         String address = this.AddressTFMI.getText();
         String city = this.CityTFMI.getText();
         int zipCode = Integer.parseInt(this.ZipCodeTFMI.getText());
         LocalDate dateOfBirth = null;
-        try 
+        try
         {
-            dateOfBirth = LocalDate.parse(this.DateOfBirthTFMI.getText(),formatter );
+            dateOfBirth = LocalDate.parse(this.DateOfBirthTFMI.getText(), formatter);
         }
-        catch(DateTimeParseException ex)
+        catch (DateTimeParseException ex)
         {
             JOptionPane.showMessageDialog(null, "This is not a valid date", "Inane Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         long phoneNumber = Long.parseLong(this.PhoneNumberTFMI.getText());
-        
+
         member.setName(name);
         member.setEmailAddress(email);
         member.setAddress(address);
@@ -2041,16 +2053,21 @@ public class GUI extends javax.swing.JFrame
         member.setDateOfBirth(dateOfBirth);
         member.setPhoneNumber(phoneNumber);
         
-        
-        
-        
-        
-        
+        try
+        {
+            c.saveMemberList();
+            JOptionPane.showMessageDialog(null, "The changes are now applied");
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_ComfirmChangesMIActionPerformed
 
     private void AddNewTeamMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddNewTeamMemberActionPerformed
     {//GEN-HEADEREND:event_AddNewTeamMemberActionPerformed
-       card.show(mainPanel, "AddMemberToTeam");
+        this.AddMemberToTeam.setEnabled(false);
+        card.show(mainPanel, "AddMemberToTeam");
     }//GEN-LAST:event_AddNewTeamMemberActionPerformed
 
     private void MainMenu9ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MainMenu9ActionPerformed
@@ -2061,9 +2078,9 @@ public class GUI extends javax.swing.JFrame
     private void AddMemberToTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_AddMemberToTeamActionPerformed
     {//GEN-HEADEREND:event_AddMemberToTeamActionPerformed
         Member m = null;
-        
+
         int MID = Integer.parseInt(this.EnterMIDTFATM.getText());
-        
+
 //        for(int i = 0; i < c.getMemberList().size(); ++i)
 //        {
 ////            if(name.equals(c.getMemberList().get(i).getName()) || MID == c.getMemberList().get(i).getMemberID())
@@ -2072,39 +2089,52 @@ public class GUI extends javax.swing.JFrame
 ////                this.AddMemberToTheTeamATM.setEnabled(true);
 ////            }
 //        }
-         try
-         {
-             m = c.getMemberByID(MID);
-         }
-         catch(NullPointerException nx)
-         {
-             JOptionPane.showMessageDialog(null, "There is no member with such ID", "Inane error", JOptionPane.ERROR_MESSAGE);
-             return;
-         }
-         
-         c.registerMemberToTeam(m, t);
-          
+        try
+        {
+            m = c.getMemberByID(MID);
+        }
+        catch (NullPointerException nx)
+        {
+            JOptionPane.showMessageDialog(null, "There is no member with such ID", "Inane error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        c.registerMemberToTeam(m, t);
+        try
+        {
+            c.saveTeamList();
+            JOptionPane.showMessageDialog(null, "The member got added to the team");
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+
 
     }//GEN-LAST:event_AddMemberToTeamActionPerformed
 
     private void NameOfMemberByIDVerifyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_NameOfMemberByIDVerifyActionPerformed
     {//GEN-HEADEREND:event_NameOfMemberByIDVerifyActionPerformed
-         Member m = null;
-         
-         int MID = Integer.parseInt(this.EnterMIDTFATM.getText());
-         
-         try
-         {
-             m = c.getMemberByID(MID);
-         }
-         catch(NullPointerException nx)
-         {
-             JOptionPane.showMessageDialog(null, "There is no member with such ID", "Inane error", JOptionPane.ERROR_MESSAGE);
-             return;
-         }
-         this.NameOfTheMemberATM.setText(m.getName());
-         //godt
-                 
+        Member m = null;
+
+        int MID = Integer.parseInt(this.EnterMIDTFATM.getText());
+
+        try
+        {
+            m = c.getMemberByID(MID);
+        }
+        catch (NullPointerException nx)
+        {
+            JOptionPane.showMessageDialog(null, "There is no member with such ID", "Inane error", JOptionPane.ERROR_MESSAGE);
+            this.NameOfTheMemberATM.setText("");
+            this.AddMemberToTeam.setEnabled(false);
+            return;
+        }
+        this.NameOfTheMemberATM.setText(m.getName());
+        this.AddMemberToTeam.setEnabled(true);
+        
+
     }//GEN-LAST:event_NameOfMemberByIDVerifyActionPerformed
 
     private void ViewTeamMembersCJActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTeamMembersCJActionPerformed
@@ -2149,6 +2179,81 @@ public class GUI extends javax.swing.JFrame
         card.show(mainPanel, "SpecificTeam");
     }//GEN-LAST:event_ViewTeamMembersBUTSActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        try
+        {
+            c.saveEverythingToSource();
+        }
+        catch (Exception ex)
+        {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RegisterThisYearPaymentActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegisterThisYearPaymentActionPerformed
+    {//GEN-HEADEREND:event_RegisterThisYearPaymentActionPerformed
+        int rowSelected = rowSelectEconomy();
+        for(int i = 0; i < c.getMemberList().size(); ++i)
+        {
+            if(ManageEconomyTable.getModel().getValueAt(rowSelected, 0).equals(c.getMemberList().get(i).getName()))
+            {
+                c.getMemberList().get(i).registerPayment();
+                try
+                {
+                    c.saveMemberList();
+                    populateEconomyTable();
+                }
+                catch (Exception ex)
+                {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_RegisterThisYearPaymentActionPerformed
+
+    private void RegisterArrearAsPaidActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegisterArrearAsPaidActionPerformed
+    {//GEN-HEADEREND:event_RegisterArrearAsPaidActionPerformed
+        int rowSelected = rowSelectEconomy();
+        for(int i = 0; i < c.getMemberList().size(); ++i)
+        {
+            if(ManageEconomyTable.getModel().getValueAt(rowSelected, 0).equals(c.getMemberList().get(i).getName()))
+            {
+                c.getMemberList().get(i).payArrears();
+                try
+                {
+                    c.saveMemberList();
+                    populateEconomyTable();
+                }
+                catch (Exception ex)
+                {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+        }
+    }//GEN-LAST:event_RegisterArrearAsPaidActionPerformed
+
+    private void RemoveFromTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RemoveFromTeamActionPerformed
+    {//GEN-HEADEREND:event_RemoveFromTeamActionPerformed
+        int rowSelected = rowSelectedSpecificTeamTable();
+        for(int i = 0; i < c.getMemberList().size(); ++i)
+        {
+            if(SpecificTeamTable.getModel().getValueAt(rowSelected, 1).equals(c.getMemberList().get(i).getMemberID()))
+            {
+               Member m = c.getMemberList().get(i);
+               int MID = c.getMemberList().get(i).getMemberID();
+               
+               t.removeMemberByID(m, MID);
+               
+               JOptionPane.showMessageDialog(null, "The member got removed from this team");
+            }
+        }
+        
+        
+    }//GEN-LAST:event_RemoveFromTeamActionPerformed
+
     public boolean memberInfoValidation()
     {
         boolean allOK = true;
@@ -2187,7 +2292,7 @@ public class GUI extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "This email address is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
             allOK = false;
         }
-        
+
         if(isValidDate(this.DateOfBirthTF.getText(), dateFormat) == false)
         {
             JOptionPane.showMessageDialog(null, "This date is not valid", "Inane error", JOptionPane.ERROR_MESSAGE);
@@ -2214,8 +2319,9 @@ public class GUI extends javax.swing.JFrame
 
         Object rowData[] = new Object[4];
         model.setRowCount(0);
+        c.sortTeamByID();
 
-        for(int i = 0; i < c.getMemberList().size(); ++i)
+        for (int i = 0; i < c.getMemberList().size(); ++i)
         {
 
             rowData[0] = c.getMemberList().get(i).getName();
@@ -2225,26 +2331,26 @@ public class GUI extends javax.swing.JFrame
             model.addRow(rowData);
         }
     }
-    
+
     public void populateTeamsTable()
-    {   
+    {
         Object rowData[] = new Object[1];
         System.out.print("Size of teamList: " + c.getTeamList().size());
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             rowData[0] = c.getTeamList().get(i).getTeamName();
-            
+
             if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BREASTSTROKE)
             {
                 if(c.getTeamList().get(i).getIsJuniorTeam())
                 {
                     model = (DefaultTableModel) BreaststrokeJuniorTable.getModel();
-                    model.addRow(rowData);   
+                    model.addRow(rowData);
                 }
                 else
                 {
                     model = (DefaultTableModel) BreaststrokeSeniorTable.getModel();
-                    model.addRow(rowData); 
+                    model.addRow(rowData);
                 }
             }
             if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.CRAWL)
@@ -2252,12 +2358,12 @@ public class GUI extends javax.swing.JFrame
                 if(c.getTeamList().get(i).getIsJuniorTeam())
                 {
                     model = (DefaultTableModel) CrawlJuniorTable.getModel();
-                    model.addRow(rowData);   
+                    model.addRow(rowData);
                 }
                 else
                 {
                     model = (DefaultTableModel) CrawlSeniorTable.getModel();
-                    model.addRow(rowData); 
+                    model.addRow(rowData);
                     //Det er en test
                 }
             }
@@ -2266,12 +2372,12 @@ public class GUI extends javax.swing.JFrame
                 if(c.getTeamList().get(i).getIsJuniorTeam())
                 {
                     model = (DefaultTableModel) BackCrawlJuniorTable.getModel();
-                    model.addRow(rowData);   
+                    model.addRow(rowData);
                 }
                 else
                 {
                     model = (DefaultTableModel) BackCrawlSeniorTable.getModel();
-                    model.addRow(rowData); 
+                    model.addRow(rowData);
                 }
             }
             if(c.getTeamList().get(i).getSwimmingStyle() == SwimmingStyle.BUTTERFLY)
@@ -2279,17 +2385,19 @@ public class GUI extends javax.swing.JFrame
                 if(c.getTeamList().get(i).getIsJuniorTeam())
                 {
                     model = (DefaultTableModel) ButterflyJuniorTable.getModel();
-                    model.addRow(rowData);   
+                    model.addRow(rowData);
                 }
                 else
                 {
                     model = (DefaultTableModel) ButterflySeniorTable.getModel();
-                    model.addRow(rowData); 
+                    model.addRow(rowData);
                 }
             }
         }
     }
 
+    
+    //Warning bad coode past this point!!!!!!
     public void populateSpecificBreaststrokeJuniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
@@ -2297,8 +2405,8 @@ public class GUI extends javax.swing.JFrame
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
         int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(BreaststrokeJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2310,27 +2418,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getDate();
+                        if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                            rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getResult();
+                            rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
-        } 
+        }
     }
+
     public void populateSpecificBreaststrokeSeniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedBreastsStrokeSenior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(BreaststrokeSeniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2342,27 +2459,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getDate();
+                        if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                            rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getResult();
+                            rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BREASTSTROKE).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificCrawlJuniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedBackCrawlJunior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(CrawlJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2374,27 +2500,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getDate();
+                        if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                             rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getResult();
+                             rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificCrawlSeniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedBackCrawlSenior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(CrawlSeniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2406,27 +2541,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getDate();
+                         if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                             rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getResult();
+                             rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.CRAWL).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificBackCrawlJuniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedBackCrawlJunior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(BackCrawlJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2438,27 +2582,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getDate();
+                         if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                             rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getResult();
+                             rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificBackCrawlSeniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedBackCrawlSenior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(BackCrawlSeniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2470,27 +2623,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getDate();
+                         if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                            rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getResult();
+                            rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BACKCRAWL).getDate(); 
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificButtlerflyJuniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedButterflyJunior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(ButterflyJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2502,27 +2664,36 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getDate();
+                        if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                            rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getResult();
+                            rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
+
     public void populateSpecificButtlerflySeniorTeamTable()
     {
         model = (DefaultTableModel) SpecificTeamTable.getModel();
         model.setRowCount(0);
         System.out.print(c.getTeamList().size());
         Object rowData[] = new Object[4];
-        int rowSelectedIndex = rowSelectedBreaststrokeJunior();
-        
-        for(int i = 0; i < c.getTeamList().size(); ++i)
+        int rowSelectedIndex = rowSelectedButterflySenior();
+
+        for (int i = 0; i < c.getTeamList().size(); ++i)
         {
             System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(ButterflySeniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
@@ -2534,39 +2705,47 @@ public class GUI extends javax.swing.JFrame
                 }
                 else
                 {
-                     for(int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
+                    for (int n = 0; n < c.getTeamList().get(i).getTeamMembers().size(); ++n)
                     {
                         rowData[0] = c.getTeamList().get(i).getTeamMembers().get(n).getName();
                         rowData[1] = c.getTeamList().get(i).getTeamMembers().get(n).getMemberID();
-                        rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getResult();
-                        rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getDate();
+                        if(c.getTeamList().get(i).getTeamMembers().get(n).getResultList().isEmpty())
+                        {
+                            rowData[2] = 0;
+                            rowData[3] = 0;
+                        }
+                        else
+                        {
+                            rowData[2] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getResult();
+                            rowData[3] = c.getTeamList().get(i).getTeamMembers().get(n).getResultByStyle(SwimmingStyle.BUTTERFLY).getDate();
+                        }
                         model.addRow(rowData);
-                    } 
+                    }
                 }
             }
         }
     }
-    
+
     public void populateEconomyTable()
     {
         model = (DefaultTableModel) ManageEconomyTable.getModel();
+        model.setRowCount(0);
 
         Object rowData[] = new Object[7];
 
-        for(int i = 0; i < c.getMemberList().size(); ++i)
+        for (int i = 0; i < c.getMemberList().size(); ++i)
         {
             rowData[0] = c.getMemberList().get(i).getName();
             rowData[1] = c.getMemberList().get(i).getMemberID();
             rowData[2] = c.getMemberList().get(i).getAge();
-            rowData[3] = c.getMemberList().get(i).getArrearsBalance();
+            rowData[3] = formatLongToString(c.getMemberList().get(i).getArrearsBalance());
             rowData[4] = c.getMemberList().get(i).getNextPaymentDate();
-            rowData[5] = c.getMemberList().get(i).getMembershipPrice();
+            rowData[5] = formatLongToString(c.getMemberList().get(i).getMembershipPrice());
             rowData[6] = c.getMemberList().get(i).hasPaidCurrentYear();
             model.addRow(rowData);
         }
     }
-    
-    
+
     public void lastTeamAddedTable()
     {
         if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BREASTSTROKE && c.getLastAddedTeam().getIsJuniorTeam() == true)
@@ -2599,61 +2778,137 @@ public class GUI extends javax.swing.JFrame
         }
         if(c.getLastAddedTeam().getSwimmingStyle() == SwimmingStyle.BUTTERFLY && c.getLastAddedTeam().getIsJuniorTeam() == false)
         {
-            model = (DefaultTableModel) ButterflySeniorTable.getModel();    
-        }  
+            model = (DefaultTableModel) ButterflySeniorTable.getModel();
+        }
     }
-//    public void disableTeamsTable() //only one table can be selected at a time
-//    {
-//        if(!BreaststrokeJuniorTable.getSelectionModel().isSelectionEmpty()) //If this table selection is not empty
-//        {
-//            BreaststrokeSeniorTable.setEnabled(false);
-//            CrawlJuniorTable.setEnabled(false);
-//            CrawlSeniorTable.setEnabled(false);
-//            BackCrawlJuniorTable.setEnabled(false);
-//            BackCrawlSeniorTable.setEnabled(false);
-//            ButterflyJuniorTable.setEnabled(false);
-//            ButterflySeniorTable.setEnabled(false);
-//        }
-//    }
+
     public int rowSelectedBreaststrokeJunior()
     {
         int index;
-        
 
         if(BreaststrokeJuniorTable.getSelectionModel().isSelectionEmpty())
         {
-            //test
             return -1;
         }
 
         index = BreaststrokeJuniorTable.getSelectedRow();
         return index;
     }
-    
-    
-    public int rowSelectEconomy()
+    public int rowSelectedBreastsStrokeSenior()
+    {
+        int index;
+
+        if(BreaststrokeSeniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = BreaststrokeSeniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedCrawlJunior()
+    {
+        int index;
+
+        if(CrawlJuniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = CrawlJuniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedCrawlSenior()
+    {
+        int index;
+
+        if(CrawlSeniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = CrawlSeniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedBackCrawlJunior()
+    {
+        int index;
+
+        if(BackCrawlJuniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = BackCrawlJuniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedBackCrawlSenior()
+    {
+        int index;
+
+        if(BackCrawlSeniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = BackCrawlSeniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedButterflyJunior()
+    {
+        int index;
+
+        if(ButterflyJuniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = ButterflyJuniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedButterflySenior()
+    {
+        int index;
+
+        if(ButterflySeniorTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+
+        index = ButterflySeniorTable.getSelectedRow();
+        return index;
+    }
+    public int rowSelectedSpecificTeamTable()
     {
         int index;
         
+        if(SpecificTeamTable.getSelectionModel().isSelectionEmpty())
+        {
+            return -1;
+        }
+        index = SpecificTeamTable.getSelectedRow();
+        return index;          
+    }
+
+    public int rowSelectEconomy()
+    {
+        int index;
 
         if(ManageEconomyTable.getSelectionModel().isSelectionEmpty())
         {
-            //test
             return -1;
         }
 
         index = ManageEconomyTable.getSelectedRow();
         return index;
     }
-    
+
     public int rowSelected()
     {
         int index;
-        
 
         if(MembersTable.getSelectionModel().isSelectionEmpty())
         {
-            //test
             return -1;
         }
 
@@ -2694,23 +2949,19 @@ public class GUI extends javax.swing.JFrame
         this.ArrearsBalanceMI.setText(formatLongToString(member.getArrearsBalance()));
         this.NextPaymentDateMI.setText(member.getNextPaymentDate().format(formatter));
         this.MembershipPriceMI.setText(formatLongToString(member.getMembershipPrice()));
-        
-        
-//        model = (DefaultTableModel) TeamMembershipTable.getModel();
-//
-//        Object rowData[] = new Object[4];
-//        
-//        for(int n = 0; n < member.getTeamMemberships().size(); ++n)
-//        {
-//            rowData[0] = member.getTeamMemberships().get(i).getTeamName();
-//        rowData[1] = member.getTeamMemberships().get(i).getSwimmingStyle();
-//        rowData[2] = member.getTeamMemberships().get(i).//getDateOfJoining;
-//        rowData[3] = member.getTeamMemberships().get(i).//getDateOfLeaving;
-//        }
-        
 
+        model = (DefaultTableModel) TeamMembershipTable.getModel();
+
+        Object rowData[] = new Object[4];
+        
+        for(int n = 0; n < member.getTeamMemberships().size(); ++n)
+        {
+            rowData[0] = member.getTeamMemberships().get(n).getTeamName();
+            rowData[1] = member.getTeamMemberships().get(n).getSwimmingStyle();
+            rowData[2] = 0; //should have been: member.getTeamMemberships().get(i).//getDateOfJoining;
+            rowData[3] = 0; //should have been: member.getTeamMemberships().get(i).//getDateOfLeaving;
+        }
     }
-    
 
     public void econMemInfo()
     {
@@ -2739,8 +2990,9 @@ public class GUI extends javax.swing.JFrame
         this.ArrearsBalanceMI.setText(formatLongToString(member.getArrearsBalance()));
         this.NextPaymentDateMI.setText(member.getNextPaymentDate().format(formatter));
         this.MembershipPriceMI.setText(formatLongToString(member.getMembershipPrice()));
-     
+
     }
+
     /**
      * @param args the command line arguments
      */
@@ -2753,7 +3005,7 @@ public class GUI extends javax.swing.JFrame
          */
         try
         {
-            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
             {
                 if("Nimbus".equals(info.getName()))
                 {
@@ -2762,19 +3014,19 @@ public class GUI extends javax.swing.JFrame
                 }
             }
         }
-        catch(ClassNotFoundException ex)
+        catch (ClassNotFoundException ex)
         {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch(InstantiationException ex)
+        catch (InstantiationException ex)
         {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch(IllegalAccessException ex)
+        catch (IllegalAccessException ex)
         {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        catch(javax.swing.UnsupportedLookAndFeelException ex)
+        catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
             java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
@@ -2906,7 +3158,6 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JButton RegisterThisYearPayment;
     private javax.swing.JButton RemoveFromTeam;
     private javax.swing.JButton Reset;
-    private javax.swing.JButton SaveMembers;
     private javax.swing.JRadioButton Senior;
     private javax.swing.JScrollPane SeniorBackCrawlTable;
     private javax.swing.JScrollPane SeniorBreaststrokeTable;
@@ -2947,7 +3198,6 @@ public class GUI extends javax.swing.JFrame
     private javax.swing.JTextField ZipCodeTF;
     private javax.swing.JTextField ZipCodeTFMI;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
