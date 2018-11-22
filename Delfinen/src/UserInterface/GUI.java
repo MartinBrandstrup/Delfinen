@@ -1833,7 +1833,7 @@ public class GUI extends javax.swing.JFrame
 
     private void MemberInfo1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_MemberInfo1ActionPerformed
     {//GEN-HEADEREND:event_MemberInfo1ActionPerformed
-        EconMemInfo();
+        econMemInfo();
         card.show(mainPanel, "MemberInformation");
     }//GEN-LAST:event_MemberInfo1ActionPerformed
 
@@ -2636,7 +2636,7 @@ public class GUI extends javax.swing.JFrame
     }
     
     
-    public int RowSelectEconomy()
+    public int rowSelectEconomy()
     {
         int index;
         
@@ -2717,9 +2717,9 @@ public class GUI extends javax.swing.JFrame
     }
     
 
-    public void EconMemInfo()
+    public void econMemInfo()
     {
-        int i = RowSelectEconomy();
+        int i = rowSelectEconomy();
         
         if(i < 0)
         {
