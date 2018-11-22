@@ -18,7 +18,7 @@ public class Team implements Serializable
     private boolean isJuniorTeam;
     private String teamName, trainer;
     private SwimmingStyle swimmingStyle;
-    private ArrayList<Member> teamMembers;
+    private ArrayList<Member> teamMembers = new ArrayList();
 
     public Team(boolean isJuniorTeam, String teamName, String trainer,
             SwimmingStyle swimmingStyle, ArrayList<Member> teamMembers)

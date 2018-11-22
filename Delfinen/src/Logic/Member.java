@@ -26,9 +26,9 @@ public class Member implements Serializable
     private long phoneNumber, arrearsBalance, membershipPrice;
     private String name, address, city, emailAddress;
     private LocalDate dateOfBirth, dateOfJoining;
-    private ArrayList<Team> teamMemberships;
-    private ArrayList<TournamentEvent> tournamentParticipations;
-    private ArrayList<Result> swimmingResults;
+    private ArrayList<Team> teamMemberships = new ArrayList();
+    private ArrayList<TournamentEvent> tournamentParticipations = new ArrayList();
+    private ArrayList<Result> swimmingResults = new ArrayList();
 
     public Member(boolean paidCurrentYear, boolean activityStatus,
             boolean isCompetitiveSwimmer, boolean tournamentEligibility,
