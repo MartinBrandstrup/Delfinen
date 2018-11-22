@@ -36,6 +36,10 @@ public class Team implements Serializable
         this.teamMembers = new ArrayList();
     }
 
+    public void sortList()
+    {
+    }
+    
     public void addMember(Member member)
     {
         teamMembers.add(member);

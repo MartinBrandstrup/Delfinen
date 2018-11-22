@@ -13,6 +13,7 @@ import static Logic.ValidatorAndFormatter.isValidEmail;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -34,7 +35,7 @@ public class Member implements Serializable
             boolean isCompetitiveSwimmer, boolean tournamentEligibility,
             int zipCode, int memberID, long phoneNumber, long arrearsBalance,
             long membershipPrice, String name, String address, String city,
-            String emailAddress, LocalDate dateOfBirth, LocalDate dateOfJoining) 
+            String emailAddress, LocalDate dateOfBirth, LocalDate dateOfJoining)
             throws IllegalArgumentException
     {
         if(zipCode < 1000 || zipCode > 9999 || memberID < 1
@@ -269,12 +270,12 @@ public class Member implements Serializable
         {
             resultLocalDate = LocalDate.parse(resultDate, dateFormat);
         }
-        catch(DateTimeParseException dtpe)
+        catch (DateTimeParseException dtpe)
         {
             throw new IllegalArgumentException();
         }
 
-        for(Result r : swimmingResults)
+        for (Result r : swimmingResults)
         {
             if(r.getSwimmingStyle().equals(styleEnum))
             {
@@ -306,7 +307,7 @@ public class Member implements Serializable
         }
         SwimmingStyle styleEnum = SwimmingStyle.valueOf(style);
 
-        for(Result r : swimmingResults)
+        for (Result r : swimmingResults)
         {
             if(r.getSwimmingStyle().equals(styleEnum))
             {
@@ -365,6 +366,24 @@ public class Member implements Serializable
         Member m = (Member) obj;
 
         return (m.name.equals(this.name) && m.memberID == (this.memberID));
+    }
+
+    static class CompareByID implements Comparator
+    {
+
+        @Override
+        public int compare(Object o1, Object o2)
+        {
+            if(((Member) o2).getMemberID() > ((Member) o1).getMemberID())
+            {
+                return -1;
+            }
+            if(((Member) o2).getMemberID()< ((Member) o1).getMemberID())
+            {
+                return 1;
+            }
+            return 0;
+        }
     }
 
     public void setPaidCurrentYear(boolean paidCurrentYear)
@@ -527,7 +546,7 @@ public class Member implements Serializable
         return tournamentParticipations;
     }
 
-    public ArrayList<Result> getSwimmingResults()
+    public ArrayList<Result> getResultList()
     {
         return swimmingResults;
     }
