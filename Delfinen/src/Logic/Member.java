@@ -290,26 +290,23 @@ public class Member implements Serializable
      * Searches the member (object) for any results (object) of a given swimming
      * style (enum). Returns null if no such style exists.
      *
-     * @param style - a String used to describe one of the existing
-     * SwimmingStyle ENUMs. If the String is in an incorrect format, throws
-     * exception
+     * @param style - an ENUM representing the SwimmingStyle
      *
      * @return The specific Result
      *
      * @throws IllegalArgumentException
      */
-    public Result getResultByStyle(String style) throws IllegalArgumentException
+    public Result getResultByStyle(SwimmingStyle style) throws IllegalArgumentException
     {
         if(this.isCompetitiveSwimmer == false)
         {
             System.out.println("The Member is not a competitive swimmer");
             return null;
         }
-        SwimmingStyle styleEnum = SwimmingStyle.valueOf(style);
 
         for (Result r : swimmingResults)
         {
-            if(r.getSwimmingStyle().equals(styleEnum))
+            if(r.getSwimmingStyle().equals(style))
             {
                 return r;
             }
@@ -368,42 +365,6 @@ public class Member implements Serializable
         return (m.name.equals(this.name) && m.memberID == (this.memberID));
     }
 
-    static class CompareByID implements Comparator
-    {
-
-        @Override
-        public int compare(Object o1, Object o2)
-        {
-            if(((Member) o2).getMemberID() > ((Member) o1).getMemberID())
-            {
-                return -1;
-            }
-            if(((Member) o2).getMemberID()< ((Member) o1).getMemberID())
-            {
-                return 1;
-            }
-            return 0;
-        }
-    }
-
-    static class CompareByResult implements Comparator
-    {
-
-        @Override
-        public int compare(Object o1, Object o2)
-        {
-            if(((Member) o2).getResultList().g> ((Member) o1).getMemberID())
-            {
-                return -1;
-            }
-            if(((Member) o2).getMemberID()< ((Member) o1).getMemberID())
-            {
-                return 1;
-            }
-            return 0;
-        }
-    }
-    
     public void setPaidCurrentYear(boolean paidCurrentYear)
     {
         this.paidCurrentYear = paidCurrentYear;
