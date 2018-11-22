@@ -119,7 +119,7 @@
                                   <Component id="ManageTeams" max="32767" attributes="0"/>
                                   <Component id="ManageMembers" max="32767" attributes="0"/>
                                   <Component id="RegNewMember" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="DelfinenSvømmeklub" alignment="0" max="32767" attributes="0"/>
                                   <Component id="ManageEconomy" alignment="0" min="-2" pref="396" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="98" max="32767" attributes="0"/>
@@ -139,7 +139,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="DelfinenSvømmeklub" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="RegNewMember" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -201,7 +201,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ManageEconomyActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="DelfinenSv&#xf8;mmeklub">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="36" style="1"/>
@@ -486,7 +486,7 @@
         <Container class="javax.swing.JPanel" name="Teams">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card10"/>
+              <CardConstraints cardName="Teams"/>
             </Constraint>
           </Constraints>
 

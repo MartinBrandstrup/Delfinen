@@ -88,7 +88,7 @@ public class Main extends javax.swing.JFrame
         ManageTeams = new javax.swing.JButton();
         ViewTourParticipants = new javax.swing.JButton();
         ManageEconomy = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        DelfinenSvømmeklub = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         RegisterNewMember = new javax.swing.JPanel();
@@ -299,8 +299,8 @@ public class Main extends javax.swing.JFrame
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setText("Delfinen Svømmeklub");
+        DelfinenSvømmeklub.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        DelfinenSvømmeklub.setText("Delfinen Svømmeklub");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Save to File");
@@ -321,7 +321,7 @@ public class Main extends javax.swing.JFrame
                             .addComponent(ManageTeams, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DelfinenSvømmeklub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 98, Short.MAX_VALUE))
                     .addGroup(MainMenuLayout.createSequentialGroup()
@@ -335,7 +335,7 @@ public class Main extends javax.swing.JFrame
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainMenuLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addComponent(jLabel2)
+                .addComponent(DelfinenSvømmeklub)
                 .addGap(39, 39, 39)
                 .addComponent(RegNewMember)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -781,7 +781,7 @@ public class Main extends javax.swing.JFrame
                 .addContainerGap())
         );
 
-        mainPanel.add(Teams, "card10");
+        mainPanel.add(Teams, "Teams");
 
         ManageMember.setPreferredSize(new java.awt.Dimension(610, 490));
 
@@ -2227,6 +2227,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField DateOfBirthTFMI;
     private javax.swing.JLabel DateOfJoing;
     private javax.swing.JTextField DateOfJoiningTFMI;
+    private javax.swing.JLabel DelfinenSvømmeklub;
     private javax.swing.JLabel Economy;
     private javax.swing.JPanel EconomyManage;
     private javax.swing.JScrollPane EconomyScrollPane;
@@ -2318,7 +2319,6 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField ZipCodeTFMI;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
