@@ -8,7 +8,6 @@ package Logic;
 import Comparators.CompareByResult;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
  *
