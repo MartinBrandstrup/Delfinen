@@ -21,6 +21,7 @@ public class MemberTest
     private Member jens;
     private Member johanne;
     private Member alice;
+    private Team teamA;
     ArrayList<Member> memberList = new ArrayList();
 
     public MemberTest()
@@ -37,7 +38,8 @@ public class MemberTest
                 0, 0, "Alice Lauritzen", "Fiktiv Vej 25",
                 "Kongens Lyngby", "Alice.l@test.dk",
                 LocalDate.of(2004, 6, 14), LocalDate.of(2014, 3, 7));
-
+        teamA = new Team(true, "Team A", "Flemming", SwimmingStyle.BREASTSTROKE);
+        
         memberList.add(jens);
         memberList.add(johanne);
         memberList.add(alice);
@@ -112,6 +114,44 @@ public class MemberTest
     @Test
     public void testGetActivityStatusString()
     {
-
+        assertEquals("Passive", johanne.getActivityStatusString());
+        assertEquals("Active", alice.getActivityStatusString());
+    }
+    
+    @Test
+    public void testGetCompetitiveSwimmerString()
+    {
+        assertEquals("Competitive Swimmer", johanne.getCompetitiveSwimmerString());
+        assertEquals("Recreational Swimmer", alice.getCompetitiveSwimmerString());
+    }
+    
+    @Test
+    public void testRegisterSwimmerOnTeam()
+    {
+        
+    }
+    
+    @Test
+    public void testRegisterSwimmerInTournament()
+    {
+        
+    }
+    
+    @Test
+    public void testRegisterNewSwimmingResult()
+    {
+        
+    }
+    
+    @Test
+    public void testGetResultByStyle()
+    {
+        
+    }
+    
+    @Test
+    public void testSwitchTournamentEligibility()
+    {
+        
     }
 }
