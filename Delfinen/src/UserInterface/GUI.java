@@ -15,8 +15,10 @@ import static Logic.ValidatorAndFormatter.formatLongToString;
 import java.awt.CardLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.util.converter.LocalDateStringConverter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,7 +60,7 @@ public class GUI extends javax.swing.JFrame
         {
             System.out.println(ex);
         }
-        populateTable();
+        //populateMemberTable();
         populateTeamsTable();
         populateEconomyTable();
     }
@@ -1789,6 +1791,7 @@ public class GUI extends javax.swing.JFrame
 
     private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
     {//GEN-HEADEREND:event_ManageMembersActionPerformed
+        populateMemberTable();
         card.show(mainPanel, "MembersManage");
     }//GEN-LAST:event_ManageMembersActionPerformed
 
@@ -1801,7 +1804,36 @@ public class GUI extends javax.swing.JFrame
     {//GEN-HEADEREND:event_ComfirmChangesMIActionPerformed
         int i = rowSelected();
         
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
         Member member = c.getMemberList().get(i);
+        
+        String name = this.NameTFMI.getText();
+        String email = this.EmailAddressTFMI.getText();
+        String address = this.AddressTFMI.getText();
+        String city = this.CityTFMI.getText();
+        int zipCode = Integer.parseInt(this.ZipCodeTFMI.getText());
+        LocalDate dateOfBirth = null;
+        try 
+        {
+            dateOfBirth = LocalDate.parse(this.DateOfBirthTFMI.getText(),formatter );
+        }
+        catch(DateTimeParseException ex)
+        {
+            JOptionPane.showMessageDialog(null, "This is not a valid date", "Inane Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        long phoneNumber = Long.parseLong(this.PhoneNumberTFMI.getText());
+        
+        member.setName(name);
+        member.setEmailAddress(email);
+        member.setAddress(address);
+        member.setCity(city);
+        member.setZipCode(zipCode);
+        member.setDateOfBirth(dateOfBirth);
+        member.setPhoneNumber(phoneNumber);
+        
+        
         
         
         
@@ -1866,12 +1898,13 @@ public class GUI extends javax.swing.JFrame
         this.DateOfBirthTF.setText("");
     }
 
-    public void populateTable()
+    public void populateMemberTable()
     {
         model = (DefaultTableModel) MembersTable.getModel();
         System.out.print("MemberList size is: " + c.getMemberList().size());
 
         Object rowData[] = new Object[4];
+        model.setRowCount(0);
 
         for(int i = 0; i < c.getMemberList().size(); ++i)
         {
