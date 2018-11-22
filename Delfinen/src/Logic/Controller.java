@@ -9,6 +9,7 @@ import Comparators.CompareByID;
 import Data.DataAccessor;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -62,6 +63,11 @@ public class Controller
         ++MIDCounter;
     }
 
+    public void sortTeamByID()
+    {
+        memberList.sort(new CompareByID());
+    }
+    
     /**
      * Retrieves the last member (object) added to the ArrayList
      *
