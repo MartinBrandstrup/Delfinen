@@ -155,16 +155,9 @@ public class Main extends javax.swing.JFrame
         MemberID = new javax.swing.JLabel();
         DateOfJoing = new javax.swing.JLabel();
         MemberType = new javax.swing.JLabel();
-        ActivityStatusTFMI = new javax.swing.JTextField();
-        MemberIDTFMI = new javax.swing.JTextField();
-        MemberTypeMI = new javax.swing.JTextField();
-        DateOfJoiningTFMI = new javax.swing.JTextField();
         NextPaymentDate = new javax.swing.JLabel();
         ArrearsBalance = new javax.swing.JLabel();
         MembershipPrice = new javax.swing.JLabel();
-        MembershipPriceTFMI = new javax.swing.JTextField();
-        NextPaymentDateTFMI = new javax.swing.JTextField();
-        ArrearsBalanceTFMI = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         TeamMembershipTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -186,6 +179,14 @@ public class Main extends javax.swing.JFrame
         NameTFMI = new javax.swing.JTextField();
         EmailAddressTFMI = new javax.swing.JTextField();
         TournamentEligibilityCB = new javax.swing.JCheckBox();
+        ArrearsBalanceMI = new javax.swing.JLabel();
+        NextPaymentDateMI = new javax.swing.JLabel();
+        MembershipPriceMI = new javax.swing.JLabel();
+        ActivityStatusMI = new javax.swing.JLabel();
+        MemberIDMI = new javax.swing.JLabel();
+        MemberTypeMI = new javax.swing.JLabel();
+        DateOfJoiningMI = new javax.swing.JLabel();
+        ComfirmChangesMI = new javax.swing.JButton();
         SpecificTeam = new javax.swing.JPanel();
         SpecificTeamTScroll = new javax.swing.JScrollPane();
         SpecificTeamTable = new javax.swing.JTable();
@@ -322,14 +323,13 @@ public class Main extends javax.swing.JFrame
                             .addComponent(ManageMembers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(RegNewMember, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(DelfinenSvømmeklub, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 98, Short.MAX_VALUE))
+                            .addComponent(ManageEconomy, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MainMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(126, 126, 126)
                         .addComponent(jButton2)))
-                .addContainerGap())
+                .addContainerGap(198, Short.MAX_VALUE))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -346,14 +346,17 @@ public class Main extends javax.swing.JFrame
                 .addComponent(ViewTourParticipants)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManageEconomy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(58, 58, 58))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(39, 39, 39))))
         );
 
-        mainPanel.add(MainMenu, "card2");
+        mainPanel.add(MainMenu, "MainMenu");
 
         RegisterNewMember.setPreferredSize(new java.awt.Dimension(610, 490));
 
@@ -451,7 +454,7 @@ public class Main extends javax.swing.JFrame
                         .addGroup(RegisterNewMemberLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegisterNewMemberLayout.createSequentialGroup()
                                 .addComponent(ConfirmChanges)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
                                 .addComponent(SaveMembers, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(RegisterNewMemberLayout.createSequentialGroup()
                                 .addGap(2, 2, 2)
@@ -506,7 +509,7 @@ public class Main extends javax.swing.JFrame
                     .addComponent(ConfirmChanges)
                     .addComponent(Reset)
                     .addComponent(SaveMembers))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
 
         mainPanel.add(RegisterNewMember, "RegiNewMember");
@@ -722,7 +725,7 @@ public class Main extends javax.swing.JFrame
                             .addComponent(JuniorBackCrawlTable, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Butterfly, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                            .addComponent(Butterfly, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                             .addComponent(JuniorButterflyTable, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(TeamsLayout.createSequentialGroup()
                 .addGap(161, 161, 161)
@@ -776,7 +779,7 @@ public class Main extends javax.swing.JFrame
                     .addGroup(TeamsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(SeniorButterflyTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                         .addComponent(SeniorBackCrawlTable, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(CreateTeam)
                 .addContainerGap())
         );
@@ -880,7 +883,8 @@ public class Main extends javax.swing.JFrame
                     .addComponent(CancelMembership)
                     .addComponent(RegisterNewMember1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MemberInfo))
+                .addComponent(MemberInfo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPanel.add(ManageMember, "MembersManage");
@@ -912,14 +916,6 @@ public class Main extends javax.swing.JFrame
         MemberType.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         MemberType.setText("Member type:");
 
-        ActivityStatusTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        MemberIDTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        MemberTypeMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        DateOfJoiningTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         NextPaymentDate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         NextPaymentDate.setText("Next payment date:");
 
@@ -929,18 +925,10 @@ public class Main extends javax.swing.JFrame
         MembershipPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         MembershipPrice.setText("Membership price:");
 
-        MembershipPriceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        NextPaymentDateTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        ArrearsBalanceTFMI.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         TeamMembershipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String []
             {
@@ -952,9 +940,7 @@ public class Main extends javax.swing.JFrame
         TournamentsParticipantsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][]
             {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String []
             {
@@ -1007,6 +993,38 @@ public class Main extends javax.swing.JFrame
         TournamentEligibilityCB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         TournamentEligibilityCB.setText("Tournament eligibility");
 
+        ArrearsBalanceMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ArrearsBalanceMI.setText("e");
+
+        NextPaymentDateMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        NextPaymentDateMI.setText("f");
+
+        MembershipPriceMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MembershipPriceMI.setText("g");
+        MembershipPriceMI.setToolTipText("");
+
+        ActivityStatusMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ActivityStatusMI.setText("b");
+
+        MemberIDMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MemberIDMI.setText("a");
+
+        MemberTypeMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MemberTypeMI.setText("c");
+
+        DateOfJoiningMI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DateOfJoiningMI.setText("d");
+
+        ComfirmChangesMI.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        ComfirmChangesMI.setText("Comfirm changes");
+        ComfirmChangesMI.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ComfirmChangesMIActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MemberInformationLayout = new javax.swing.GroupLayout(MemberInformation);
         MemberInformation.setLayout(MemberInformationLayout);
         MemberInformationLayout.setHorizontalGroup(
@@ -1014,78 +1032,79 @@ public class Main extends javax.swing.JFrame
             .addGroup(MemberInformationLayout.createSequentialGroup()
                 .addComponent(ChosenMemberName, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MainMenu3)
-                .addContainerGap())
+                .addComponent(MainMenu3))
+            .addComponent(jScrollPane3)
+            .addComponent(jScrollPane4)
+            .addGroup(MemberInformationLayout.createSequentialGroup()
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(TournamentParticipants))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(250, 250, 250)
+                        .addComponent(TeamMembership))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NextPaymentDate)
+                            .addComponent(ArrearsBalance))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NextPaymentDateMI, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ArrearsBalanceMI, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberInformationLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(MemberInformationLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(TournamentEligibilityCB))
+                        .addComponent(MembershipPrice)
+                        .addGap(18, 18, 18)
+                        .addComponent(MembershipPriceMI, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TournamentEligibilityCB)
+                        .addGap(8, 8, 8))
                     .addGroup(MemberInformationLayout.createSequentialGroup()
                         .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MemberInformationLayout.createSequentialGroup()
-                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NextPaymentDate)
-                                    .addComponent(ArrearsBalance))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(NextPaymentDateTFMI, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(ArrearsBalanceTFMI))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(273, 273, 273)
                                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(DateOfBirth1)
                                     .addComponent(PhoneNumber1)))
                             .addGroup(MemberInformationLayout.createSequentialGroup()
                                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ActivityStatus)
                                     .addComponent(MemberID)
-                                    .addComponent(DateOfJoing)
-                                    .addComponent(MemberType))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(MemberTypeMI)
-                                    .addComponent(DateOfJoiningTFMI)
-                                    .addComponent(ActivityStatusTFMI)
-                                    .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ActivityStatus, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(MemberType))
+                                    .addComponent(DateOfJoing, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
                                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberInformationLayout.createSequentialGroup()
-                                        .addGap(66, 66, 66)
-                                        .addComponent(Name1))
+                                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(MemberIDMI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ActivityStatusMI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE))
+                                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(DateOfJoiningMI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                        .addComponent(MemberTypeMI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(28, 28, 28)
+                                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ZipCode1)
                                     .addComponent(Address1)
                                     .addComponent(EmailAddress1)
-                                    .addComponent(City1))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(City1)
+                                    .addComponent(Name1))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                             .addComponent(DateOfBirthTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ZipCodeTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(CityTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(AddressTFMI, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(EmailAddressTFMI)
-                            .addComponent(NameTFMI, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(NameTFMI, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(MemberInformationLayout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(ComfirmChangesMI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(41, 41, 41))
-            .addGroup(MemberInformationLayout.createSequentialGroup()
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MemberInformationLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(MembershipPrice)
-                        .addGap(18, 18, 18)
-                        .addComponent(MembershipPriceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MemberInformationLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(TeamMembership))
-                    .addGroup(MemberInformationLayout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(TournamentParticipants)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MemberInformationLayout.createSequentialGroup()
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4))
-                .addContainerGap())
         );
         MemberInformationLayout.setVerticalGroup(
             MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1094,66 +1113,75 @@ public class Main extends javax.swing.JFrame
                     .addComponent(ChosenMemberName, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(MainMenu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(NameTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ActivityStatusMI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ActivityStatus)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(MemberInformationLayout.createSequentialGroup()
                         .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ActivityStatus)
-                            .addComponent(Name1)
-                            .addComponent(NameTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MemberID)
                             .addComponent(EmailAddress1)
                             .addComponent(EmailAddressTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MemberType)
                             .addComponent(Address1)
-                            .addComponent(AddressTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DateOfJoing)
-                            .addComponent(City1)
-                            .addComponent(CityTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(AddressTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(MemberInformationLayout.createSequentialGroup()
-                        .addComponent(ActivityStatusTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MemberIDTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(MemberTypeMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DateOfJoiningTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MemberIDMI, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MemberID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MemberTypeMI)
+                            .addComponent(MemberType, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(City1)
+                        .addComponent(CityTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(DateOfJoiningMI)
+                        .addComponent(DateOfJoing)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ZipCode1)
                     .addComponent(ZipCodeTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addGap(10, 10, 10)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ArrearsBalance)
-                    .addComponent(ArrearsBalanceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(DateOfBirth1)
                     .addComponent(DateOfBirthTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NextPaymentDate)
-                    .addComponent(NextPaymentDateTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(PhoneNumber1)
                     .addComponent(PhoneNumberTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ComfirmChangesMI)
+                .addGap(15, 15, 15)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ArrearsBalance)
+                    .addComponent(ArrearsBalanceMI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MembershipPrice)
-                    .addComponent(MembershipPriceTFMI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NextPaymentDate)
+                    .addComponent(NextPaymentDateMI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TournamentEligibilityCB)
-                .addGap(5, 5, 5)
+                .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TournamentEligibilityCB)
+                    .addGroup(MemberInformationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(MembershipPrice)
+                        .addComponent(MembershipPriceMI, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
                 .addComponent(TeamMembership)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TournamentParticipants)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         mainPanel.add(MemberInformation, "MemberInformation");
@@ -1247,7 +1275,8 @@ public class Main extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SpecificTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddNewTeamMember)
-                    .addComponent(RemoveFromTeam)))
+                    .addComponent(RemoveFromTeam))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPanel.add(SpecificTeam, "SpecificTeam");
@@ -1368,7 +1397,7 @@ public class Main extends javax.swing.JFrame
                 .addGroup(CreateANewTeamLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TrainerName)
                     .addComponent(TrainerNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(ConfirmAndCreateTeam)
                 .addGap(54, 54, 54))
         );
@@ -1441,7 +1470,7 @@ public class Main extends javax.swing.JFrame
                 .addComponent(MainMenu7))
             .addGroup(EconomyManageLayout.createSequentialGroup()
                 .addComponent(RegisterThisYearPayment)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
                 .addComponent(RegisterArrearAsPaid))
             .addComponent(MemberInfo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -1458,7 +1487,8 @@ public class Main extends javax.swing.JFrame
                     .addComponent(RegisterThisYearPayment)
                     .addComponent(RegisterArrearAsPaid))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(MemberInfo1))
+                .addComponent(MemberInfo1)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         mainPanel.add(EconomyManage, "ManageEconomy");
@@ -1521,7 +1551,7 @@ public class Main extends javax.swing.JFrame
                         .addComponent(EligTournamentsParticipants))
                     .addComponent(MainMenu8))
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
         );
 
         mainPanel.add(TournamentsParticipants, "EligTourParticipants");
@@ -1531,7 +1561,7 @@ public class Main extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1540,7 +1570,7 @@ public class Main extends javax.swing.JFrame
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -1596,31 +1626,6 @@ public class Main extends javax.swing.JFrame
     {//GEN-HEADEREND:event_MainMenu8ActionPerformed
         mainMenu();
     }//GEN-LAST:event_MainMenu8ActionPerformed
-
-    private void ManageEconomyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageEconomyActionPerformed
-    {//GEN-HEADEREND:event_ManageEconomyActionPerformed
-        card.show(mainPanel, "ManageEconomy");
-    }//GEN-LAST:event_ManageEconomyActionPerformed
-
-    private void ViewTourParticipantsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTourParticipantsActionPerformed
-    {//GEN-HEADEREND:event_ViewTourParticipantsActionPerformed
-        card.show(mainPanel, "EligTourParticipants");
-    }//GEN-LAST:event_ViewTourParticipantsActionPerformed
-
-    private void ManageTeamsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageTeamsActionPerformed
-    {//GEN-HEADEREND:event_ManageTeamsActionPerformed
-        card.show(mainPanel, "Teams");
-    }//GEN-LAST:event_ManageTeamsActionPerformed
-
-    private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
-    {//GEN-HEADEREND:event_ManageMembersActionPerformed
-        card.show(mainPanel, "MembersManage");
-    }//GEN-LAST:event_ManageMembersActionPerformed
-
-    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
-    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
-        card.show(mainPanel, "RegiNewMember");
-    }//GEN-LAST:event_RegNewMemberActionPerformed
 
     private void ViewTeamActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTeamActionPerformed
     {//GEN-HEADEREND:event_ViewTeamActionPerformed
@@ -1766,6 +1771,42 @@ public class Main extends javax.swing.JFrame
         rowData[0] = c.getLastAddedTeam().getTeamName();
         model.addRow(rowData);
     }//GEN-LAST:event_ConfirmAndCreateTeamActionPerformed
+
+    private void ManageEconomyActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageEconomyActionPerformed
+    {//GEN-HEADEREND:event_ManageEconomyActionPerformed
+        card.show(mainPanel, "ManageEconomy");
+    }//GEN-LAST:event_ManageEconomyActionPerformed
+
+    private void ViewTourParticipantsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ViewTourParticipantsActionPerformed
+    {//GEN-HEADEREND:event_ViewTourParticipantsActionPerformed
+        card.show(mainPanel, "EligTourParticipants");
+    }//GEN-LAST:event_ViewTourParticipantsActionPerformed
+
+    private void ManageTeamsActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageTeamsActionPerformed
+    {//GEN-HEADEREND:event_ManageTeamsActionPerformed
+        card.show(mainPanel, "Teams");
+    }//GEN-LAST:event_ManageTeamsActionPerformed
+
+    private void ManageMembersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ManageMembersActionPerformed
+    {//GEN-HEADEREND:event_ManageMembersActionPerformed
+        card.show(mainPanel, "MembersManage");
+    }//GEN-LAST:event_ManageMembersActionPerformed
+
+    private void RegNewMemberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_RegNewMemberActionPerformed
+    {//GEN-HEADEREND:event_RegNewMemberActionPerformed
+        card.show(mainPanel, "RegiNewMember");
+    }//GEN-LAST:event_RegNewMemberActionPerformed
+
+    private void ComfirmChangesMIActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ComfirmChangesMIActionPerformed
+    {//GEN-HEADEREND:event_ComfirmChangesMIActionPerformed
+        int i = rowSelected();
+        
+        Member member = c.getMemberList().get(i);
+        
+        
+        
+        
+    }//GEN-LAST:event_ComfirmChangesMIActionPerformed
 
     public boolean memberInfoValidation()
     {
@@ -1916,11 +1957,13 @@ public class Main extends javax.swing.JFrame
         
         for(int i = 0; i < c.getTeamList().size(); ++i)
         {
+            System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
             if(BreaststrokeJuniorTable.getModel().getValueAt(rowSelectedIndex, 0).toString().equals(c.getTeamList().get(i).getTeamName()))
             {
+                
                 if(c.getTeamList().get(i).getTeamMembers().isEmpty())
                 {
-                    System.out.print(c.getTeamList().get(i).getTeamMembers().size());
+                    System.out.print("Memberlist size: " + c.getTeamList().get(i).getTeamMembers().size());
                 }
                 else
                 {
@@ -2076,14 +2119,15 @@ public class Main extends javax.swing.JFrame
         this.DateOfBirthTFMI.setText(member.getDateOfBirth().format(formatter));
         this.PhoneNumberTFMI.setText(Long.toString(member.getPhoneNumber()));
 
-        this.ActivityStatusTFMI.setText(member.getActivityStatusString());
-        this.MemberIDTFMI.setText(Integer.toString(member.getMemberID()));
+        this.ActivityStatusMI.setText(member.getActivityStatusString());
+        this.MemberIDMI.setText(Integer.toString(member.getMemberID()));
         this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
-        this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
+        this.DateOfJoiningMI.setText(member.getDateOfJoining().format(formatter));
 
-        this.ArrearsBalanceTFMI.setText(formatLongToString(member.getArrearsBalance()));
-        this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
-        this.MembershipPriceTFMI.setText(formatLongToString(member.getMembershipPrice()));
+        this.ArrearsBalanceMI.setText(formatLongToString(member.getArrearsBalance()));
+        this.NextPaymentDateMI.setText(member.getNextPaymentDate().format(formatter));
+        this.MembershipPriceMI.setText(formatLongToString(member.getMembershipPrice()));
+        
         
 //        model = (DefaultTableModel) TeamMembershipTable.getModel();
 //
@@ -2120,14 +2164,14 @@ public class Main extends javax.swing.JFrame
         this.DateOfBirthTFMI.setText(member.getDateOfBirth().format(formatter));
         this.PhoneNumberTFMI.setText(Long.toString(member.getPhoneNumber()));
 
-        this.ActivityStatusTFMI.setText(member.getActivityStatusString());
-        this.MemberIDTFMI.setText(Integer.toString(member.getMemberID()));
+        this.ActivityStatusMI.setText(member.getActivityStatusString());
+        this.MemberTypeMI.setText(Integer.toString(member.getMemberID()));
         this.MemberTypeMI.setText(member.getCompetitiveSwimmerString());
-        this.DateOfJoiningTFMI.setText(member.getDateOfJoining().format(formatter));
+        this.DateOfJoiningMI.setText(member.getDateOfJoining().format(formatter));
 
-        this.ArrearsBalanceTFMI.setText(formatLongToString(member.getArrearsBalance()));
-        this.NextPaymentDateTFMI.setText(member.getNextPaymentDate().format(formatter));
-        this.MembershipPriceTFMI.setText(formatLongToString(member.getMembershipPrice()));
+        this.ArrearsBalanceMI.setText(formatLongToString(member.getArrearsBalance()));
+        this.NextPaymentDateMI.setText(member.getNextPaymentDate().format(formatter));
+        this.MembershipPriceMI.setText(formatLongToString(member.getMembershipPrice()));
      
     }
     /**
@@ -2181,14 +2225,14 @@ public class Main extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ActivityStatus;
-    private javax.swing.JTextField ActivityStatusTFMI;
+    private javax.swing.JLabel ActivityStatusMI;
     private javax.swing.JButton AddNewTeamMember;
     private javax.swing.JLabel Address;
     private javax.swing.JLabel Address1;
     private javax.swing.JTextField AddressTF;
     private javax.swing.JTextField AddressTFMI;
     private javax.swing.JLabel ArrearsBalance;
-    private javax.swing.JTextField ArrearsBalanceTFMI;
+    private javax.swing.JLabel ArrearsBalanceMI;
     private javax.swing.JLabel BackCrawl;
     private javax.swing.JLabel BackCrawl1;
     private javax.swing.JTable BackCrawlJuniorTable;
@@ -2212,6 +2256,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JLabel City1;
     private javax.swing.JTextField CityTF;
     private javax.swing.JTextField CityTFMI;
+    private javax.swing.JButton ComfirmChangesMI;
     private javax.swing.JButton ConfirmAndCreateTeam;
     private javax.swing.JButton ConfirmChanges;
     private javax.swing.JLabel Crawl;
@@ -2226,7 +2271,7 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JTextField DateOfBirthTF;
     private javax.swing.JTextField DateOfBirthTFMI;
     private javax.swing.JLabel DateOfJoing;
-    private javax.swing.JTextField DateOfJoiningTFMI;
+    private javax.swing.JLabel DateOfJoiningMI;
     private javax.swing.JLabel DelfinenSvømmeklub;
     private javax.swing.JLabel Economy;
     private javax.swing.JPanel EconomyManage;
@@ -2258,21 +2303,21 @@ public class Main extends javax.swing.JFrame
     private javax.swing.JButton ManageMembers;
     private javax.swing.JButton ManageTeams;
     private javax.swing.JLabel MemberID;
-    private javax.swing.JTextField MemberIDTFMI;
+    private javax.swing.JLabel MemberIDMI;
     private javax.swing.JButton MemberInfo;
     private javax.swing.JButton MemberInfo1;
     private javax.swing.JPanel MemberInformation;
     private javax.swing.JLabel MemberType;
-    private javax.swing.JTextField MemberTypeMI;
+    private javax.swing.JLabel MemberTypeMI;
     private javax.swing.JTable MembersTable;
     private javax.swing.JLabel MembershipPrice;
-    private javax.swing.JTextField MembershipPriceTFMI;
+    private javax.swing.JLabel MembershipPriceMI;
     private javax.swing.JLabel Name;
     private javax.swing.JLabel Name1;
     private javax.swing.JTextField NameTF;
     private javax.swing.JTextField NameTFMI;
     private javax.swing.JLabel NextPaymentDate;
-    private javax.swing.JTextField NextPaymentDateTFMI;
+    private javax.swing.JLabel NextPaymentDateMI;
     private javax.swing.JLabel PhoneNumber1;
     private javax.swing.JTextField PhoneNumberTF;
     private javax.swing.JTextField PhoneNumberTFMI;
