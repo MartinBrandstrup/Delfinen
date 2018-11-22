@@ -6,11 +6,9 @@
 package Logic;
 
 import Comparators.CompareByID;
-import Comparators.CompareByResult;
 import Data.DataAccessor;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
  *
@@ -47,7 +45,7 @@ public class Controller
      * @param email - a String containing a valid email address
      * @param dateOfBirth - a LocalDate representing birthday
      *
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException - if any of the arguments are illegal
      */
     public void registerNewMember(int zipCode, long phoneNumber,
             String name, String address, String city,
@@ -103,7 +101,7 @@ public class Controller
      * currently in use member list in the Controller class. Should be called
      * when launching the program to make sure you have the most recent update.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void updateMemberList() throws Exception
     {
@@ -119,7 +117,7 @@ public class Controller
      * program to make sure any newly added data is not lost. A save button
      * might also implement this method.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void saveMemberList() throws Exception
     {
@@ -141,7 +139,7 @@ public class Controller
      * source to make sure you are using the correct implementation of the MID
      * counter in the Controller Class.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void updateMIDCounter() throws Exception
     {
@@ -157,7 +155,7 @@ public class Controller
      * Retrieves all information from the source (files, database etc.) and
      * updates the local instances of this information in the Controller Class.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void updateEverythingFromSource() throws Exception
     {
@@ -170,7 +168,7 @@ public class Controller
      * Saves all local instances of information from the Controller Class to the
      * source (files, database etc.).
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void saveEverythingToSource() throws Exception
     {
@@ -178,9 +176,6 @@ public class Controller
         saveTeamList();
     }
 
-    /**
-     *
-     */
     public void registerMemberToTeam(Member member, Team team)
     {
         if(member.isCompetitiveSwimmer())
@@ -207,7 +202,7 @@ public class Controller
      * currently in use team list in the Controller class. Should be called when
      * launching the program to make sure you have the most recent update.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void updateTeamList() throws Exception
     {
@@ -223,7 +218,7 @@ public class Controller
      * program to make sure any newly added data is not lost. A save button
      * might also implement this method.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void saveTeamList() throws Exception
     {
@@ -250,7 +245,7 @@ public class Controller
      * called when launching the program to make sure you have the most recent
      * update.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void updateTournamentEvent() throws Exception
     {
@@ -266,7 +261,7 @@ public class Controller
      * closing the program to make sure any newly added data is not lost. A save
      * button might also implement this method.
      *
-     * @throws Exception
+     * @throws Exception - inherited Exception from DataAccessor
      */
     public void saveTournamentEvent() throws Exception
     {

@@ -13,7 +13,6 @@ import static Logic.ValidatorAndFormatter.isValidEmail;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
  *
@@ -247,7 +246,7 @@ public class Member implements Serializable
      * made. If the String is in an incorrect format, throws exception
      * @param result - the time result in seconds and milliseconds
      *
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException - if any of the arguments are illegal
      */
     public void registerNewSwimmingResult(String style, String resultDate, double result) throws IllegalArgumentException
     {
@@ -294,7 +293,7 @@ public class Member implements Serializable
      *
      * @return The specific Result
      *
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException - if any of the arguments are illegal
      */
     public Result getResultByStyle(SwimmingStyle style) throws IllegalArgumentException
     {

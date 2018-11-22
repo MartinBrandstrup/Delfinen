@@ -21,7 +21,9 @@ public interface DataAccessor
      * Retrieves the list of members (object) from the source.
      *
      * @return An ArrayList of Members
-     * @throws ClassNotFoundException
+     * 
+     * @throws ClassNotFoundException - if any of the objects contained in file
+     * are illegal or unrecognizable
      */
     public ArrayList<Member> getMemberList() throws Exception;
 
@@ -29,7 +31,9 @@ public interface DataAccessor
      * Retrieves the list of teams (object) from the source.
      *
      * @return An ArrayList of Teams
-     * @throws ClassNotFoundException
+     * 
+     * @throws ClassNotFoundException - if any of the objects contained in file
+     * are illegal or unrecognizable
      */
     public ArrayList<Team> getTeamList() throws Exception;
 
@@ -37,7 +41,9 @@ public interface DataAccessor
      * Retrieves the list of tournament events (object) from the source.
      *
      * @return An ArrayList of TournamentEvents
-     * @throws ClassNotFoundException
+     *
+     * @throws ClassNotFoundException - if any of the objects contained in file
+     * are illegal or unrecognizable
      */
     public ArrayList<TournamentEvent> getTournamentList() throws Exception;
 
@@ -47,31 +53,37 @@ public interface DataAccessor
      *
      * @param member - the last added member to the Controller's ArrayList. Can
      * be other Member objects as well if required.
-     * @throws Exception
+     *
+     * @return an integer representing the member ID for the given Member
+     * 
+     * @throws Exception - if an IO exception occurs
      */
     public int getMIDCounter(Member member) throws Exception;
 
     /**
      * Saves the current list of members (object) to the source
      *
-     * @param memberList
-     * @throws Exception
+     * @param memberList - the list of members (object) to be saved to source
+     * 
+     * @throws Exception - if an IO exception occurs
      */
     public void saveMemberList(ArrayList<Member> memberList) throws Exception;
 
     /**
      * Saves the current list of teams (object) to the source
      *
-     * @param teamList
-     * @throws Exception
+     * @param teamList - the list of teams (object) to be saved to source
+     *
+     * @throws Exception - if an IO exception occurs
      */
     public void saveTeamList(ArrayList<Team> teamList) throws Exception;
 
     /**
      * Saves the current list of tournament events (object) to the source
      *
-     * @param tournamentList
-     * @throws Exception
+     * @param tournamentList - the list of events (object) to be saved to source
+     *
+     * @throws Exception - if an IO exception occurs
      */
     public void saveTournamentList(ArrayList<TournamentEvent> tournamentList) throws Exception;
 }

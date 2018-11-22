@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Martin L.B. & Kasper Jeppesen
+ * @author Martin L.B. and Kasper Jeppesen
  */
 public class Team implements Serializable
 {
