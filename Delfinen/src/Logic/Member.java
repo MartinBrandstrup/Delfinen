@@ -386,6 +386,24 @@ public class Member implements Serializable
         }
     }
 
+    static class CompareByResult implements Comparator
+    {
+
+        @Override
+        public int compare(Object o1, Object o2)
+        {
+            if(((Member) o2).getResultList().g> ((Member) o1).getMemberID())
+            {
+                return -1;
+            }
+            if(((Member) o2).getMemberID()< ((Member) o1).getMemberID())
+            {
+                return 1;
+            }
+            return 0;
+        }
+    }
+    
     public void setPaidCurrentYear(boolean paidCurrentYear)
     {
         this.paidCurrentYear = paidCurrentYear;

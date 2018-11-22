@@ -182,7 +182,9 @@ public class Controller
         }
         else
         {
-            System.out.println("The provided Member is not a CompetitiveSwimmer");
+            member.setIsCompetitiveSwimmer(true);
+            member.registerSwimmerOnTeam(team);
+            team.addMember(member);
         }
     }
 
